@@ -8,7 +8,7 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import { cubicBezier, motion, Variants } from "framer-motion";
-import { utcToZonedTime } from "date-fns-tz";
+import { toZonedTime } from "date-fns-tz";
 import Confetti from "react-confetti";
 import useWindowSize from "react-use/lib/useWindowSize";
 
@@ -99,12 +99,12 @@ const ClipboardSchedule: React.FC<ClipboardScheduleProps> = ({ schedule }) => {
 								<div key={i}>
 									<h2 className="mt-5">
 										{weekdayFormat.format(
-											utcToZonedTime(day[0].startTime, "America/Los_Angeles"),
+											toZonedTime(day[0].startTime, "America/Los_Angeles"),
 										)}
 									</h2>
 									<p className="text-center mb-5 h3">
 										{monthDayFormat.format(
-											utcToZonedTime(day[0].startTime, "America/Los_Angeles"),
+											toZonedTime(day[0].startTime, "America/Los_Angeles"),
 										)}
 									</p>
 									{day.map(
@@ -116,11 +116,11 @@ const ClipboardSchedule: React.FC<ClipboardScheduleProps> = ({ schedule }) => {
 											startTime,
 											endTime,
 										}) => {
-											const startTimeZoned = utcToZonedTime(
-												startTime,
-												"America/Los_Angeles",
-											),
-												endTimeZoned = utcToZonedTime(
+											const startTimeZoned = toZonedTime(
+													startTime,
+													"America/Los_Angeles",
+												),
+												endTimeZoned = toZonedTime(
 													endTime,
 													"America/Los_Angeles",
 												);
