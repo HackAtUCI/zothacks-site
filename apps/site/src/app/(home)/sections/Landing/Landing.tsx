@@ -6,10 +6,9 @@ import styles from "./Landing.module.scss";
 const Landing = () => {
 	return (
 		<div className={styles.landing}>
-			<Title />
-			<h1 className="visually-hidden">ZotHacks 2023</h1>
-			<p className="fs-2">November 4&ndash;5</p>
-			<ApplyButton />
+			<div className={styles.title}>
+				<Title />
+			</div>
 		</div>
 	);
 };

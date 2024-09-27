@@ -1,10 +1,15 @@
 .landing {
-	min-height: 70vh;
-
+	padding-top: 121.27%;
+	background-image: url("~@/assets/background/LANDING PAGE BACKGROUND.svg");
+	background-size: cover;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 
 	text-align: center;
+}
+
+.title {
+	margin-top: -190%;
 }

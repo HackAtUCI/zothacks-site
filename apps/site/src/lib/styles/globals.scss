@@ -3,10 +3,7 @@
 $container-padding: 8rem;
 
 .background {
-	background-image: url("~@/assets/background/anteater-head-tiling.gif");
-	background-size: 464px; // half size for 2x scaling
-	overflow-x: hidden;
-	max-width: 100%;
+	background: linear-gradient(#009de9 50%, #00a6c4 60%);
 }
 
 .accordion {
@@ -27,6 +24,7 @@ section.container {
 html,
 body {
 	overflow-x: hidden;
+	height: 100%;
 }
 body {
 	position: relative;

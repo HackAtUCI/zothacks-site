@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fuzzy_Bubbles } from "next/font/google";
+import { Fredoka } from "next/font/google";
 
 import NavBar from "@/components/NavBar/NavBar";
 import Footer from "@/components/Footer/Footer";
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 	},
 };
 
-const fuzzy = Fuzzy_Bubbles({
+const fuzzy = Fredoka({
 	weight: ["400", "700"],
 	subsets: ["latin"],
 	variable: "--next-font-fuzzy-bubbles",
@@ -30,9 +30,9 @@ export default function RootLayout({
 	return (
 		<html lang="en" className={fuzzy.variable}>
 			<body className="background">
-				<NavBar />
+				{/* <NavBar /> */}
 				<main>{children}</main>
-				<Footer />
+				{/* <Footer /> */}
 			</body>
 		</html>
 	);
