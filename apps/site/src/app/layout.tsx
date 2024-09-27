@@ -7,16 +7,16 @@ import "@/lib/styles/bootstrap.scss";
 import "@/lib/styles/globals.scss";
 
 export const metadata: Metadata = {
-	title: "ZotHacks 2023",
+	title: "ZotHacks 2024",
 	description: "Hack at UCI's premier hackathon for beginners at UCI",
 	openGraph: {
-		title: "ZotHacks 2023",
+		title: "ZotHacks 2024",
 		images: "./zothacks_banner.png",
 		description: "Hack at UCI's premier hackathon for beginners at UCI",
 	},
 };
 
-const fuzzy = Fredoka({
+const fredoka = Fredoka({
 	weight: ["400", "700"],
 	subsets: ["latin"],
 	variable: "--next-font-fredoka",
@@ -28,7 +28,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en" className={fuzzy.variable}>
+		<html lang="en" className={fredoka.variable}>
 			<body className="background">
 				{/* <NavBar /> */}
 				<main>{children}</main>
