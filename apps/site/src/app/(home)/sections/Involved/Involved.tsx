@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import anteater_left from "@/assets/images/involved_anteater_left.svg";
 import anteater_right from "@/assets/images/involved_anteater_right.svg";
 
-import styles from "./Mentor.module.scss";
+import styles from "./Involved.module.scss";
 
 const Mentor = () => {
 	const sectionHeader = <h2 className={styles.headerText}>GET INVOLVED</h2>;

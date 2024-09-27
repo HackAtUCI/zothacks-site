@@ -2,7 +2,7 @@ export const revalidate = 60;
 
 import Landing from "./sections/Landing";
 import Intro from "./sections/Intro";
-import Mentor from "./sections/Mentor";
+import Involved from "./sections/Involved";
 import Sponsors from "./sections/Sponsors";
 import FAQ from "./sections/FAQ";
 
@@ -13,7 +13,7 @@ const Home = () => {
 		<div className={styles.home}>
 			<Landing />
 			{/* <Intro /> */}
-			<Mentor />
+			<Involved />
 			{/* <Sponsors /> */}
 			{/* <FAQ /> */}
 		</div>
