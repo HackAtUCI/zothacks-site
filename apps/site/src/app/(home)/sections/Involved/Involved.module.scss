@@ -68,17 +68,13 @@ $speech-shadow: 0 10px 0 rgba(0, 0, 0, 0.1);
 }
 
 .speechSectionRight {
-  z-index: 1;
   @include bootstrap.media-breakpoint-up(md) {
     top: -230px;
   }
 }
 
-.speechSectionLeft {
-  z-index: 2;
-}
-
 .speechBubbleOuterLeft, .speechBubbleOuterRight {
+  position: relative;
   background-color: $white;
   border-radius: 18px;
   padding: 4px;
@@ -90,12 +86,14 @@ $speech-shadow: 0 10px 0 rgba(0, 0, 0, 0.1);
 }
 
 .speechBubbleOuterLeft {
+  z-index: 2;
   @include bootstrap.media-breakpoint-up(md) {
     margin-left: 90px;
   }
 }
 
 .speechBubbleOuterRight {
+  z-index: 1;
   @include bootstrap.media-breakpoint-up(md) {
     margin-left: auto;
     margin-right: 90px;
@@ -115,7 +113,6 @@ $speech-shadow: 0 10px 0 rgba(0, 0, 0, 0.1);
   color: $white;
   padding: 4px 24px;
   font-weight: $text-font-weight;
-
   @include bootstrap.media-breakpoint-up(md) {
     padding: 4px 32px;
   }
