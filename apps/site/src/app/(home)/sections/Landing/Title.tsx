@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
-import zothacks_title from "@/assets/images/ZOTHACKS_LOGO.png";
+import zothacks_title from "@/assets/images/zothacks-title.svg";
 import styles from "./Title.module.scss";
 
 export default function Title() {
