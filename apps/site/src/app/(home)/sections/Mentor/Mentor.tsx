@@ -1,86 +1,61 @@
 "use client";
-import { motion, cubicBezier, Variants } from "framer-motion";
-import Image from "next/image";
-import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
 
-import BookmarkLink from "@/components/BookmarkLink/BookmarkLink";
-import tape from "@/assets/images/tape.svg";
+import anteater_left from "@/assets/images/involved_anteater_left.svg";
+import anteater_right from "@/assets/images/involved_anteater_right.svg";
 
 import styles from "./Mentor.module.scss";
 
-const MENTOR_APP_URL = "/mentor";
-
-const variant: Variants = {
-	initial: {
-		scale: 1.1,
-		opacity: 0,
-		rotateX: 20,
-		translateY: 30,
-	},
-	animate: {
-		scale: 1,
-		rotateX: 0,
-		opacity: 1,
-		translateY: 0,
-		transition: {
-			duration: 0.85,
-			staggerChildren: 0.1,
-			ease: cubicBezier(0.33, 1, 0.68, 1),
-		},
-	},
-};
-
 const Mentor = () => {
-	const mentorHeader = (
-		<h2 className="mb-3 text-start">Interested in becoming a mentor?</h2>
-	);
-	const mentorDescription = (
-		<p>
-			Have a knack for innovation? Interested in inspiring the next generation
-			of developers? Mentor applications for ZotHacks 2023 have closed, but
-			please keep an eye out for future events!
-		</p>
+	const sectionHeader = <h2 className={styles.headerText}>GET INVOLVED</h2>;
+	const leftBubbleText = <p>Want to develop your first project?</p>;
+	const rightBubbleText = (
+		<p>Otherwise, if you have some experience under your belt,</p>
 	);
 	const applyLink = (
-		<BookmarkLink
-			className="mb-4"
-			href={MENTOR_APP_URL}
-			target="_blank"
-			disabled
-		>
-			Applications have closed.
-		</BookmarkLink>
+		<Button href="#" type="button" className={styles.applyButton}>
+			Apply as a Hacker
+		</Button>
+	);
+
+	const mentorLink = (
+		<Button href="#" type="button" className={styles.applyButton}>
+			Apply as a Mentor
+		</Button>
 	);
 
 	return (
 		<Container as="section">
-			<motion.div
-				variants={variant}
-				initial="initial"
-				whileInView="animate"
-				className="position-relative my-5"
-			>
-				<motion.div variants={variant}>
-					<Col lg={5} className={styles.applySticky}>
-						<motion.img
-							variants={variant}
-							src={tape.src}
-							alt="post-it tape"
-							className={styles.tape}
-						/>
-						<div className={styles.applyStickyContent}>
-							{mentorHeader}
-							{mentorDescription}
+			{sectionHeader}
+			<div>
+				<div className={styles.speechSectionLeft}>
+					<div className={styles.speechBubbleOuterLeft}>
+						<div className={styles.speechBubbleLeft}>
+							{leftBubbleText}
+							{applyLink}
 						</div>
-						{applyLink}
-					</Col>
-					<Col className={styles.descSticky + " text-center"}>
-						{mentorDescription}
-						{applyLink}
-					</Col>
-				</motion.div>
-			</motion.div>
+					</div>
+					<img
+						className={styles.anteaterLeft}
+						src={anteater_left.src}
+						alt="Involved Anteater Left"
+					/>
+				</div>
+				<div className={styles.speechSectionRight}>
+					<div className={styles.speechBubbleOuterRight}>
+						<div className={styles.speechBubbleRight}>
+							{rightBubbleText}
+							{mentorLink}
+						</div>
+					</div>
+					<img
+						className={styles.anteaterRight}
+						src={anteater_right.src}
+						alt="Involved Anteater Right"
+					/>
+				</div>
+			</div>
 		</Container>
 	);
 };
