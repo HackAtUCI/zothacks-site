@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fuzzy_Bubbles } from "next/font/google";
+import { Fredoka } from "next/font/google";
 
 import NavBar from "@/components/NavBar/NavBar";
 import Footer from "@/components/Footer/Footer";
@@ -7,19 +7,19 @@ import "@/lib/styles/bootstrap.scss";
 import "@/lib/styles/globals.scss";
 
 export const metadata: Metadata = {
-	title: "ZotHacks 2023",
+	title: "ZotHacks 2024",
 	description: "Hack at UCI's premier hackathon for beginners at UCI",
 	openGraph: {
-		title: "ZotHacks 2023",
+		title: "ZotHacks 2024",
 		images: "./zothacks_banner.png",
 		description: "Hack at UCI's premier hackathon for beginners at UCI",
 	},
 };
 
-const fuzzy = Fuzzy_Bubbles({
+const fredoka = Fredoka({
 	weight: ["400", "700"],
 	subsets: ["latin"],
-	variable: "--next-font-fuzzy-bubbles",
+	variable: "--next-font-fredoka",
 });
 
 export default function RootLayout({
@@ -28,11 +28,11 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en" className={fuzzy.variable}>
+		<html lang="en" className={fredoka.variable}>
 			<body className="background">
-				<NavBar />
+				{/* <NavBar /> */}
 				<main>{children}</main>
-				<Footer />
+				{/* <Footer /> */}
 			</body>
 		</html>
 	);
