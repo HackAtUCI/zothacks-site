@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 const fuzzy = Fredoka({
 	weight: ["400", "700"],
 	subsets: ["latin"],
-	variable: "--next-font-fuzzy-bubbles",
+	variable: "--next-font-fredoka",
 });
 
 export default function RootLayout({
