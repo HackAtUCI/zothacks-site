@@ -20,7 +20,21 @@ const FAQ = async () => {
 				{/* <Image src={star} alt="star" className={styles["star-lg"]} />
 				<Image src={star} alt="star" className={styles["star-sm"]} />
 				<Image src={eraser} alt="eraser" className={styles["eraser"]} /> */}
-				<h2 className={styles.title}>FAQ</h2>
+				<div
+					className={`${styles["accordion-border"]} ${styles["answer-body"]} ${styles["header-body"]}`}
+				>
+					<h4>
+						<span style={{ color: "#01a7c5" }}>FAQ!</span> Here's answers to our
+						most commonly asked questions!
+					</h4>
+					<p>
+						If you don't find what you're looking for, reach out to our team at{" "}
+						<a style={{ color: "#78638a" }} href="mailto:hackatuci@uci.edu">
+							hackatuci@uci.edu
+						</a>
+					</p>
+				</div>
+
 				<FAQAccordion faq={faq} />
 			</div>
 		</section>

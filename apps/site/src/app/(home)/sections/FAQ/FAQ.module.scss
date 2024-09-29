@@ -1,6 +1,12 @@
 @use "zothacks-theme" as theme;
 @use "bootstrap-utils" as utils;
 
+$item-padding-y: 32px;
+$item-padding-x: 48px;
+
+$answer-font-size: 16px;
+$question-font-size: 20px;
+
 .faq {
 	position: relative;
 	display: flex;
@@ -17,7 +23,7 @@
 	justify-content: center;
 }
 
-.title {
+.titlel {
 	margin-top: 1.5rem;
 	margin-bottom: 1.5rem;
 }
@@ -46,16 +52,16 @@
 	}
 }
 
+.header-body {
+	padding: $item-padding-y $item-padding-x;
+}
+
 .accordion {
-	// left off on changing border radius for the bubbles
-	--item-padding-y: 32px;
-	--item-padding-x: 48px;
+	--bs-accordion-body-padding-y: #{$item-padding-y};
+	--bs-accordion-body-padding-x: #{$item-padding-x};
 
-	--bs-accordion-body-padding-y: var(--item-padding-y);
-	--bs-accordion-body-padding-x: var(--item-padding-x);
-
-	--bs-accordion-btn-padding-y: var(--item-padding-y);
-	--bs-accordion-btn-padding-x: var(--item-padding-x);
+	--bs-accordion-btn-padding-y: #{$item-padding-y};
+	--bs-accordion-btn-padding-x: #{$item-padding-x};
 
 	--bs-accordion-btn-icon-width: 14px;
 	--bs-accordion-btn-icon: url("~@/assets/icons/plus-lg.svg");
@@ -116,10 +122,10 @@
 		width: 116px;
 	}
 
-	.accordion-border {
-		border-bottom-width: 3px;
-		border-top-width: 3px;
-	}
+	// .accordion-border {
+	// 	border-bottom-width: 3px;
+	// 	border-top-width: 3px;
+	// }
 
 	.star-lg {
 		visibility: visible;

@@ -23,7 +23,9 @@ const FAQAccordion: React.FC<FAQAccordion> = ({ faq }) => {
 					<Accordion.Header as="h3" className={styles["question-body"]}>
 						{question}
 					</Accordion.Header>
-					<Accordion.Body className={styles["answer-body"]}>{answer}</Accordion.Body>
+					<Accordion.Body className={styles["answer-body"]}>
+						{answer}
+					</Accordion.Body>
 				</Accordion.Item>
 			))}
 		</Accordion>
