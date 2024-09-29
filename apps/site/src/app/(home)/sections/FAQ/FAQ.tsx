@@ -5,9 +5,6 @@ import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import styles from "./FAQ.module.scss";
 
-import star from "@/assets/images/star.png";
-import eraser from "@/assets/images/eraser.png";
-
 const FAQ = async () => {
 	const questions = await getQuestions();
 	const faq = questions[0]["faqs"].map(({ _key, question, answer }) => ({
@@ -19,10 +16,10 @@ const FAQ = async () => {
 	return (
 		<section className={styles.container}>
 			<div className={styles.faq}>
-				<div className={styles["vertical-line"]} />
-				<Image src={star} alt="star" className={styles["star-lg"]} />
+				{/* <div className={styles["vertical-line"]} /> */}
+				{/* <Image src={star} alt="star" className={styles["star-lg"]} />
 				<Image src={star} alt="star" className={styles["star-sm"]} />
-				<Image src={eraser} alt="eraser" className={styles["eraser"]} />
+				<Image src={eraser} alt="eraser" className={styles["eraser"]} /> */}
 				<h2 className={styles.title}>FAQ</h2>
 				<FAQAccordion faq={faq} />
 			</div>

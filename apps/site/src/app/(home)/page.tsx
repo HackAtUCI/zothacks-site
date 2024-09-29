@@ -16,6 +16,7 @@ const Home = () => {
 			<Mentor />
 			<Sponsors />
 			<FAQ /> */}
+			<FAQ />
 		</div>
 	);
 };

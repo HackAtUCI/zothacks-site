@@ -8,7 +8,6 @@
 	width: 80%;
 
 	padding-bottom: 1.875rem;
-	background-color: theme.$beige;
 }
 
 .container {
@@ -23,30 +22,45 @@
 	margin-bottom: 1.5rem;
 }
 
-.vertical-line {
-	position: absolute;
-	justify-self: flex-start;
-
-	height: 100%;
-	width: 45px;
-	border-right: 3px solid rgba(theme.$red, 0.45);
-}
-
-.body {
+.accordion-border {
 	margin-left: 40px;
 	margin-right: 10px;
+	margin-bottom: 8px;
+}
+
+.question-body {
+	background-color: theme.$white;
+	border: 6px solid theme.$black;
+	border-radius: 8px;
+}
+
+.answer-body {
+	background-color: theme.$light-blue;
+	border: 6px solid theme.$dark-blue;
+	border-radius: 8px;
+
+	margin-top: 8px;
+
+	& > * {
+		margin: 0;
+	}
 }
 
 .accordion {
+	// left off on changing border radius for the bubbles
+	--item-padding-y: 32px;
+	--item-padding-x: 48px;
+
+	--bs-accordion-body-padding-y: var(--item-padding-y);
+	--bs-accordion-body-padding-x: var(--item-padding-x);
+
+	--bs-accordion-btn-padding-y: var(--item-padding-y);
+	--bs-accordion-btn-padding-x: var(--item-padding-x);
+
 	--bs-accordion-btn-icon-width: 14px;
 	--bs-accordion-btn-icon: url("~@/assets/icons/plus-lg.svg");
 	--bs-accordion-btn-active-icon: url("~@/assets/icons/dash-lg.svg");
 	--bs-accordion-bg: none;
-}
-
-.accordion-border {
-	border-bottom: 2px solid theme.$light-blue;
-	border-top: 2px solid theme.$light-blue;
 }
 
 .star-lg {
