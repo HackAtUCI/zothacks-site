@@ -6,8 +6,8 @@ $secondary-color: #dafff5;
 $text-font-weight: 600;
 $text-font-size: 1.5rem;
 $border-radius: 14px;
-$speech-padding: 20px;
-$speech-shadow: 0 10px 0 rgba(0, 0, 0, 0.1);
+$speech-padding: 20px; 
+$speech-shadow: 0 10px 0 rgba(1, 57, 70, 0.2);
 
 @mixin speechBubble($bg-color, $border-color) {
 	background-color: $bg-color;
@@ -40,7 +40,6 @@ $speech-shadow: 0 10px 0 rgba(0, 0, 0, 0.1);
 	height: 187px;
 	width: 136px;
     z-index: 4;
-    // pointer-events: none;
 
 	@include bootstrap.media-breakpoint-up(md) {
 		display: block;
