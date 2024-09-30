@@ -7,11 +7,13 @@ import Sponsors from "./sections/Sponsors";
 import FAQ from "./sections/FAQ";
 
 import styles from "./page.module.scss";
+import Countdown from "./sections/Countdown";
 
 const Home = () => {
 	return (
 		<div className={styles.home}>
 			<Landing />
+			<Countdown />
 			{/* <Intro />
 			<Mentor />
 			<Sponsors />
