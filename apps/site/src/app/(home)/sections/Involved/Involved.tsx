@@ -7,6 +7,8 @@ import anteater_right from "@/assets/images/involved_anteater_right.svg";
 
 import styles from "./Involved.module.scss";
 
+import { motion } from "framer-motion";
+
 const Mentor = () => {
 	const sectionHeader = <h2 className={styles.headerText}>GET INVOLVED</h2>;
 	const leftBubbleText = <p>Want to develop your first project?</p>;
@@ -25,6 +27,16 @@ const Mentor = () => {
 		</Button>
 	);
 
+	const hoverAnimation = {
+		scale: 1.05,
+		rotate: [0, 10, -10, 0],
+	};
+
+	const hoverTransition = {
+		duration: 0.5,
+		ease: "easeInOut",
+	};
+
 	return (
 		<Container as="section">
 			{sectionHeader}
@@ -36,10 +48,12 @@ const Mentor = () => {
 							{applyLink}
 						</div>
 					</div>
-					<img
+					<motion.img
 						className={styles.anteaterLeft}
 						src={anteater_left.src}
 						alt="Involved Anteater Left"
+						whileHover={hoverAnimation}
+						transition={hoverTransition}
 					/>
 				</div>
 				<div className={styles.speechSectionRight}>
@@ -49,10 +63,12 @@ const Mentor = () => {
 							{mentorLink}
 						</div>
 					</div>
-					<img
+					<motion.img
 						className={styles.anteaterRight}
 						src={anteater_right.src}
 						alt="Involved Anteater Right"
+						whileHover={hoverAnimation}
+						transition={hoverTransition}
 					/>
 				</div>
 			</div>
