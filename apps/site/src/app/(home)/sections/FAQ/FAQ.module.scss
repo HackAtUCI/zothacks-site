@@ -71,9 +71,9 @@ $question-font-size: 20px;
 	--bs-accordion-btn-padding-y: #{$item-padding-y};
 	--bs-accordion-btn-padding-x: #{$item-padding-x};
 
-	--bs-accordion-btn-icon-width: 14px;
-	--bs-accordion-btn-icon: url("~@/assets/icons/plus-lg.svg");
-	--bs-accordion-btn-active-icon: url("~@/assets/icons/dash-lg.svg");
+	--bs-accordion-btn-icon-width: 32px;
+	--bs-accordion-btn-icon: url("~@/assets/icons/plus.svg");
+	--bs-accordion-btn-active-icon: url("~@/assets/icons/dash.svg");
 	--bs-accordion-bg: none;
 }
 

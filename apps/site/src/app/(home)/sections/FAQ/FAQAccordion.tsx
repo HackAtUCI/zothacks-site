@@ -2,6 +2,7 @@
 
 import Accordion from "react-bootstrap/Accordion";
 import styles from "./FAQ.module.scss";
+import { AccordionButton } from "react-bootstrap";
 
 interface FAQAccordion {
 	faq: {
@@ -22,6 +23,7 @@ const FAQAccordion: React.FC<FAQAccordion> = ({ faq }) => {
 				>
 					<Accordion.Header as="h3" className={styles["question-body"]}>
 						{question}
+						{/* <AccordionButton /> */}
 					</Accordion.Header>
 					<Accordion.Body className={styles["answer-body"]}>
 						{answer}
