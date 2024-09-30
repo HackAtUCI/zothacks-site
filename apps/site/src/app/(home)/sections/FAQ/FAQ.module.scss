@@ -44,14 +44,16 @@ $question-font-size: 20px;
 
 .question-body {
 	background-color: theme.$white;
-	border: 6px solid theme.$black;
-	border-radius: 8px;
+	border: 6px solid theme.$white;
+	box-shadow: inset 0 0 0 6px theme.$black;
+	border-radius: 16px;
 }
 
 .answer-body {
 	background-color: theme.$light-green;
-	border: 6px solid theme.$lighter-black;
-	border-radius: 8px;
+	border: 6px solid theme.$light-green;
+	box-shadow: inset 0 0 0 6px theme.$lighter-black;
+	border-radius: 16px;
 
 	margin-top: 8px;
 
