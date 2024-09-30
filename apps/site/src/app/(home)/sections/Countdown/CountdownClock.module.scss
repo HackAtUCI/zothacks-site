@@ -2,12 +2,17 @@
 
 .countdown {
 	margin: 0;
-	padding: 96px 0 32px 0;
 	opacity: 0;
 	transition: opacity 225ms cubic-bezier(0.32, 0, 0.67, 0);
 
 	span {
 		text-align: center;
+
+		@media only screen and (max-width: 700px) {
+			&.time {
+				flex-direction: column;
+			}
+		}
 
 		&.time {
 			display: flex;

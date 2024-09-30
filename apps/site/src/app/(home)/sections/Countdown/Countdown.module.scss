@@ -9,7 +9,17 @@
 	position: relative;
 }
 
+.descriptiveText {
+	top: 45px;
+	left: 20px;
+	position: absolute;
+	min-width: 150px;
+	transform: translateX(-50%);
+	text-align: center;
+}
+
 .countdownMaterial {
+	// margin-top: 10%;
 	position: absolute;
 	top: 0px;
 	left: 0px;
