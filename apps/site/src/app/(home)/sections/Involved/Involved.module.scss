@@ -1,8 +1,6 @@
 @use "zothacks-theme" as theme;
 @use "bootstrap-utils" as bootstrap;
 
-$primary-color: #78638a;
-$secondary-color: #dafff5;
 $text-font-weight: 600;
 $text-font-size: 1.5rem;
 $border-radius: 14px;
@@ -107,11 +105,11 @@ $speech-shadow: 0 10px 0 rgba(1, 57, 70, 0.2);
 }
 
 .speechBubbleRight {
-	@include speechBubble($secondary-color, theme.$black);
+	@include speechBubble(theme.$light-green, theme.$black);
 }
 
 .applyButton {
-	background-color: $primary-color;
+	background-color: theme.$purple;
 	color: theme.$white;
 	padding: 4px 24px;
 	font-weight: $text-font-weight;
@@ -121,7 +119,7 @@ $speech-shadow: 0 10px 0 rgba(1, 57, 70, 0.2);
 }
 
 .applyButton::before {
-	background-color: $primary-color;
+	background-color: theme.$purple;
 	color: theme.$white;
 	padding: 10px;
 }
