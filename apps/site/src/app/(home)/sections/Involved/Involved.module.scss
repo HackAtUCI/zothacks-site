@@ -1,10 +1,8 @@
 @use "zothacks-theme" as theme;
 @use "bootstrap-utils" as bootstrap;
 
-$primary-color: #78638A;
-$secondary-color: #DAFFF5;
-$white: #fff;
-$black: #000;
+$primary-color: #78638a;
+$secondary-color: #dafff5;
 $text-font-weight: 600;
 $text-font-size: 1.5rem;
 $border-radius: 14px;
@@ -12,114 +10,117 @@ $speech-padding: 20px;
 $speech-shadow: 0 10px 0 rgba(0, 0, 0, 0.1);
 
 @mixin speechBubble($bg-color, $border-color) {
-  background-color: $bg-color;
-  border: 6px solid $border-color;
-  border-radius: $border-radius;
-  padding: $speech-padding;
-  font-weight: $text-font-weight;
-  font-size: $text-font-size;
-  text-align: center;
+	background-color: $bg-color;
+	border: 6px solid $border-color;
+	border-radius: $border-radius;
+	padding: $speech-padding;
+	font-weight: $text-font-weight;
+	font-size: $text-font-size;
+	text-align: center;
 
-  @include bootstrap.media-breakpoint-up(md) {
-    padding: 32px 48px;
-    text-align: left;
-  }
+	@include bootstrap.media-breakpoint-up(md) {
+		padding: 32px 48px;
+		text-align: left;
+	}
 }
 
 @mixin boxShadow {
-  box-shadow: $speech-shadow;
+	box-shadow: $speech-shadow;
 }
 
 .headerText {
-  color: $white;
-  margin-bottom: 48px;
-  font-weight: $text-font-weight;
+	color: theme.$white;
+    margin-bottom: 48px;
+	font-weight: $text-font-weight;
 }
 
-.anteaterLeft, .anteaterRight {
-  display: none;
-  height: 187px;
-  width: 136px;
+.anteaterLeft,
+.anteaterRight {
+	display: none;
+	height: 187px;
+	width: 136px;
 
-  @include bootstrap.media-breakpoint-up(md) {
-    display: block;
-    position: relative;
-  }
+	@include bootstrap.media-breakpoint-up(md) {
+		display: block;
+		position: relative;
+	}
 }
 
 .anteaterLeft {
-  @include bootstrap.media-breakpoint-up(md) {
-    left: -32px;
-    top: -32px;
-  }
+	@include bootstrap.media-breakpoint-up(md) {
+		left: -32px;
+		top: -32px;
+	}
 }
 
 .anteaterRight {
-  @include bootstrap.media-breakpoint-up(md) {
-    top: -64px;
-    left: 48px;
-    margin-left: auto;
-  }
+	@include bootstrap.media-breakpoint-up(md) {
+		top: -64px;
+		left: 48px;
+		margin-left: auto;
+	}
 }
 
-.speechSectionLeft, .speechSectionRight {
-  margin-bottom: 20px;
-  position: relative;
+.speechSectionLeft,
+.speechSectionRight {
+	margin-bottom: 20px;
+	position: relative;
 }
 
 .speechSectionRight {
-  @include bootstrap.media-breakpoint-up(md) {
-    top: -230px;
-  }
+	@include bootstrap.media-breakpoint-up(md) {
+		top: -230px;
+	}
 }
 
-.speechBubbleOuterLeft, .speechBubbleOuterRight {
-  position: relative;
-  background-color: $white;
-  border-radius: 18px;
-  padding: 4px;
-  @include boxShadow;
+.speechBubbleOuterLeft,
+.speechBubbleOuterRight {
+	position: relative;
+	background-color: theme.$white;
+	border-radius: 18px;
+	padding: 4px;
+	@include boxShadow;
 
-  @include bootstrap.media-breakpoint-up(md) {
-    width: 65%;
-  }
+	@include bootstrap.media-breakpoint-up(md) {
+		width: 65%;
+	}
 }
 
 .speechBubbleOuterLeft {
-  z-index: 2;
-  @include bootstrap.media-breakpoint-up(md) {
-    margin-left: 90px;
-  }
+	z-index: 2;
+	@include bootstrap.media-breakpoint-up(md) {
+		margin-left: 90px;
+	}
 }
 
 .speechBubbleOuterRight {
-  z-index: 1;
-  @include bootstrap.media-breakpoint-up(md) {
-    margin-left: auto;
-    margin-right: 90px;
-  }
+	z-index: 1;
+	@include bootstrap.media-breakpoint-up(md) {
+		margin-left: auto;
+		margin-right: 90px;
+	}
 }
 
 .speechBubbleLeft {
-  @include speechBubble($white, $black);
+	@include speechBubble(theme.$white, theme.$black);
 }
 
 .speechBubbleRight {
-  @include speechBubble($secondary-color, $black);
+	@include speechBubble($secondary-color, theme.$black);
 }
 
 .applyButton {
-  background-color: $primary-color;
-  color: $white;
-  padding: 4px 24px;
-  font-weight: $text-font-weight;
-  @include bootstrap.media-breakpoint-up(md) {
-    padding: 4px 32px;
-  }
+	background-color: $primary-color;
+	color: theme.$white;
+	padding: 4px 24px;
+	font-weight: $text-font-weight;
+	@include bootstrap.media-breakpoint-up(md) {
+		padding: 4px 32px;
+	}
 }
 
 .applyButton::before {
-  background-color: $primary-color;
-  color: $white;
-  padding: 10px;
+	background-color: $primary-color;
+	color: theme.$white;
+	padding: 10px;
 }
