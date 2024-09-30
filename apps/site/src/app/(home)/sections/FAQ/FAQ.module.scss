@@ -7,6 +7,14 @@ $item-padding-x: 48px;
 $answer-font-size: 16px;
 $question-font-size: 20px;
 
+.light-blue-text {
+	color: theme.$light-blue;
+}
+
+.purple-text {
+	color: theme.$purple;
+}
+
 .faq {
 	position: relative;
 	display: flex;
@@ -23,7 +31,7 @@ $question-font-size: 20px;
 	justify-content: center;
 }
 
-.titlel {
+.title {
 	margin-top: 1.5rem;
 	margin-bottom: 1.5rem;
 }
@@ -41,8 +49,8 @@ $question-font-size: 20px;
 }
 
 .answer-body {
-	background-color: theme.$light-blue;
-	border: 6px solid theme.$dark-blue;
+	background-color: theme.$light-green;
+	border: 6px solid theme.$lighter-black;
 	border-radius: 8px;
 
 	margin-top: 8px;

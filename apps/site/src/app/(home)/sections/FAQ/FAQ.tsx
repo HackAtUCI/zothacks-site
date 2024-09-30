@@ -24,16 +24,17 @@ const FAQ = async () => {
 					className={`${styles["accordion-border"]} ${styles["answer-body"]} ${styles["header-body"]}`}
 				>
 					<h4>
-						<span style={{ color: "#01a7c5" }}>FAQ!</span> Here's answers to our
+						<span className={styles["light-blue-text"]}>FAQ!</span> Here's answers to our
 						most commonly asked questions!
 					</h4>
 					<p>
 						If you don't find what you're looking for, reach out to our team at{" "}
-						<a style={{ color: "#78638a" }} href="mailto:hackatuci@uci.edu">
+						<a className={styles["purple-text"]} href="mailto:hackatuci@uci.edu">
 							hackatuci@uci.edu
 						</a>
 					</p>
 				</div>
+				{/*Left off on creating a custom button for react bootstrap*/}
 
 				<FAQAccordion faq={faq} />
 			</div>
