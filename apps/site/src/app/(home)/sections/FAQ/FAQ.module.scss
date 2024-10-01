@@ -98,17 +98,17 @@ $question-font-size: 20px;
 		display: block;
 		overflow: auto;
 		position: sticky;
-		top: 25%;
-		// left off on making parent div of anteaters be a small size, not the same size as the flexbox container
 
-		transform-origin: center;
+		top: 0;
+		margin-bottom: 250px;
 	}
 
 	.right-anteater {
 		display: block;
 		position: sticky;
+
 		margin-top: 20%;
-		top: 55%;
-		bottom: 0;
+		margin-bottom: 250px;
+		top: 25%;
 	}
 }
