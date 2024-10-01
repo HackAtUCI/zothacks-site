@@ -14,16 +14,16 @@ const AnteaterFloatie = ({ src, alt, className }: ImageProps) => {
 	const [isClicked, setIsClicked] = useState(false);
 
 	return (
-		<div >
+		<div>
 			<motion.div
-				animate={{ rotate: [3.5, -3.5, 3.5], scale: isClicked ? 1.2 : 1 }}
+				animate={{ rotate: [3.5, -3.5, 3.5], scale: isClicked ? 0.85 : 1 }}
 				transition={{
 					rotate: {
 						repeat: Infinity,
 						duration: 7,
 						ease: "easeInOut",
 					},
-					scale: { duration: 0.1 },
+					scale: { type: "spring", bounce: 0.7 },
 				}}
 				onMouseDown={() => setIsClicked(true)}
 				onMouseUp={() => setIsClicked(false)}
