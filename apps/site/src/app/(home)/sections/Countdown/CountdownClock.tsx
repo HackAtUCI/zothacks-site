@@ -35,26 +35,40 @@ const CountdownClock: React.FC<CountdownProps> = ({
 			)}
 		>
 			<span className={styles.time}>
-				<span className={styles.timePortion}>
-					<span className={styles.timeBlock}>
-						{Math.floor(remainingSeconds / (60 * 60 * 24))
-							.toString()
-							.split("")
-							.map((el) => {
-								return <span className={styles.number}>{el}</span>;
-							})}
+				{!isHackingStarted && (
+					<span className={styles.timePortion}>
+						<span className={styles.timeBlock}>
+							{Math.floor(remainingSeconds / (60 * 60 * 24))
+								.toString()
+								.split("")
+								.map((el) => {
+									return <span className={styles.number}>{el}</span>;
+								})}
+						</span>
+						<span className={styles.timeText}>Days</span>
 					</span>
-
-					<span className={styles.timeText}>Days</span>
-				</span>
+				)}
 				<span className={styles.timePortion}>
 					<span className={styles.timeBlock}>
-						<span className={styles.number}>
-							{`${Math.floor((remainingSeconds / 3600) % 24) < 10 ? "0" : ""}`}
-						</span>
-						<span className={styles.number}>
-							{`${Math.floor((remainingSeconds / 3600) % 24).toString()}`}
-						</span>
+						{isHackingStarted ? (
+							<>
+								{Math.floor(remainingSeconds / (60 * 60))
+									.toString()
+									.split("")
+									.map((el) => {
+										return <span className={styles.number}>{el}</span>;
+									})}
+							</>
+						) : (
+							<>
+								<span className={styles.number}>
+									{`${Math.floor((remainingSeconds / 3600) % 24) < 10 ? "0" : Math.floor(Math.floor((remainingSeconds / 3600) % 24) / 10)}`}
+								</span>
+								<span className={styles.number}>
+									{`${(Math.floor((remainingSeconds / 3600) % 24) % 10).toString()}`}
+								</span>
+							</>
+						)}
 					</span>
 					<span className={styles.timeText}>Hours</span>
 				</span>
@@ -69,17 +83,19 @@ const CountdownClock: React.FC<CountdownProps> = ({
 					</span>
 					<span className={styles.timeText}>Minutes</span>
 				</span>
-				<span className={styles.timePortion}>
-					<span className={styles.timeBlock}>
-						<span className={styles.number}>
-							{`${Math.floor(remainingSeconds % 60) < 10 ? "0" : Math.floor((remainingSeconds % 60) / 10)}`}
+				{isHackingStarted && (
+					<span className={styles.timePortion}>
+						<span className={styles.timeBlock}>
+							<span className={styles.number}>
+								{`${Math.floor(remainingSeconds % 60) < 10 ? "0" : Math.floor((remainingSeconds % 60) / 10)}`}
+							</span>
+							<span className={styles.number}>
+								{`${Math.floor(remainingSeconds % 60) % 10}`}
+							</span>
 						</span>
-						<span className={styles.number}>
-							{`${Math.floor(remainingSeconds % 60) % 10}`}
-						</span>
+						<span className={styles.timeText}>Seconds</span>
 					</span>
-					<span className={styles.timeText}>Seconds</span>
-				</span>
+				)}
 			</span>
 			<span className={styles.caption}>
 				{isHackingStarted && !isNaN(remainingSeconds)

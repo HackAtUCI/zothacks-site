@@ -8,9 +8,15 @@
 	span {
 		text-align: center;
 
-		@media only screen and (max-width: 700px) {
+		@media screen and (max-width: 1000px) {
 			&.time {
-				flex-direction: column;
+				gap: 10px 2rem;
+			}
+		}
+
+		@media screen and (min-width: 1001px) {
+			&.time {
+				gap: 10px 3rem;
 			}
 		}
 
@@ -19,8 +25,8 @@
 			flex-wrap: wrap;
 			@include bootstrap.font-size(6rem);
 			line-height: 100%;
-			gap: 10px 4rem;
 			justify-content: center;
+			min-width: 260px;
 
 			.timePortion {
 				display: flex;

@@ -14,6 +14,5 @@ export default async function CountdownSchedule() {
 			description: el.description,
 		};
 	});
-	// console.log(days);
 	return <Countdown schedule={schedule} />;
 }

@@ -1,5 +1,6 @@
 .paraboloid {
 	position: relative;
+	width: 100%;
 }
 
 .countdownWrapper {
@@ -31,28 +32,91 @@
 	justify-content: center;
 }
 
+@media only screen and (max-width: 400px) {
+	.clockPos {
+		margin-top: 45%;
+	}
+	.preCountdown {
+		margin-top: 50%;
+	}
+	.endText {
+		margin-top: 50%;
+	}
+}
+
+@media only screen and (min-width: 401px) and (max-width: 600px) {
+	.clockPos {
+		margin-top: 30%;
+	}
+	.preCountdown {
+		margin-top: 40%;
+	}
+	.endText {
+		margin-top: 40%;
+	}
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1000px) {
+	.clockPos {
+		margin-top: 20%;
+	}
+	.preCountdown {
+		margin-top: 20%;
+	}
+	.endText {
+		margin-top: 20%;
+	}
+}
+
+@media only screen and (min-width: 1001px) {
+	.preCountdown {
+		margin-top: 15%;
+	}
+	.endText {
+		margin-top: 10%;
+	}
+}
+
+.clockPos {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
 .outerCircle {
 	background-color: #ffffff;
 	// border-color: #1a1840;
-    border: 5px solid #1a1840;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-    bottom: 0;
-    position: absolute;
+	border: 5px solid #1a1840;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1;
+	bottom: 0;
+	position: absolute;
 }
 
 .innerCircle {
-    background-color: #BD5A5A;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
+	background-color: #bd5a5a;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+}
+
+.descriptiveTextTop {
+	position: absolute;
+	top: -70px;
+	width: 150px;
+	text-align: center;
+	p {
+		margin: 0;
+		padding: 0;
+	}
 }
 
 .progressContainer {
-    height: 200px;
+	height: 200px;
+	width: 60%;
 }
