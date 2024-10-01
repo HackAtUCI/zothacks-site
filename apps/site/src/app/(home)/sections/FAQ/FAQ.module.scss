@@ -96,9 +96,12 @@ $question-font-size: 20px;
 
 	.left-anteater {
 		display: block;
+		overflow: auto;
 		position: sticky;
 		top: 25%;
-		margin-bottom: 30%;
+		// left off on making parent div of anteaters be a small size, not the same size as the flexbox container
+
+		transform-origin: center;
 	}
 
 	.right-anteater {
