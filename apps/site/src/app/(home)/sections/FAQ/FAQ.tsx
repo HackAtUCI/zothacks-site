@@ -16,10 +16,6 @@ const FAQ = async () => {
 	return (
 		<section className={styles.container}>
 			<div className={styles.faq}>
-				{/* <div className={styles["vertical-line"]} /> */}
-				{/* <Image src={star} alt="star" className={styles["star-lg"]} />
-				<Image src={star} alt="star" className={styles["star-sm"]} />
-				<Image src={eraser} alt="eraser" className={styles["eraser"]} /> */}
 				<div
 					className={`${styles["accordion-border"]} ${styles["answer-body"]} ${styles["header-body"]}`}
 				>
@@ -34,8 +30,6 @@ const FAQ = async () => {
 						</a>
 					</p>
 				</div>
-				{/*Left off on creating a custom button for react bootstrap*/}
-
 				<FAQAccordion faq={faq} />
 			</div>
 		</section>
