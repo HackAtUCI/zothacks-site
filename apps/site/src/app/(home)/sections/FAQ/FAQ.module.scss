@@ -32,7 +32,7 @@ $question-font-size: 20px;
 }
 
 .accordion-border {
-	margin-left: 40px;
+	margin-left: 10px;
 	margin-right: 10px;
 	margin-bottom: 8px;
 }
@@ -83,5 +83,9 @@ $question-font-size: 20px;
 @include utils.media-breakpoint-up(md) {
 	.body {
 		margin-left: 110px;
+	}
+
+	.accordion-border {
+		margin-left: 40px;
 	}
 }
