@@ -25,10 +25,19 @@ $question-font-size: 20px;
 }
 
 .container {
+	position: relative;
 	padding-top: 6rem;
 	padding-bottom: 6rem;
 	display: flex;
 	justify-content: center;
+}
+
+.left-anteater {
+	display: none;
+}
+
+.right-anteater {
+	display: none;
 }
 
 .accordion-border {
@@ -85,7 +94,18 @@ $question-font-size: 20px;
 		margin-left: 110px;
 	}
 
-	.accordion-border {
-		margin-left: 40px;
+	.left-anteater {
+		display: block;
+		position: sticky;
+		top: 25%;
+		margin-bottom: 30%;
+	}
+
+	.right-anteater {
+		display: block;
+		position: sticky;
+		margin-top: 20%;
+		top: 55%;
+		bottom: 0;
 	}
 }
