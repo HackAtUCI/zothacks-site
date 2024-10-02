@@ -138,13 +138,14 @@ $speech-shadow: 0 10px 0 rgba(1, 57, 70, 0.2);
 	border: 0px;
 	padding: 4px 24px;
 	font-weight: $text-font-weight;
+
 	@include bootstrap.media-breakpoint-up(md) {
 		padding: 4px 32px;
 	}
-}
 
-.applyButton::before {
-	background-color: theme.$purple;
-	color: theme.$white;
-	padding: 10px;
+	&::before {
+		background-color: theme.$purple;
+		color: theme.$white;
+		padding: 10px;
+	}
 }
