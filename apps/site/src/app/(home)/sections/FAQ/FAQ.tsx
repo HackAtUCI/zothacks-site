@@ -1,7 +1,6 @@
 import { getQuestions } from "./getQuestions";
 import FAQAccordion from "./FAQAccordion";
 
-import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import styles from "./FAQ.module.scss";
 

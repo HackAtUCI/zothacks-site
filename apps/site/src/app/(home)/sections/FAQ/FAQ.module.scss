@@ -96,11 +96,11 @@ $question-font-size: 20px;
 
 	.left-anteater {
 		display: block;
-		overflow: auto;
 		position: sticky;
 
 		top: 0;
 		margin-bottom: 250px;
+		z-index: 2;
 	}
 
 	.right-anteater {
@@ -110,5 +110,7 @@ $question-font-size: 20px;
 		margin-top: 20%;
 		margin-bottom: 250px;
 		top: 25%;
+
+		z-index: 2;
 	}
 }
