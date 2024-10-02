@@ -19,7 +19,7 @@ $question-font-size: 20px;
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	width: 80%;
+	width: 70%;
 
 	padding-bottom: 1.875rem;
 }
@@ -29,7 +29,10 @@ $question-font-size: 20px;
 	padding-top: 6rem;
 	padding-bottom: 6rem;
 	display: flex;
-	justify-content: center;
+	justify-content: space-around;
+	width: 100vw;
+	padding-right: 30px;
+
 }
 
 .left-anteater {
