@@ -2,8 +2,8 @@
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 
-import anteater_left from "@/assets/images/involved_anteater_left.svg";
-import anteater_right from "@/assets/images/involved_anteater_right.svg";
+import anteater_left from "@/assets/images/involved_anteater_left.png";
+import anteater_right from "@/assets/images/involved_anteater_right.png";
 
 import styles from "./Involved.module.scss";
 
