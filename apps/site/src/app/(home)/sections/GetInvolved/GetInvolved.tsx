@@ -5,12 +5,12 @@ import Button from "react-bootstrap/Button";
 import anteater_left from "@/assets/images/involved_anteater_left.png";
 import anteater_right from "@/assets/images/involved_anteater_right.png";
 
-import styles from "./Involved.module.scss";
+import styles from "./GetInvolved.module.scss";
 
 import { motion } from "framer-motion";
 
-const Mentor = () => {
-	const sectionHeader = <h2 className={styles.headerText}>GET INVOLVED</h2>;
+const GetInvolved = () => {
+	const sectionHeading = <h2 className={styles.headingText}>GET INVOLVED</h2>;
 	const leftBubbleText = <p>Want to develop your first project?</p>;
 	const rightBubbleText = (
 		<p>Otherwise, if you have some experience under your belt,</p>
@@ -39,7 +39,7 @@ const Mentor = () => {
 
 	return (
 		<Container as="section">
-			{sectionHeader}
+			{sectionHeading}
 			<div>
 				<div className={styles.speechSectionLeft}>
 					<div className={styles.speechBubbleOuterLeft}>
@@ -76,4 +76,4 @@ const Mentor = () => {
 	);
 };
 
-export default Mentor;
+export default GetInvolved;
