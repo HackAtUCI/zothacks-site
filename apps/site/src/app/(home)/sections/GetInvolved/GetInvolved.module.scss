@@ -4,7 +4,7 @@
 $text-font-weight: 600;
 $text-font-size: 1.5rem;
 $border-radius: 14px;
-$speech-padding: 20px; 
+$speech-padding: 20px;
 $speech-shadow: 0 10px 0 rgba(1, 57, 70, 0.2);
 
 @mixin speechBubble($bg-color, $border-color) {
@@ -28,35 +28,59 @@ $speech-shadow: 0 10px 0 rgba(1, 57, 70, 0.2);
 
 .headingText {
 	color: theme.$white;
-    margin-bottom: 48px;
+	margin-bottom: 48px;
 	font-weight: $text-font-weight;
 }
 
-.anteaterLeft,
-.anteaterRight {
+.anteaterContainerLeft,
+.anteaterContainerRight {
 	display: none;
 	height: 187px;
 	width: 136px;
-    z-index: 4;
-
+	z-index: 4;
 	@include bootstrap.media-breakpoint-up(md) {
 		display: block;
 		position: relative;
 	}
 }
 
-.anteaterLeft {
+.anteaterContainerLeft {
 	@include bootstrap.media-breakpoint-up(md) {
 		left: -32px;
 		top: -32px;
 	}
 }
 
-.anteaterRight {
+.anteaterContainerRight {
 	@include bootstrap.media-breakpoint-up(md) {
 		top: -64px;
 		left: 48px;
 		margin-left: auto;
+	}
+}
+
+.anteaterImage {
+	height: 187px;
+	width: 136px;
+	z-index: 5;
+	transition: transform 0.5s ease-in-out;
+}
+
+.anteaterImage:hover {
+	transform: scale(1.05);
+	animation: rotateAnimation 0.7s ease-in-out 1;
+}
+
+@keyframes rotateAnimation {
+	0%,
+	100% {
+		transform: scale(1.05) rotate(0deg);
+	}
+	33% {
+		transform: scale(1.05) rotate(-7deg);
+	}
+	66% {
+		transform: scale(1.05) rotate(7deg);
 	}
 }
 

@@ -27,16 +27,6 @@ const GetInvolved = () => {
 		</Button>
 	);
 
-	const hoverAnimation = {
-		scale: 1.05,
-		rotate: [0, 10, -10, 0],
-	};
-
-	const hoverTransition = {
-		duration: 0.5,
-		ease: "easeInOut",
-	};
-
 	return (
 		<Container as="section">
 			{sectionHeading}
@@ -48,13 +38,13 @@ const GetInvolved = () => {
 							{applyLink}
 						</div>
 					</div>
-					<motion.img
-						className={styles.anteaterLeft}
-						src={anteater_left.src}
-						alt="Involved Anteater Left"
-						whileHover={hoverAnimation}
-						transition={hoverTransition}
-					/>
+					<div className={styles.anteaterContainerLeft}>
+						<img
+							className={styles.anteaterImage}
+							src={anteater_left.src}
+							alt="A cartoon anteater sitting on a ring buoy coding"
+						/>
+					</div>
 				</div>
 				<div className={styles.speechSectionRight}>
 					<div className={styles.speechBubbleOuterRight}>
@@ -63,13 +53,13 @@ const GetInvolved = () => {
 							{mentorLink}
 						</div>
 					</div>
-					<motion.img
-						className={styles.anteaterRight}
-						src={anteater_right.src}
-						alt="Involved Anteater Right"
-						whileHover={hoverAnimation}
-						transition={hoverTransition}
-					/>
+					<div className={styles.anteaterContainerRight}>
+						<img
+							className={styles.anteaterImage}
+							src={anteater_right.src}
+							alt="A cartoon anteater captain sitting on a ring buoy"
+						/>
+					</div>
 				</div>
 			</div>
 		</Container>
