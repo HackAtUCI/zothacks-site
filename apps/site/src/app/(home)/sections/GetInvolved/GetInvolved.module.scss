@@ -135,6 +135,7 @@ $speech-shadow: 0 10px 0 rgba(1, 57, 70, 0.2);
 .applyButton {
 	background-color: theme.$purple;
 	color: theme.$white;
+	border: 0px;
 	padding: 4px 24px;
 	font-weight: $text-font-weight;
 	@include bootstrap.media-breakpoint-up(md) {
