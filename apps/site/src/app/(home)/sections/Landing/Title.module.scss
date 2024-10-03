@@ -8,7 +8,7 @@
 	color: white;
 	font-weight: 300;
 	font-size: 2em;
-	margin-bottom: 50px;
+	margin-bottom: 40px;
 	margin-top: -25px;
 }
 
@@ -46,7 +46,7 @@
 
 @media (max-width: 480px) {
 	.title {
-		width: clamp(0px, 250px, 250px); /* Mobile viewport */
+		width: clamp(0px, 280px, 280px); /* Mobile viewport */
 		margin-bottom: 0px;
 		transform: translate(0px, 60px);
 	}

@@ -17,7 +17,36 @@ $container-padding: 6rem;
 
 	background-image: url("~@/assets/background/ocean-sand-background.svg");
 	background-size: cover;
-	background-size: 100vw auto;
+	background-position-x: center;
 	background-repeat: no-repeat;
 	min-height: 300vh;
 }
+
+.beachBall {
+	top: 105vh;
+	left: 85vw;
+}
+
+.coastAnteater {
+	top: 95vh;
+	left: 18vw;
+}
+
+@media (max-width: 1200px) {
+	.beachBall {
+		visibility: hidden;
+	}
+	.coastAnteater {
+		visibility: hidden;
+	}
+}
+
+// .wAnteater {
+// 	top: 72vh;
+// 	left: 75vw;
+// }
+
+// .wAnteaterShadow {
+// 	top: 72vh;
+// 	left: 75vw;
+// }

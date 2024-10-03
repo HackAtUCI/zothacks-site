@@ -9,6 +9,7 @@ const Landing = () => {
 			<div className={styles.title}>
 				<Title />
 				<ApplyButton />
+
 			</div>
 		</div>
 	);

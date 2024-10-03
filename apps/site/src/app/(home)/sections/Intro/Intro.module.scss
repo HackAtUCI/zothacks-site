@@ -1,46 +1,69 @@
 .description {
-    text-align: center;
-    font-size: 1em;
+	text-align: center;
+	font-size: 1em;
 }
 
 .header {
-    font-size: 1.8em;
-    margin-bottom: .5em;
+	font-size: 1.8em;
+	margin-bottom: 0.5em;
 }
 
 .introBox {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    max-width: 800px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	max-width: 900px;
+	padding: 0 80px 0 80px;
 }
 
 .intro {
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    margin-top: 30vw;
+	position: absolute;
+	top: 160vh;
+	transform: translateY(-60%);
+	width: 100vw;
+	display: flex;
+	justify-content: center;
 }
 
 @media (max-width: 1200px) {
-    /* Large viewport */
-    .description {
-        text-align: center;
-        font-size: 1em;
-    }
-    
-    .header {
-        font-size: 1.8em;
-        margin-bottom: .5em;
-    }
+	/* Large viewport */
+	.description {
+		text-align: center;
+		font-size: 0.9em;
+	}
+
+	.header {
+		font-size: 1.6em;
+		margin-bottom: 0.4em;
+	}
 }
 
 @media (max-width: 768px) {
-    /* Tablet viewport */
-    
+	/* Tablet viewport */
+	.description {
+		text-align: center;
+		font-size: 0.8em;
+	}
+
+	.header {
+		font-size: 1.4em;
+		margin-bottom: 0.3em;
+	}
+
+    .introBox {
+        padding: 0 50px 0 50px;
+    }
 }
 
 @media (max-width: 480px) {
-    /* Mobile viewport */
-    
+	/* Mobile viewport */
+	.description {
+		text-align: center;
+		font-size: 0.8em;
+	}
+
+	.header {
+		font-size: 1.4em;
+		margin-bottom: 0.3em;
+	}
 }
