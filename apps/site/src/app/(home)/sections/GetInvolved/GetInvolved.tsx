@@ -1,13 +1,9 @@
 "use client";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
-
 import anteater_left from "@/assets/images/involved_anteater_left.png";
 import anteater_right from "@/assets/images/involved_anteater_right.png";
-
 import styles from "./GetInvolved.module.scss";
-
-import { motion } from "framer-motion";
 
 const GetInvolved = () => {
 	const sectionHeading = <h2 className={styles.headingText}>GET INVOLVED</h2>;
@@ -16,13 +12,13 @@ const GetInvolved = () => {
 		<p>Otherwise, if you have some experience under your belt,</p>
 	);
 	const applyLink = (
-		<Button href="#" type="button" className={styles.applyButton}>
+		<Button href="/apply" type="button" className={styles.applyButton}>
 			Apply as a Hacker
 		</Button>
 	);
 
 	const mentorLink = (
-		<Button href="#" type="button" className={styles.applyButton}>
+		<Button href="/mentor" type="button" className={styles.applyButton}>
 			Apply as a Mentor
 		</Button>
 	);
