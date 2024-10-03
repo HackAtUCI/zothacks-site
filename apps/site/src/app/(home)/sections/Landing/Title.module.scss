@@ -1,4 +1,11 @@
+@use "bootstrap-utils" as bootstrap;
+
 .title {
-	width: clamp(0px, 40vw, 40vw);
-	height: clamp(0px, 14.53vw, 14.53vw);
+	width: 70vw;
+	height: 25.42vw;
+
+	@include bootstrap.media-breakpoint-up(md) {
+		width: 40vw;
+		height: 14.53vw;
+	}
 }
