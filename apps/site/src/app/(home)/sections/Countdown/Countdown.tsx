@@ -8,6 +8,8 @@ import styles from "./Countdown.module.scss";
 import CountdownClock from "./CountdownClock";
 import { useEffect, useState } from "react";
 
+import boat from "@/assets/icons/boat.png";
+
 interface CountdownProps {
 	schedule: {
 		title: string;
@@ -22,8 +24,8 @@ interface CountdownProps {
 }
 
 const Countdown: React.FC<CountdownProps> = ({ schedule }) => {
-	const hackStartTime = new Date(2024, 10, 2, 14, 0, 0); // TBD
-	const hackEndTime = new Date(2024, 10, 3, 18, 0, 0); // TBD
+	const hackStartTime = new Date(2024, 10, 1, 14, 0, 0); // TBD, zothacks start time
+	const hackEndTime = new Date(2024, 10, 2, 18, 0, 0); // TBD, zothacks end time
 
 	const [curTime, setCurTime] = useState(new Date());
 
@@ -93,6 +95,8 @@ const Countdown: React.FC<CountdownProps> = ({ schedule }) => {
 		);
 	}
 
+	console.log(percentageCrossed);
+
 	return (
 		<div className={styles.countdownWrapper}>
 			<Image src={bg_map} alt="bg_map" />
@@ -101,9 +105,9 @@ const Countdown: React.FC<CountdownProps> = ({ schedule }) => {
 					{curTime >= hackStartTime ? (
 						<div className={styles.progressContainer}>
 							<div style={{ height: `100px` }} className={styles.paraboloid}>
-								{totals.map((el, i) => (
+								{totals.map((_, i) => (
 									<div
-										key={i}
+										key={`line-segment-${i}`}
 										style={{
 											left: returnPosition(i)[0],
 											bottom: returnPosition(i)[1],
@@ -167,6 +171,25 @@ const Countdown: React.FC<CountdownProps> = ({ schedule }) => {
 										) : null}
 									</div>
 								</div>
+								<div
+									className={styles.boat}
+									style={{
+										left: returnPosition(
+											(percentageCrossed * totals.length) / 100,
+										)[0],
+										bottom: returnPosition(
+											(percentageCrossed * totals.length) / 100,
+										)[1],
+									}}
+								>
+									<Image
+										src={boat}
+										alt="boat"
+										style={{
+											transform: `rotate(${percentageCrossed < 30 ? -((returnRotation((Math.max(percentageCrossed, 1.6 * percentageCrossed ** 0.7 + 4) * totals.length) / 100) * 180) / Math.PI) : -((returnRotation((percentageCrossed * totals.length) / 100) * 180) / Math.PI)}deg)`,
+										}}
+									/>
+								</div>
 							</div>
 							<div className={styles.clockPos}>
 								<CountdownClock
@@ -179,7 +202,6 @@ const Countdown: React.FC<CountdownProps> = ({ schedule }) => {
 						</div>
 					) : (
 						<div className={styles.preCountdown}>
-							{" "}
 							<CountdownClock
 								countdownTo={
 									curTime > hackStartTime ? hackEndTime : hackStartTime

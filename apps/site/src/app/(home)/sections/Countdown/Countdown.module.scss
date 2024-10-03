@@ -83,6 +83,11 @@
 	justify-content: center;
 }
 
+.boat {
+	position: absolute;
+	transform: translate(-50%, 40%);
+}
+
 .outerCircle {
 	background-color: #ffffff;
 	// border-color: #1a1840;

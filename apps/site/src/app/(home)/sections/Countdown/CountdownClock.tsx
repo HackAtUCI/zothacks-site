@@ -41,8 +41,12 @@ const CountdownClock: React.FC<CountdownProps> = ({
 							{Math.floor(remainingSeconds / (60 * 60 * 24))
 								.toString()
 								.split("")
-								.map((el) => {
-									return <span className={styles.number}>{el}</span>;
+								.map((el, i) => {
+									return (
+										<span key={`second-${i}`} className={styles.number}>
+											{el}
+										</span>
+									);
 								})}
 						</span>
 						<span className={styles.timeText}>Days</span>
@@ -55,8 +59,8 @@ const CountdownClock: React.FC<CountdownProps> = ({
 								{Math.floor(remainingSeconds / (60 * 60))
 									.toString()
 									.split("")
-									.map((el) => {
-										return <span className={styles.number}>{el}</span>;
+									.map((el, i) => {
+										return <span key={`hours-${i}`} className={styles.number}>{el}</span>;
 									})}
 							</>
 						) : (
