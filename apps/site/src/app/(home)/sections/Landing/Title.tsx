@@ -18,6 +18,8 @@ export default function Title() {
 				alt="ZotHacks Title"
 				className={styles.title}
 			/>
+			<h2 className={styles.date}>November 1-3, 2024</h2>
+			
 		</motion.div>
 	);
 }

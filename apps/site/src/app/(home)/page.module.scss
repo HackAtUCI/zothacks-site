@@ -14,4 +14,10 @@ $container-padding: 6rem;
 			@include bootstrap.padding-bottom($container-padding);
 		}
 	}
+
+	background-image: url("~@/assets/background/ocean-sand-background.svg");
+	background-size: cover;
+	background-size: 100vw auto;
+	background-repeat: no-repeat;
+	min-height: 300vh;
 }

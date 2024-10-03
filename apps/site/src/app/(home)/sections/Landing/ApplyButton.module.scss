@@ -1,38 +1,47 @@
-@use "bootstrap-utils" as bootstrap;
-@use "zothacks-theme" as theme;
+.apply {
+	width: 400px;
+    transition-duration: 200ms;
+}
 
-$highlighter: rgba(theme.$yellow, 0.7);
-$skew-amount: -30deg;
+.apply:hover {
+	scale: 1.1;
+}
 
-.applyButton {
-	@include bootstrap.button-variant(
-		$highlighter,
-		$highlighter,
-		$hover-border: theme.$black,
-		$active-border: theme.$black
-	);
-	--bs-btn-font-weight: bold;
-	--bs-btn-border-width: 4px;
+.outline {
+    stroke: white;
+    transition: stroke 200ms ease-in-out;
+}
 
-	@include bootstrap.font-size(bootstrap.$h4-font-size);
 
-	transform: skew($skew-amount);
-	// unskew children
-	> * {
-		width: max-content;
-		display: block;
-		transform: skew(-$skew-amount);
-	}
+svg:hover .outline {
+    stroke: yellow;
+}
 
-	box-shadow:
-		2px 3px 8px rgba(black, 0.2),
-		4px 6px 16px rgba(black, 0.2);
+.text {
+    fill: white;
+    transition: fill 200ms ease;
+}
 
-	&:hover,
-	&:focus {
-		text-decoration: underline;
-		box-shadow:
-			2px 3px 16px rgba(black, 0.3),
-			4px 6px 32px rgba(black, 0.3);
-	}
+
+svg:hover .text {
+    fill: yellow;
+}
+
+
+@media (max-width: 1200px) {
+    .apply {
+        width: 350px; /* Large viewport */
+    }
+}
+
+@media (max-width: 768px) {
+    .apply {
+        width: 300px; /* Tablet viewport */
+    }
+}
+
+@media (max-width: 480px) {
+    .apply {
+        width: 200px; /* Mobile viewport */
+    }
 }

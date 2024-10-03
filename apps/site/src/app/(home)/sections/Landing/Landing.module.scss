@@ -1,7 +1,8 @@
 .landing {
-	padding-top: 121.27%;
-	background-image: url("~@/assets/background/ocean-sand-background.svg");
-	background-size: cover;
+	position: absolute;
+	left: 50vw;
+	top: 28vw;
+	transform: translate(-50%, -65%);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -11,5 +12,4 @@
 }
 
 .title {
-	margin-top: -190%;
 }

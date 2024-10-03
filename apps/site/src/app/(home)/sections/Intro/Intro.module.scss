@@ -1,57 +1,46 @@
-@use "bootstrap-utils" as bootstrap;
+.description {
+    text-align: center;
+    font-size: 1em;
+}
+
+.header {
+    font-size: 1.8em;
+    margin-bottom: .5em;
+}
+
+.introBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 800px;
+}
 
 .intro {
-	@include bootstrap.padding(10rem 0.5rem);
-	margin-left: 10px;
-	margin-right: 10px;
-
-	background-image: url("~@/assets/images/index-card-mobile.svg");
-	background-size: cover;
-	background-position: top;
-	background-repeat: no-repeat;
-	position: relative;
-	text-align: center;
-	box-shadow:
-		4px 4px 5px 4px rgba(0, 0, 0, 0.2),
-		-1px -1px 8px 4px rgba(0, 0, 0, 0.2);
-
-	h2 {
-		@include bootstrap.margin-bottom(3rem);
-	}
-
-	@include bootstrap.media-breakpoint-up(sm) {
-		@include bootstrap.padding(8rem 4rem);
-		background-image: url("~@/assets/images/index-card.svg");
-		background-size: 100% 100%;
-		box-shadow: none;
-	}
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    margin-top: 30vw;
 }
 
-.pin {
-	position: absolute;
-	top: -12%;
-	left: 45%;
-	width: auto;
-
-	@include bootstrap.media-breakpoint-down(xl) {
-		left: 45%;
-	}
-	@include bootstrap.media-breakpoint-down(lg) {
-		left: 40%;
-	}
-	@include bootstrap.media-breakpoint-down(md) {
-		left: 35%;
-	}
+@media (max-width: 1200px) {
+    /* Large viewport */
+    .description {
+        text-align: center;
+        font-size: 1em;
+    }
+    
+    .header {
+        font-size: 1.8em;
+        margin-bottom: .5em;
+    }
 }
 
-.hackDoodle {
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	transform: translate(-25%, 50%);
-	width: auto;
+@media (max-width: 768px) {
+    /* Tablet viewport */
+    
+}
 
-	@include bootstrap.media-breakpoint-down(lg) {
-		display: none;
-	}
+@media (max-width: 480px) {
+    /* Mobile viewport */
+    
 }
