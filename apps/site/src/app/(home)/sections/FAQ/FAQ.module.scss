@@ -15,21 +15,12 @@ $question-font-size: 20px;
 	color: theme.$purple;
 }
 
-.faq {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	width: 90%;
-
-	padding-bottom: 1.875rem;
-}
-
 .container {
 	position: relative;
 	padding-top: 6rem;
 	padding-bottom: 6rem;
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-evenly;
 	width: 100vw;
 }
 
@@ -117,9 +108,5 @@ $question-font-size: 20px;
 
 	.container {
 		padding-right: 30px;
-	}
-
-	.faq {
-		width: 70%;
 	}
 }

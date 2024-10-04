@@ -1,7 +1,9 @@
+import { Container } from "react-bootstrap";
+import { PortableText } from "@portabletext/react";
+
 import { getQuestions } from "./getQuestions";
 import FAQAccordion from "./FAQAccordion";
 
-import { PortableText } from "@portabletext/react";
 import styles from "./FAQ.module.scss";
 
 import leftAnteater from "@/assets/images/left-faq-anteater.svg";
@@ -24,7 +26,7 @@ const FAQ = async () => {
 				className={styles["left-anteater"]}
 			/>
 
-			<div className={styles.faq}>
+			<Container as="div" className="m-0">
 				<div
 					className={`${styles["accordion-border"]} ${styles["answer-body"]} ${styles["header-body"]}`}
 				>
@@ -43,7 +45,7 @@ const FAQ = async () => {
 					</p>
 				</div>
 				<FAQAccordion faq={faq} />
-			</div>
+			</Container>
 
 			<AnteaterFloatie
 				src={rightAnteater}
