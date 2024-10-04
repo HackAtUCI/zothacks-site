@@ -54,7 +54,7 @@ const ApplyButton = () => {
 			}}
 			transition={{ duration: 0.5 }}
 		>
-			<Link href="/apply">
+			<Link href="https://forms.gle/2vZ1pqNWk27qZc236">
 				<ApplyButtonIcon />
 			</Link>
 		</motion.div>
