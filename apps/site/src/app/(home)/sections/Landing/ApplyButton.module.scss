@@ -1,38 +1,40 @@
 @use "bootstrap-utils" as bootstrap;
-@use "zothacks-theme" as theme;
 
-$highlighter: rgba(theme.$yellow, 0.7);
-$skew-amount: -30deg;
+.apply {
+	width: 45vw;
+	transition-duration: 200ms;
 
-.applyButton {
-	@include bootstrap.button-variant(
-		$highlighter,
-		$highlighter,
-		$hover-border: theme.$black,
-		$active-border: theme.$black
-	);
-	--bs-btn-font-weight: bold;
-	--bs-btn-border-width: 4px;
-
-	@include bootstrap.font-size(bootstrap.$h4-font-size);
-
-	transform: skew($skew-amount);
-	// unskew children
-	> * {
-		width: max-content;
-		display: block;
-		transform: skew(-$skew-amount);
+	@include bootstrap.media-breakpoint-up(sm) {
+		width: 35vw;
 	}
 
-	box-shadow:
-		2px 3px 8px rgba(black, 0.2),
-		4px 6px 16px rgba(black, 0.2);
-
-	&:hover,
-	&:focus {
-		text-decoration: underline;
-		box-shadow:
-			2px 3px 16px rgba(black, 0.3),
-			4px 6px 32px rgba(black, 0.3);
+	@include bootstrap.media-breakpoint-up(md) {
+		width: 30vw;
 	}
+
+	@include bootstrap.media-breakpoint-up(lg) {
+		width: 25vw;
+	}
+}
+
+.apply:hover {
+	scale: 1.1;
+}
+
+.outline {
+	stroke: white;
+	transition: stroke 200ms ease-in-out;
+}
+
+svg:hover .outline {
+	stroke: yellow;
+}
+
+.text {
+	fill: white;
+	transition: fill 200ms ease;
+}
+
+svg:hover .text {
+	fill: yellow;
 }
