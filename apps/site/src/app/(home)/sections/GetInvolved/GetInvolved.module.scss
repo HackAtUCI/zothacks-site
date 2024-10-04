@@ -64,15 +64,15 @@ $speech-shadow: 0 10px 0 rgba(1, 57, 70, 0.2);
 }
 
 .anteaterImage {
+	&:hover {
+		transform: scale(1.05);
+		animation: rotateAnimation 0.7s ease-in-out 1;
+	}
+
 	height: 187px;
 	width: 136px;
 	z-index: 5;
 	transition: transform 0.5s ease-in-out;
-}
-
-.anteaterImage:hover {
-	transform: scale(1.05);
-	animation: rotateAnimation 0.7s ease-in-out 1;
 }
 
 @keyframes rotateAnimation {
