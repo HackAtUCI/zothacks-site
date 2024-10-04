@@ -15,7 +15,6 @@
 	@include bootstrap.media-breakpoint-up(sm) {
 		font-size: 2rem;
 	}
-	// margin-bottom: 0.5em;
 }
 
 .intro {
@@ -24,7 +23,6 @@
 	justify-content: center;
 	max-width: 90vw;
 	margin-top: 3vw;
-	// padding: 0 80px 0 80px;
 
 	@media screen and (min-width: 400px) {
 		margin-top: 12.5vw;

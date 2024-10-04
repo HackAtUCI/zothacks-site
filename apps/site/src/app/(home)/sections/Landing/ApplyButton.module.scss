@@ -4,6 +4,10 @@
 	width: 45vw;
 	transition-duration: 200ms;
 
+	&:hover {
+		scale: 1.1;
+	}
+
 	@include bootstrap.media-breakpoint-up(sm) {
 		width: 35vw;
 	}
@@ -17,24 +21,22 @@
 	}
 }
 
-.apply:hover {
-	scale: 1.1;
-}
-
 .outline {
 	stroke: white;
 	transition: stroke 200ms ease-in-out;
 }
 
-svg:hover .outline {
-	stroke: yellow;
+svg:hover {
+	.outline {
+		stroke: yellow;
+	}
+
+	.text {
+		fill: yellow;
+	}
 }
 
 .text {
 	fill: white;
 	transition: fill 200ms ease;
-}
-
-svg:hover .text {
-	fill: yellow;
 }
