@@ -17,9 +17,10 @@
 }
 
 .title {
-	margin-top: -355%;
+	position: absolute;
+	top: 27.5vw;
 
 	@include bootstrap.media-breakpoint-up(md) {
-		margin-top: -190%;
+		top: 14vw;
 	}
 }
