@@ -3,6 +3,7 @@ import { getSponsors } from "./getSponsors";
 import styles from "./Sponsors.module.scss";
 import { client } from "@/lib/sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
+import { Container } from "react-bootstrap";
 
 const builder = imageUrlBuilder(client);
 
@@ -31,7 +32,7 @@ const Sponsors = async () => {
 	const allSponsors = [...sponsors.sponsors, ...fakeSponsorLogos];
 
 	return (
-		<section className={styles.container}>
+		<Container as="section">
 			<h2 className={styles.title}>SPONSORS</h2>
 			<div className={styles.logos}>
 				{allSponsors.map(({ _key, name, url, logo }) => (
@@ -53,7 +54,7 @@ const Sponsors = async () => {
 					</a>
 				))}
 			</div>
-		</section>
+		</Container>
 	);
 };
 

@@ -1,20 +1,20 @@
 @use "zothacks-theme" as theme;
 @use "bootstrap-utils" as utils;
 
-.container {
-	padding-top: 6rem;
-	padding-bottom: 6rem;
-}
+// .container {
+//     padding-top: 6rem;
+//     padding-bottom: 6rem;
+// }
 
 .title {
 	text-align: center;
 	color: theme.$white;
-	font-size: 3rem;
+	font-size: 2rem;
 	font-weight: bold;
 	margin-bottom: 3rem;
 
-	@include utils.media-breakpoint-down(sm) {
-		font-size: 2rem;
+	@include utils.media-breakpoint-up(md) {
+		font-size: 3rem;
 	}
 }
 
@@ -28,7 +28,7 @@
 }
 
 .logo {
-	width: calc(25% - 1.5rem);
+	width: calc(50% - 1.5rem);
 	aspect-ratio: 16 / 9;
 	background-color: theme.$white;
 	border-radius: 8px;
@@ -41,12 +41,12 @@
 		transform: scale(1.05);
 	}
 
-	@include utils.media-breakpoint-down(md) {
+	@include utils.media-breakpoint-up(sm) {
 		width: calc(33.333% - 1.5rem);
 	}
 
-	@include utils.media-breakpoint-down(sm) {
-		width: calc(50% - 1.5rem);
+	@include utils.media-breakpoint-up(lg) {
+		width: calc(25% - 1.5rem);
 	}
 
 	img {
@@ -59,17 +59,14 @@
 .placeholderLogo {
 	width: 100%;
 	height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
 	font-weight: bold;
 	color: theme.$black;
 	text-align: center;
-	padding: 1rem;
-	font-size: 1rem; // Default font size
+	padding: 0.5rem;
+	font-size: 0.8rem;
 
-	@include utils.media-breakpoint-down(sm) {
-		font-size: 0.8rem; // Smaller font size for mobile
-		padding: 0.5rem; // Reduced padding for mobile to accommodate smaller text
+	@include utils.media-breakpoint-up(md) {
+		font-size: 1rem;
+		padding: 1rem;
 	}
 }
