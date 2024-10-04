@@ -12,7 +12,6 @@ const Home = () => {
 	return (
 		<div className={styles.home}>
 			<Landing />
-			{/* <Intro /> */}
 			<GetInvolved />
 			{/* <Sponsors /> */}
 			{/* <FAQ /> */}
