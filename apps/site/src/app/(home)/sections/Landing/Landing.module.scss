@@ -1,15 +1,26 @@
+@use "bootstrap-utils" as bootstrap;
+
 .landing {
-	padding-top: 121.27%;
-	background-image: url("~@/assets/background/ocean-sand-background.svg");
+	padding-top: 216.82%;
+	background-image: url("~@/assets/background/ocean-sand-mobile-background.svg");
 	background-size: cover;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-
 	text-align: center;
+
+	@include bootstrap.media-breakpoint-up(md) {
+		padding-top: 121.27%;
+		background-image: url("~@/assets/background/ocean-sand-background.svg");
+	}
 }
 
 .title {
-	margin-top: -190%;
+	position: absolute;
+	top: 27.5vw;
+
+	@include bootstrap.media-breakpoint-up(md) {
+		top: 14vw;
+	}
 }
