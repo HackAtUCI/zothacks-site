@@ -26,6 +26,10 @@ $speech-shadow: 0 10px 0 rgba(1, 57, 70, 0.2);
 	box-shadow: $speech-shadow;
 }
 
+.container {
+	padding-top: 0 !important;
+}
+
 .headingText {
 	color: theme.$white;
 	margin-bottom: 48px;

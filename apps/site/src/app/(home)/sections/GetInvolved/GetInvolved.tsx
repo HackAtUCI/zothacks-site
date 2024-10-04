@@ -24,7 +24,7 @@ const GetInvolved = () => {
 	);
 
 	return (
-		<Container as="section">
+		<Container className={styles.container} as="section">
 			{sectionHeading}
 			<div>
 				<div className={styles.speechSectionLeft}>
