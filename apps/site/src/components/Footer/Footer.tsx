@@ -7,10 +7,10 @@ import clsx from "clsx";
 import styles from "./Footer.module.scss";
 
 import Mail from "@/assets/icons/mail_icon.svg";
-import Discord from "@/assets/icons/discord-mark-white.svg";
-import Instagram from "@/assets/icons/Instagram_Glyph_White.svg";
-import Hack from "@/assets/icons/hack-logo.svg";
-import TikTok from "@/assets/icons/TikTok-Social-Icon-Mono-White.svg";
+import Discord from "@/assets/icons/discord.svg";
+import Instagram from "@/assets/icons/instagram.svg";
+import Hack from "@/assets/icons/hack.svg";
+import TikTok from "@/assets/icons/tiktok.svg";
 
 type Social = {
 	icon: any;
@@ -68,10 +68,7 @@ export default function Footer() {
 			<div className={styles.buttons}>
 				<div id={styles.box}>
 					<div className={clsx(styles.left_footer, styles.links)}>
-						<Link
-							href="/"
-							className={styles.left_footer_text}
-						>
+						<Link href="/" className={styles.left_footer_text}>
 							Home
 						</Link>
 						{/* <Link
@@ -104,9 +101,7 @@ export default function Footer() {
 					</div>
 				</div>
 
-				<a href="/apply" 
-				className={styles.button}
-				target="_blank">
+				<a href="/apply" className={styles.button} target="_blank">
 					Apply Now
 				</a>
 			</div>
