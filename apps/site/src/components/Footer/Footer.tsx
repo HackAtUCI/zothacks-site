@@ -7,10 +7,10 @@ import clsx from "clsx";
 import styles from "./Footer.module.scss";
 
 import Mail from "@/assets/icons/mail_icon.svg";
-import Discord from "@/assets/icons/discord.svg";
+import Discord from "@/assets/icons/discord-mark-white.svg";
 import Instagram from "@/assets/icons/Instagram_Glyph_White.svg";
-import Hack from "@/assets/icons/HACK LOGO.svg";
-import TikTok from "@/assets/icons/tiktok.svg";
+import Hack from "@/assets/icons/hack-logo.svg";
+import TikTok from "@/assets/icons/TikTok-Social-Icon-Mono-White.svg";
 
 type Social = {
 	icon: any;
@@ -82,7 +82,7 @@ export default function Footer() {
 							Devpost
 						</Link> */}
 						<Link
-							href="https://zothacks-2023.devpost.com/"
+							href="https://hack.ics.uci.edu/"
 							className={styles.left_footer_text}
 							target="_blank"
 						>
