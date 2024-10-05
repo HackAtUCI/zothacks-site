@@ -2,7 +2,7 @@ export const revalidate = 60;
 
 import Landing from "./sections/Landing";
 import Intro from "./sections/Intro";
-import Mentor from "./sections/Mentor";
+import GetInvolved from "./sections/GetInvolved";
 import Sponsors from "./sections/Sponsors";
 import FAQ from "./sections/FAQ";
 import Footer from "../../components/Footer/Footer";
@@ -17,7 +17,9 @@ const Home = () => {
 			<Mentor />
 			<Sponsors />
 			<FAQ /> */}
-			<Footer />
+			<GetInvolved />
+			{/* <Sponsors /> */}
+			{/* <FAQ /> */}
 		</div>
 	);
 };

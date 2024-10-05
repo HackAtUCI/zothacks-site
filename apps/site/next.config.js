@@ -10,12 +10,12 @@ const nextConfig = {
 		return [
 			{
 				source: "/apply",
-				destination: "https://forms.gle/nxRU44y9Gd5mrmXUA",
+				destination: "https://forms.gle/2vZ1pqNWk27qZc236",
 				permanent: true,
 			},
 			{
 				source: "/mentor",
-				destination: "https://forms.gle/fwWJtsQ3GXQFGjS47",
+				destination: "https://forms.gle/RBJ6RL1LBpmGfk3w6",
 				permanent: true,
 			},
 		];
