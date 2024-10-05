@@ -3,7 +3,7 @@ import { getSponsors } from "./getSponsors";
 import styles from "./Sponsors.module.scss";
 import { client } from "@/lib/sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
-import { Container } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
 
 const builder = imageUrlBuilder(client);
 
