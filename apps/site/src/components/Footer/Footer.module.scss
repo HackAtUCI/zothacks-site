@@ -11,10 +11,9 @@
 	margin-left: 5px;
 	text-decoration: none;
 	font-weight: 500;
-}
-
-.left_footer_text:hover {
-	text-decoration: underline;
+	&:hover {
+		text-decoration: underline;
+	}
 }
 
 .button {
@@ -29,11 +28,11 @@
 	margin: 0.5vw;
 	border-radius: 8px;
 	font-weight: 500;
-}
 
-.button:hover {
-	transform: scale(1.025);
-	filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.4));
+	&:hover {
+		transform: scale(1.025);
+		filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.4));
+	}
 }
 
 .right_footer {
@@ -64,11 +63,11 @@
 	transition:
 		transform,
 		filter 0.25s;
-}
 
-.socials:hover {
-	transform: scale(1.025);
-	filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.4));
+	&:hover {
+		transform: scale(1.025);
+		filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.4));
+	}
 }
 
 @media only screen and (max-width: 600px) {
