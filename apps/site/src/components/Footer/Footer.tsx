@@ -7,7 +7,7 @@ import clsx from "clsx";
 import styles from "./Footer.module.scss";
 
 import Mail from "@/assets/icons/mail_icon.svg";
-import Facebook from "@/assets/icons/facebook.svg";
+import Discord from "@/assets/icons/discord.svg";
 import Instagram from "@/assets/icons/Instagram_Glyph_White.svg";
 import Hack from "@/assets/icons/HACK LOGO.svg";
 import TikTok from "@/assets/icons/tiktok.svg";
@@ -33,9 +33,9 @@ const RIGHT_SOCIALS: Social[] = [
 		alt: "Mail icon that creates an email with Hack at UCI as sender",
 	},
 	{
-		icon: Facebook,
-		link: "https://www.facebook.com/UCI.Hack/",
-		alt: "Facebook logo that links to Hack at UCI's Facebook",
+		icon: Discord,
+		link: "https://discord.com/invite/pvkGxq2AWM",
+		alt: "Discord logo that links to Hack at UCI's Discord server",
 	},
 	{
 		icon: Instagram,
@@ -69,7 +69,7 @@ export default function Footer() {
 				<div id={styles.box}>
 					<div className={clsx(styles.left_footer, styles.links)}>
 						<Link
-							href="/#"
+							href="/"
 							className={styles.left_footer_text}
 						>
 							Home
@@ -104,7 +104,7 @@ export default function Footer() {
 					</div>
 				</div>
 
-				<a href="https://docs.google.com/forms/d/e/1FAIpQLSeZN1njLZC9N_JE9eMYbtSZ95O1SafaZVLddTNReln6eZR7Vg/viewform" 
+				<a href="/apply" 
 				className={styles.button}
 				target="_blank">
 					Apply Now
