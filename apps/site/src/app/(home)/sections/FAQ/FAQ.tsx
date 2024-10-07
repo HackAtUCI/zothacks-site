@@ -1,4 +1,4 @@
-import { Container } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
 import { PortableText } from "@portabletext/react";
 
 import { getQuestions } from "./getQuestions";
