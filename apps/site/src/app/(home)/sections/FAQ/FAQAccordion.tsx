@@ -2,7 +2,6 @@
 
 import Accordion from "react-bootstrap/Accordion";
 import styles from "./FAQ.module.scss";
-import { AccordionButton } from "react-bootstrap";
 
 interface FAQAccordion {
 	faq: {
