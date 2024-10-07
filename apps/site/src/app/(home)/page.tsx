@@ -15,7 +15,7 @@ const Home = () => {
 			<GetInvolved />
 			{/* <Sponsors /> */}
 			{/* <FAQ /> */}
-      <FAQ />
+			<FAQ />
 		</div>
 	);
 };

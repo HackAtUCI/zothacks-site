@@ -40,9 +40,9 @@ const FAQ = async () => {
 						If you don't find what you're looking for, reach out to our team at{" "}
 						<a
 							className={styles["purple-text"]}
-							href="mailto:hackatuci@uci.edu"
+							href="mailto:hack@uci.edu"
 						>
-							hackatuci@uci.edu
+							hack@uci.edu
 						</a>
 					</p>
 				</div>
