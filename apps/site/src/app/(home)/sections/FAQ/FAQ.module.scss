@@ -1,6 +1,9 @@
 @use "zothacks-theme" as theme;
 @use "bootstrap-utils" as utils;
 
+$mobile-item-padding-y: 26px;
+$mobile-item-padding-x: 32px;
+
 $item-padding-y: 32px;
 $item-padding-x: 48px;
 
@@ -59,15 +62,15 @@ $question-font-size: 20px;
 }
 
 .header-body {
-	padding: $item-padding-y $item-padding-x;
+	padding: $mobile-item-padding-y $mobile-item-padding-x;
 }
 
 .accordion {
-	--bs-accordion-body-padding-y: #{$item-padding-y};
-	--bs-accordion-body-padding-x: #{$item-padding-x};
+	--bs-accordion-body-padding-y: #{$mobile-item-padding-y};
+	--bs-accordion-body-padding-x: #{$mobile-item-padding-x};
 
-	--bs-accordion-btn-padding-y: #{$item-padding-y};
-	--bs-accordion-btn-padding-x: #{$item-padding-x};
+	--bs-accordion-btn-padding-y: #{$mobile-item-padding-y};
+	--bs-accordion-btn-padding-x: #{$mobile-item-padding-x};
 
 	--bs-accordion-btn-icon-width: 32px;
 	--bs-accordion-btn-icon: url("~@/assets/icons/plus.svg");
@@ -84,6 +87,18 @@ $question-font-size: 20px;
 @include utils.media-breakpoint-up(md) {
 	.body {
 		margin-left: 110px;
+	}
+
+	.header-body {
+		padding: $item-padding-y $item-padding-x;
+	}
+
+	.accordion {
+		--bs-accordion-body-padding-y: #{$item-padding-y};
+		--bs-accordion-body-padding-x: #{$item-padding-x};
+	
+		--bs-accordion-btn-padding-y: #{$item-padding-y};
+		--bs-accordion-btn-padding-x: #{$item-padding-x};
 	}
 
 	.left-anteater {
