@@ -20,7 +20,7 @@ const FAQAccordion: React.FC<FAQAccordion> = ({ faq }) => {
 					className={styles["accordion-border"]}
 					eventKey={_key}
 				>
-					<Accordion.Header as="h3" className={styles["question-body"]}>
+					<Accordion.Header as="h4" className={styles["question-body"]}>
 						{question}
 					</Accordion.Header>
 					<Accordion.Body className={styles["answer-body"]}>

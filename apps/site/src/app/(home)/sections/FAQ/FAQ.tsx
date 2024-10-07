@@ -30,7 +30,7 @@ const FAQ = async () => {
 				<div
 					className={`${styles["accordion-border"]} ${styles["answer-body"]} ${styles["header-body"]}`}
 				>
-					<span className="h4">
+					<span className={styles["faq-header"] + " h4"}>
 						<h2 className="visually-hidden">FAQ</h2>
 						<span className={styles["light-blue-text"]}>FAQ!</span> Here's
 						answers to our most commonly asked questions!
