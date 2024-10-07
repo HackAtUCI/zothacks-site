@@ -1,0 +1,29 @@
+// EducationSiteArcGISPro_SingleUse_1333257.prvc
+
+//Provision
+Provision ID=65A06A4B-3336-4FEF-967E0DA70D1BE9B1
+Comment=FY24 ArcGIS Pro provisioning file
+
+
+// User Information
+First Name=
+Last Name=
+Organization=University of California
+Department=
+Email=
+Address 1=
+City=
+State/Province=
+Location Code=
+Location=
+Zip/Postal Code=
+Phone Number=
+// Version=10.1
+
+// Features and authorization numbers
+Desktop Advanced=ESU250229801
+Aviation Charting=ESU636260077
+Maritime Bathymetry=ESU259421013
+Business Analyst=ESU553141824
+LocateXT=ESU409551532
+Maritime Charting=ESU706700639
