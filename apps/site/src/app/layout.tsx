@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 };
 
 const fredoka = Fredoka({
-	weight: ["400", "600", "700"],
+	weight: ["400", "500", "600", "700"],
 	subsets: ["latin"],
 	variable: "--next-font-fredoka",
 });
@@ -32,7 +32,7 @@ export default function RootLayout({
 			<body className="background">
 				{/* <NavBar /> */}
 				<main>{children}</main>
-				{/* <Footer /> */}
+				<Footer />
 			</body>
 		</html>
 	);
