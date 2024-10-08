@@ -1,94 +1,94 @@
 @use "zothacks-theme" as theme;
 @use "bootstrap-utils" as utils;
 
-.faq {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	width: 80%;
+$mobile-item-padding-y: 26px;
+$mobile-item-padding-x: 32px;
 
-	padding-bottom: 1.875rem;
-	background-color: theme.$beige;
-}
+$item-padding-y: 32px;
+$item-padding-x: 48px;
 
 .container {
+	position: relative;
 	padding-top: 6rem;
 	padding-bottom: 6rem;
 	display: flex;
-	justify-content: center;
+	justify-content: space-evenly;
+	width: 100vw;
 }
 
-.title {
-	margin-top: 1.5rem;
-	margin-bottom: 1.5rem;
+.left-anteater {
+	display: none;
 }
 
-.vertical-line {
-	position: absolute;
-	justify-self: flex-start;
-
-	height: 100%;
-	width: 45px;
-	border-right: 3px solid rgba(theme.$red, 0.45);
-}
-
-.body {
-	margin-left: 40px;
-	margin-right: 10px;
-}
-
-.accordion {
-	--bs-accordion-btn-icon-width: 14px;
-	--bs-accordion-btn-icon: url("~@/assets/icons/plus-lg.svg");
-	--bs-accordion-btn-active-icon: url("~@/assets/icons/dash-lg.svg");
-	--bs-accordion-bg: none;
+.right-anteater {
+	display: none;
 }
 
 .accordion-border {
-	border-bottom: 2px solid theme.$light-blue;
-	border-top: 2px solid theme.$light-blue;
+	margin-bottom: 8px;
 }
 
-.star-lg {
-	position: absolute;
-	left: -60px;
-	top: -120px;
-	transform: rotate(-25deg);
-	filter: drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.25));
+.question-body {
+	background-color: theme.$white;
+	border: 6px solid theme.$white;
+	box-shadow: inset 0 0 0 6px theme.$black;
+	border-radius: 16px;
 
-	width: 200px;
-	height: 200px;
-	visibility: hidden;
+	& > * > * {
+		font-weight: 600;
+	}
 }
 
-.star-sm {
-	position: absolute;
-	right: -25px;
-	top: -60px;
-	transform: rotate(15deg);
-	filter: drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.25));
+.answer-body {
+	background-color: theme.$light-green;
+	border: 6px solid theme.$light-green;
+	box-shadow: inset 0 0 0 6px theme.$lighter-black;
+	border-radius: 16px;
 
-	width: 120px;
-	height: 120px;
+	margin-top: 8px;
+
+	& > * {
+		margin: 0;
+		font-weight: 500;
+	}
+
+	& > * > * {
+		font-weight: 500;
+	}
 }
 
-.eraser {
-	position: absolute;
-	left: -80px;
-	bottom: -110px;
-	filter: drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.25));
+.header-body {
+	padding: $mobile-item-padding-y $mobile-item-padding-x;
+}
 
-	width: 220px;
-	height: 220px;
+.faq-header, .faq-header > * {
+	font-weight: 600;
+}
+
+.light-blue-text {
+	color: theme.$light-blue;
+}
+
+.purple-text {
+	color: theme.$purple;
+}
+
+.accordion {
+	--bs-accordion-body-padding-y: #{$mobile-item-padding-y};
+	--bs-accordion-body-padding-x: #{$mobile-item-padding-x};
+
+	--bs-accordion-btn-padding-y: #{$mobile-item-padding-y};
+	--bs-accordion-btn-padding-x: #{$mobile-item-padding-x};
+
+	--bs-accordion-btn-icon-width: 32px;
+	--bs-accordion-btn-icon: url("~@/assets/icons/plus.svg");
+	--bs-accordion-btn-active-icon: url("~@/assets/icons/dash.svg");
+	--bs-accordion-bg: none;
 }
 
 @include utils.media-breakpoint-up(sm) {
 	.body {
 		margin-left: 60px;
-	}
-
-	.vertical-line {
-		width: 70px;
 	}
 }
 
@@ -97,25 +97,44 @@
 		margin-left: 110px;
 	}
 
-	.vertical-line {
-		border-right: 4px solid rgba(theme.$red, 0.45);
-		width: 116px;
+	.header-body {
+		padding: $item-padding-y $item-padding-x;
+	}
+
+	.accordion {
+		--bs-accordion-body-padding-y: #{$item-padding-y};
+		--bs-accordion-body-padding-x: #{$item-padding-x};
+
+		--bs-accordion-btn-padding-y: #{$item-padding-y};
+		--bs-accordion-btn-padding-x: #{$item-padding-x};
 	}
 
 	.accordion-border {
-		border-bottom-width: 3px;
-		border-top-width: 3px;
+		margin-left: 10px;
+		margin-right: 10px;
 	}
 
-	.star-lg {
-		visibility: visible;
+	.left-anteater {
+		display: block;
+		position: sticky;
+
+		top: 0;
+		margin-bottom: 250px;
+		z-index: 2;
 	}
 
-	.star-sm {
-		visibility: hidden;
+	.right-anteater {
+		display: block;
+		position: sticky;
+
+		margin-top: 20%;
+		margin-bottom: 250px;
+		top: 25%;
+
+		z-index: 2;
 	}
 
-	.eraser {
-		visibility: hidden;
+	.container {
+		padding-right: 30px;
 	}
 }
