@@ -14,7 +14,7 @@ interface ResourceCardProps {
 	description: JSX.Element;
 	stickerSrc?: string;
 	links: Tag[];
-	stickyNoteColor: string;
+	islandBackground: string;
 }
 
 const variant: Variants = {
@@ -43,7 +43,7 @@ export default function ResourceCard({
 	description,
 	stickerSrc,
 	links,
-	stickyNoteColor,
+	islandBackground,
 }: ResourceCardProps) {
 	return (
 		<AnimatePresence mode="wait">
@@ -73,10 +73,8 @@ export default function ResourceCard({
 					whileInView="animate"
 					viewport={{ once: true }}
 					className={styles.group}
-					style={{
-						backgroundColor: `${stickyNoteColor}`,
-					}}
 				>
+					<motion.img src={islandBackground} alt="island" />
 					<div className={styles.container + " text-center px-3"}>
 						{stickerSrc && (
 							<motion.img
