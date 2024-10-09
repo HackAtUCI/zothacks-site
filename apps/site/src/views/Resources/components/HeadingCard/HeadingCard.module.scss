@@ -3,7 +3,6 @@
 $item-padding-y: 32px;
 $item-padding-x: 48px;
 
-$answer-font-size: 16px;
 $heading-font-size: 28px;
 
 .card {
@@ -23,10 +22,12 @@ $heading-font-size: 28px;
 }
 
 .title {
-    font-size: $heading-font-size;
-    color: theme.$light-blue;
+	font-size: $heading-font-size;
+	font-weight: 600;
+	color: theme.$light-blue;
 }
 
 .description {
-    margin: 0;
+	margin: 0;
+	font-weight: 500;
 }
