@@ -1,7 +1,7 @@
 import Image from "next/image";
+import resourcesTitle from "@/assets/images/resources-title.svg";
 
 import styles from "./Landing.module.scss";
-import resourcesTitle from "@/assets/images/resources-title.svg";
 
 function Landing() {
 	return (

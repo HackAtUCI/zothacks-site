@@ -1,13 +1,12 @@
 import { PortableText } from "@portabletext/react";
+import { client } from "@/lib/sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
 
-import styles from "./ApiResources.module.scss";
-
-import ResourceCard from "../../components/ResourceCard/ResourceCard";
 import { getResources } from "../../getResources";
-import { client } from "@/lib/sanity/client";
-
+import ResourceCard from "../../components/ResourceCard/ResourceCard";
 import HeadingCard from "../../components/HeadingCard/HeadingCard";
+
+import styles from "./ApiResources.module.scss";
 
 async function ApiResources() {
 	const resources = await getResources("api");
