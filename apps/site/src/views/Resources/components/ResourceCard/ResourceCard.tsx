@@ -47,26 +47,12 @@ export default function ResourceCard({
 }: ResourceCardProps) {
 	return (
 		<AnimatePresence mode="wait">
-			<motion.div style={{ position: "relative" }}>
-				<motion.div
-					initial={{
-						scale: 1.1,
-						opacity: 0,
-						rotateX: 15,
-					}}
-					viewport={{ once: true }}
-					whileInView={{
-						scale: 1,
-						rotateX: 0,
-						opacity: 1,
-						transition: {
-							delay: 0.1,
-							duration: 0.65,
-							ease: cubicBezier(0.64, 0, 0.78, 0),
-						},
-					}}
-					className={styles.tape}
-				></motion.div>
+			<motion.div className={styles.CardContainer}>
+				<motion.img
+					src={islandBackground}
+					alt="island"
+					className={styles.islandBackground}
+				/>
 				<motion.div
 					variants={variant}
 					initial="initial"
@@ -74,7 +60,6 @@ export default function ResourceCard({
 					viewport={{ once: true }}
 					className={styles.group}
 				>
-					<motion.img src={islandBackground} alt="island" />
 					<div className={styles.container + " text-center px-3"}>
 						{stickerSrc && (
 							<motion.img
@@ -84,33 +69,28 @@ export default function ResourceCard({
 								variants={variant}
 							/>
 						)}
-						<h3>{title}</h3>
+						<h3>
+							{title}{" "}
+							{links.map(({ text, link }) => (
+								<motion.a
+									className="d-inline ms-1 vertical-align-middle"
+									variants={variant}
+									key={link}
+									href={link}
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									<Image
+										src={openNewWindow}
+										width="20"
+										height="20"
+										alt="Open link in new window"
+									/>
+								</motion.a>
+							))}
+						</h3>
 						{description}
 					</div>
-
-					{links.map(({ text, link }) => (
-						<motion.a
-							key={link}
-							href={link}
-							target="_blank"
-							rel="noopener noreferrer"
-							className={styles.tag}
-							variants={variant}
-						>
-							{text}
-							<motion.div
-								className="d-inline ms-1 vertical-align-middle"
-								variants={variant}
-							>
-								<Image
-									src={openNewWindow}
-									width="20"
-									height="20"
-									alt="Open link in new window"
-								/>
-							</motion.div>
-						</motion.a>
-					))}
 				</motion.div>
 			</motion.div>
 		</AnimatePresence>

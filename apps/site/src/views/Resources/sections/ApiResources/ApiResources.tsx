@@ -28,11 +28,14 @@ async function ApiResources() {
 					({ _id, title, description, link, logo, background }) => (
 						<div className={styles.column + " col"} key={_id}>
 							<ResourceCard
+								key={_id}
 								title={title}
 								description={<PortableText value={description} />}
 								stickerSrc={imageUrlBuilder(client).image(logo).url()}
 								links={[{ text: "API Reference", link: link }]}
-								islandBackground={imageUrlBuilder(client).image(background).url()}
+								islandBackground={imageUrlBuilder(client)
+									.image(background)
+									.url()}
 							/>
 						</div>
 					),
