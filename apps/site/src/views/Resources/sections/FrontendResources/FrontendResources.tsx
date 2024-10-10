@@ -21,13 +21,13 @@ async function FrontendResources() {
 			</div>
 			<div className={styles["bottom-spacer"] + " row"}>
 				{resources.map(
-					({ _id, title, description, link, logo, stickyNoteColor }) => (
+					({ _id, title, description, link, logo, background }) => (
 						<div className={styles.column + " col"} key={_id}>
 							<ResourceCard
 								title={title}
 								description={<PortableText value={description} />}
 								stickerSrc={urlImageBuilder(client).image(logo).url()}
-								stickyNoteColor={stickyNoteColor.hex}
+								islandBackground={urlImageBuilder(client).image(background).url()}
 								links={[{ text: "Reference", link: link }]}
 							/>
 						</div>

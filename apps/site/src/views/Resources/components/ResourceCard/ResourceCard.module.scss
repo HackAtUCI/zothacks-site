@@ -1,14 +1,10 @@
 @use "zothacks-theme" as theme;
+@use "bootstrap-utils" as utils;
 
 .group {
 	margin-top: 50px;
-	width: 344px;
 	position: relative;
 	padding: 1rem 0;
-	box-shadow: 0 6px 5px -2px rgba(gray, 0.5);
-	@media screen and (max-width: 400px) {
-		width: 300px;
-	}
 }
 
 .tape {
@@ -64,4 +60,49 @@
 .text {
 	width: 90%;
 	text-align: center;
+	font-family: utils.$font-family-base;
+}
+
+.islandBackground {
+	position: absolute;
+}
+
+.CardContainer {
+	position: relative;
+	height: auto;
+	aspect-ratio: 1 / 1.3;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: utils.$font-family-base;
+}
+
+@include utils.media-breakpoint-up(sm) {
+	.CardContainer {
+		width: 500px;
+		min-width: 500px;
+	}
+	.islandBackground {
+		width: 500px;
+	}
+	.group {
+		width: 300px;
+	}
+}
+
+@include utils.media-breakpoint-down(sm) {
+	.CardContainer {
+		width: 350px;
+		min-width: 350px;
+	}
+	.islandBackground {
+		width: 350px;
+	}
+	.group {
+		width: 200px;
+	}
+	.description {
+		max-height: 100px;
+		overflow: auto;
+	}
 }
