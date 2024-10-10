@@ -51,7 +51,11 @@ export default function ResourceCard({
 				<motion.img
 					src={islandBackground}
 					alt="island"
+					initial="initial"
+					viewport={{ once: true }}
+					whileInView="animate"
 					className={styles.islandBackground}
+					variants={variant}
 				/>
 				<motion.div
 					variants={variant}
@@ -89,7 +93,7 @@ export default function ResourceCard({
 								</motion.a>
 							))}
 						</h3>
-						{description}
+						<p className={styles.description}>{description}</p>
 					</div>
 				</motion.div>
 			</motion.div>
