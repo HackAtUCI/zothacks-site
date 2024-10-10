@@ -93,7 +93,7 @@ export default function ResourceCard({
 								</motion.a>
 							))}
 						</h3>
-						<p className={styles.description}>{description}</p>
+						<div className={styles.description}>{description}</div>
 					</div>
 				</motion.div>
 			</motion.div>
