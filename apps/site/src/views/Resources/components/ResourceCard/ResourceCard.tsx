@@ -74,7 +74,18 @@ export default function ResourceCard({
 							/>
 						)}
 						<h3>
-							{title}{" "}
+							{links && links[0] ? (
+								<motion.a
+									href={links[0].link}
+									target="_blank"
+									rel="noopener noreferrer"
+									className={styles.titleLink}
+								>
+									{title}
+								</motion.a>
+							) : (
+								title
+							)}{" "}
 							{links.map(({ text, link }) => (
 								<motion.a
 									className="d-inline ms-1 vertical-align-middle"

@@ -30,6 +30,15 @@
 	height: 450px;
 }
 
+.titleLink {
+	font-family: inherit;
+	text-decoration: none;
+	color: inherit;
+	:link {
+		text-decoration: none;
+	}
+}
+
 .tag {
 	background-image: url("~@/assets/images/resource-link.svg");
 	background-size: 100% 100%;
