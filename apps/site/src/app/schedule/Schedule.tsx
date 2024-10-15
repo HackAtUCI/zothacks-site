@@ -2,7 +2,7 @@ import { PortableText } from "@portabletext/react";
 import ClipboardSchedule from "./ClipboardSchedule";
 import { getSchedule } from "./getSchedule";
 
-import styles from "./page.module.scss";
+import styles from "./Schedule.module.scss";
 
 export default async function Schedule() {
 	const days = await getSchedule();

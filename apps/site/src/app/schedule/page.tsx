@@ -1,5 +1,5 @@
 import { Maintenance } from "@/views";
-import Schedule from "./schedule";
+import Schedule from "./Schedule";
 
 export const revalidate = 60;
 
