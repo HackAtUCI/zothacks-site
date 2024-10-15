@@ -36,10 +36,12 @@ const Resources = z.array(
 				_type: z.literal("reference"),
 			}),
 		}),
-		stickyNoteColor: z.object({
-			_type: z.literal("color"),
-			alpha: z.number(),
-			hex: z.string(),
+		background: z.object({
+			_type: z.string(),
+			asset: z.object({
+				_ref: z.string(),
+				_type: z.literal("reference"),
+			}),
 		}),
 		title: z.string(),
 	}),

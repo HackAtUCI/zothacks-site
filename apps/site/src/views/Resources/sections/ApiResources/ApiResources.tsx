@@ -25,14 +25,17 @@ async function ApiResources() {
 			<div className={styles["bottom-spacer"] + " row"}>
 				{/* Sticky Notes */}
 				{resources.map(
-					({ _id, title, description, link, logo, stickyNoteColor }) => (
+					({ _id, title, description, link, logo, background }) => (
 						<div className={styles.column + " col"} key={_id}>
 							<ResourceCard
+								key={_id}
 								title={title}
 								description={<PortableText value={description} />}
 								stickerSrc={imageUrlBuilder(client).image(logo).url()}
 								links={[{ text: "API Reference", link: link }]}
-								stickyNoteColor={stickyNoteColor.hex}
+								islandBackground={imageUrlBuilder(client)
+									.image(background)
+									.url()}
 							/>
 						</div>
 					),
