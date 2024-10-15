@@ -5,6 +5,7 @@
 	margin-top: 50px;
 	position: relative;
 	padding: 1rem 0;
+	width: 200px;
 }
 
 .tape {
@@ -74,6 +75,7 @@
 
 .islandBackground {
 	position: absolute;
+	width: 350px;
 }
 
 .CardContainer {
@@ -84,6 +86,12 @@
 	justify-content: center;
 	align-items: center;
 	font-family: utils.$font-family-base;
+	width: 350px;
+	min-width: 350px;
+}
+
+.description {
+	overflow: auto;
 }
 
 @include utils.media-breakpoint-up(sm) {
@@ -100,18 +108,7 @@
 }
 
 @include utils.media-breakpoint-down(sm) {
-	.CardContainer {
-		width: 350px;
-		min-width: 350px;
-	}
-	.islandBackground {
-		width: 350px;
-	}
-	.group {
-		width: 200px;
-	}
 	.description {
 		max-height: 100px;
-		overflow: auto;
 	}
 }
