@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
-import ZotHacksLogo from "@/assets/icons/zothacks-logo.png";
+import HackLogo from "@/assets/icons/hack.svg";
 
 import styles from "./NavBar.module.scss";
 
@@ -17,7 +17,7 @@ export default function NavBar() {
 
 	return (
 		<div className={styles.nav}>
-			<Navbar expand="lg" className={`bg-body-tertiary ${styles.navbar}`}>
+			<Navbar expand="lg" className={`${styles.navbar}`}>
 				<Container fluid>
 					<Navbar.Brand />
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -26,54 +26,56 @@ export default function NavBar() {
 							<Link
 								href="/"
 								className={
-									activeRoute === "/" ? styles.homeActive : styles.notActive
+									activeRoute === "/" ? styles.active : styles.notActive
 								}
 							>
-								Home
+								HOME
 							</Link>
 							<Link
 								href="/resources"
 								className={
 									activeRoute === "/resources"
-										? styles.resourcesActive
+										? styles.active
 										: styles.notActive
 								}
 							>
-								Resources
+								RESOURCES
 							</Link>
 							<Link
 								href="/schedule"
 								className={
 									activeRoute === "/schedule"
-										? styles.scheduleActive
+										? styles.active
 										: styles.notActive
 								}
 							>
-								Schedule
+								SCHEDULE
 							</Link>
 							<Link
 								href="https://forms.gle/6GUGYnVoFhAAxVkL8"
 								className={styles.notActive}
 								target="_blank"
 							>
-								Incident Form
+								INCIDENT FORM
 							</Link>
 							<Link
 								href="https://zothacks-2023.devpost.com/"
 								className={styles.notActive}
 								target="_blank"
 							>
-								Devpost
+								DEVPOST
+							</Link>
+							<Link href="/">
+								<div className={styles.logo}>
+									<Image src={HackLogo.src} alt="Hacks Logo" fill />
+								</div>
 							</Link>
 						</Nav>
 					</Navbar.Collapse>
 				</Container>
+
 			</Navbar>
-			<Link href="/">
-				<div className={styles.logo}>
-					<Image src={ZotHacksLogo.src} alt="ZotHacks Logo" fill />
-				</div>
-			</Link>
+			
 		</div>
 	);
 }
