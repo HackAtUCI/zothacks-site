@@ -17,8 +17,13 @@ export default function NavBar() {
 
 	return (
 		<div className={styles.nav}>
-			<Navbar expand="lg" className={`${styles.navbar}`}>
+			<Navbar variant="dark" expand="lg" className={`${styles.navbar}`}>
 				<Container fluid>
+					<Link href="/">
+						<div className={styles.logo}>
+							<Image src={HackLogo.src} alt="Hacks Logo" fill />
+						</div>
+					</Link>
 					<Navbar.Brand />
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-navbar-nav">
@@ -64,12 +69,7 @@ export default function NavBar() {
 								target="_blank"
 							>
 								DEVPOST
-							</Link>
-							<Link href="/">
-								<div className={styles.logo}>
-									<Image src={HackLogo.src} alt="Hacks Logo" fill />
-								</div>
-							</Link>
+							</Link>	
 						</Nav>
 					</Navbar.Collapse>
 				</Container>

@@ -7,12 +7,18 @@
 	@include utils.media-breakpoint-up(sm) {
 		position: fixed;
 		z-index: 1;
-		top: 0;
-		background-color: rgba(0, 0, 0, 0.8);
+	}
+
+	@media only screen and (max-width: 991.5px) {
+		background-color: rgba(0, 0, 0, 0.5);
+		z-index: 1;
+		position: fixed;
+		text-align: left;
 	}
 
 	background-color: transparent;
 	position: relative;
+	color: white;
 }
 
 
@@ -24,18 +30,31 @@
 
 .logo {
 	position: absolute;
-	left: 30px;
 	width: 4vw;
 	height: 4vw;
-	text-align: center;
+	top: 1vh;
+
+	@media only screen and (max-width: 991.5px) {
+		position: relative;
+		width: 50px;
+		height: 50px;
+		align-items: left;
+		text-align: left;
+		top: 0;
+	}
 }
 
 .text {
 	margin-left: 1vw;
 	margin-right: 1vw;
-	font-size: 1rem;
 	font-weight: 600;
+	font-size: 1rem;
 	text-decoration: none;
+	@media only screen and (max-width: 991.5px) {
+		margin-top: 2vw;
+		margin-bottom: 2vw;
+		font-size: 1.5rem;
+	}
 }
 
 .notActive {
@@ -51,15 +70,6 @@
 	text-decoration-thickness: 0.14rem;
 }
 
-
-@include utils.media-breakpoint-down(md) {
-	.logo {
-		display: none;
-	}
-	.text {
-		font-size: 1.5rem;
-	}
-}
 
 @include utils.media-breakpoint-up(lg) {
 	.logo {
