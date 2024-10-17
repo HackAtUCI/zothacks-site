@@ -1,10 +1,10 @@
 import { PortableText } from "@portabletext/react";
-import { client } from "@/lib/sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
 
-import { getResources } from "../../getResources";
 import ResourceCard from "../../components/ResourceCard/ResourceCard";
 import HeadingCard from "../../components/HeadingCard/HeadingCard";
+import { getResources } from "../../getResources";
+import { client } from "@/lib/sanity/client";
 
 import styles from "./ApiResources.module.scss";
 

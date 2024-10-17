@@ -6,7 +6,7 @@ import styles from "./Landing.module.scss";
 function Landing() {
 	return (
 		<div className={styles.landing}>
-			<Image src={resourcesTitle} alt="resources title" />
+			<Image src={resourcesTitle} className={styles.title} alt="resources title" />
 		</div>
 	);
 }
