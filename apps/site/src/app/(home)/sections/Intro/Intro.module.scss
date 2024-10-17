@@ -2,18 +2,34 @@
 
 .description {
 	text-align: center;
-	font-size: 1rem;
+	font-size: 0.85rem;
 
-	@include bootstrap.media-breakpoint-up(sm) {
+	@media screen and (min-width: 415px) {
+		font-size: 1rem;
+	}
+
+	@media screen and (min-width: 500px) {
+		font-size: 1.25rem;
+	}
+
+	@include bootstrap.media-breakpoint-up(xl) {
 		font-size: 1.5rem;
 	}
 }
 
 .header {
-	font-size: 1.25rem;
+	font-size: 1rem;
 	font-weight: 600;
 
+	@media screen and (min-width: 415px) {
+		font-size: 1.25rem;
+	}
+
 	@include bootstrap.media-breakpoint-up(sm) {
+		font-size: 1.5rem;
+	}
+
+	@include bootstrap.media-breakpoint-up(xl) {
 		font-size: 2rem;
 	}
 }
@@ -22,11 +38,11 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	max-width: 90vw;
+	width: 90vw;
 	margin-top: 3vw;
 
 	@media screen and (min-width: 400px) {
-		margin-top: 12.5vw;
+		margin-top: 7.5vw;
 	}
 
 	@include bootstrap.media-breakpoint-up(sm) {
@@ -51,7 +67,7 @@
 	}
 
 	@include bootstrap.media-breakpoint-up(xxl) {
-		max-width: 75vw;
+		max-width: 1200px;
 		margin-top: 15vw;
 	}
 }
