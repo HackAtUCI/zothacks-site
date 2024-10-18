@@ -100,10 +100,6 @@ export default function Footer() {
 						))}
 					</div>
 				</div>
-
-				<a href="/apply" className={styles.button} target="_blank">
-					Apply Now
-				</a>
 			</div>
 			<p className={styles.text}>Made with 👋 in Irvine, CA - Hack at UCI</p>
 		</footer>

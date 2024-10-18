@@ -1,23 +1,24 @@
 @use "bootstrap-utils" as bootstrap;
 
 .apply {
-	width: 45vw;
+	width: 60vw;
+	height: 100%;
 	transition-duration: 200ms;
 
-	&:hover {
-		scale: 1.1;
-	}
-
 	@include bootstrap.media-breakpoint-up(sm) {
-		width: 35vw;
+		width: 50vw;
 	}
 
 	@include bootstrap.media-breakpoint-up(md) {
-		width: 30vw;
+		width: 40vw;
 	}
 
 	@include bootstrap.media-breakpoint-up(lg) {
-		width: 25vw;
+		width: 35vw;
+	}
+
+	@include bootstrap.media-breakpoint-up(xl) {
+		width: 30vw;
 	}
 }
 
@@ -28,11 +29,11 @@
 
 svg:hover {
 	.outline {
-		stroke: yellow;
+		stroke: grey;
 	}
 
 	.text {
-		fill: yellow;
+		fill: grey;
 	}
 }
 
