@@ -1,11 +1,11 @@
 @use "zothacks-theme" as theme;
 @use "bootstrap-utils" as utils;
 
-$mobile-item-padding-y: 26px;
-$mobile-item-padding-x: 32px;
+$mobile-item-padding-y: 1.6rem;
+$mobile-item-padding-x: 2rem;
 
-$item-padding-y: 32px;
-$item-padding-x: 48px;
+$item-padding-y: 2rem;
+$item-padding-x: 3rem;
 
 $heading-font-size: 28px;
 
@@ -22,7 +22,7 @@ $heading-font-size: 28px;
 }
 
 .bang {
-	margin-right: $item-padding-x - 7;
+	margin-right: $mobile-item-padding-x - 0.4375;
 }
 
 .title {
@@ -39,5 +39,9 @@ $heading-font-size: 28px;
 @include utils.media-breakpoint-up(md) {
 	.card {
 		padding: $item-padding-y $item-padding-x;
+	}
+	
+	.bang {
+		margin-right: $item-padding-x - 0.4375;
 	}
 }

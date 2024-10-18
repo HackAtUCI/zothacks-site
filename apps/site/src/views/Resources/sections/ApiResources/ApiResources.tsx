@@ -22,7 +22,6 @@ async function ApiResources() {
 			/>
 
 			<div className={styles["bottom-spacer"] + " row"}>
-				{/* Sticky Notes */}
 				{resources.map(
 					({ _id, title, description, link, logo, background }) => (
 						<div className={styles.column + " col"} key={_id}>

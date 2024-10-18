@@ -1,11 +1,11 @@
 @use "zothacks-theme" as theme;
 @use "bootstrap-utils" as utils;
 
-$mobile-item-padding-y: 26px;
-$mobile-item-padding-x: 32px;
+$mobile-item-padding-y: 1.6rem;
+$mobile-item-padding-x: 2rem;
 
-$item-padding-y: 32px;
-$item-padding-x: 48px;
+$item-padding-y: 2rem;
+$item-padding-x: 3rem;
 
 .container {
 	position: relative;
