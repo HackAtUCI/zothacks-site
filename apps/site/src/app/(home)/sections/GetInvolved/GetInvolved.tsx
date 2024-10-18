@@ -12,14 +12,19 @@ const GetInvolved = () => {
 		<p>Otherwise, if you have some experience under your belt,</p>
 	);
 	const applyLink = (
-		<Button href="/apply" type="button" className={styles.applyButton}>
-			Apply as a Hacker
+		<Button href="/apply" type="button" className={styles.applyButton} disabled>
+			Hacker Apps Closed
 		</Button>
 	);
 
 	const mentorLink = (
-		<Button href="/mentor" type="button" className={styles.applyButton}>
-			Apply as a Mentor
+		<Button
+			href="/mentor"
+			type="button"
+			className={styles.applyButton}
+			disabled
+		>
+			Mentor Apps Closed
 		</Button>
 	);
 

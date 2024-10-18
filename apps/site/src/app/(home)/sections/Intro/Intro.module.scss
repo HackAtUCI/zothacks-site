@@ -66,8 +66,11 @@
 		margin-top: 8vw;
 	}
 
+	@include bootstrap.media-breakpoint-up(xl) {
+		margin-top: 12vw;
+	}
+
 	@include bootstrap.media-breakpoint-up(xxl) {
-		max-width: 1200px;
 		margin-top: 15vw;
 	}
 }
