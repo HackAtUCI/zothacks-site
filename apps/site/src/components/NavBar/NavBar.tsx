@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
-import HackLogo from "@/assets/icons/hack.svg";
+import ZotHacksLogo from "@/assets/icons/zothacks_logo_white_rya.png";
 
 import styles from "./NavBar.module.scss";
 
@@ -21,13 +21,13 @@ export default function NavBar() {
 				<Container fluid>
 					<Link href="/">
 						<div className={styles.logo}>
-							<Image src={HackLogo.src} alt="Hacks Logo" fill />
+							<Image src={ZotHacksLogo.src} alt="Hacks Logo" fill />
 						</div>
 					</Link>
 					<Navbar.Brand />
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-navbar-nav">
-						<Nav className="ms-auto text-center">
+						<Nav className="ms-auto text">
 							<Link
 								href="/"
 								className={

@@ -10,10 +10,12 @@
 	}
 
 	@media only screen and (max-width: 991.5px) {
-		background-color: rgba(0, 0, 0, 0.5);
-		z-index: 1;
+		background-color: rgba(20, 20, 20, 0.7);
+		z-index: 101;
 		position: fixed;
-		text-align: left;
+		text-align: right;
+		backdrop-filter: blur(7px);
+
 	}
 
 	background-color: transparent;
