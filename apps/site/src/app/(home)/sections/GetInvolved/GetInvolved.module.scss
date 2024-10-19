@@ -143,6 +143,9 @@ $speech-shadow: 0 10px 0 rgba(1, 57, 70, 0.2);
 	padding: 4px 24px;
 	font-weight: $text-font-weight;
 
+	--bs-btn-disabled-bg: #{theme.$purple};
+	--bs-btn-disabled-border-color: #{theme.$purple};
+
 	@include bootstrap.media-breakpoint-up(md) {
 		padding: 4px 32px;
 	}
