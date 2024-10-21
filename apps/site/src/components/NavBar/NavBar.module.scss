@@ -1,7 +1,6 @@
 @use "bootstrap-utils" as utils;
 @use "zothacks-theme" as theme;
 
-
 .nav {
 	width: 100%;
 	@include utils.media-breakpoint-up(sm) {
@@ -15,7 +14,6 @@
 		position: fixed;
 		text-align: right;
 		backdrop-filter: blur(7px);
-
 	}
 
 	background-color: transparent;
@@ -23,12 +21,10 @@
 	color: white;
 }
 
-
-.navbar{
+.navbar {
 	position: absolute;
 	top: 0;
 }
-
 
 .logo {
 	position: absolute;
@@ -71,7 +67,6 @@
 	text-underline-offset: 0.3rem;
 	text-decoration-thickness: 0.14rem;
 }
-
 
 @include utils.media-breakpoint-up(lg) {
 	.logo {

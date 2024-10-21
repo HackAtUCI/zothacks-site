@@ -49,9 +49,7 @@ export default function NavBar() {
 							<Link
 								href="/schedule"
 								className={
-									activeRoute === "/schedule"
-										? styles.active
-										: styles.notActive
+									activeRoute === "/schedule" ? styles.active : styles.notActive
 								}
 							>
 								SCHEDULE
