@@ -56,7 +56,7 @@ export default function NavBar() {
 							>
 								SCHEDULE
 							</Link>
-							<Link
+							{/* <Link
 								href="https://forms.gle/6GUGYnVoFhAAxVkL8"
 								className={styles.notActive}
 								target="_blank"
@@ -69,7 +69,7 @@ export default function NavBar() {
 								target="_blank"
 							>
 								DEVPOST
-							</Link>	
+							</Link>	 */}
 						</Nav>
 					</Navbar.Collapse>
 				</Container>
