@@ -6,7 +6,12 @@ import styles from "./Landing.module.scss";
 function Landing() {
 	return (
 		<div className={styles.landing}>
-			<Image src={resourcesTitle} className={styles.title} alt="resources title" />
+			<h1 className="visually-hidden">Resources</h1>
+			<Image
+				src={resourcesTitle}
+				className={styles.title}
+				alt="resources title"
+			/>
 		</div>
 	);
 }
