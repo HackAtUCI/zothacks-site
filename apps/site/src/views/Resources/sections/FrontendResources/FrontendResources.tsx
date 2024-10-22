@@ -1,12 +1,12 @@
-import urlImageBuilder from "@sanity/image-url";
 import { PortableText } from "@portabletext/react";
+import urlImageBuilder from "@sanity/image-url";
 
 import ResourceCard from "../../components/ResourceCard/ResourceCard";
+import HeadingCard from "../../components/HeadingCard/HeadingCard";
 import { getResources } from "../../getResources";
 import { client } from "@/lib/sanity/client";
 
 import styles from "./FrontendResources.module.scss";
-import HeadingCard from "../../components/HeadingCard/HeadingCard";
 
 async function FrontendResources() {
 	const resources = await getResources("frontend");
