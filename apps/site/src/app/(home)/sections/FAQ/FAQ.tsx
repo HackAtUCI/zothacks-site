@@ -32,16 +32,14 @@ const FAQ = async () => {
 				>
 					<span className={styles["faq-header"] + " h4"}>
 						<h2 className="visually-hidden">FAQ</h2>
-						<span className={styles["light-blue-text"]}>FAQ!</span> Here's
+						<span className={styles["light-blue-text"]}>FAQ!</span> Here&apos;s
 						answers to our most commonly asked questions!
 					</span>
 
 					<p>
-						If you don't find what you're looking for, reach out to our team at{" "}
-						<a
-							className={styles["purple-text"]}
-							href="mailto:hack@uci.edu"
-						>
+						If you don&apos;t find what you&apos;re looking for, reach out to
+						our team at{" "}
+						<a className={styles["purple-text"]} href="mailto:hack@uci.edu">
 							hack@uci.edu
 						</a>
 					</p>
