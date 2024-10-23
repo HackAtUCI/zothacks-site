@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
-import ZotHacksLogo from "@/assets/icons/zothacks-logo.png";
+import ZotHacksLogo from "@/assets/icons/zothacks_logo_white_rya.png";
 
 import styles from "./NavBar.module.scss";
 
@@ -17,63 +17,61 @@ export default function NavBar() {
 
 	return (
 		<div className={styles.nav}>
-			<Navbar expand="lg" className={`bg-body-tertiary ${styles.navbar}`}>
+			<Navbar variant="dark" expand="lg" className={`${styles.navbar}`}>
 				<Container fluid>
+					<Link href="/">
+						<div className={styles.logo}>
+							<Image src={ZotHacksLogo.src} alt="Hacks Logo" fill />
+						</div>
+					</Link>
 					<Navbar.Brand />
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-navbar-nav">
-						<Nav className="ms-auto text-center">
+						<Nav className="ms-auto text">
 							<Link
 								href="/"
 								className={
-									activeRoute === "/" ? styles.homeActive : styles.notActive
+									activeRoute === "/" ? styles.active : styles.notActive
 								}
 							>
-								Home
+								HOME
 							</Link>
 							<Link
 								href="/resources"
 								className={
 									activeRoute === "/resources"
-										? styles.resourcesActive
+										? styles.active
 										: styles.notActive
 								}
 							>
-								Resources
+								RESOURCES
 							</Link>
 							<Link
 								href="/schedule"
 								className={
-									activeRoute === "/schedule"
-										? styles.scheduleActive
-										: styles.notActive
+									activeRoute === "/schedule" ? styles.active : styles.notActive
 								}
 							>
-								Schedule
+								SCHEDULE
 							</Link>
-							<Link
+							{/* <Link
 								href="https://forms.gle/6GUGYnVoFhAAxVkL8"
 								className={styles.notActive}
 								target="_blank"
 							>
-								Incident Form
+								INCIDENT FORM
 							</Link>
 							<Link
 								href="https://zothacks-2023.devpost.com/"
 								className={styles.notActive}
 								target="_blank"
 							>
-								Devpost
-							</Link>
+								DEVPOST
+							</Link>	 */}
 						</Nav>
 					</Navbar.Collapse>
 				</Container>
 			</Navbar>
-			<Link href="/">
-				<div className={styles.logo}>
-					<Image src={ZotHacksLogo.src} alt="ZotHacks Logo" fill />
-				</div>
-			</Link>
 		</div>
 	);
 }

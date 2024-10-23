@@ -30,7 +30,7 @@ export default function RootLayout({
 	return (
 		<html lang="en" className={fredoka.variable}>
 			<body className="background">
-				{/* <NavBar /> */}
+				<NavBar />
 				<main>{children}</main>
 				<Footer />
 			</body>
