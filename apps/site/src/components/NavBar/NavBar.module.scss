@@ -5,17 +5,15 @@
 	width: 100%;
 	@include utils.media-breakpoint-up(sm) {
 		position: fixed;
-		z-index: 1;
 	}
 
 	@media only screen and (max-width: 991.5px) {
 		background-color: rgba(20, 20, 20, 0.7);
-		z-index: 101;
 		position: fixed;
 		text-align: right;
 		backdrop-filter: blur(7px);
 	}
-
+	z-index: 101;
 	background-color: transparent;
 	position: relative;
 	color: white;
