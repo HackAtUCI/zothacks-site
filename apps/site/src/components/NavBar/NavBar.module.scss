@@ -3,20 +3,18 @@
 
 .nav {
 	width: 100%;
-	@include utils.media-breakpoint-up(sm) {
-		position: fixed;
+	z-index: 101;
+
+	@include utils.media-breakpoint-up(lg) {
+		background-color: transparent;
+		color: white;
+		backdrop-filter: none;
 	}
 
-	@media only screen and (max-width: 991.5px) {
-		background-color: rgba(20, 20, 20, 0.7);
-		position: fixed;
-		text-align: right;
-		backdrop-filter: blur(7px);
-	}
-	z-index: 101;
-	background-color: transparent;
-	position: relative;
-	color: white;
+	background-color: rgba(20, 20, 20, 0.7);
+	position: fixed;
+	text-align: right;
+	backdrop-filter: blur(7px);
 }
 
 .navbar {
@@ -25,31 +23,26 @@
 }
 
 .logo {
-	position: absolute;
-	width: 4vw;
-	height: 4vw;
-	top: 1vh;
-
-	@media only screen and (max-width: 991.5px) {
-		position: relative;
-		width: 50px;
-		height: 50px;
-		align-items: left;
-		text-align: left;
-		top: 0;
-	}
+	position: relative;
+	width: 50px;
+	height: 50px;
+	align-items: left;
+	text-align: left;
+	top: 0;
 }
 
 .text {
 	margin-left: 1vw;
 	margin-right: 1vw;
+	margin-top: 2vw;
+	margin-bottom: 2vw;
+	font-size: 1.5rem;
 	font-weight: 600;
-	font-size: 1rem;
 	text-decoration: none;
-	@media only screen and (max-width: 991.5px) {
-		margin-top: 2vw;
-		margin-bottom: 2vw;
-		font-size: 1.5rem;
+
+	@include utils.media-breakpoint-up(lg) {
+		font-size: 1rem;
+		margin-top: 0;
 	}
 }
 
@@ -64,11 +57,4 @@
 	text-decoration: underline;
 	text-underline-offset: 0.3rem;
 	text-decoration-thickness: 0.14rem;
-}
-
-@include utils.media-breakpoint-up(lg) {
-	.logo {
-		width: 50px;
-		height: 50px;
-	}
 }
