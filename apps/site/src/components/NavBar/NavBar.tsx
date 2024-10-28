@@ -19,12 +19,11 @@ export default function NavBar() {
 		<div className={styles.nav}>
 			<Navbar variant="dark" expand="lg" className={`${styles.navbar}`}>
 				<Container fluid>
-					<Link href="/">
+					<Navbar.Brand href="/" as={Link}>
 						<div className={styles.logo}>
 							<Image src={ZotHacksLogo.src} alt="Hacks Logo" fill />
 						</div>
-					</Link>
-					<Navbar.Brand />
+					</Navbar.Brand>
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="ms-auto text">
