@@ -15,6 +15,7 @@ interface CircleProps {
 	endTime: Date;
 	position: object;
 	up: boolean;
+	time: number;
 }
 
 const EventCircle: React.FC<CircleProps> = ({
@@ -24,8 +25,9 @@ const EventCircle: React.FC<CircleProps> = ({
 	endTime,
 	position,
 	up,
+	time
 }) => {
-	let curTime = new Date();
+	let curTime = new Date(time);
 	return (
 		<div
 			className={styles.outerCircle}
@@ -57,7 +59,7 @@ const EventCircle: React.FC<CircleProps> = ({
 				<h5>{title}</h5>
 				<p>{location}</p>
 				{startTime.getHours() == endTime.getHours() ? (
-					<p>{`${endTime.getHours() % 12} ${endTime.getHours() < 12 ? "am" : "pm"}`}</p>
+					<p>{`${endTime.getHours() % 12 == 0 ? 12 : startTime.getHours() % 12} ${endTime.getHours() < 12 ? "am" : "pm"}`}</p>
 				) : (
 					<p>{`${startTime.getHours() % 12 == 0 ? 12 : startTime.getHours() % 12}${startTime.getHours() == 11 ? " am" : ""}-${endTime.getHours() % 12 == 0 ? 12 : endTime.getHours() % 12} ${endTime.getHours() < 12 ? "am" : "pm"}`}</p>
 				)}

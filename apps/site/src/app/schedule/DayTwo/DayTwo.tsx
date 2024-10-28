@@ -11,9 +11,10 @@ import EventCircle from "../Assets/Circle";
 
 interface DayTwoProps {
 	schedule: Array<any>;
+	time: number;
 }
 
-const DayTwo: React.FC<DayTwoProps> = ({ schedule }) => {
+const DayTwo: React.FC<DayTwoProps> = ({ schedule, time }) => {
 	const positions = [
 		{ top: "-0.5%", left: "16%" },
 		{ top: "1.5%", left: "60%" },
@@ -34,7 +35,7 @@ const DayTwo: React.FC<DayTwoProps> = ({ schedule }) => {
 	return (
 		<>
 			<div className={styles.mapContainer}>
-				<Image src={Map2} alt="zothacks-map" className={styles.map1} />
+				<Image src={Map2} alt="zothacks-map" className={styles.map2} />
 				<div className={styles.mapPath}>
 					<Image src={Path} alt="zothacks-path" className={styles.mapPath} />
 					{schedule.map((event, i) => (
@@ -46,8 +47,10 @@ const DayTwo: React.FC<DayTwoProps> = ({ schedule }) => {
 							endTime={event.endTime}
 							position={positions[i]}
 							up={i == schedule.length - 1 ? true: false}
+							time={time}
 						/>
 					))}
+					<h4 className={styles.title}>Day Two</h4>
 				</div>
 			</div>
 		</>

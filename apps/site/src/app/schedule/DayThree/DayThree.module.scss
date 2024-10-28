@@ -5,11 +5,12 @@
 	justify-content: center;
 	align-items: center;
 	height: auto;
+	height: 1300px;
 }
 
-.map2 {
+.map3 {
 	position: absolute;
-	width: 90%;
+	width: 80%;
 	min-width: 1000px;
 }
 
@@ -25,36 +26,27 @@
 }
 
 .pathImage {
+	width: 100%;
 	height: 100%;
 }
 
-@media screen and (min-width: 1601px) {
+@media screen and (min-width: 1751px) {
 	.mapPath {
-		width: 1145px;
-		height: 3049px;
-	}
-	.mapContainer {
-		height: 4000px;
+		width: 1168px;
+		height: 598px;
 	}
 }
 
-@media screen and (min-width: 1301px) and (max-width: 1600px) {
+@media screen and (min-width: 1450px) and (max-width: 1750px) {
 	.mapPath {
-		width: 817px;
-		height: 2439px;
-	}
-	.mapContainer {
-		height: 3000px;
+		width: 934px;
+		height: 478px;
 	}
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1451px) {
 	.mapPath {
-		width: 677px;
-		height: 1890px;
-	}
-
-	.mapContainer {
-		height: 2500px;
+		width: 747px;
+		height: 382px;
 	}
 }
