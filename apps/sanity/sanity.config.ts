@@ -1,10 +1,10 @@
 import { defineConfig } from "sanity";
-import { deskTool } from "sanity/desk";
+import { structureTool } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
 import { colorInput } from "@sanity/color-input";
 import { media } from "sanity-plugin-media";
 import { schemaTypes } from "./schemas";
-import { HeartHandshake, BadgeHelp } from "lucide-react";
+import { HeartHandshake, BadgeHelp, Handshake } from "lucide-react";
 
 export default defineConfig({
 	name: "default",
@@ -14,7 +14,7 @@ export default defineConfig({
 	dataset: "production",
 
 	plugins: [
-		deskTool({
+		structureTool({
 			structure: (S) =>
 				S.list()
 					.title("Content")
@@ -26,17 +26,30 @@ export default defineConfig({
 								S.document()
 									.schemaType("sponsors")
 									.documentId("sponsors")
-									.title("Sponsors")
+									.title("Sponsors"),
+							),
+						S.listItem()
+							.title("Clubs")
+							.icon(Handshake)
+							.child(
+								S.document()
+									.schemaType("clubs")
+									.documentId("clubs")
+									.title("Clubs"),
 							),
 						S.listItem()
 							.title("FAQs")
 							.icon(BadgeHelp)
 							.child(
-								S.document().schemaType("faqs").documentId("faqs").title("FAQs")
+								S.document()
+									.schemaType("faqs")
+									.documentId("faqs")
+									.title("FAQs"),
 							),
 						S.divider(),
 						...S.documentTypeListItems().filter(
-							(listItem) => !["faqs", "sponsors"].includes(listItem.getId()!)
+							(listItem) =>
+								!["faqs", "sponsors", "clubs"].includes(listItem.getId()!),
 						),
 					]),
 		}),
