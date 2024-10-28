@@ -3,21 +3,18 @@ import ClipboardSchedule from "./ClipboardSchedule";
 import { getSchedule } from "./getSchedule";
 
 import styles from "./Schedule.module.scss";
+import DayOne from "./DayOne/DayOne";
+import Header from "./Header/Header";
+import DayTwo from "./DayTwo/DayTwo";
 
 export default async function Schedule() {
-	const days = await getSchedule();
-
-	const schedule = days.map((events) =>
-		events.map(({ description, ...event }) => ({
-			...event,
-			description: <PortableText value={description} />,
-		})),
-	);
-
+	const schedule = await getSchedule();
+	// console.log(schedule[0])
 	return (
-		<div className={styles.schedule}>
-			<h1>Schedule</h1>
-			<ClipboardSchedule schedule={schedule} />
+		<div>
+			<Header />
+			<DayOne schedule={schedule[0]} />
+			<DayTwo schedule={schedule[1]} />
 		</div>
 	);
 }

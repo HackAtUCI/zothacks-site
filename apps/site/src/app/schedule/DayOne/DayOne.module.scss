@@ -1,0 +1,46 @@
+.mapContainer {
+	width: 100vw;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: auto;
+	height: 1300px;
+}
+
+.map1 {
+	position: absolute;
+	width: 80%;
+	min-width: 1000px;
+}
+
+.mapPath {
+	position: absolute;
+	aspect-ratio: 1 / 1;
+}
+
+.pathImage {
+	width: 100%;
+	height: 100%;
+}
+
+@media screen and (min-width: 1501px) {
+	.mapPath {
+		width: 966px;
+		height: 793px;
+	}
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1500px) {
+	.mapPath {
+		width: 772px;
+		height: 634px;
+	}
+}
+
+@media screen and (max-width: 999px) {
+	.mapPath {
+		width: 627px;
+		height: 515px;
+	}
+}

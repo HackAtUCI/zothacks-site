@@ -1,0 +1,53 @@
+.mapContainer {
+	width: 100vw;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: auto;
+}
+
+.map1 {
+	position: absolute;
+	width: 90%;
+	min-width: 1000px;
+}
+
+.mapPath {
+	position: absolute;
+}
+
+.pathImage {
+	height: 100%;
+}
+
+@media screen and (min-width: 1601px) {
+	.mapPath {
+		width: 1145px;
+		height: 3049px;
+	}
+	.mapContainer {
+		height: 4000px;
+	}
+}
+
+@media screen and (min-width: 1301px) and (max-width: 1600px) {
+	.mapPath {
+		width: 817px;
+		height: 2439px;
+	}
+	.mapContainer {
+		height: 3000px;
+	}
+}
+
+@media screen and (max-width: 1300px) {
+	.mapPath {
+		width: 677px;
+		height: 1890px;
+	}
+
+	.mapContainer {
+		height: 2500px;
+	}
+}

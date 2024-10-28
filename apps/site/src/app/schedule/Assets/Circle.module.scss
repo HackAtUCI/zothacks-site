@@ -1,0 +1,31 @@
+@use "zothacks-theme" as theme;
+
+.outerCircle {
+	background-color: theme.$white;
+	border: 5px solid theme.$lighter-black;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1;
+	bottom: 0;
+	position: absolute;
+}
+
+.innerCircle {
+	background-color: theme.$red;
+	min-width: 30px;
+	min-height: 30px;
+	border-radius: 50%;
+}
+
+.textContainer {
+	top: 45px;
+	left: 20px;
+	position: absolute;
+	min-width: 150px;
+	transform: translateX(-50%);
+	text-align: center;
+}
