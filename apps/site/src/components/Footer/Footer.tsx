@@ -1,6 +1,4 @@
-"use client";
-
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import clsx from "clsx";
 
@@ -13,7 +11,7 @@ import Hack from "@/assets/icons/hack.svg";
 import TikTok from "@/assets/icons/tiktok.svg";
 
 type Social = {
-	icon: any;
+	icon: StaticImageData;
 	link: string;
 	alt: string;
 };
