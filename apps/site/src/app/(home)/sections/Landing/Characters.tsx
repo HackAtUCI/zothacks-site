@@ -5,7 +5,7 @@ import waterAnteaterFoam from "@/assets/images/intro-character-foam.svg";
 import waterAnteaterShadow from "@/assets/images/intro-water-anteater-shadow.svg";
 import beachBall from "@/assets/images/intro-beach-ball.svg";
 
-import mainCharacter from "@/assets/images/intro-main-anteater.svg"
+import mainCharacter from "@/assets/images/intro-main-anteater.svg";
 
 import styles from "./Characters.module.scss"
 
