@@ -11,7 +11,7 @@
 		backdrop-filter: none;
 	}
 
-	background-color: rgba(20, 20, 20, 0.7);
+	background-color: rgba(0, 202, 233, 0.5);
 	position: fixed;
 	text-align: right;
 	backdrop-filter: blur(7px);
@@ -43,6 +43,10 @@
 	@include utils.media-breakpoint-up(lg) {
 		font-size: 1rem;
 		margin-top: 0;
+	}
+
+	&:hover {
+		text-shadow: -3px -3px 3px #363837;
 	}
 }
 
