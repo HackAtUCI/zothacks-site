@@ -7,7 +7,7 @@ import beachBall from "@/assets/images/intro-beach-ball.svg";
 
 import mainCharacter from "@/assets/images/intro-main-anteater.svg";
 
-import styles from "./Characters.module.scss"
+import styles from "./Characters.module.scss";
 
 export default function Characters() {
     return (
