@@ -1,0 +1,70 @@
+@use "bootstrap-utils" as bootstrap;
+
+.character {
+    position: absolute;
+    width: 60px;
+    visibility: hidden;
+    right: 18vw;
+    top: 16vw;
+    transform: translateY(-70%);
+
+    @include bootstrap.media-breakpoint-up(md) {
+        visibility: visible;
+    }
+}
+
+
+.characterFoam {
+    position: absolute;
+    width: 60px;
+    visibility: hidden;
+    right: 18vw;
+    top: 16.3vw;
+
+    transform: translateY(-50%);
+
+
+    @include bootstrap.media-breakpoint-up(md) {
+        visibility: visible;
+    }
+}
+
+.characterShadow {
+    position: absolute;
+    width: 60px;
+    visibility: hidden;
+    right: 18vw;
+    top: 16vw;
+
+    transform: translateY(-20%);
+
+    @include bootstrap.media-breakpoint-up(md) {
+        visibility: visible;
+    }
+}
+
+.mainCharacter {
+    position: absolute;
+    width: 180px;
+    visibility: hidden;
+    left: 10vw;
+    top: 32vw;
+    transform: translate(-50%, -50%);
+
+    @include bootstrap.media-breakpoint-up(md) {
+        visibility: visible;
+    }
+}
+
+.beachBall {
+    position: absolute;
+    width: 150px;
+    visibility: hidden;
+    right: 2vw;
+    top: 22vw;
+    transform: translate(calc(50% - 10vw), calc(-50% + 5vw));
+
+    @include bootstrap.media-breakpoint-up(md) {
+        visibility: visible;
+    }
+}
