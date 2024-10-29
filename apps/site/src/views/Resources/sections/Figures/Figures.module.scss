@@ -1,0 +1,95 @@
+@use "bootstrap-utils" as bootstrap;
+
+.hammerhead {
+	position: absolute;
+	visibility: hidden;
+	transform: translateY(10vh);
+}
+
+.birds {
+	position: absolute;
+	visibility: hidden;
+	width: 275px;
+}
+
+.palmTree {
+	position: absolute;
+	right: 0;
+	transform: translateY(90vh);
+	width: 30vw;
+
+	z-index: 2;
+	visibility: hidden;
+	height: auto;
+}
+
+.palmTreeShade {
+	position: absolute;
+	right: 0;
+	transform: translateY(calc(100vh + 50%));
+	width: 30vw;
+
+	z-index: 1;
+	visibility: hidden;
+	height: auto;
+}
+
+@include bootstrap.media-breakpoint-up(md) {
+	.palmTree {
+		visibility: visible;
+	}
+
+	.palmTreeShade {
+		visibility: visible;
+	}
+}
+
+@include bootstrap.media-breakpoint-up(lg) {
+	.hammerhead {
+		visibility: visible;
+		left: 5vh;
+	}
+
+	.birds {
+		visibility: visible;
+		right: 2vh;
+	}
+
+	.palmTree {
+		visibility: visible;
+	}
+
+	.palmTreeShade {
+		visibility: visible;
+	}
+}
+
+@media (min-width: 1200px) {
+	.hammerhead {
+		left: 10vh;
+	}
+
+	.birds {
+		right: 10vh;
+	}
+
+	.palmTree {
+		transform: translateY(75vh);
+		width: 20vw;
+	}
+
+	.palmTreeShade {
+		transform: translateY(calc(80vh + 50%));
+		width: 20vw;
+	}
+}
+
+@media (min-width: 1600px) {
+	.hammerhead {
+		left: 20vh;
+	}
+
+	.birds {
+		right: 20vh;
+	}
+}
