@@ -6,12 +6,11 @@
 	z-index: 101;
 
 	@include utils.media-breakpoint-up(lg) {
-		background-color: transparent;
 		color: white;
 		backdrop-filter: none;
 	}
 
-	background-color: rgba(0, 202, 233, 0.5);
+	background-color: rgba(1, 167, 197, 0.5);
 	position: fixed;
 	text-align: right;
 	backdrop-filter: blur(7px);
@@ -24,8 +23,8 @@
 
 .logo {
 	position: relative;
-	width: 50px;
-	height: 50px;
+	width: 40px;
+	height: 40px;
 	align-items: left;
 	text-align: left;
 	top: 0;
@@ -34,15 +33,15 @@
 .text {
 	margin-left: 1vw;
 	margin-right: 1vw;
-	margin-top: 2vw;
-	margin-bottom: 2vw;
 	font-size: 1.5rem;
 	font-weight: 600;
 	text-decoration: none;
+	line-height: 7vh;
 
 	@include utils.media-breakpoint-up(lg) {
 		font-size: 1rem;
 		margin-top: 0;
+		transform: translateY(-4px);
 	}
 
 	&:hover {
