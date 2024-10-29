@@ -22,6 +22,7 @@ $heading-font-size: 1.75rem;
 }
 
 .bang {
+	display: none;
 	margin-right: $mobile-item-padding-x - 0.4375;
 }
 
@@ -40,8 +41,9 @@ $heading-font-size: 1.75rem;
 	.card {
 		padding: $item-padding-y $item-padding-x;
 	}
-	
+
 	.bang {
+		display: block;
 		margin-right: $item-padding-x - 0.4375;
 	}
 }
