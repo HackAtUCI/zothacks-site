@@ -1,4 +1,4 @@
-import Image from "next/image"
+import Image from "next/image";
 
 import waterAnteater from "@/assets/images/intro-water-anteater.svg"
 import waterAnteaterFoam from "@/assets/images/intro-character-foam.svg"
