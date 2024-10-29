@@ -7,6 +7,11 @@
 	@include bootstrap.media-breakpoint-up(sm) {
 		font-size: 1rem;
 	}
+
+
+	@include bootstrap.media-breakpoint-up(xl) {
+		font-size: 1.5rem;
+	}
 }
 
 .header {
@@ -30,48 +35,18 @@
 	width: 90vw;
 	margin-top: 1vw;
 
-	transform: translateY(calc(-5vw + 30%));
+	transform: translateY(calc(-50% + 40vw));
 
 	@media (min-width: 400px) {
-		transform: translateY(calc(25vw + 0%));
-
-
+		transform: translateY(calc(-50% + 40vw));
 	}
 
-	// @include bootstrap.media-breakpoint-up(sm) {
-	// 	margin-top: 15vw;
-	// }
-
-	// @media screen and (min-width: 650px) {
-	// 	margin-top: 20vw;
-	// }
-
 	@include bootstrap.media-breakpoint-up(md) {
-		margin-top: 1vw;
 		transform: translateY(calc(-50% + 18vw));
-
 	}
 
 	@media (min-width: 1200px) {
-		margin-top: 1vw;
 		transform: translateY(calc(-50% + 22vw));
-
 	}
 
-	// @media screen and (min-width: 850px) {
-	// 	margin-top: 3vw;
-	// }
-
-	// @include bootstrap.media-breakpoint-up(lg) {
-	// 	max-width: 80vw;
-	// 	margin-top: 8vw;
-	// }
-
-	// @include bootstrap.media-breakpoint-up(xl) {
-	// 	margin-top: 12vw;
-	// }
-
-	// @include bootstrap.media-breakpoint-up(xxl) {
-	// 	margin-top: 15vw;
-	// }
 }
