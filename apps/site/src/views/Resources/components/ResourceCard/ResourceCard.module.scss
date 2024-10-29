@@ -2,23 +2,9 @@
 @use "bootstrap-utils" as utils;
 
 .group {
-	// margin-top: 50px;
 	position: relative;
 	padding: 1rem 0;
 	width: 200px;
-}
-
-.tape {
-	background-image: url("~@/assets/images/tape.svg");
-	width: 238px;
-	height: 60px;
-	position: absolute;
-	top: 3%;
-	left: 15%;
-	z-index: 10;
-	@media screen and (max-width: 400px) {
-		left: 10%;
-	}
 }
 
 .container {
@@ -28,7 +14,6 @@
 	justify-content: center;
 	align-items: center;
 	gap: 10px;
-	// height: 450px;
 }
 
 .buttonImage {
@@ -42,39 +27,6 @@
 	:link {
 		text-decoration: none;
 	}
-}
-
-.tag {
-	background-image: url("~@/assets/images/resource-link.svg");
-	background-size: 100% 100%;
-	background-repeat: no-repeat;
-	background-position: left;
-	display: inline-block;
-	padding: 1rem;
-	padding-right: 3rem;
-	margin-left: -6px;
-	margin-bottom: 0.5rem;
-	transition:
-		filter 0.13s ease,
-		transform 0.13s ease,
-		filter 0.13s ease;
-
-	color: theme.$black;
-	text-decoration: none;
-	font-weight: bold;
-
-	&:hover,
-	&:focus {
-		transform: translateX(-5px) translateZ(0);
-		filter: drop-shadow(1px 0px 0px black) drop-shadow(-2px 0px 0px black)
-			drop-shadow(0px 2px 0px black) drop-shadow(0px -2px 0px black);
-	}
-}
-
-.text {
-	width: 90%;
-	text-align: center;
-	font-family: utils.$font-family-base;
 }
 
 .islandBackground {
