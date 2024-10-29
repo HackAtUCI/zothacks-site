@@ -2,7 +2,7 @@
 @use "bootstrap-utils" as utils;
 
 .group {
-	margin-top: 50px;
+	// margin-top: 50px;
 	position: relative;
 	padding: 1rem 0;
 	width: 200px;
@@ -28,7 +28,11 @@
 	justify-content: center;
 	align-items: center;
 	gap: 10px;
-	height: 450px;
+	// height: 450px;
+}
+
+.buttonImage {
+	width: 50px;
 }
 
 .titleLink {
@@ -90,8 +94,25 @@
 	min-width: 350px;
 }
 
-.description {
-	overflow: auto;
+.description > * {
+	margin: 0;
+	font-size: 1.05rem;
+}
+
+@include utils.media-breakpoint-up(md) {
+	.container {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 10px;
+		height: 450px;
+	}
+
+	.buttonImage {
+		width: 100px;
+	}
 }
 
 @include utils.media-breakpoint-up(sm) {
@@ -99,16 +120,16 @@
 		width: 500px;
 		min-width: 500px;
 	}
+
 	.islandBackground {
 		width: 500px;
 	}
+
 	.group {
 		width: 300px;
 	}
-}
 
-@include utils.media-breakpoint-down(sm) {
-	.description {
-		max-height: 100px;
+	.description > *{
+		font-size: 24px;
 	}
 }

@@ -69,7 +69,7 @@ export default function ResourceCard({
 							<motion.img
 								src={stickerSrc}
 								alt="Resource logo"
-								width="100"
+								className={styles.buttonImage}
 								variants={variant}
 							/>
 						)}
