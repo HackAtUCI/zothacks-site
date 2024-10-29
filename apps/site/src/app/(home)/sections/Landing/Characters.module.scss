@@ -38,9 +38,9 @@
 
 	transform: translateY(-20%);
 
-    @include bootstrap.media-breakpoint-up(md) {
-        visibility: visible;
-    }
+	@include bootstrap.media-breakpoint-up(md) {
+		visibility: visible;
+	}
 }
 
 .mainCharacter {
