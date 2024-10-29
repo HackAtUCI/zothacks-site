@@ -64,7 +64,7 @@
     top: 22vw;
     transform: translate(calc(50% - 10vw), calc(-50% + 5vw));
 
-    @include bootstrap.media-breakpoint-up(md) {
-        visibility: visible;
-    }
+	@include bootstrap.media-breakpoint-up(md) {
+		visibility: visible;
+	}
 }
