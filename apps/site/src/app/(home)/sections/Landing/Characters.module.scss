@@ -1,12 +1,12 @@
 @use "bootstrap-utils" as bootstrap;
 
 .character {
-    position: absolute;
-    width: 60px;
-    visibility: hidden;
-    right: 18vw;
-    top: 16vw;
-    transform: translateY(-70%);
+	position: absolute;
+	width: 60px;
+	visibility: hidden;
+	right: 18vw;
+	top: 16vw;
+	transform: translateY(-70%);
 
     @include bootstrap.media-breakpoint-up(md) {
         visibility: visible;
