@@ -9,8 +9,8 @@
 		color: white;
 		backdrop-filter: none;
 	}
-
 	background-color: rgba(1, 167, 197, 0.5);
+	
 	position: fixed;
 	text-align: right;
 	backdrop-filter: blur(7px);
@@ -61,3 +61,13 @@
 	text-underline-offset: 0.3rem;
 	text-decoration-thickness: 0.14rem;
 }
+
+.bg-transparent {
+	background-color: transparent !important;
+	transition: background-color 0.3s ease;
+  }
+
+.bg-ocean {
+	background-color: rgba(1, 167, 197, 0.5) !important;
+	transition: background-color 0.3s ease;
+  }

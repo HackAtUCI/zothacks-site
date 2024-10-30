@@ -1,5 +1,7 @@
 "use client";
 
+import { useState, useEffect } from "react";
+
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -15,8 +17,17 @@ import styles from "./NavBar.module.scss";
 export default function NavBar() {
 	const activeRoute = usePathname();
 
-	return (
-		<div className={styles.nav}>
+	const [hasScrolledToOcean, setHasScrolledToOcean] = useState(false);
+
+	useEffect(() => {
+		const handleScroll = () => 
+			window.scrollY > document.documentElement.scrollHeight / 2.55 ? setHasScrolledToOcean(true) : setHasScrolledToOcean(false);
+
+		window.addEventListener("scroll", handleScroll);
+		}, []);
+
+	return (		
+		<div className={`${styles.nav} fixed-top ${hasScrolledToOcean ? "bg-ocean" : "bg-transparent"}`}>
 			<Navbar variant="dark" expand="lg" className={`${styles.navbar}`}>
 				<Container fluid>
 					<Navbar.Brand href="/" as={Link}>
@@ -54,7 +65,7 @@ export default function NavBar() {
 								SCHEDULE
 							</Link>
 							{/* <Link
-								href="https://forms.gle/6GUGYnVoFhAAxVkL8"
+								href="https://forms.gle/cCixQqKR2gDXAUMLA"
 								className={styles.notActive}
 								target="_blank"
 							>
