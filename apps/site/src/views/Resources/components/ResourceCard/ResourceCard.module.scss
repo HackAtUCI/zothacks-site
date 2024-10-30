@@ -24,6 +24,8 @@
 	font-family: inherit;
 	text-decoration: none;
 	color: inherit;
+	font-weight: 600;
+	color: theme.$lighter-black;
 	:link {
 		text-decoration: none;
 	}
@@ -53,6 +55,7 @@
 .description > * {
 	margin: 0;
 	font-size: 1.05rem;
+	color: theme.$lighter-black;
 }
 
 @include utils.media-breakpoint-up(md) {
