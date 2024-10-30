@@ -34,12 +34,16 @@ export default defineType({
 							options: {
 								list: [
 									{
-										title: "Bronze",
-										value: "bronze",
+										title: "Gold",
+										value: "gold",
 									},
 									{
 										title: "Silver",
 										value: "silver",
+									},
+									{
+										title: "Bronze",
+										value: "bronze",
 									},
 								],
 								layout: "radio",
