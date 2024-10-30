@@ -14,6 +14,7 @@
 	position: fixed;
 	text-align: right;
 	backdrop-filter: blur(7px);
+	transition: background-color 0.2s ease;
 }
 
 .navbar {
@@ -63,11 +64,9 @@
 }
 
 .bg-transparent {
-	background-color: transparent !important;
-	transition: background-color 0.3s ease;
-  }
+	background-color: transparent;
+}
 
 .bg-ocean {
-	background-color: rgba(1, 167, 197, 0.5) !important;
-	transition: background-color 0.3s ease;
-  }
+	background-color: rgba(1, 167, 197, 0.5);
+}

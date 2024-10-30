@@ -20,10 +20,26 @@ export default function NavBar() {
 	const [hasScrolledToOcean, setHasScrolledToOcean] = useState(false);
 
 	useEffect(() => {
+		const getScrollThreshold = () => {
+			if (window.innerWidth < 768) {
+				// For mobile screens
+				return document.documentElement.scrollHeight / 5; 
+			} else if (window.innerWidth < 1200) {
+				// For tablets and small desktops
+				return document.documentElement.scrollHeight / 3.5;
+			} else {
+				// For large desktops
+				return document.documentElement.scrollHeight / 2.55;
+			}
+		};
+		
+		let scrollThreshold = getScrollThreshold();
 		const handleScroll = () => 
-			window.scrollY > document.documentElement.scrollHeight / 2.55 ? setHasScrolledToOcean(true) : setHasScrolledToOcean(false);
+			window.scrollY > scrollThreshold ? setHasScrolledToOcean(true) : setHasScrolledToOcean(false);
 
 		window.addEventListener("scroll", handleScroll);
+
+		return () => window.removeEventListener("scroll", handleScroll);
 		}, []);
 
 	return (		
