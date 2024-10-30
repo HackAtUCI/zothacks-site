@@ -14,7 +14,11 @@ import styles from "./Figures.module.scss";
 export default function Figures() {
 	return (
 		<div>
-			<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }} >
+			<motion.div
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
+				transition={{ duration: 2 }}
+			>
 				<Image
 					src={hammerhead}
 					alt="Hammerhead shark swimming in water"
