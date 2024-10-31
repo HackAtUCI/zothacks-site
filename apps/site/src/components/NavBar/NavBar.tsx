@@ -23,27 +23,31 @@ export default function NavBar() {
 		const getScrollThreshold = () => {
 			if (window.innerWidth < 768) {
 				// For mobile screens
-				return document.documentElement.scrollHeight / 5; 
+				return document.documentElement.scrollHeight / 7;
 			} else if (window.innerWidth < 1200) {
 				// For tablets and small desktops
-				return document.documentElement.scrollHeight / 3.5;
+				return document.documentElement.scrollHeight / 4;
 			} else {
 				// For large desktops
-				return document.documentElement.scrollHeight / 2.55;
+				return document.documentElement.scrollHeight / 2;
 			}
 		};
-		
+
 		let scrollThreshold = getScrollThreshold();
-		const handleScroll = () => 
-			window.scrollY > scrollThreshold ? setHasScrolledToOcean(true) : setHasScrolledToOcean(false);
+		const handleScroll = () =>
+			window.scrollY > scrollThreshold
+				? setHasScrolledToOcean(true)
+				: setHasScrolledToOcean(false);
 
 		window.addEventListener("scroll", handleScroll);
 
 		return () => window.removeEventListener("scroll", handleScroll);
-		}, []);
+	}, []);
 
-	return (		
-		<div className={`${styles.nav} fixed-top ${hasScrolledToOcean ? "bg-ocean" : "bg-transparent"}`}>
+	return (
+		<div
+			className={`${styles.nav} fixed-top ${hasScrolledToOcean ? "bg-ocean" : "bg-transparent"}`}
+		>
 			<Navbar variant="dark" expand="lg" className={`${styles.navbar}`}>
 				<Container fluid>
 					<Navbar.Brand href="/" as={Link}>
