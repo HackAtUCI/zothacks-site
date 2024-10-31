@@ -37,7 +37,7 @@ const DayTwo: React.FC<DayTwoProps> = ({ schedule, time }) => {
 			<div className={styles.mapContainer}>
 				<Image src={Map2} alt="zothacks-map" className={styles.map2} />
 				<div className={styles.mapPath}>
-					<Image src={Path} alt="zothacks-path" className={styles.mapPath} />
+					<Image src={Path} alt="zothacks-path" className={styles.pathImage} />
 					{schedule.map((event, i) => (
 						<EventCircle
 							key={event._id}

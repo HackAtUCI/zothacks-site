@@ -46,7 +46,7 @@
 
 @media screen and (max-width: 1451px) {
 	.mapPath {
-		width: 747px;
+		width: min(70%, 747px);
 		height: 382px;
 	}
 }

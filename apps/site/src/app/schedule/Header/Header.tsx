@@ -1,7 +1,4 @@
 "use client";
-
-import React, { useEffect, useState } from "react";
-
 import Image from "next/image";
 import Chest from "@/assets/images/schedule-chest.png";
 import Title from "@/assets/images/schedule-title.png";

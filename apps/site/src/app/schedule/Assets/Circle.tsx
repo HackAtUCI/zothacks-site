@@ -1,9 +1,5 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import Map1 from "@/assets/images/map1/map_1.png";
-
-import clsx from "clsx";
 import styles from "./Circle.module.scss";
 import Image from "next/image";
 import cross from "@/assets/images/map2/cross.svg";

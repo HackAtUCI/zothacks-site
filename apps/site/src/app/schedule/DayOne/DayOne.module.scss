@@ -8,6 +8,14 @@
 	height: 1300px;
 }
 
+.nonMobile {
+	height: 1300px;
+}
+
+.mobile {
+	height: 2000px;
+}
+
 .map1 {
 	position: absolute;
 	width: 80%;
@@ -16,7 +24,7 @@
 
 .title {
 	position: absolute;
-	top: -100px;
+	top: -70px;
 	left: 50%;
 	transform: translateX(-50%);
 }
@@ -24,6 +32,44 @@
 .mapPath {
 	position: absolute;
 	aspect-ratio: 1 / 1;
+}
+
+.mobileMap {
+	position: absolute;
+	width: 80%;
+	min-width: 1000px;
+	height: 70%;
+}
+
+@media screen and (min-width: 800px) {
+	.mobileMap {
+		display: none;
+	}
+
+	.mobilePath {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 799px) {
+	.map1 {
+		display: none;
+	}
+
+	.pathImage {
+		display: none;
+	}
+
+	.mapPath {
+		width: min(60%, 300px);
+		height: 500px;
+	}
+}
+
+.mobilePath {
+	position: absolute;
+	height: 100%;
+	width: 100%;
 }
 
 .pathImage {
@@ -45,7 +91,7 @@
 	}
 }
 
-@media screen and (max-width: 999px) {
+@media screen and (min-width: 800px) and (max-width: 999px) {
 	.mapPath {
 		width: 627px;
 		height: 515px;

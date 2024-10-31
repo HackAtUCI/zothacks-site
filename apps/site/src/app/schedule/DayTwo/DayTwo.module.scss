@@ -15,7 +15,7 @@
 
 .title {
 	position: absolute;
-	top: -100px;
+	top: -60px;
 	left: 50%;
 	transform: translateX(-50%);
 }
@@ -26,6 +26,7 @@
 
 .pathImage {
 	height: 100%;
+	width: 100%;
 }
 
 @media screen and (min-width: 1601px) {
@@ -38,7 +39,7 @@
 	}
 }
 
-@media screen and (min-width: 1301px) and (max-width: 1600px) {
+@media screen and (min-width: 1351px) and (max-width: 1600px) {
 	.mapPath {
 		width: 817px;
 		height: 2439px;
@@ -48,9 +49,9 @@
 	}
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1350px) {
 	.mapPath {
-		width: 677px;
+		width: min(90%, 677px);
 		height: 1890px;
 	}
 

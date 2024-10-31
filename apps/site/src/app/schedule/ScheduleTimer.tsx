@@ -18,15 +18,16 @@ const ScheduleTimer: React.FC<ScheduleProps> = ({ schedule }) => {
 			setTime(Date.now());
 		}
 		let ret = setInterval(updatePerSecond, 1000);
+
 		return () => clearInterval(ret);
 	});
 
 	return (
 		<>
-			<Header time={time}/>
-			<DayOne schedule={schedule[0]} time={time}/>
-			<DayTwo schedule={schedule[1]} time={time}/>
-			<DayThree schedule={schedule[2]} time={time}/>
+			<Header time={time} />
+			<DayOne schedule={schedule[0]} time={time} />
+			<DayTwo schedule={schedule[1]} time={time} />
+			<DayThree schedule={schedule[2]} time={time} />
 		</>
 	);
 };
