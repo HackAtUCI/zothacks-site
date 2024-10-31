@@ -30,7 +30,6 @@ const DayTwo: React.FC<DayTwoProps> = ({ schedule, time }) => {
 		{ top: "94%", left: "20%" },
 		{ top: "95%", left: "60%" },
 		{ top: "99%", left: "92%" },
-
 	];
 	return (
 		<>
@@ -46,7 +45,7 @@ const DayTwo: React.FC<DayTwoProps> = ({ schedule, time }) => {
 							startTime={event.startTime}
 							endTime={event.endTime}
 							position={positions[i]}
-							up={i == schedule.length - 1 ? true: false}
+							up={i == schedule.length - 1 ? true : false}
 							time={time}
 						/>
 					))}

@@ -73,10 +73,7 @@ const ClipboardSchedule: React.FC<ClipboardScheduleProps> = ({ schedule }) => {
 		return () => clearInterval(timeUpdater || undefined);
 	}, []);
 
-	return (
-		<>
-		</>
-	);
+	return <></>;
 };
 
 export default ClipboardSchedule;

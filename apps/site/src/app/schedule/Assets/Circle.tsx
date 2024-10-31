@@ -21,7 +21,7 @@ const EventCircle: React.FC<CircleProps> = ({
 	endTime,
 	position,
 	up,
-	time
+	time,
 }) => {
 	let curTime = new Date(time);
 	return (
