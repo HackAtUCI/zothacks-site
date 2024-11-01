@@ -1,7 +1,7 @@
 "use client";
 
-import DayOne from "./DayOne/DayOne";
 import Header from "./Header/Header";
+import DayOne from "./DayOne/DayOne";
 import DayTwo from "./DayTwo/DayTwo";
 import DayThree from "./DayThree/DayThree";
 import { useEffect, useState } from "react";
