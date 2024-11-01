@@ -86,7 +86,7 @@ export default function ResourceCard({
 							) : (
 								title
 							)}{" "}
-							{links.map(({ text, link }) => (
+							{links.map(({ link }) => (
 								<motion.a
 									className={"d-inline ms-1 vertical-align-middle"}
 									variants={variant}

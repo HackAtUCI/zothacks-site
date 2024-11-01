@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Fredoka } from "next/font/google";
 
-import NavBar from "@/components/NavBar/NavBar";
+// import NavBar from "@/components/NavBar/NavBar";
 import Footer from "@/components/Footer/Footer";
 import "@/lib/styles/bootstrap.scss";
 import "@/lib/styles/globals.scss";

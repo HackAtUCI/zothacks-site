@@ -112,7 +112,6 @@ const ClipboardSchedule: React.FC<ClipboardScheduleProps> = ({ schedule }) => {
 											title,
 											description,
 											location,
-											hosts,
 											startTime,
 											endTime,
 										}) => {
