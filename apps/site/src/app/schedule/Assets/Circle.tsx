@@ -58,6 +58,7 @@ const EventCircle: React.FC<CircleProps> = ({
 			<div className={styles.textContainer} style={up ? { top: "-155px" } : {}}>
 				<h5 className={styles.title}>{title}</h5>
 				<p className={styles.location}>{location}</p>
+				<p className={styles.time}>{convertTime(startTime, endTime)}</p>
 				{virtual && (
 					<a
 						href={`${virtual}`}
@@ -69,7 +70,6 @@ const EventCircle: React.FC<CircleProps> = ({
 						<Image src={openNewWindow} alt="open" />
 					</a>
 				)}
-				<p className={styles.time}>{convertTime(startTime, endTime)}</p>
 			</div>
 		</div>
 	);
