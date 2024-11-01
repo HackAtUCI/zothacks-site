@@ -1,16 +1,16 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 import Image from "next/image";
 
 import EventCircle from "../Assets/Circle";
 import useWindowWidth from "@/lib/useWindowWidth";
 
-import styles from "./DayThree.module.scss";
-
 import Map3 from "@/assets/images/map3/map_3.svg";
 import Path from "@/assets/images/map3/map_3_path.png";
 import MobilePath from "@/assets/images/map3/map_3_path_mobile.png";
+
+import styles from "./DayThree.module.scss";
 
 interface DayThreeProps {
 	schedule: Array<any>;

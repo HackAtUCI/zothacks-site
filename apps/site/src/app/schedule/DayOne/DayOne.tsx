@@ -3,12 +3,12 @@ import Image from "next/image";
 
 import EventCircle from "../Assets/Circle";
 
-import styles from "./DayOne.module.scss";
-
 import Map1 from "@/assets/images/map1/map_1.svg";
 import MobileMap from "@/assets/images/map1/mobile_map.svg";
 import MobilePath from "@/assets/images/map1/mobile_path.png";
 import Path from "@/assets/images/map1/map_1_path.png";
+
+import styles from "./DayOne.module.scss";
 
 interface DayOneProps {
 	schedule: Array<any>;
