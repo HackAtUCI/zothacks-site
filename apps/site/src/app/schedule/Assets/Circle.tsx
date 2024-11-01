@@ -4,6 +4,7 @@ import styles from "./Circle.module.scss";
 import Image from "next/image";
 import cross from "@/assets/images/map2/cross.svg";
 import convertTime from "../convertTime";
+import openNewWindow from "@/assets/icons/open_new_window_purple.svg";
 
 interface CircleProps {
 	title: String;
@@ -13,6 +14,7 @@ interface CircleProps {
 	position: object;
 	up: boolean;
 	time: number;
+	virtual: String;
 }
 
 const EventCircle: React.FC<CircleProps> = ({
@@ -23,6 +25,7 @@ const EventCircle: React.FC<CircleProps> = ({
 	position,
 	up,
 	time,
+	virtual,
 }) => {
 	let curTime = new Date(time);
 	return (
@@ -55,6 +58,15 @@ const EventCircle: React.FC<CircleProps> = ({
 			<div className={styles.textContainer} style={up ? { top: "-155px" } : {}}>
 				<h5 className={styles.title}>{title}</h5>
 				<p className={styles.location}>{location}</p>
+				{virtual && (
+					<a href={`${virtual}`} className={styles.virtual}>
+						<p>Zoom</p>{" "}
+						<Image
+							src={openNewWindow}
+							alt="open"
+						/>
+					</a>
+				)}
 				<p className={styles.time}>{convertTime(startTime, endTime)}</p>
 			</div>
 		</div>

@@ -36,6 +36,7 @@ const DayThree: React.FC<DayThreeProps> = ({ schedule, time }) => {
 							position={positions[i]}
 							up={i == schedule.length - 1 ? true : false}
 							time={time}
+							virtual={event?.virtual}
 						/>
 					))}
 					<h4 className={styles.title}>Day Three</h4>
