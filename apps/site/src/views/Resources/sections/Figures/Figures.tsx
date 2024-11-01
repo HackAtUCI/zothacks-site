@@ -19,17 +19,20 @@ export default function Figures() {
 				animate={{ opacity: 1 }}
 				transition={{ duration: 2 }}
 			>
-				<Image
-					src={hammerhead}
-					alt="Hammerhead shark swimming in water"
-					className={styles.hammerhead}
-				/>
+				<div className={styles.landingFigures}>
+					<Image
+						src={hammerhead}
+						alt="Hammerhead shark swimming in water"
+						className={styles.hammerhead}
+					/>
 
-				<Image
-					src={birds}
-					alt="Birds flying above water"
-					className={styles.birds}
-				/>
+					<Image
+						src={birds}
+						alt="Birds flying above water"
+						className={styles.birds}
+					/>
+				</div>
+
 				<Image
 					src={palmTreeShade}
 					alt="Palm tree shadow"

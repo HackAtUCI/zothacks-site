@@ -1,22 +1,36 @@
 @use "bootstrap-utils" as bootstrap;
 
+.landingFigures {
+	position: absolute;
+	z-index: 1000;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 80vw;
+	min-width: 1100px;
+	max-width: 1200px;
+	height: 300px;
+}
+
 .hammerhead {
 	position: absolute;
 	visibility: hidden;
-	transform: translateY(9vh);
+	bottom: 0;
+	left: 0;
 }
 
 .birds {
 	position: absolute;
 	visibility: hidden;
 	width: 275px;
-	transform: translateY(-10%);
+	right: 0;
+	bottom: 0;
 }
 
 .palmTree {
 	position: absolute;
 	right: 0;
-	transform: translateY(90vh);
+	transform: translateY(95vh);
 	width: 30vw;
 
 	z-index: 2;
@@ -27,7 +41,7 @@
 .palmTreeShade {
 	position: absolute;
 	right: 0;
-	transform: translateY(calc(100vh + 50%));
+	transform: translateY(calc(105vh + 50%));
 	width: 30vw;
 
 	z-index: 1;
@@ -35,61 +49,37 @@
 	height: auto;
 }
 
-@include bootstrap.media-breakpoint-up(md) {
+@include bootstrap.media-breakpoint-up(sm) {
 	.palmTree {
 		visibility: visible;
 	}
-
 	.palmTreeShade {
 		visibility: visible;
 	}
 }
 
 @include bootstrap.media-breakpoint-up(lg) {
-	.hammerhead {
-		visibility: visible;
-		left: 5vh;
-	}
-
-	.birds {
-		visibility: visible;
-		right: 2vh;
-	}
-
 	.palmTree {
-		visibility: visible;
-	}
-
-	.palmTreeShade {
-		visibility: visible;
-	}
-}
-@include bootstrap.media-breakpoint-up(lg) {
-	.hammerhead {
-		left: 10vh;
-	}
-
-	.birds {
-		right: 10vh;
-	}
-
-	.palmTree {
-		transform: translateY(75vh);
+		transform: translateY(95vh);
 		width: 20vw;
 	}
-
 	.palmTreeShade {
-		transform: translateY(calc(80vh + 50%));
+		transform: translateY(calc(105vh + 50%));
 		width: 20vw;
+	}
+	.hammerhead {
+		visibility: visible;
+	}
+	.birds {
+		visibility: visible;
 	}
 }
 
 @include bootstrap.media-breakpoint-up(xxl) {
-	.hammerhead {
-		left: 20vh;
+	.palmTree {
+		max-width: 500px;
 	}
-
-	.birds {
-		right: 20vh;
+	.palmTreeShade {
+		max-width: 500px;
 	}
 }
