@@ -6,7 +6,6 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: auto;
 	height: 1300px;
 	@include bootstrap.media-breakpoint-down(md) {
 		height: 1500px;
