@@ -9,10 +9,9 @@
 	},
 	"devDependencies": {
 		"@turbo/gen": "^2.1.2",
-		"eslint": "^9.10.0",
 		"prettier": "3.3.3",
 		"turbo": "^2.1.2"
 	},
-	"packageManager": "pnpm@8.6.10",
+	"packageManager": "pnpm@9.12.2",
 	"name": "zothacks-site"
 }
