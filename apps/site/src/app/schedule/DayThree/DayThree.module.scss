@@ -31,9 +31,27 @@
 .pathImage {
 	position: relative;
 	top: -160px;
+	left: 15%;
+
 	width: 70%;
 	height: 160%;
-	left: 15%;
+
+	@include utils.media-breakpoint-down(sm) {
+		display: none;
+	}
+}
+
+.mobilePath {
+	position: relative;
+	top: -40%;
+	left: 20%;
+
+	width: 65%;
+	height: 600px;
+
+	@include utils.media-breakpoint-up(sm) {
+		display: none;
+	}
 }
 
 @include utils.media-breakpoint-up(sm) {

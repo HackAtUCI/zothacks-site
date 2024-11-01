@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 
 import EventCircle from "../Assets/Circle";
@@ -10,6 +10,7 @@ import styles from "./DayThree.module.scss";
 
 import Map3 from "@/assets/images/map3/map_3.svg";
 import Path from "@/assets/images/map3/map_3_path.png";
+import MobilePath from "@/assets/images/map3/map_3_path_mobile.png";
 
 interface DayThreeProps {
 	schedule: Array<any>;
@@ -27,15 +28,21 @@ const DayThree: React.FC<DayThreeProps> = ({ schedule, time }) => {
 				]
 			: [
 					{ top: "-200px", left: "22px" },
-					{ top: "calc(14% - 25px)", left: "60%" },
+					{ top: "calc(14% - 25px)", left: "63%" },
 					{ top: "calc(117% - 25px)", left: "calc(90% - 50px)" },
 				];
+
 	return (
 		<>
 			<div className={styles.mapContainer}>
 				<Image src={Map3} alt="zothacks-map" className={styles.map3} />
 				<div className={styles.mapPath}>
 					<Image src={Path} alt="zothacks-path" className={styles.pathImage} />
+					<Image
+						src={MobilePath}
+						alt="zothacks-path"
+						className={styles.mobilePath}
+					/>
 					{schedule.map((event, i) => (
 						<EventCircle
 							key={event._id}
