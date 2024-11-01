@@ -1,27 +1,26 @@
 /* eslint-disable @next/next/no-img-element */
-import { getSponsors } from "./getSponsors";
-import styles from "./Sponsors.module.scss";
+import { getClubs } from "./getClubs";
+import styles from "./Clubs.module.scss";
 import { client } from "@/lib/sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
 import Container from "react-bootstrap/Container";
-import Clubs from "../Clubs/Clubs";
 
 const builder = imageUrlBuilder(client);
 
-const Sponsors = async () => {
-	const sponsors = await getSponsors();
+const Clubs = async () => {
+	const clubs = await getClubs();
 
 	return (
 		<Container as="section">
-			<h2 className={styles.title}>SPONSORS</h2>
+			<h2 className={styles.title}>PARTNER CLUBS</h2>
 			<div className={styles.logos}>
-				{sponsors.sponsors.map(({ _key, name, url, logo, tier }) => (
+				{clubs.clubs.map(({ _key, name, url, logo }) => (
 					<a
 						key={_key}
 						href={url}
 						target="_blank"
 						rel="noopener noreferrer"
-						className={`${styles.logo} ${styles[tier]}`}
+						className={styles.logo}
 					>
 						<img
 							src={builder.image(logo).format("webp").url()}
@@ -30,9 +29,8 @@ const Sponsors = async () => {
 					</a>
 				))}
 			</div>
-			<Clubs />
 		</Container>
 	);
 };
 
-export default Sponsors;
+export default Clubs;
