@@ -3,7 +3,7 @@ import Image from "next/image";
 import Chest from "@/assets/images/schedule-chest.png";
 import OpenChest from "@/assets/images/schedule-chest-open.svg";
 import Title from "@/assets/images/schedule-title.png";
-import Countdown from "../ClipboardSchedule/Countdown";
+import Countdown from "../Countdown/Countdown";
 import styles from "./Header.module.scss";
 
 interface HeaderProps {

@@ -1,9 +1,12 @@
 "use client";
 
-import styles from "./Circle.module.scss";
 import Image from "next/image";
-import cross from "@/assets/images/map2/cross.svg";
+
 import convertTime from "../convertTime";
+
+import styles from "./Circle.module.scss";
+
+import cross from "@/assets/images/map2/cross.svg";
 import openNewWindow from "@/assets/icons/open_new_window_purple.svg";
 
 interface CircleProps {
