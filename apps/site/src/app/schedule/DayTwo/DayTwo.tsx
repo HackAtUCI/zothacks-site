@@ -47,7 +47,7 @@ const DayTwo: React.FC<DayTwoProps> = ({ schedule, time }) => {
 					{ top: "80.5%", left: "70%" },
 					{ top: "82.5%", left: "20%" },
 					{ top: "94%", left: "10%" },
-					{ top: "98.5%", left: windowWidth < 576 ? "82%" : "90%" },
+					{ top: "98.5%", left: windowWidth < 576 ? "79%" : "90%" },
 				];
 	return (
 		<>
