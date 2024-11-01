@@ -3,8 +3,8 @@
 import React, { useEffect, useState } from "react";
 import Map2 from "@/assets/images/map2/map_2.svg";
 import Path from "@/assets/images/map2/map_2_path.png";
+import MobilePath from "@/assets/images/map2/map_2_path_mobile.png";
 
-import clsx from "clsx";
 import styles from "./DayTwo.module.scss";
 import Image from "next/image";
 import EventCircle from "../Assets/Circle";
@@ -27,8 +27,7 @@ const DayTwo: React.FC<DayTwoProps> = ({ schedule, time }) => {
 		{ top: "70%", left: "30%" },
 		{ top: "80.5%", left: "70%" },
 		{ top: "82.5%", left: "20%" },
-		{ top: "94%", left: "20%" },
-		{ top: "95%", left: "60%" },
+		{ top: "95%", left: "50%" },
 		{ top: "99%", left: "92%" },
 	];
 	return (
@@ -37,6 +36,7 @@ const DayTwo: React.FC<DayTwoProps> = ({ schedule, time }) => {
 				<Image src={Map2} alt="zothacks-map" className={styles.map2} />
 				<div className={styles.mapPath}>
 					<Image src={Path} alt="zothacks-path" className={styles.pathImage} />
+					<Image src={MobilePath} alt="zothacks-path" className={styles.mobilePath} />
 					{schedule.map((event, i) => (
 						<EventCircle
 							key={event._id}

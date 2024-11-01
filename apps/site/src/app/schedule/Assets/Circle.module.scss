@@ -1,3 +1,4 @@
+@use "bootstrap-utils" as bootstrap;
 @use "zothacks-theme" as theme;
 
 .outerCircle {
@@ -19,6 +20,7 @@
 	min-width: 30px;
 	min-height: 30px;
 	border-radius: 50%;
+	transition-duration: 0.5s;
 }
 
 .textContainer {
@@ -28,4 +30,34 @@
 	min-width: 150px;
 	transform: translateX(-50%);
 	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.location {
+	width: 300px;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+	font-size: 20px;
+	@include bootstrap.media-breakpoint-down(md) {
+		font-size: 16px;
+		width: 160px;
+	}
+}
+
+.title {
+	text-align: center;
+	width: 200px;
+}
+
+.time {
+	text-align: center;
+	padding: 0;
+	margin: 0;
+	font-size: 20px;
+	@include bootstrap.media-breakpoint-down(md) {
+		font-size: 16px;
+	}
 }

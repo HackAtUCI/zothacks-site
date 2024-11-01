@@ -3,6 +3,7 @@
 import styles from "./Circle.module.scss";
 import Image from "next/image";
 import cross from "@/assets/images/map2/cross.svg";
+import convertTime from "../convertTime";
 
 interface CircleProps {
 	title: String;
@@ -52,13 +53,9 @@ const EventCircle: React.FC<CircleProps> = ({
 				></div>
 			)}
 			<div className={styles.textContainer} style={up ? { top: "-155px" } : {}}>
-				<h5>{title}</h5>
-				<p>{location}</p>
-				{startTime.getHours() == endTime.getHours() ? (
-					<p>{`${endTime.getHours() % 12 == 0 ? 12 : startTime.getHours() % 12} ${endTime.getHours() < 12 ? "am" : "pm"}`}</p>
-				) : (
-					<p>{`${startTime.getHours() % 12 == 0 ? 12 : startTime.getHours() % 12}${startTime.getHours() == 11 ? " am" : ""}-${endTime.getHours() % 12 == 0 ? 12 : endTime.getHours() % 12} ${endTime.getHours() < 12 ? "am" : "pm"}`}</p>
-				)}
+				<h5 className={styles.title}>{title}</h5>
+				<p className={styles.location}>{location}</p>
+				<p className={styles.time}>{convertTime(startTime, endTime)}</p>
 			</div>
 		</div>
 	);

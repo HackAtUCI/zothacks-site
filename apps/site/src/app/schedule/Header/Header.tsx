@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import Chest from "@/assets/images/schedule-chest.png";
+import OpenChest from "@/assets/images/schedule-chest-open.svg";
 import Title from "@/assets/images/schedule-title.png";
 import Countdown from "../ClipboardSchedule/Countdown";
 import styles from "./Header.module.scss";
@@ -10,14 +11,18 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ time }) => {
-	let hackingStarts = new Date(1730566800);
+	const hackingStarts = new Date("2024-11-02T10:00:00");
+	const hackingEnds = new Date("2024-11-02T22:00:00");
 	return (
 		<>
 			<div className={styles.header}>
 				<Image src={Title} alt="title" />
-				<Image src={Chest} alt="Chest" />
+				{time < hackingEnds.getTime() && <Image src={Chest} alt="Chest" />}
+				{time >= hackingEnds.getTime() && <Image src={OpenChest} alt="Chest" />}
 				<Countdown
-					countdownTo={hackingStarts}
+					countdownTo={
+						time >= hackingStarts.getTime() ? hackingEnds : hackingStarts
+					}
 					isHackingStarted={time >= hackingStarts.getTime()}
 				/>
 			</div>
