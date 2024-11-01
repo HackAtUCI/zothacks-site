@@ -2,6 +2,8 @@ name: Deploy Preview
 
 on:
   pull_request:
+    branches:
+      main
 
 permissions:
   contents: read
@@ -36,6 +38,7 @@ jobs:
           vercel-project-id: ${{ vars.VERCEL_PROJECT_ID_SITE}}
   Studio:
     runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.labels.*.name, 'sanity')
     steps:
       - uses: actions/checkout@v2
       - uses: amondnet/vercel-action@v25
