@@ -1,5 +1,7 @@
 "use client";
 
+import { useState, useEffect } from "react";
+
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -15,65 +17,75 @@ import styles from "./NavBar.module.scss";
 export default function NavBar() {
 	const activeRoute = usePathname();
 
+	const [hasScrolled, setHasScrolled] = useState(false);
+
+	useEffect(() => {
+		const handleScroll = () =>
+			window.scrollY !== 0 ? setHasScrolled(true) : setHasScrolled(false);
+
+		window.addEventListener("scroll", handleScroll);
+
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, []);
+
 	return (
-		<div className={styles.nav}>
-			<Navbar expand="lg" className={`bg-body-tertiary ${styles.navbar}`}>
+		<div
+			className={`${styles.nav} fixed-top ${hasScrolled ? "bg-scrolled" : "bg-transparent"}`}
+		>
+			<Navbar variant="dark" expand="lg" className={`${styles.navbar}`}>
 				<Container fluid>
-					<Navbar.Brand />
+					<Navbar.Brand href="/" as={Link}>
+						<div className={styles.logo}>
+							<Image src={ZotHacksLogo.src} alt="Hacks Logo" fill />
+						</div>
+					</Navbar.Brand>
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-navbar-nav">
-						<Nav className="ms-auto text-center">
+						<Nav className="ms-auto text">
 							<Link
 								href="/"
 								className={
-									activeRoute === "/" ? styles.homeActive : styles.notActive
+									activeRoute === "/" ? styles.active : styles.notActive
 								}
 							>
-								Home
+								HOME
 							</Link>
 							<Link
 								href="/resources"
 								className={
 									activeRoute === "/resources"
-										? styles.resourcesActive
+										? styles.active
 										: styles.notActive
 								}
 							>
-								Resources
+								RESOURCES
 							</Link>
 							<Link
 								href="/schedule"
 								className={
-									activeRoute === "/schedule"
-										? styles.scheduleActive
-										: styles.notActive
+									activeRoute === "/schedule" ? styles.active : styles.notActive
 								}
 							>
-								Schedule
+								SCHEDULE
 							</Link>
-							<Link
-								href="https://forms.gle/6GUGYnVoFhAAxVkL8"
+							{/* <Link
+								href="https://forms.gle/cCixQqKR2gDXAUMLA"
 								className={styles.notActive}
 								target="_blank"
 							>
-								Incident Form
+								INCIDENT FORM
 							</Link>
 							<Link
 								href="https://zothacks-2023.devpost.com/"
 								className={styles.notActive}
 								target="_blank"
 							>
-								Devpost
-							</Link>
+								DEVPOST
+							</Link>	 */}
 						</Nav>
 					</Navbar.Collapse>
 				</Container>
 			</Navbar>
-			<Link href="/">
-				<div className={styles.logo}>
-					<Image src={ZotHacksLogo.src} alt="ZotHacks Logo" fill />
-				</div>
-			</Link>
 		</div>
 	);
 }
