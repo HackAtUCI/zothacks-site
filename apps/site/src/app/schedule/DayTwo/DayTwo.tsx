@@ -1,14 +1,16 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
+import Image from "next/image";
+
+import EventCircle from "../Assets/Circle";
+import useWindowWidth from "@/lib/useWindowWidth";
+
+import styles from "./DayTwo.module.scss";
+
 import Map2 from "@/assets/images/map2/map_2.svg";
 import Path from "@/assets/images/map2/map_2_path.png";
 import MobilePath from "@/assets/images/map2/map_2_path_mobile.png";
-
-import styles from "./DayTwo.module.scss";
-import Image from "next/image";
-import EventCircle from "../Assets/Circle";
-import useWindowWidth from "@/lib/useWindowWidth";
 
 interface DayTwoProps {
 	schedule: Array<any>;
