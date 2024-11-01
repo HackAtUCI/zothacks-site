@@ -59,12 +59,14 @@ const EventCircle: React.FC<CircleProps> = ({
 				<h5 className={styles.title}>{title}</h5>
 				<p className={styles.location}>{location}</p>
 				{virtual && (
-					<a href={`${virtual}`} className={styles.virtual}>
-						<p>Zoom</p>{" "}
-						<Image
-							src={openNewWindow}
-							alt="open"
-						/>
+					<a
+						href={`${virtual}`}
+						className={styles.virtual}
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<p>Zoom</p>
+						<Image src={openNewWindow} alt="open" />
 					</a>
 				)}
 				<p className={styles.time}>{convertTime(startTime, endTime)}</p>
