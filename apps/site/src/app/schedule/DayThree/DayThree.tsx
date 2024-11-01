@@ -8,6 +8,7 @@ import clsx from "clsx";
 import styles from "./DayThree.module.scss";
 import Image from "next/image";
 import EventCircle from "../Assets/Circle";
+import useWindowWidth from "@/lib/useWindowWidth";
 
 interface DayThreeProps {
 	schedule: Array<any>;
@@ -15,11 +16,19 @@ interface DayThreeProps {
 }
 
 const DayThree: React.FC<DayThreeProps> = ({ schedule, time }) => {
-	const positions = [
-		{ top: "-5px", left: "-10px" },
-		{ top: "calc(53% - 25px)", left: "50%" },
-		{ top: "calc(100% - 25px)", left: "calc(100% - 25px)" },
-	];
+	const windowWidth = useWindowWidth();
+	const positions =
+		windowWidth > 576
+			? [
+					{ top: "-5px", left: "-10px" },
+					{ top: "calc(53% - 25px)", left: "50%" },
+					{ top: "calc(100% - 25px)", left: "calc(100% - 50px)" },
+				]
+			: [
+					{ top: "-200px", left: "22px" },
+					{ top: "calc(14% - 25px)", left: "60%" },
+					{ top: "calc(117% - 25px)", left: "calc(90% - 50px)" },
+				];
 	return (
 		<>
 			<div className={styles.mapContainer}>
