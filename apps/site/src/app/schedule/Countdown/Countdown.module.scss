@@ -2,12 +2,13 @@
 
 .countdown {
 	margin: 0;
-	padding: 96px 0 32px 0;
+	padding-bottom: 50px;
 	opacity: 0;
 	transition: opacity 225ms cubic-bezier(0.32, 0, 0.67, 0);
 
 	span {
 		text-align: center;
+		color: white;
 		font-weight: 600;
 
 		&.time {

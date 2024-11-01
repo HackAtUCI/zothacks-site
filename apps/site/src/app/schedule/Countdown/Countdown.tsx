@@ -36,7 +36,9 @@ const Countdown: React.FC<CountdownProps> = ({
 		>
 			<span className={styles.time}>
 				<span className={styles.number}>
-					{Math.floor(remainingSeconds / (60 * 60))}
+					{Math.floor(remainingSeconds / (60 * 60))
+						.toString()
+						.padStart(2, "0")}
 				</span>
 				<span className={styles.colon}>:</span>
 				<span className={styles.number}>
