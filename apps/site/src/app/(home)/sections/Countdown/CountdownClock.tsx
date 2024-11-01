@@ -40,6 +40,7 @@ const CountdownClock: React.FC<CountdownProps> = ({
 						<span className={styles.timeBlock}>
 							{Math.floor(remainingSeconds / (60 * 60 * 24))
 								.toString()
+								.padStart(2, "0")
 								.split("")
 								.map((el, i) => {
 									return (
@@ -60,7 +61,11 @@ const CountdownClock: React.FC<CountdownProps> = ({
 									.toString()
 									.split("")
 									.map((el, i) => {
-										return <span key={`hours-${i}`} className={styles.number}>{el}</span>;
+										return (
+											<span key={`hours-${i}`} className={styles.number}>
+												{el}
+											</span>
+										);
 									})}
 							</>
 						) : (

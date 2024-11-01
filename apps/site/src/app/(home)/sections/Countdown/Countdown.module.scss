@@ -1,3 +1,6 @@
+@use "bootstrap-utils" as bootstrap;
+@use "zothacks-theme" as theme;
+
 .paraboloid {
 	position: relative;
 	width: 100%;
@@ -20,7 +23,6 @@
 }
 
 .countdownMaterial {
-	// margin-top: 10%;
 	position: absolute;
 	top: 0px;
 	left: 0px;
@@ -89,8 +91,7 @@
 }
 
 .outerCircle {
-	background-color: #ffffff;
-	// border-color: #1a1840;
+	background-color: theme.$white;
 	border: 5px solid #1a1840;
 	width: 50px;
 	height: 50px;
@@ -101,6 +102,7 @@
 	z-index: 1;
 	bottom: 0;
 	position: absolute;
+	bottom: -20px;
 }
 
 .innerCircle {

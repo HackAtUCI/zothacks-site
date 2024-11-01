@@ -24,8 +24,8 @@ interface CountdownProps {
 }
 
 const Countdown: React.FC<CountdownProps> = ({ schedule }) => {
-	const hackStartTime = new Date(2024, 10, 1, 14, 0, 0); // TBD, zothacks start time
-	const hackEndTime = new Date(2024, 10, 2, 18, 0, 0); // TBD, zothacks end time
+	const hackStartTime = new Date("2024-11-02T10:00:00"); // TBD, zothacks start time
+	const hackEndTime = new Date("2024-11-02T10:00:00"); // TBD, zothacks end time
 
 	const [curTime, setCurTime] = useState(new Date());
 
@@ -95,8 +95,6 @@ const Countdown: React.FC<CountdownProps> = ({ schedule }) => {
 		);
 	}
 
-	console.log(percentageCrossed);
-
 	return (
 		<div className={styles.countdownWrapper}>
 			<Image src={bg_map} alt="bg_map" />
@@ -123,7 +121,6 @@ const Countdown: React.FC<CountdownProps> = ({ schedule }) => {
 								<div
 									className={styles.outerCircle}
 									style={{
-										bottom: "-20px",
 										left: "-20px",
 									}}
 								>
@@ -150,7 +147,6 @@ const Countdown: React.FC<CountdownProps> = ({ schedule }) => {
 								<div
 									className={styles.outerCircle}
 									style={{
-										bottom: "-20px",
 										right: "-38px",
 									}}
 								>
