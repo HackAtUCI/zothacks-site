@@ -1,7 +1,6 @@
 @use "zothacks-theme" as theme;
 @use "bootstrap-utils" as utils;
 
-
 .title {
 	text-align: center;
 	color: theme.$white;
@@ -16,38 +15,38 @@
 
 .logos {
 	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
+	flex-direction: column;
+	align-items: center;
 	gap: 1.5rem;
 	max-width: 1200px;
 	margin: 0 auto;
 }
 
 .logo {
-	width: calc(50% - 1.5rem);
-	aspect-ratio: 16 / 9;
 	background-color: theme.$white;
 	border-radius: 8px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	transition: transform 0.3s ease;
+	aspect-ratio: 16 / 9;
+	width: 100%;
 
 	&:hover {
 		transform: scale(1.05);
 	}
 
-	@include utils.media-breakpoint-up(sm) {
-		width: calc(33.333% - 1.5rem);
-	}
+	// Default size (bronze tier)
+	max-width: 500px;
 
-	@include utils.media-breakpoint-up(lg) {
-		width: calc(25% - 1.5rem);
+	// Gold tier sizing
+	&.gold {
+		max-width: 700px;
 	}
 
 	img {
-		max-width: 80%;
-		max-height: 80%;
+		max-width: 95%;
+		max-height: 95%;
 		object-fit: contain;
 	}
 }
