@@ -42,7 +42,7 @@
 		max-width: 450px;
 	}
 
-	// Larger sizes for desktop
+
 	@include utils.media-breakpoint-up(md) {
 		max-width: 350px;
 
