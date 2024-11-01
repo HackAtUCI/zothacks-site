@@ -4,7 +4,8 @@
 .nav {
 	width: 100%;
 	z-index: 101;
-	background-color: rgba(1, 167, 197, 0.5);
+	background-color: rgba(20, 20, 20, 0.7);
+	mix-blend-mode: hard-light;
 	@include utils.media-breakpoint-up(lg) {
 		backdrop-filter: none;
 	}
@@ -43,7 +44,7 @@
 	}
 
 	&:hover {
-		text-shadow: -3px -3px 3px #363837;
+		text-shadow: 0 0 5px white;
 	}
 }
 
@@ -64,6 +65,7 @@
 	background-color: transparent;
 }
 
-.bg-ocean {
-	background-color: rgba(1, 167, 197, 0.5);
+.bg-scrolled {
+	background-color: rgba(20, 20, 20, 0.7);
+	mix-blend-mode: hard-light;
 }

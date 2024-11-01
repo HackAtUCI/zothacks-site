@@ -17,27 +17,11 @@ import styles from "./NavBar.module.scss";
 export default function NavBar() {
 	const activeRoute = usePathname();
 
-	const [hasScrolledToOcean, setHasScrolledToOcean] = useState(false);
+	const [hasScrolled, setHasScrolled] = useState(false);
 
 	useEffect(() => {
-		const getScrollThreshold = () => {
-			if (window.innerWidth < 768) {
-				// For mobile screens
-				return document.documentElement.scrollHeight / 7;
-			} else if (window.innerWidth < 1200) {
-				// For tablets and small desktops
-				return document.documentElement.scrollHeight / 4;
-			} else {
-				// For large desktops
-				return document.documentElement.scrollHeight / 2;
-			}
-		};
-
-		let scrollThreshold = getScrollThreshold();
 		const handleScroll = () =>
-			window.scrollY > scrollThreshold
-				? setHasScrolledToOcean(true)
-				: setHasScrolledToOcean(false);
+			window.scrollY !== 0 ? setHasScrolled(true) : setHasScrolled(false);
 
 		window.addEventListener("scroll", handleScroll);
 
@@ -46,7 +30,7 @@ export default function NavBar() {
 
 	return (
 		<div
-			className={`${styles.nav} fixed-top ${hasScrolledToOcean ? "bg-ocean" : "bg-transparent"}`}
+			className={`${styles.nav} fixed-top ${hasScrolled ? "bg-scrolled" : "bg-transparent"}`}
 		>
 			<Navbar variant="dark" expand="lg" className={`${styles.navbar}`}>
 				<Container fluid>
