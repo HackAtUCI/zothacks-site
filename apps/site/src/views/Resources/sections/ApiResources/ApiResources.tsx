@@ -15,7 +15,7 @@ async function ApiResources() {
 			<HeadingCard
 				title="API Resources"
 				description="Application Programming Interface (API) are interfaces or
-					communication protocol that simplifies implementation and maintenance
+					communication protocols that simplify implementation and maintenance
 					of software. In order to access most API's, many languages use
 					HTTP protocol to communicate with the servers that host the API and
 					retrieve data."

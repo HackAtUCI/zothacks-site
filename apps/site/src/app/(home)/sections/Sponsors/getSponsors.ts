@@ -10,7 +10,11 @@ const Sponsors = SanityDocument.extend({
 			_key: z.string(),
 			name: z.string(),
 			url: z.string().url().optional(),
-			tier: z.union([z.literal("bronze"), z.literal("silver")]),
+			tier: z.union([
+				z.literal("bronze"),
+				z.literal("silver"),
+				z.literal("gold"),
+			]),
 			logo: SanityImageReference,
 		}),
 	),

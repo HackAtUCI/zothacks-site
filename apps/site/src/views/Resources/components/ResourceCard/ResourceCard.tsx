@@ -69,7 +69,7 @@ export default function ResourceCard({
 							<motion.img
 								src={stickerSrc}
 								alt="Resource logo"
-								width="100"
+								className={styles.buttonImage}
 								variants={variant}
 							/>
 						)}
@@ -88,7 +88,7 @@ export default function ResourceCard({
 							)}{" "}
 							{links.map(({ text, link }) => (
 								<motion.a
-									className="d-inline ms-1 vertical-align-middle"
+									className={"d-inline ms-1 vertical-align-middle"}
 									variants={variant}
 									key={link}
 									href={link}
@@ -96,6 +96,7 @@ export default function ResourceCard({
 									rel="noopener noreferrer"
 								>
 									<Image
+										className={styles.titleLinkIcon}
 										src={openNewWindow}
 										width="20"
 										height="20"
