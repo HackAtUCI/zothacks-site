@@ -1,21 +1,26 @@
 @use "bootstrap-utils" as bootstrap;
 
-$container-padding: 8rem;
+$sm-width: 170vw;
+$md-width: 140vw;
+$width: 100vw;
 
-.schedule {
-	h1 {
-		text-align: center;
+.background {
+	position: absolute;
+	width: $sm-width;
+	left: calc((100% - $sm-width) / 2);
+	padding-top: 0;
 
-		@include bootstrap.rfs(8rem, margin-bottom);
-	}
-
-	margin: 10rem 1rem;
+	z-index: -1;
 
 	@include bootstrap.media-breakpoint-up(md) {
-		margin: 10rem 7rem;
+		padding-top: 50px;
+		width: $md-width;
+		left: calc((100% - $md-width) / 2);
 	}
 
-	h2 {
-		text-align: center;
+	@include bootstrap.media-breakpoint-up(xxl) {
+		height: auto;
+		width: $width;
+		left: calc((100% - $width) / 2);
 	}
 }

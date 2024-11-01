@@ -1,10 +1,12 @@
 "use client";
-
-import Header from "./Header/Header";
-import DayOne from "./DayOne/DayOne";
-import DayTwo from "./DayTwo/DayTwo";
-import DayThree from "./DayThree/DayThree";
 import { useEffect, useState } from "react";
+
+import Header from "../Header/Header";
+import DayOne from "../DayOne/DayOne";
+import DayTwo from "../DayTwo/DayTwo";
+import DayThree from "../DayThree/DayThree";
+
+import styles from "./ScheduleTimer.module.scss";
 
 interface ScheduleProps {
 	schedule: Array<any>;
@@ -38,12 +40,12 @@ const ScheduleTimer: React.FC<ScheduleProps> = ({ schedule }) => {
 	);
 
 	return (
-		<>
+		<div className={styles.timer}>
 			<Header time={time} />
 			<DayOne schedule={dayOne} time={time} />
 			<DayTwo schedule={dayTwo} time={time} />
 			<DayThree schedule={dayThree} time={time} />
-		</>
+		</div>
 	);
 };
 
