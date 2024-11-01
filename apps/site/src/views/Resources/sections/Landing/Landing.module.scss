@@ -1,4 +1,4 @@
-@use "bootstrap-utils" as utils;
+@use "bootstrap-utils" as bootstrap;
 
 .landing {
 	display: flex;
@@ -12,5 +12,12 @@
 }
 
 .title {
-	width: 75%;
+	width: 60%;
+}
+
+@include bootstrap.media-breakpoint-up(lg) {
+	.landing {
+		margin-top: 200px;
+		margin-bottom: 300px;
+	}
 }
