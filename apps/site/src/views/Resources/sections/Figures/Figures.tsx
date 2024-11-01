@@ -4,8 +4,8 @@ import Image from "next/image";
 
 import { motion } from "framer-motion";
 
-import palmTree from "@/assets/images/resources-palm-tree.png";
-import palmTreeShade from "@/assets/images/resources-palm-tree-shade.png";
+import palmTree from "@/assets/images/resources-palm-tree.svg";
+import palmTreeShade from "@/assets/images/resources-palm-tree-shade.svg";
 import hammerhead from "@/assets/images/resources-hammerhead.svg";
 import birds from "@/assets/images/resources-birds.svg";
 

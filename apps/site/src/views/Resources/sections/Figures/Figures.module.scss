@@ -3,13 +3,14 @@
 .hammerhead {
 	position: absolute;
 	visibility: hidden;
-	transform: translateY(10vh);
+	transform: translateY(9vh);
 }
 
 .birds {
 	position: absolute;
 	visibility: hidden;
 	width: 275px;
+	transform: translateY(-10%);
 }
 
 .palmTree {
@@ -63,8 +64,7 @@
 		visibility: visible;
 	}
 }
-
-@media (min-width: 1200px) {
+@include bootstrap.media-breakpoint-up(lg) {
 	.hammerhead {
 		left: 10vh;
 	}
@@ -84,7 +84,7 @@
 	}
 }
 
-@media (min-width: 1600px) {
+@include bootstrap.media-breakpoint-up(xxl) {
 	.hammerhead {
 		left: 20vh;
 	}
