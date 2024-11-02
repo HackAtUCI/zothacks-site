@@ -65,7 +65,8 @@
 
 		&.caption {
 			display: block;
-			@include bootstrap.font-size(1.5rem);
+			@include bootstrap.font-size(2.5rem);
+			font-weight: bold;
 		}
 	}
 }
