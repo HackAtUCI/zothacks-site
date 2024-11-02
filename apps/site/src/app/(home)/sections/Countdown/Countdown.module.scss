@@ -114,8 +114,12 @@
 
 .countdownTextTop {
 	position: absolute;
-	top: -70px;
+	top: -170px;
 	width: 150px;
+	height: 170px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	text-align: center;
 	p {
 		margin: 0;

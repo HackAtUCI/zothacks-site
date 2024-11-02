@@ -37,7 +37,9 @@ const Countdown: React.FC<CountdownProps> = ({ schedule }) => {
 		return () => clearInterval(i);
 	}, []);
 
-	const ended = schedule.filter((el) => el.endTime > curTime);
+	const ended = schedule.filter((el) => el.endTime >= curTime);
+
+	console.log(ended);
 
 	const before =
 		ended.length > 0
@@ -61,8 +63,11 @@ const Countdown: React.FC<CountdownProps> = ({ schedule }) => {
 
 	const percentageCrossed =
 		before.endTime.getTime() > 0
-			? (before.endTime.getTime() - curTime.getTime()) /
-				(before.endTime.getTime() - before.startTime.getTime())
+			? curTime.getTime() < before.startTime.getTime()
+				? 0
+				: ((before.endTime.getTime() - curTime.getTime()) /
+						(before.endTime.getTime() - before.startTime.getTime())) *
+					100
 			: 100;
 
 	const [w, h] = useWindow();
@@ -110,7 +115,7 @@ const Countdown: React.FC<CountdownProps> = ({ schedule }) => {
 											left: returnPosition(i)[0],
 											bottom: returnPosition(i)[1],
 											position: "absolute",
-											backgroundColor: `${i / totals.length > percentageCrossed ? "#DB9F42" : "#78cae3"}`,
+											backgroundColor: `${i / totals.length > percentageCrossed / 100 ? "#DB9F42" : "#78cae3"}`,
 											width: "18px",
 											height: "5px",
 											borderRadius: "6px",
@@ -129,7 +134,7 @@ const Countdown: React.FC<CountdownProps> = ({ schedule }) => {
 											<p>{before.location}</p>
 										) : null}
 										{before.startTime.getTime() && w <= 800 ? (
-											<p>{`${before.startTime.getHours() % 12}${before.startTime.getHours() == 11 ? " am" : ""}-${before.endTime.getHours() % 12} ${before.endTime.getHours() < 12 ? "am" : "pm"}`}</p>
+											<p>{`${before.startTime.getHours() % 12 == 0 ? 12 : before.startTime.getHours() % 12}${before.startTime.getHours() == 11 ? " am" : ""}-${before.endTime.getHours() % 12 == 0 ? 12 : before.endTime.getHours() % 12} ${before.endTime.getHours() < 12 ? "am" : "pm"}`}</p>
 										) : null}
 									</div>
 									<div className={styles.innerCircle}></div>
@@ -139,7 +144,7 @@ const Countdown: React.FC<CountdownProps> = ({ schedule }) => {
 											<p>{before.location}</p>
 										) : null}
 										{before.startTime.getTime() && w > 800 ? (
-											<p>{`${before.startTime.getHours() % 12}${before.startTime.getHours() == 11 ? " am" : ""}-${before.endTime.getHours() % 12} ${before.endTime.getHours() < 12 ? "am" : "pm"}`}</p>
+											<p>{`${before.startTime.getHours() % 12 == 0 ? 12 : before.startTime.getHours() % 12}${before.startTime.getHours() == 11 ? " am" : ""}-${before.endTime.getHours() % 12 == 0 ? 12 : before.endTime.getHours() % 12} ${before.endTime.getHours() < 12 ? "am" : "pm"}`}</p>
 										) : null}
 									</div>
 								</div>
@@ -155,7 +160,7 @@ const Countdown: React.FC<CountdownProps> = ({ schedule }) => {
 											<p>{after.location}</p>
 										) : null}
 										{after.startTime.getTime() && w <= 800 ? (
-											<p>{`${after.startTime.getHours() % 12}${after.startTime.getHours() == 11 ? " am" : ""}-${after.endTime.getHours() % 12} ${after.endTime.getHours() < 12 ? "am" : "pm"}`}</p>
+											<p>{`${after.startTime.getHours() % 12 == 0 ? 12 : after.startTime.getHours() % 12}${after.startTime.getHours() == 11 ? " am" : ""}-${after.endTime.getHours() % 12 == 0 ? 12 : after.endTime.getHours() % 12} ${after.endTime.getHours() < 12 ? "am" : "pm"}`}</p>
 										) : null}
 									</div>
 									<div className={styles.innerCircle}></div>
@@ -163,7 +168,7 @@ const Countdown: React.FC<CountdownProps> = ({ schedule }) => {
 										<h5>{after.title}</h5>
 										{after.location && w > 800 ? <p>{after.location}</p> : null}
 										{after.startTime.getTime() && w > 800 ? (
-											<p>{`${after.startTime.getHours() % 12}${after.startTime.getHours() == 11 ? " am" : ""}-${after.endTime.getHours() % 12} ${after.endTime.getHours() < 12 ? "am" : "pm"}`}</p>
+											<p>{`${after.startTime.getHours() % 12 == 0 ? 12 : after.startTime.getHours() % 12}${after.startTime.getHours() == 11 ? " am" : ""}-${after.endTime.getHours() % 12 == 0 ? 12 : after.endTime.getHours() % 12} ${after.endTime.getHours() < 12 ? "am" : "pm"}`}</p>
 										) : null}
 									</div>
 								</div>
