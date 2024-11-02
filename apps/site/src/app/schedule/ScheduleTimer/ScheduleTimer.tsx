@@ -13,7 +13,7 @@ interface ScheduleProps {
 }
 
 const ScheduleTimer: React.FC<ScheduleProps> = ({ schedule }) => {
-	const [time, setTime] = useState(0);
+	const [time, setTime] = useState(Date.now());
 
 	useEffect(() => {
 		function updatePerSecond() {
