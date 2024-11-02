@@ -14,7 +14,7 @@ const Home = () => {
 		<div className={styles.home}>
 			<Landing />
 			<GetInvolved />
-      <Countdown />
+			<Countdown />
 			<Sponsors />
 			<Clubs />
 			<FAQ />

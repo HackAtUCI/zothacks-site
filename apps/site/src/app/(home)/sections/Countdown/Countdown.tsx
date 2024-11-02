@@ -39,8 +39,6 @@ const Countdown: React.FC<CountdownProps> = ({ schedule }) => {
 
 	const ended = schedule.filter((el) => el.endTime >= curTime);
 
-	console.log(ended);
-
 	const before =
 		ended.length > 0
 			? ended[0]
