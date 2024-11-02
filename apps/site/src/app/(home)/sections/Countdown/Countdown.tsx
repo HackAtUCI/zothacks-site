@@ -97,7 +97,7 @@ const Countdown: React.FC<CountdownProps> = ({ schedule }) => {
 
 	return (
 		<div className={styles.countdownWrapper}>
-			<Image src={bg_map} alt="bg_map" />
+			<Image src={bg_map} alt="bg_map" width={2300} />
 			{w > 0 && (
 				<div className={styles.countdownMaterial}>
 					{curTime >= hackStartTime ? (
