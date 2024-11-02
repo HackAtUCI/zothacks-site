@@ -30,7 +30,7 @@ export default function NavBar() {
 
 	return (
 		<div
-			className={`${styles.nav} fixed-top ${hasScrolled ? "bg-scrolled" : "bg-transparent"}`}
+			className={`${styles.nav} fixed-top ${hasScrolled ? "" : styles["bg-no-scroll"]}`}
 		>
 			<Navbar variant="dark" expand="lg" className={`${styles.navbar}`}>
 				<Container fluid>
@@ -68,7 +68,7 @@ export default function NavBar() {
 							>
 								SCHEDULE
 							</Link>
-							{/* <Link
+							<Link
 								href="https://forms.gle/cCixQqKR2gDXAUMLA"
 								className={styles.notActive}
 								target="_blank"
@@ -76,12 +76,12 @@ export default function NavBar() {
 								INCIDENT FORM
 							</Link>
 							<Link
-								href="https://zothacks-2023.devpost.com/"
+								href="https://zothacks-2024.devpost.com/"
 								className={styles.notActive}
 								target="_blank"
 							>
 								DEVPOST
-							</Link>	 */}
+							</Link>
 						</Nav>
 					</Navbar.Collapse>
 				</Container>
