@@ -4,15 +4,21 @@
 .nav {
 	width: 100%;
 	z-index: 101;
-	background-color: rgba(20, 20, 20, 0.7);
-	mix-blend-mode: hard-light;
-	@include utils.media-breakpoint-up(lg) {
-		backdrop-filter: none;
-	}
 	backdrop-filter: blur(7px);
 	position: fixed;
 	text-align: right;
 	transition: background-color 0.2s ease;
+	background-color: rgba(20, 20, 20, 0.7);
+
+	@include utils.media-breakpoint-up(lg) {
+		backdrop-filter: none;
+	}
+}
+
+.bg-no-scroll {
+	@include utils.media-breakpoint-up(lg) {
+		background-color: transparent !important;
+	}
 }
 
 .navbar {
@@ -59,13 +65,4 @@
 	text-decoration: underline;
 	text-underline-offset: 0.3rem;
 	text-decoration-thickness: 0.14rem;
-}
-
-.bg-transparent {
-	background-color: transparent;
-}
-
-.bg-scrolled {
-	background-color: rgba(20, 20, 20, 0.7);
-	mix-blend-mode: hard-light;
 }
