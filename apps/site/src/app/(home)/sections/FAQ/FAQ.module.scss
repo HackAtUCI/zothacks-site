@@ -61,7 +61,8 @@ $item-padding-x: 3rem;
 	padding: $mobile-item-padding-y $mobile-item-padding-x;
 }
 
-.faq-header, .faq-header > * {
+.faq-header,
+.faq-header > * {
 	font-weight: 600;
 }
 

@@ -1,0 +1,77 @@
+@use "bootstrap-utils" as bootstrap;
+@use "zothacks-theme" as theme;
+
+.outerCircle {
+	background-color: theme.$white;
+	border: 5px solid theme.$lighter-black;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1;
+	bottom: 0;
+	position: absolute;
+}
+
+.innerCircle {
+	background-color: theme.$red;
+	min-width: 30px;
+	min-height: 30px;
+	border-radius: 50%;
+	transition-duration: 0.5s;
+}
+
+.textContainer {
+	top: 45px;
+	left: 20px;
+	position: absolute;
+	min-width: 150px;
+	transform: translateX(-50%);
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.location {
+	width: 300px;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+	font-size: 1.25rem;
+	@include bootstrap.media-breakpoint-down(md) {
+		font-size: 1rem;
+		width: 160px;
+	}
+}
+
+.title {
+	text-align: center;
+	width: 200px;
+}
+
+.time {
+	text-align: center;
+	padding: 0;
+	margin: 0;
+	font-size: 1.25rem;
+	@include bootstrap.media-breakpoint-down(md) {
+		font-size: 1rem;
+	}
+}
+
+.virtual {
+	display: flex;
+	align-items: baseline;
+	gap: 5px;
+	text-decoration: none;
+	color: theme.$purple;
+	p {
+		margin: 0;
+		padding: 0;
+		font-weight: bold;
+		font-size: 1.25rem;
+	}
+}
