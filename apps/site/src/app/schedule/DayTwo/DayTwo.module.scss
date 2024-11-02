@@ -1,0 +1,75 @@
+@use "bootstrap-utils" as bootstrap;
+
+.mapContainer {
+	width: 100vw;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: auto;
+}
+
+.map2 {
+	position: absolute;
+	width: 90%;
+	min-width: 1400px;
+}
+
+.title {
+	position: absolute;
+	top: -60px;
+	left: 50%;
+	transform: translateX(-50%);
+	font-weight: bold;
+}
+
+.mapPath {
+	position: absolute;
+}
+
+.pathImage {
+	height: 100%;
+	width: 100%;
+	@include bootstrap.media-breakpoint-down(md) {
+		display: none;
+	}
+}
+
+.mobilePath {
+	width: 100%;
+	height: 2690px;
+	@include bootstrap.media-breakpoint-up(md) {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 1601px) {
+	.mapPath {
+		width: 1145px;
+		height: 3049px;
+	}
+	.mapContainer {
+		height: 4000px;
+	}
+}
+
+@media screen and (min-width: 1351px) and (max-width: 1600px) {
+	.mapPath {
+		width: 817px;
+		height: 2439px;
+	}
+	.mapContainer {
+		height: 3000px;
+	}
+}
+
+@media screen and (max-width: 1350px) {
+	.mapPath {
+		width: min(80%, 677px);
+		height: 2690px;
+	}
+
+	.mapContainer {
+		height: 3000px;
+	}
+}

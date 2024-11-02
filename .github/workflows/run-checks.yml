@@ -1,0 +1,56 @@
+name: Run Checks
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check-site:
+    name: Check Site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        # pnpm version will be determined by `packageManager` in `package.json`
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "pnpm"
+
+      - name: Install frontend dependencies
+        run: pnpm install
+
+      - name: Format with Prettier
+        uses: EPMatt/reviewdog-action-prettier@v1
+        with:
+          # cannot use workdir since action would look in package root, not workspace for `.bin/prettier`
+          level: warning
+          reporter: github-pr-review
+          prettier_flags: apps/site/src
+
+      - name: Lint with ESLint (review)
+        uses: reviewdog/action-eslint@v1
+        if: github.event_name == 'pull_request'
+        with:
+          workdir: apps/site
+          level: error
+          reporter: github-pr-review
+          eslint_flags: src
+
+      - name: Lint with ESLint (check)
+        uses: reviewdog/action-eslint@v1
+        if: github.event_name == 'push'
+        with:
+          workdir: apps/site
+          level: error
+          reporter: github-check
+          eslint_flags: src

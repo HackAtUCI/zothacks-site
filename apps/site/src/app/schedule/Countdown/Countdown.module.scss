@@ -1,0 +1,39 @@
+@use "bootstrap-utils" as bootstrap;
+
+.countdown {
+	margin: 0;
+	padding-bottom: 50px;
+	opacity: 0;
+	transition: opacity 225ms cubic-bezier(0.32, 0, 0.67, 0);
+
+	span {
+		text-align: center;
+		color: white;
+		font-weight: 600;
+
+		&.time {
+			display: block;
+			@include bootstrap.font-size(6rem);
+			line-height: 100%;
+
+			.number {
+				display: inline-block;
+				text-align: center;
+				width: 2ch;
+			}
+
+			.colon {
+				opacity: 0.75;
+			}
+		}
+
+		&.caption {
+			display: block;
+			@include bootstrap.font-size(1.5rem);
+		}
+	}
+}
+
+.loaded {
+	opacity: 1;
+}

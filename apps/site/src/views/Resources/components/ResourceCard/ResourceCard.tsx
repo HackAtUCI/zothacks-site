@@ -14,7 +14,7 @@ interface ResourceCardProps {
 	description: JSX.Element;
 	stickerSrc?: string;
 	links: Tag[];
-	stickyNoteColor: string;
+	islandBackground: string;
 }
 
 const variant: Variants = {
@@ -43,76 +43,70 @@ export default function ResourceCard({
 	description,
 	stickerSrc,
 	links,
-	stickyNoteColor,
+	islandBackground,
 }: ResourceCardProps) {
 	return (
 		<AnimatePresence mode="wait">
-			<motion.div style={{ position: "relative" }}>
-				<motion.div
-					initial={{
-						scale: 1.1,
-						opacity: 0,
-						rotateX: 15,
-					}}
+			<motion.div className={styles.CardContainer}>
+				<motion.img
+					src={islandBackground}
+					alt="island"
+					initial="initial"
 					viewport={{ once: true }}
-					whileInView={{
-						scale: 1,
-						rotateX: 0,
-						opacity: 1,
-						transition: {
-							delay: 0.1,
-							duration: 0.65,
-							ease: cubicBezier(0.64, 0, 0.78, 0),
-						},
-					}}
-					className={styles.tape}
-				></motion.div>
+					whileInView="animate"
+					className={styles.islandBackground}
+					variants={variant}
+				/>
 				<motion.div
 					variants={variant}
 					initial="initial"
 					whileInView="animate"
 					viewport={{ once: true }}
 					className={styles.group}
-					style={{
-						backgroundColor: `${stickyNoteColor}`,
-					}}
 				>
 					<div className={styles.container + " text-center px-3"}>
 						{stickerSrc && (
 							<motion.img
 								src={stickerSrc}
 								alt="Resource logo"
-								width="100"
+								className={styles.buttonImage}
 								variants={variant}
 							/>
 						)}
-						<h3>{title}</h3>
-						{description}
+						<h3>
+							{links && links[0] ? (
+								<motion.a
+									href={links[0].link}
+									target="_blank"
+									rel="noopener noreferrer"
+									className={styles.titleLink}
+								>
+									{title}
+								</motion.a>
+							) : (
+								title
+							)}{" "}
+							{links.map(({ text, link }) => (
+								<motion.a
+									className={"d-inline ms-1 vertical-align-middle"}
+									variants={variant}
+									key={link}
+									href={link}
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									<Image
+										className={styles.titleLinkIcon}
+										src={openNewWindow}
+										width="20"
+										height="20"
+										alt="Open link in new window"
+									/>
+								</motion.a>
+							))}
+						</h3>
+						<div className={styles.description}>{description}</div>
 					</div>
-
-					{links.map(({ text, link }) => (
-						<motion.a
-							key={link}
-							href={link}
-							target="_blank"
-							rel="noopener noreferrer"
-							className={styles.tag}
-							variants={variant}
-						>
-							{text}
-							<motion.div
-								className="d-inline ms-1 vertical-align-middle"
-								variants={variant}
-							>
-								<Image
-									src={openNewWindow}
-									width="20"
-									height="20"
-									alt="Open link in new window"
-								/>
-							</motion.div>
-						</motion.a>
-					))}
 				</motion.div>
 			</motion.div>
 		</AnimatePresence>

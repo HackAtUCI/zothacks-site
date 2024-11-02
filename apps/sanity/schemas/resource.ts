@@ -53,11 +53,11 @@ export default defineType({
 			validation: (Rule) => Rule.required(),
 		}),
 		defineField({
-			name: "stickyNoteColor",
-			title: "Sticky Note Color",
+			name: "background",
+			title: "Island Background",
 			description:
-				"Note that the color will be used as a background for black text, so please choose a color with enough contrast.",
-			type: "color",
+				"There are 4 different backgrounds to make the islands look unique",
+			type: "image",
 			validation: (Rule) => Rule.required(),
 		}),
 	],

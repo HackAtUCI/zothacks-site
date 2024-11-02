@@ -3,7 +3,7 @@
 $container-padding: 8rem;
 
 .background {
-	background: linear-gradient(#009de9 50%, #00a6c4 60%);
+	background: linear-gradient(#01a6c4, #01a7c5 67%, #00c1a9 82%, #8dbd9e);
 }
 
 .accordion {
@@ -23,7 +23,7 @@ section.container {
 
 html,
 body {
-	overflow-x: hidden;
+	overflow-x: clip;
 	min-height: 100%;
 }
 body {

@@ -1,68 +1,72 @@
 @use "zothacks-theme" as theme;
 @use "bootstrap-utils" as utils;
 
-.container {
-	padding-top: 6rem;
-	padding-bottom: 6rem;
-}
-
 .title {
 	text-align: center;
-}
+	color: theme.$white;
+	font-size: 2rem;
+	font-weight: 600;
+	margin-bottom: 48px;
 
-.clipboard {
-	position: relative;
-	padding: 64px 32px 48px 32px;
-	min-height: 512px;
-	width: 80%;
-	margin: 0 auto;
-	border: 20px solid #aa703c;
-	border-radius: 100px;
-	background: #ffffff;
-	display: flex;
-	flex-direction: column;
-	align-items: stretch;
-
-	@include utils.media-breakpoint-up(sm) {
-		padding: 32px 32px 48px 32px;
-	}
-}
-
-.clip {
-	height: 192px;
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%) rotate(90deg);
-	top: -105px;
-
-	@include utils.media-breakpoint-up(sm) {
-		height: 256px;
-		top: 50%;
-		transform: translateY(-50%);
-		left: -85px;
+	@include utils.media-breakpoint-up(md) {
+		font-size: 3rem;
 	}
 }
 
 .logos {
-	flex-grow: 1;
-	display: grid;
+	display: flex;
+	flex-direction: column;
 	align-items: center;
-	align-content: center;
-	justify-content: center;
-	grid-template-columns: repeat(auto-fill, 192px);
-	gap: 32px;
-
-	@include utils.media-breakpoint-up(sm) {
-		padding-left: 24px;
-		grid-template-columns: repeat(auto-fill, 256px);
-	}
-
-	@include utils.media-breakpoint-up(md) {
-		grid-template-columns: repeat(auto-fill, 384px);
-		padding-left: 48px;
-	}
+	gap: 1.5rem;
+	max-width: 1200px;
+	margin: 0 auto;
 }
 
 .logo {
+	background-color: theme.$white;
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: transform 0.3s ease;
+	aspect-ratio: 1 / 1;
 	width: 100%;
+
+	&:hover {
+		transform: scale(1.05);
+	}
+
+	max-width: 250px;
+
+	&.gold {
+		max-width: 450px;
+	}
+
+	@include utils.media-breakpoint-up(md) {
+		max-width: 350px;
+
+		&.gold {
+			max-width: 550px;
+		}
+	}
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		padding: 2rem;
+	}
+}
+
+.placeholderLogo {
+	font-weight: bold;
+	color: theme.$black;
+	text-align: center;
+	padding: 0.5rem;
+	font-size: 0.8rem;
+
+	@include utils.media-breakpoint-up(md) {
+		font-size: 1rem;
+		padding: 1rem;
+	}
 }
