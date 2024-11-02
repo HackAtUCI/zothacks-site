@@ -1,0 +1,76 @@
+@use "bootstrap-utils" as bootstrap;
+
+.countdown {
+	margin: 0;
+	opacity: 0;
+	transition: opacity 225ms cubic-bezier(0.32, 0, 0.67, 0);
+
+	span {
+		text-align: center;
+
+		@media screen and (max-width: 1000px) {
+			&.time {
+				gap: 10px 2rem;
+			}
+		}
+
+		@media screen and (min-width: 1001px) {
+			&.time {
+				gap: 10px 3rem;
+			}
+		}
+
+		&.time {
+			display: flex;
+			flex-wrap: wrap;
+			@include bootstrap.font-size(6rem);
+			line-height: 100%;
+			justify-content: center;
+			min-width: 260px;
+
+			.timePortion {
+				display: flex;
+				flex-direction: column;
+				gap: 5px;
+				min-width: 110px;
+			}
+
+			.timeBlock {
+				display: flex;
+				gap: 10px;
+			}
+
+			.timeText {
+				font-size: 22px;
+				width: 100%;
+				text-align: center;
+			}
+
+			.number {
+				font-weight: 600;
+				display: inline-block;
+				text-align: center;
+				background: #efc588;
+				font-size: 60px;
+				padding: 5px;
+				min-width: 50px;
+				border-radius: 7px;
+				min-height: 30px;
+			}
+
+			.colon {
+				opacity: 0.75;
+			}
+		}
+
+		&.caption {
+			display: block;
+			@include bootstrap.font-size(2.5rem);
+			font-weight: bold;
+		}
+	}
+}
+
+.loaded {
+	opacity: 1;
+}
