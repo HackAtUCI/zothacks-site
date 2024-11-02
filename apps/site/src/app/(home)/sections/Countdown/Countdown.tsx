@@ -64,12 +64,13 @@ const Countdown: React.FC<CountdownProps> = ({ schedule }) => {
 		before.endTime.getTime() > 0
 			? curTime.getTime() < before.startTime.getTime()
 				? 0
-				: 100 - ((before.endTime.getTime() - curTime.getTime()) /
+				: 100 -
+					((before.endTime.getTime() - curTime.getTime()) /
 						(before.endTime.getTime() - before.startTime.getTime())) *
-					100
+						100
 			: 100;
 
-	const [w, ] = useWindow();
+	const [w] = useWindow();
 
 	const totalLines = Math.floor(w / 66) > 7 ? Math.floor(w / 66) : 7;
 
