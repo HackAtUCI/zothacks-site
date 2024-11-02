@@ -19,19 +19,21 @@ export default function NavBar() {
 
 	const [hasScrolled, setHasScrolled] = useState(false);
 
+
 	useEffect(() => {
 		const handleScroll = () =>
 			window.scrollY !== 0 ? setHasScrolled(true) : setHasScrolled(false);
 
 		window.addEventListener("scroll", handleScroll);
-
+		
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
 
 	return (
 		<div
-			className={`${styles.nav} fixed-top ${hasScrolled ? "bg-scrolled" : "bg-transparent"}`}
+			className={`${styles.nav} fixed-top ${hasScrolled ? "" : styles["bg-no-scroll"]}`}
 		>
+		
 			<Navbar variant="dark" expand="lg" className={`${styles.navbar}`}>
 				<Container fluid>
 					<Navbar.Brand href="/" as={Link}>
@@ -68,7 +70,7 @@ export default function NavBar() {
 							>
 								SCHEDULE
 							</Link>
-							{/* <Link
+							<Link
 								href="https://forms.gle/cCixQqKR2gDXAUMLA"
 								className={styles.notActive}
 								target="_blank"
@@ -76,12 +78,12 @@ export default function NavBar() {
 								INCIDENT FORM
 							</Link>
 							<Link
-								href="https://zothacks-2023.devpost.com/"
+								href="https://zothacks-2024.devpost.com/"
 								className={styles.notActive}
 								target="_blank"
 							>
 								DEVPOST
-							</Link>	 */}
+							</Link>	
 						</Nav>
 					</Navbar.Collapse>
 				</Container>
