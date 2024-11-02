@@ -24,6 +24,7 @@ const DayOne: React.FC<DayOneProps> = ({ schedule, time }) => {
 	return (
 		<>
 			<div className={styles.mapContainer}>
+				<h3 className="visually-hidden">Day 1</h3>
 				<Image src={Map1} alt="zothacks-map" className={styles.map1} />
 				<Image
 					src={MobileMap}

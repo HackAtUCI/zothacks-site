@@ -18,7 +18,8 @@ const Header: React.FC<HeaderProps> = ({ time }) => {
 	return (
 		<>
 			<div className={styles.header}>
-				<Image src={Title} alt="title" />
+				<h1 className="visually-hidden">Schedule</h1>
+				<Image src={Title} alt="" />
 				{time < hackingEnds.getTime() && <Image src={Chest} alt="Chest" />}
 				{time >= hackingEnds.getTime() && <Image src={OpenChest} alt="Chest" />}
 				<Countdown
@@ -27,6 +28,7 @@ const Header: React.FC<HeaderProps> = ({ time }) => {
 					}
 					isHackingStarted={time >= hackingStarts.getTime()}
 				/>
+				<h2 className="visually-hidden">Events</h2>
 			</div>
 		</>
 	);

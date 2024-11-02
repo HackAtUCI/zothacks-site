@@ -44,6 +44,7 @@ const EventCircle: React.FC<CircleProps> = ({
 					: position
 			}
 		>
+			<h4 className="visually-hidden">{title}</h4>
 			{title == "Hacking Ends" ? (
 				<Image src={cross} alt="x" />
 			) : (

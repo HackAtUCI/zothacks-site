@@ -35,6 +35,7 @@ const DayThree: React.FC<DayThreeProps> = ({ schedule, time }) => {
 	return (
 		<>
 			<div className={styles.mapContainer}>
+				<h3 className="visually-hidden">Day 3</h3>
 				<Image src={Map3} alt="zothacks-map" className={styles.map3} />
 				<div className={styles.mapPath}>
 					<Image src={Path} alt="zothacks-path" className={styles.pathImage} />
