@@ -1,11 +1,11 @@
 "use client";
+import Image from "next/image";
 
 import Countdown from "../Countdown/Countdown";
 
-import Image from "next/image";
-import Chest from "@/assets/images/schedule-chest.png";
+import Chest from "@/assets/images/schedule-chest.svg";
 import OpenChest from "@/assets/images/schedule-chest-open.svg";
-import Title from "@/assets/images/schedule-title.png";
+import Title from "@/assets/images/schedule-title.svg";
 import styles from "./Header.module.scss";
 
 interface HeaderProps {
