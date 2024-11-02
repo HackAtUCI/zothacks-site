@@ -25,7 +25,7 @@ interface CountdownProps {
 
 const Countdown: React.FC<CountdownProps> = ({ schedule }) => {
 	const hackStartTime = new Date("2024-11-02T10:00:00"); // TBD, zothacks start time
-	const hackEndTime = new Date("2024-11-02T10:00:00"); // TBD, zothacks end time
+	const hackEndTime = new Date("2024-11-02T22:00:00"); // TBD, zothacks end time
 
 	const [curTime, setCurTime] = useState(new Date());
 
@@ -35,7 +35,7 @@ const Countdown: React.FC<CountdownProps> = ({ schedule }) => {
 		}, 1000);
 
 		return () => clearInterval(i);
-	});
+	}, []);
 
 	const ended = schedule.filter((el) => el.endTime > curTime);
 
@@ -124,7 +124,7 @@ const Countdown: React.FC<CountdownProps> = ({ schedule }) => {
 										left: "-20px",
 									}}
 								>
-									<div className={styles.descriptiveTextTop}>
+									<div className={styles.countdownTextTop}>
 										{before.location && w <= 800 ? (
 											<p>{before.location}</p>
 										) : null}
@@ -133,7 +133,7 @@ const Countdown: React.FC<CountdownProps> = ({ schedule }) => {
 										) : null}
 									</div>
 									<div className={styles.innerCircle}></div>
-									<div className={styles.descriptiveText}>
+									<div className={styles.countdownText}>
 										<h5>{before.title}</h5>
 										{before.location && w > 800 ? (
 											<p>{before.location}</p>
@@ -150,7 +150,7 @@ const Countdown: React.FC<CountdownProps> = ({ schedule }) => {
 										right: "-38px",
 									}}
 								>
-									<div className={styles.descriptiveTextTop}>
+									<div className={styles.countdownTextTop}>
 										{after.location && w <= 800 ? (
 											<p>{after.location}</p>
 										) : null}
@@ -159,7 +159,7 @@ const Countdown: React.FC<CountdownProps> = ({ schedule }) => {
 										) : null}
 									</div>
 									<div className={styles.innerCircle}></div>
-									<div className={styles.descriptiveText}>
+									<div className={styles.countdownText}>
 										<h5>{after.title}</h5>
 										{after.location && w > 800 ? <p>{after.location}</p> : null}
 										{after.startTime.getTime() && w > 800 ? (
