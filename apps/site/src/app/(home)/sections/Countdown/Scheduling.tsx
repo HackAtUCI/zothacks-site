@@ -2,7 +2,7 @@ import Countdown from "./Countdown";
 import { getSchedule } from "./getSchedule";
 
 export default async function CountdownSchedule() {
-	const schedule = (await getSchedule())[0].map((el) => {
+	const schedule = (await getSchedule()).flat().map((el) => {
 		return {
 			title: el.title,
 			startTime: el.startTime,
