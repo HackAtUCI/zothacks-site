@@ -75,7 +75,7 @@ const DayTwo: React.FC<DayTwoProps> = ({ schedule, time }) => {
 							virtual={event?.virtual}
 						/>
 					))}
-					<h4 className={styles.title}>Day Two</h4>
+					<p className={styles.title}>Day Two</p>
 				</div>
 			</div>
 		</>
