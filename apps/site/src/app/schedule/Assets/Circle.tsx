@@ -44,7 +44,6 @@ const EventCircle: React.FC<CircleProps> = ({
 					: position
 			}
 		>
-			<h4 className="visually-hidden">{title}</h4>
 			{title == "Hacking Ends" ? (
 				<Image src={cross} alt="x" />
 			) : (
@@ -60,7 +59,7 @@ const EventCircle: React.FC<CircleProps> = ({
 				></div>
 			)}
 			<div className={styles.textContainer} style={up ? { top: "-160px" } : {}}>
-				<p className={styles.title}>{title}</p>
+				<h4 className={styles.title}>{title}</h4>
 				<p className={styles.location}>{location}</p>
 				<p className={styles.time}>{convertTime(startTime, endTime)}</p>
 				{virtual && (

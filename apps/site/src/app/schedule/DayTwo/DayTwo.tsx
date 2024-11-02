@@ -54,7 +54,6 @@ const DayTwo: React.FC<DayTwoProps> = ({ schedule, time }) => {
 	return (
 		<>
 			<div className={styles.mapContainer}>
-				<h3 className="visually-hidden">Day 2</h3>
 				<Image src={Map2} alt="zothacks-map" className={styles.map2} />
 				<div className={styles.mapPath}>
 					<Image src={Path} alt="zothacks-path" className={styles.pathImage} />
@@ -76,7 +75,7 @@ const DayTwo: React.FC<DayTwoProps> = ({ schedule, time }) => {
 							virtual={event?.virtual}
 						/>
 					))}
-					<p className={styles.title}>Day Two</p>
+					<h3 className={styles.title}>Day Two</h3>
 				</div>
 			</div>
 		</>
