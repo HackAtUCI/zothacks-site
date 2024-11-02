@@ -1,14 +1,15 @@
 "use client";
 
-import bg_map from "@/assets/images/maps/countdown.svg";
 import Image from "next/image";
-import useWindow from "./useWindow";
-
-import styles from "./Countdown.module.scss";
-import CountdownClock from "./CountdownClock";
 import { useEffect, useState } from "react";
 
-import boat from "@/assets/icons/boat.png";
+import useWindow from "./useWindow";
+import CountdownClock from "./CountdownClock";
+
+import bg_map from "@/assets/images/maps/countdown.svg";
+import boat from "@/assets/icons/boat.svg";
+
+import styles from "./Countdown.module.scss";
 
 interface CountdownProps {
 	schedule: {
@@ -63,12 +64,12 @@ const Countdown: React.FC<CountdownProps> = ({ schedule }) => {
 		before.endTime.getTime() > 0
 			? curTime.getTime() < before.startTime.getTime()
 				? 0
-				: ((before.endTime.getTime() - curTime.getTime()) /
+				: 100 - ((before.endTime.getTime() - curTime.getTime()) /
 						(before.endTime.getTime() - before.startTime.getTime())) *
 					100
 			: 100;
 
-	const [w, h] = useWindow();
+	const [w, ] = useWindow();
 
 	const totalLines = Math.floor(w / 66) > 7 ? Math.floor(w / 66) : 7;
 
@@ -90,7 +91,7 @@ const Countdown: React.FC<CountdownProps> = ({ schedule }) => {
 	if (curTime > hackEndTime) {
 		return (
 			<div className={styles.countdownWrapper}>
-				<Image src={bg_map} alt="bg_map" />
+				<Image src={bg_map} alt="background map for countdown" />
 				<div className={styles.countdownMaterial}>
 					<h1 className={styles.endText}>Hacking has ended!</h1>
 				</div>
@@ -100,7 +101,7 @@ const Countdown: React.FC<CountdownProps> = ({ schedule }) => {
 
 	return (
 		<div className={styles.countdownWrapper}>
-			<Image src={bg_map} alt="bg_map" width={2300} />
+			<Image src={bg_map} alt="background map for countdown" width={2300} />
 			{w > 0 && (
 				<div className={styles.countdownMaterial}>
 					{curTime >= hackStartTime ? (
