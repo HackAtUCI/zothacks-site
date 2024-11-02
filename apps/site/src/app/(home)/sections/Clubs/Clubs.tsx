@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
+import Container from "react-bootstrap/Container";
+import imageUrlBuilder from "@sanity/image-url";
+import { client } from "@/lib/sanity/client";
 import { getClubs } from "./getClubs";
 import styles from "./Clubs.module.scss";
-import { client } from "@/lib/sanity/client";
-import imageUrlBuilder from "@sanity/image-url";
-import Container from "react-bootstrap/Container";
 
 const builder = imageUrlBuilder(client);
 
@@ -23,7 +23,7 @@ const Clubs = async () => {
 						className={styles.logo}
 					>
 						<img
-							src={builder.image(logo).format("webp").url()}
+							src={builder.image(logo).width(500).format("webp").url()}
 							alt={name + " logo"}
 						/>
 					</a>

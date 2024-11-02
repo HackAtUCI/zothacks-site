@@ -1,10 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
+import Container from "react-bootstrap/Container";
+import imageUrlBuilder from "@sanity/image-url";
+import { client } from "@/lib/sanity/client";
 import { getSponsors } from "./getSponsors";
 import styles from "./Sponsors.module.scss";
-import { client } from "@/lib/sanity/client";
-import imageUrlBuilder from "@sanity/image-url";
-import Container from "react-bootstrap/Container";
-import Clubs from "../Clubs/Clubs";
 
 const builder = imageUrlBuilder(client);
 
@@ -24,13 +23,12 @@ const Sponsors = async () => {
 						className={`${styles.logo} ${styles[tier]}`}
 					>
 						<img
-							src={builder.image(logo).format("webp").url()}
+							src={builder.image(logo).width(500).format("webp").url()}
 							alt={name + " logo"}
 						/>
 					</a>
 				))}
 			</div>
-			<Clubs />
 		</Container>
 	);
 };
