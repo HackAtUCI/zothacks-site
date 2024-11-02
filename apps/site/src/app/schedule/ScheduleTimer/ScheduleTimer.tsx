@@ -22,7 +22,7 @@ const ScheduleTimer: React.FC<ScheduleProps> = ({ schedule }) => {
 		let ret = setInterval(updatePerSecond, 1000);
 
 		return () => clearInterval(ret);
-	});
+	}, []);
 
 	const scheduleFlat = schedule.flat();
 	const dayOne = scheduleFlat.filter(
