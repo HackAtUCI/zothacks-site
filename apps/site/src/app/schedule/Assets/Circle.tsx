@@ -69,7 +69,7 @@ const EventCircle: React.FC<CircleProps> = ({
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						<div>Zoom</div>
+						<div>Recording</div>
 						<Image src={openNewWindow} alt="open" />
 					</a>
 				)}
