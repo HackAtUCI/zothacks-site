@@ -82,6 +82,13 @@ export default function NavBar() {
 							>
 								DEVPOST
 							</Link>
+							<Link
+								href="https://forms.gle/xD7XMhnSF5jYzXPN6"
+								className={styles.notActive}
+								target="_blank"
+							>
+								FEEDBACK FORM
+							</Link>
 						</Nav>
 					</Navbar.Collapse>
 				</Container>
