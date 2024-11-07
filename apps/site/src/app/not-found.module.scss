@@ -1,0 +1,52 @@
+@use "zothacks-theme" as theme;
+@use "bootstrap-utils" as utils;
+
+.not-found-page {
+	display: flex;
+	align-items: start;
+	justify-content: center;
+	height: 80vh;
+	background: url("~@/assets/background/anteater-fishing-background.png") center /
+		cover;
+}
+
+.content {
+	margin-top: 22vh;
+	text-align: center;
+	line-height: 1.5;
+}
+
+.heading,
+.subtext {
+	margin: 0 auto;
+	text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.heading {
+	font-size: 2.5rem;
+	font-weight: 700;
+	color: theme.$yellow;
+
+	@include utils.media-breakpoint-up(lg) {
+		font-size: 3rem;
+	}
+
+	@include utils.media-breakpoint-up(xl) {
+		font-size: 4rem;
+	}
+}
+
+.subtext {
+	font-size: 1.5rem;
+	font-weight: 400;
+	color: theme.$white;
+	max-width: 60%;
+
+	@include utils.media-breakpoint-up(lg) {
+		font-size: 1.75rem;
+	}
+
+	@include utils.media-breakpoint-up(xl) {
+		font-size: 2.25rem;
+	}
+}
