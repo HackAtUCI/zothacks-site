@@ -6,7 +6,8 @@
 	align-items: start;
 	justify-content: center;
 	height: 80vh;
-	background: url('~@/assets/background/anteater-fishing-background.png') center / cover;
+	background: url("~@/assets/background/anteater-fishing-background.png") center /
+		cover;
 }
 
 .content {
@@ -15,7 +16,8 @@
 	line-height: 1.5;
 }
 
-.heading, .subtext {
+.heading,
+.subtext {
 	margin: 0 auto;
 	text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
 }
@@ -35,7 +37,7 @@
 }
 
 .subtext {
-	font-size: 1.5rem; 
+	font-size: 1.5rem;
 	font-weight: 400;
 	color: theme.$white;
 	max-width: 60%;
