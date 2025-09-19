@@ -9,10 +9,10 @@ const Landing = () => {
 	return (
 		<div className={styles.landing}>
 			<div className={styles.title}>
-				<Characters />
+				{/* <Characters /> */}
 				<Title />
 				<ApplyButton />
-				<Intro />
+				{/* <Intro /> */}
 			</div>
 		</div>
 	);

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fredoka } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 
 import NavBar from "@/components/NavBar/NavBar";
 import Footer from "@/components/Footer/Footer";
@@ -16,10 +16,10 @@ export const metadata: Metadata = {
 	},
 };
 
-const fredoka = Fredoka({
+const dmSans = DM_Sans({
 	weight: ["400", "500", "600", "700"],
 	subsets: ["latin"],
-	variable: "--next-font-fredoka",
+	variable: "--next-font-dm-sans",
 });
 
 export default function RootLayout({
@@ -28,7 +28,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en" className={fredoka.variable}>
+		<html lang="en" className={dmSans.variable}>
 			<body className="background">
 				<NavBar />
 				<main>{children}</main>

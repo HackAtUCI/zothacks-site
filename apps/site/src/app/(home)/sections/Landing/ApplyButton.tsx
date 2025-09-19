@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 import styles from "./ApplyButton.module.scss";
 
@@ -54,7 +55,12 @@ const ApplyButton = () => {
 			}}
 			transition={{ duration: 0.5 }}
 		>
-			<ApplyButtonIcon />
+			<Link className={styles.applyLink} href="/mentors">
+				<div className={styles.applyContainer}>
+					<h1 className={styles.title}>Mentor Applications Now Open</h1>
+				</div>
+			</Link>
+			{/* <ApplyButtonIcon /> */}
 		</motion.div>
 	);
 };

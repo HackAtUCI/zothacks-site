@@ -13,12 +13,8 @@ export default function Title() {
 			}}
 			transition={{ duration: 0.5 }}
 		>
-			<Image
-				src={zothacks_title}
-				alt="ZotHacks 2024 Title"
-				className={styles.title}
-			/>
-			<h1 className={styles.date}>November 1-3, 2024</h1>
+			<h1 className={styles.title}>ZotHacks 2025</h1>
+			<h1 className={styles.date}>Theme Coming Soon</h1>
 		</motion.div>
 	);
 }
