@@ -3,29 +3,29 @@
 $container-padding: 8rem;
 
 .background {
-  background: linear-gradient(#01a6c4, #01a7c5 67%, #00c1a9 82%, #8dbd9e);
+	background: linear-gradient(#01a6c4, #01a7c5 67%, #00c1a9 82%, #8dbd9e);
 }
 
 .accordion {
-  --bs-accordion-active-color: theme.$black;
-  --bs-accordion-bg: transparent;
-  --bs-accordion-active-bg: transparent;
-  --bs-accordion-border-color: transparent;
-  --bs-accordion-border-radius: 0;
-  --bs-accordion-btn-icon-width: 14px;
+	--bs-accordion-active-color: theme.$black;
+	--bs-accordion-bg: transparent;
+	--bs-accordion-active-bg: transparent;
+	--bs-accordion-border-color: transparent;
+	--bs-accordion-border-radius: 0;
+	--bs-accordion-btn-icon-width: 14px;
 }
 
 section.container {
-  // responsive padding
-  @include bootstrap.padding-top($container-padding);
-  @include bootstrap.padding-bottom($container-padding);
+	// responsive padding
+	@include bootstrap.padding-top($container-padding);
+	@include bootstrap.padding-bottom($container-padding);
 }
 
 html,
 body {
-  overflow-x: clip;
-  min-height: 100%;
+	overflow-x: clip;
+	min-height: 100%;
 }
 body {
-  position: relative;
+	position: relative;
 }

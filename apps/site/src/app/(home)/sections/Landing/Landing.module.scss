@@ -2,178 +2,180 @@
 @use "bootstrap-utils" as bootstrap;
 
 .landing {
-    background-color: #001233; 
-    height: 100vh;
-    background-image: linear-gradient(
-        to bottom,
-        rgba(#001233, 0.9), 
-        rgba(theme.$dark-sky, 0.6),
-        rgba(theme.$dark-sky, 0.3),
-        transparent
-    ), url("~@/assets/background/aurora-background-mountain.png");
-    background-size: 100% auto;
-    background-position: center 95px;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    text-align: center;
-    overflow: hidden;
-    position: relative;
-    padding-top: 0;
+	background-color: #001233;
+	height: 100vh;
+	background-image: linear-gradient(
+			to bottom,
+			rgba(#001233, 0.9),
+			rgba(theme.$dark-sky, 0.6),
+			rgba(theme.$dark-sky, 0.3),
+			transparent
+		),
+		url("~@/assets/background/aurora-background-mountain.png");
+	background-size: 100% auto;
+	background-position: center 95px;
+	background-repeat: no-repeat;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	text-align: center;
+	overflow: hidden;
+	position: relative;
+	padding-top: 0;
 
-    @include bootstrap.media-breakpoint-down(sm) {
-        background-position: center;
-        background-size: cover;
-    }
+	@include bootstrap.media-breakpoint-down(sm) {
+		background-position: center;
+		background-size: cover;
+	}
 
-    @include bootstrap.media-breakpoint-down(md) {
-        background-position: center top;
-        background-size: cover;
-        padding-top: 40px;
-    }
+	@include bootstrap.media-breakpoint-down(md) {
+		background-position: center top;
+		background-size: cover;
+		padding-top: 40px;
+	}
 }
 
 .title {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 27vh;
-    width: 877px;
-    font-size: 120px;
-    font-weight: 700;
-    color: theme.$white;
-    line-height: 1;
-    letter-spacing: 0;
-    text-align: center;
-    margin: 0 auto;
-    max-width: 90%;
-    z-index: 2;
-    
-    @include bootstrap.media-breakpoint-down(lg) {
-        width: auto;
-        font-size: 80px;
-        top: 25vh;
-    }
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 27vh;
+	width: 877px;
+	font-size: 120px;
+	font-weight: 700;
+	color: theme.$white;
+	line-height: 1;
+	letter-spacing: 0;
+	text-align: center;
+	margin: 0 auto;
+	max-width: 90%;
+	z-index: 2;
 
-    @include bootstrap.media-breakpoint-down(md) {
-        font-size: 70px;
-        top: 25vh;
-        width: 80%;
-        line-height: 1.1;
-    }
+	@include bootstrap.media-breakpoint-down(lg) {
+		width: auto;
+		font-size: 80px;
+		top: 25vh;
+	}
 
-    @include bootstrap.media-breakpoint-down(sm) {
-        font-size: 60px;
-        top: 15vh;
-        width: 90%;
-        line-height: 1.1;
-    }
+	@include bootstrap.media-breakpoint-down(md) {
+		font-size: 70px;
+		top: 25vh;
+		width: 80%;
+		line-height: 1.1;
+	}
+
+	@include bootstrap.media-breakpoint-down(sm) {
+		font-size: 60px;
+		top: 15vh;
+		width: 90%;
+		line-height: 1.1;
+	}
 }
 
 .subtitle {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 43vh;
-    width: 483px;
-    font-size: 48px;
-    font-weight: 700;
-    color: theme.$white;
-    line-height: 1;
-    text-align: center;
-    letter-spacing: 0;
-    margin: 0 auto;
-    z-index: 2;
-    
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 43vh;
+	width: 483px;
+	font-size: 48px;
+	font-weight: 700;
+	color: theme.$white;
+	line-height: 1;
+	text-align: center;
+	letter-spacing: 0;
+	margin: 0 auto;
+	z-index: 2;
 
-    @include bootstrap.media-breakpoint-down(lg) {
-        width: auto;
-        font-size: 36px;
-        top: 40vh;
-    }
+	@include bootstrap.media-breakpoint-down(lg) {
+		width: auto;
+		font-size: 36px;
+		top: 40vh;
+	}
 
-    @include bootstrap.media-breakpoint-down(md) {
-        font-size: 32px;
-        top: 42vh;
-        width: 75%;
-        max-width: 500px;
-        line-height: 1.2;
-    }
+	@include bootstrap.media-breakpoint-down(md) {
+		font-size: 32px;
+		top: 42vh;
+		width: 75%;
+		max-width: 500px;
+		line-height: 1.2;
+	}
 
-    @include bootstrap.media-breakpoint-down(sm) {
-        font-size: 24px;
-        top: 35vh;
-        width: 90%;
-        height: auto;
-        line-height: 1.2;
-    }
+	@include bootstrap.media-breakpoint-down(sm) {
+		font-size: 24px;
+		top: 35vh;
+		width: 90%;
+		height: auto;
+		line-height: 1.2;
+	}
 }
 
 .applyButton {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 63vh;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 63vh;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
-    width: 840px;
-    max-width: 90%;
-    height: auto;
-    min-height: 88px;
-    padding: 16px 30px;
-    background-color: rgba(theme.$dark-blue, 0.85);
-    color: theme.$turquoise;
-    font-size: 48px;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 50px;
-    border: 1px solid theme.$dark-blue;
-    text-align: center;
-    transition: all 0.3s ease;
-    line-height: normal; 
-    z-index: 2;
-    
-    &:hover {
-        box-shadow: 0 0 20px theme.$turquoise, 0 0 40px rgba(83, 183, 171, 0.4);
-        background-color: theme.$dark-blue;
-        transform: translateX(-50%) scale(1.03);
-    }
+	width: 840px;
+	max-width: 90%;
+	height: auto;
+	min-height: 88px;
+	padding: 16px 30px;
+	background-color: rgba(theme.$dark-blue, 0.85);
+	color: theme.$turquoise;
+	font-size: 48px;
+	font-weight: 600;
+	text-decoration: none;
+	border-radius: 50px;
+	border: 1px solid theme.$dark-blue;
+	text-align: center;
+	transition: all 0.3s ease;
+	line-height: normal;
+	z-index: 2;
 
-    @include bootstrap.media-breakpoint-down(lg) {
-        width: auto;
-        font-size: 36px;
-        min-height: 72px;
-        padding: 12px 24px;
-        height: auto;
-    }
+	&:hover {
+		box-shadow:
+			0 0 20px theme.$turquoise,
+			0 0 40px rgba(83, 183, 171, 0.4);
+		background-color: theme.$dark-blue;
+		transform: translateX(-50%) scale(1.03);
+	}
 
-    @include bootstrap.media-breakpoint-down(md) {
-        font-size: 30px;
-        padding: 12px 30px;
-        min-height: 70px;
-        width: 60%;
-        max-width: 500px;
-        top: 60vh;
-        bottom: auto;
-        border-radius: 40px;
-    }
-    
-    @include bootstrap.media-breakpoint-down(sm) {
-        font-size: 22px;
-        padding: 20px;
-        width: 240px;
-        max-width: 70%;
-        top: auto;
-        bottom: 15%;
-        border-radius: 30px;
-        flex-direction: column;
-        line-height: 1.3;
-        min-height: auto;
-        text-align: center;
-    }
+	@include bootstrap.media-breakpoint-down(lg) {
+		width: auto;
+		font-size: 36px;
+		min-height: 72px;
+		padding: 12px 24px;
+		height: auto;
+	}
+
+	@include bootstrap.media-breakpoint-down(md) {
+		font-size: 30px;
+		padding: 12px 30px;
+		min-height: 70px;
+		width: 60%;
+		max-width: 500px;
+		top: 60vh;
+		bottom: auto;
+		border-radius: 40px;
+	}
+
+	@include bootstrap.media-breakpoint-down(sm) {
+		font-size: 22px;
+		padding: 20px;
+		width: 240px;
+		max-width: 70%;
+		top: auto;
+		bottom: 15%;
+		border-radius: 30px;
+		flex-direction: column;
+		line-height: 1.3;
+		min-height: auto;
+		text-align: center;
+	}
 }
