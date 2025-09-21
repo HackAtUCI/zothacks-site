@@ -1,0 +1,88 @@
+@use "zothacks-theme" as theme;
+
+.infoWrapper {
+
+}
+
+  
+.infoCard {
+    display: grid;
+    background-color: #2E68A870;
+    gap: 1.25rem;
+    margin-top: 1.75rem;
+    padding: 1.25rem 1.25rem;
+    border-radius: 2.188rem;
+    color: theme.$white;
+}
+
+  .infoRow + .infoRow {
+    margin-top: 0.85rem;
+  }
+  
+  .infoRow h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 0.25rem;
+    color: rgba(theme.$white, 0.95);
+  }
+  
+  .infoRow p {
+    margin: 0;
+    font-size: 0.98rem;
+    line-height: 1.4;
+    color: rgba(theme.$white, 0.90);
+  }
+
+  .deadlinesCard {
+    padding: 1.25rem 1.25rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 1rem;
+  
+    @media (max-width: 560px) {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  }
+  
+  .countdown {
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    padding: 1rem;
+    border-radius: 16px;
+    background: linear-gradient(180deg, rgba(26,188,156,0.18), rgba(26,188,156,0.05));
+    border: 1px solid rgba(26,188,156,0.35);
+  }
+  
+  .count {
+    color: theme.$turquoise;
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 800;
+    line-height: 1;
+  }
+  
+  .caption {
+    color: rgba(theme.$white, 0.85);
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+  }
+  
+  .deadlines p {
+    margin: 0.15rem 0;
+    color: rgba(theme.$white, 0.95);
+    font-size: 0.98rem;
+  }
+  
+  .note {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    color: rgba(theme.$white, 0.8);
+  }
+  
+  .note a {
+    color: theme.$turquoise;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
