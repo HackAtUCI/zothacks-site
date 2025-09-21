@@ -55,7 +55,7 @@ const ApplyButton = () => {
 			}}
 			transition={{ duration: 0.5 }}
 		>
-			<Link className={styles.applyLink} href="/mentors">
+			<Link className={styles.applyLink} href="/apply-mentors">
 				<div className={styles.applyContainer}>
 					<h1 className={styles.title}>Mentor Applications Now Open</h1>
 				</div>
