@@ -1,26 +1,156 @@
 @use "bootstrap-utils" as bootstrap;
 
 .landing {
-	padding-top: 216.82%;
-	background-image: url("~@/assets/background/ocean-sand-mobile-background.svg");
-	background-size: cover;
+
+	background-color: #1B2443;
+	
+	height: 100vh;
+	background-image: url("~@/assets/background/aurora-background.png");
+	background-size: 100% auto;
+	background-position: center 95px;
+	background-repeat: no-repeat;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	text-align: center;
+	overflow: hidden;
+	position: relative;
+	padding-top: 15vh; 
 
-	@include bootstrap.media-breakpoint-up(md) {
-		padding-top: 121.27%;
-		background-image: url("~@/assets/background/ocean-sand-background.svg");
-	}
+}
+
+.firstBox, .secondBox, .thirdBox, .fourthBox {
+	position: absolute;
+	background-color: #2E68A8;
+	z-index: 1;
+}
+
+.firstBox {
+	width: 350px;
+	height: 450px;
+	top: 748px;
+	left: 490px;
+}
+
+.secondBox {
+	width: 720px;
+	height: 400px;
+	top: 900px;
+	left: 822px;
+}
+
+.thirdBox {
+	width: 220px;
+	height: 150px;
+	top: 800px;
+	left: 750px;
+}
+
+.fourthBox {
+	width: 100%;
+	height: 200px;
+	left: 0;
+	bottom: 0;
 }
 
 .title {
-	position: absolute;
-	top: 27.5vw;
+	position: relative;
+	width: 877px;
+	font-family: 'DM Sans', sans-serif;
+	font-size: 120px;
+	font-weight: 700;
+	font-style: bold;
+	color: #FFFFFF;
+	line-height: 100%;
+	letter-spacing: 0%;
+	text-align: center;
+	margin: 0 auto;
+	max-width: 90%;
+	
+	@include bootstrap.media-breakpoint-down(lg) {
+		width: auto;
+		font-size: 80px;
+	}
 
-	@include bootstrap.media-breakpoint-up(md) {
-		top: 14vw;
+	@include bootstrap.media-breakpoint-down(md) {
+		font-size: 60px;
+	}
+
+	@include bootstrap.media-breakpoint-down(sm) {
+		font-size: 40px;
+	}
+}
+
+.subtitle {
+	position: relative;
+	width: 483px;
+	height: 62px;
+	font-family: 'DM Sans', sans-serif;
+	font-size: 48px;
+	font-weight: 700;
+	color: #FFFFFF;
+	line-height: 100%;
+	margin: 0 auto;
+	margin-bottom: 0;
+	margin-top: 20px;
+	text-align: center;
+	letter-spacing: 0%;
+	
+
+	@include bootstrap.media-breakpoint-down(lg) {
+		width: auto;
+		font-size: 36px;
+	}
+
+	@include bootstrap.media-breakpoint-down(md) {
+		font-size: 28px;
+	}
+
+	@include bootstrap.media-breakpoint-down(sm) {
+		font-size: 22px;
+	}
+}
+
+.applyButton {
+	position: relative;
+	display: inline-block;
+	width: 840px;
+	max-width: 90%;
+	height: 53px;
+	padding: 0;
+	background-color: #1B2443;
+	color: #53B7AB;
+	font-family: 'DM Sans', sans-serif;
+	font-size: 48px;
+	font-weight: 600;
+	text-decoration: none;
+	border-radius: 50px;
+	border: 1px solid #142E5F;
+	text-align: center;
+	transition: all 0.3s ease;
+	margin-top: 80px;
+	line-height: 120%;
+	opacity: 0.85;
+	
+	&:hover {
+		box-shadow: 0 0 20px rgba(83, 135, 171, 0.8); // Blue glowing effect
+		background-color: #1B2443;
+	}
+
+	@include bootstrap.media-breakpoint-down(lg) {
+		width: auto;
+		font-size: 36px;
+		height: auto;
+	}
+
+	@include bootstrap.media-breakpoint-down(md) {
+		font-size: 28px;
+		padding: 10px 20px;
+		margin-top: 40px;
+	}
+	
+	@include bootstrap.media-breakpoint-down(sm) {
+		font-size: 20px;
 	}
 }
