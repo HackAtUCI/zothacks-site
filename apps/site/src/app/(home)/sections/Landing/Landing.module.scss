@@ -1,12 +1,13 @@
+@use "zothacks-theme" as theme;
 @use "bootstrap-utils" as bootstrap;
 
 .landing {
-    background-color: #011A3C; // Sky color
+    background-color: theme.$dark-sky;
     height: 100vh;
     background-image: linear-gradient(
         to bottom,
-        rgba(1, 26, 60, 0.7), // Reduced opacity from 1 to 0.7
-        rgba(1, 26, 60, 0.4), // Added middle transition point
+        rgba(theme.$dark-sky, 0.7),
+        rgba(theme.$dark-sky, 0.4),
         transparent
     ), url("~@/assets/background/aurora-background-mountain.png");
     background-size: 100% auto;
@@ -33,13 +34,11 @@
     transform: translateX(-50%);
     top: 27vh;
     width: 877px;
-    font-family: 'DM Sans', sans-serif;
     font-size: 120px;
     font-weight: 700;
-    font-style: bold;
-    color: #FFFFFF;
-    line-height: 100%;
-    letter-spacing: 0%;
+    color: theme.$white;
+    line-height: 1;
+    letter-spacing: 0;
     text-align: center;
     margin: 0 auto;
     max-width: 90%;
@@ -68,16 +67,14 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: calc(43vh);
+    top: 43vh;
     width: 483px;
-    height: 62px;
-    font-family: 'DM Sans', sans-serif;
     font-size: 48px;
     font-weight: 700;
-    color: #FFFFFF;
-    line-height: 100%;
+    color: theme.$white;
+    line-height: 1;
     text-align: center;
-    letter-spacing: 0%;
+    letter-spacing: 0;
     margin: 0 auto;
     z-index: 2;
     
@@ -85,12 +82,12 @@
     @include bootstrap.media-breakpoint-down(lg) {
         width: auto;
         font-size: 36px;
-        top: calc(40vh);
+        top: 40vh;
     }
 
     @include bootstrap.media-breakpoint-down(md) {
         font-size: 28px;
-        top: calc(37vh);
+        top: 37vh;
     }
 
     @include bootstrap.media-breakpoint-down(sm) {
@@ -117,25 +114,22 @@
     height: auto;
     min-height: 88px;
     padding: 16px 30px;
-    background-color: #1B2443;
-    color: #53B7AB;
-    font-family: 'DM Sans', sans-serif;
+    background-color: rgba(theme.$dark-blue, 0.85);
+    color: theme.$turquoise;
     font-size: 48px;
     font-weight: 600;
     text-decoration: none;
     border-radius: 50px;
-    border: 1px solid #142E5F;
+    border: 1px solid theme.$dark-blue;
     text-align: center;
     transition: all 0.3s ease;
     line-height: normal; 
-    opacity: 0.85;
     z-index: 2;
     
     &:hover {
-        box-shadow: 0 0 20px rgba(83, 183, 171, 0.8), 0 0 40px rgba(83, 183, 171, 0.4);
-        background-color: #1B2443;
+        box-shadow: 0 0 20px theme.$turquoise, 0 0 40px rgba(83, 183, 171, 0.4);
+        background-color: theme.$dark-blue;
         transform: translateX(-50%) scale(1.03);
-        opacity: 1;
     }
 
     @include bootstrap.media-breakpoint-down(lg) {
@@ -150,9 +144,9 @@
         font-size: 28px;
         padding: 10px 20px;
         min-height: 64px;
-        top: auto; // Unset the top position
-        bottom: 15%; // Position from the bottom
-        margin-top: 0; // Remove the extra margin
+        top: auto;
+        bottom: 15%;
+        margin-top: 0;
     }
     
     @include bootstrap.media-breakpoint-down(sm) {
