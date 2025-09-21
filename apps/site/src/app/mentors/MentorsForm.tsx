@@ -1,6 +1,6 @@
-import styles from "./MentorsInfo.module.scss";
+import styles from "./MentorsForm.module.scss";
 
-export default async function MentorsInfo () {
+export default async function MentorsForm () {
     return (
         <div>
             
