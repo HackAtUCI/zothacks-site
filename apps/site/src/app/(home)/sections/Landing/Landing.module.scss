@@ -26,6 +26,12 @@
         background-position: center;
         background-size: cover;
     }
+
+    @include bootstrap.media-breakpoint-down(md) {
+        background-position: center top;
+        background-size: cover;
+        padding-top: 40px;
+    }
 }
 
 .title {
@@ -51,8 +57,10 @@
     }
 
     @include bootstrap.media-breakpoint-down(md) {
-        font-size: 60px;
-        top: 22vh;
+        font-size: 70px;
+        top: 25vh;
+        width: 80%;
+        line-height: 1.1;
     }
 
     @include bootstrap.media-breakpoint-down(sm) {
@@ -86,8 +94,11 @@
     }
 
     @include bootstrap.media-breakpoint-down(md) {
-        font-size: 28px;
-        top: 37vh;
+        font-size: 32px;
+        top: 42vh;
+        width: 75%;
+        max-width: 500px;
+        line-height: 1.2;
     }
 
     @include bootstrap.media-breakpoint-down(sm) {
@@ -141,12 +152,14 @@
     }
 
     @include bootstrap.media-breakpoint-down(md) {
-        font-size: 28px;
-        padding: 10px 20px;
-        min-height: 64px;
-        top: auto;
-        bottom: 15%;
-        margin-top: 0;
+        font-size: 30px;
+        padding: 12px 30px;
+        min-height: 70px;
+        width: 60%;
+        max-width: 500px;
+        top: 60vh;
+        bottom: auto;
+        border-radius: 40px;
     }
     
     @include bootstrap.media-breakpoint-down(sm) {
