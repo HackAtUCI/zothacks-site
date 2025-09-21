@@ -2,12 +2,15 @@
 @use "zothacks-theme" as theme;
 
 .title {
-	width: 70vw;
-	height: 25.42vw;
+	color: theme.$white;
+	width: 70rem;
+	height: 5rem;
+	font-size: 4rem;
 
 	@include bootstrap.media-breakpoint-up(md) {
-		width: 40vw;
-		height: 14.53vw;
+		width: 70rem;
+		height: 5rem;
+		font-size: 6rem;
 	}
 }
 
@@ -15,12 +18,12 @@
 	color: theme.$white;
 	font-size: 1.5rem;
 	font-weight: 500;
-	margin-top: 8px;
-	margin-bottom: 10px;
+	margin-top: 2rem;
+	margin-bottom: 1rem;
 
 	@include bootstrap.media-breakpoint-up(md) {
 		font-size: 2rem;
-		margin-bottom: 30px;
+		margin-bottom: 3rem;
 	}
 
 	@include bootstrap.media-breakpoint-up(lg) {

@@ -1,4 +1,5 @@
 @use "bootstrap-utils" as bootstrap;
+@use "zothacks-theme" as theme;
 
 .apply {
 	width: 60vw;
@@ -40,4 +41,38 @@ svg:hover {
 .text {
 	fill: white;
 	transition: fill 200ms ease;
+}
+
+.title {
+	color: theme.$turquoise;
+	font-size: 1.5rem;
+	font-weight: 500;
+	text-align: center;
+	margin-top: 0.25rem;
+
+	@include bootstrap.media-breakpoint-up(md) {
+		font-size: 2rem;
+	}
+
+	@include bootstrap.media-breakpoint-up(lg) {
+		font-size: 2.5rem;
+	}
+}
+
+.applyContainer {
+	background: rgba(theme.$dark-blue, 0.75);
+	border-radius: 50px;
+	padding: 1rem 5rem;
+	justify-self: center;
+	justify-content: center;
+	width: fit-content;
+}
+
+.applyContainer:hover {
+	background: rgba(theme.$dark-blue, 0.9);
+	cursor: pointer;
+}
+
+.applyLink {
+	text-decoration: none;
 }
