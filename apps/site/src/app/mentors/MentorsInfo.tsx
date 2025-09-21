@@ -7,15 +7,15 @@ export default async function MentorsInfo() {
 				<div className={styles.infoRow}>
 					<h3>Who You Are:</h3>
 					<p>
-						A currently enrolled undergrad, master’s, or PhD student at UC
+						A currently enrolled undergrad, master's, or PhD student at UC
 						Irvine
 					</p>
 				</div>
 				<div className={styles.infoRow}>
 					<h3>When:</h3>
 					<p>
-						Nov. 7–9, 2025 (2-day weekend event + mandatory Friday 7–10 pm for
-						team formation & ideation)
+						Nov. 7-9, 2025 (2-day weekend event and mandatory attendance on Friday from 7-10 pm for 
+						team formation, project ideation, and answering questions - not overnight)
 					</p>
 				</div>
 				<div className={styles.infoRow}>
@@ -30,15 +30,14 @@ export default async function MentorsInfo() {
 				</div>
 				<div className={styles.deadlines}>
 					<p>
-						<strong>Application Due Date:</strong> Oct. 15, 2025
+						<strong>Application Due Date: </strong>Oct. 15, 2025
 					</p>
 					<p>
-						<strong>Decisions Released:</strong> Oct. 31, 2025
+						<strong>Decisions Released: </strong>Oct. 31, 2025
 					</p>
-					<p className={styles.note}>
-						Questions about ZotHacks or being a mentor? Email{" "}
-						<a href="mailto:hack@uci.edu">hack@uci.edu</a>.
-					</p>
+					<span className={styles.note}>
+						If you have any questions about ZotHacks or being a mentor, please send an email to hack@uci.edu.
+					</span>
 				</div>
 			</div>
 		</div>
