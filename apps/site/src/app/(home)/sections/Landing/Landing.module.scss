@@ -2,12 +2,13 @@
 @use "bootstrap-utils" as bootstrap;
 
 .landing {
-    background-color: theme.$dark-sky;
+    background-color: #001233; 
     height: 100vh;
     background-image: linear-gradient(
         to bottom,
-        rgba(theme.$dark-sky, 0.7),
-        rgba(theme.$dark-sky, 0.4),
+        rgba(#001233, 0.9), 
+        rgba(theme.$dark-sky, 0.6),
+        rgba(theme.$dark-sky, 0.3),
         transparent
     ), url("~@/assets/background/aurora-background-mountain.png");
     background-size: 100% auto;
