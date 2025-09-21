@@ -12,11 +12,6 @@ const Landing = () => {
             >
                 Mentor Applications Now Open
             </a> 
-            {/* // blue boxes to cover up mountains in image  */}
-            <div className={styles.firstBox}></div>
-            <div className={styles.secondBox}></div>
-            <div className={styles.thirdBox}></div>
-            <div className={styles.fourthBox}></div>
         </div>
     );
 };

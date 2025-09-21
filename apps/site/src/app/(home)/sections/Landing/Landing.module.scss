@@ -1,4 +1,5 @@
 @use "bootstrap-utils" as bootstrap;
+// @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
 
 .landing {
 
@@ -16,46 +17,16 @@
 	text-align: center;
 	overflow: hidden;
 	position: relative;
-	padding-top: 15vh; 
+	padding-top: 0;
 
 }
 
-.firstBox, .secondBox, .thirdBox, .fourthBox {
-	position: absolute;
-	background-color: #2E68A8;
-	z-index: 1;
-}
-
-.firstBox {
-	width: 350px;
-	height: 450px;
-	top: 748px;
-	left: 490px;
-}
-
-.secondBox {
-	width: 720px;
-	height: 400px;
-	top: 900px;
-	left: 822px;
-}
-
-.thirdBox {
-	width: 220px;
-	height: 150px;
-	top: 800px;
-	left: 750px;
-}
-
-.fourthBox {
-	width: 100%;
-	height: 200px;
-	left: 0;
-	bottom: 0;
-}
 
 .title {
-	position: relative;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 27vh;
 	width: 877px;
 	font-family: 'DM Sans', sans-serif;
 	font-size: 120px;
@@ -67,23 +38,30 @@
 	text-align: center;
 	margin: 0 auto;
 	max-width: 90%;
+	z-index: 2;
 	
 	@include bootstrap.media-breakpoint-down(lg) {
 		width: auto;
 		font-size: 80px;
+		top: 25vh;
 	}
 
 	@include bootstrap.media-breakpoint-down(md) {
 		font-size: 60px;
+		top: 22vh;
 	}
 
 	@include bootstrap.media-breakpoint-down(sm) {
 		font-size: 40px;
+		top: 20vh;
 	}
 }
 
 .subtitle {
-	position: relative;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: calc(43vh);
 	width: 483px;
 	height: 62px;
 	font-family: 'DM Sans', sans-serif;
@@ -91,34 +69,44 @@
 	font-weight: 700;
 	color: #FFFFFF;
 	line-height: 100%;
-	margin: 0 auto;
-	margin-bottom: 0;
-	margin-top: 20px;
 	text-align: center;
 	letter-spacing: 0%;
+	margin: 0 auto;
+	z-index: 2;
 	
 
 	@include bootstrap.media-breakpoint-down(lg) {
 		width: auto;
 		font-size: 36px;
+		top: calc(40vh);
 	}
 
 	@include bootstrap.media-breakpoint-down(md) {
 		font-size: 28px;
+		top: calc(37vh);
 	}
 
 	@include bootstrap.media-breakpoint-down(sm) {
 		font-size: 22px;
+		top: calc(35vh);
 	}
 }
 
 .applyButton {
-	position: relative;
-	display: inline-block;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 63vh;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
 	width: 840px;
 	max-width: 90%;
-	height: 53px;
-	padding: 0;
+	height: auto;
+	min-height: 88px;
+	padding: 16px 30px;
 	background-color: #1B2443;
 	color: #53B7AB;
 	font-family: 'DM Sans', sans-serif;
@@ -129,18 +117,20 @@
 	border: 1px solid #142E5F;
 	text-align: center;
 	transition: all 0.3s ease;
-	margin-top: 80px;
-	line-height: 120%;
+	line-height: normal; 
 	opacity: 0.85;
+	z-index: 2;
 	
 	&:hover {
-		box-shadow: 0 0 20px rgba(83, 135, 171, 0.8); // Blue glowing effect
+		box-shadow: 0 0 20px rgba(83, 135, 171, 0.8); 
 		background-color: #1B2443;
 	}
 
 	@include bootstrap.media-breakpoint-down(lg) {
 		width: auto;
 		font-size: 36px;
+		min-height: 72px;
+		padding: 12px 24px;
 		height: auto;
 	}
 
@@ -148,9 +138,12 @@
 		font-size: 28px;
 		padding: 10px 20px;
 		margin-top: 40px;
+		min-height: 64px;
 	}
 	
 	@include bootstrap.media-breakpoint-down(sm) {
 		font-size: 20px;
+		min-height: 56px;
+		padding: 8px 16px;
 	}
 }
