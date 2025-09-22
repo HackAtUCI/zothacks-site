@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import getUserIdentity from "@/lib/utils/getUserIdentity";
 
-import styles from "./login.module.scss";
+import styles from "./Login.module.scss";
 
 export default async function Login({
 	searchParams,
