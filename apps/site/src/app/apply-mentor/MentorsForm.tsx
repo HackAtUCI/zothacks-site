@@ -65,7 +65,7 @@ export default async function MentorsForm () {
                 <div className={styles.textareaGroup}>
                     <label className={styles.textareaLabel}>
                         Given the stack that you mentioned, how do you usually go about connecting
-                        the front end with the back end? Answer in at least 2–3 sentences.
+                        the front end with the back end? Answer in at least 2-3 sentences.
                     </label>
                     <textarea name="frontendBackend" />
                 </div>
@@ -111,6 +111,8 @@ export default async function MentorsForm () {
                     </label>
                     <textarea name="comments" />
                 </div>
+
+                <button type="submit" className={styles.submitButton}>Submit Application</button>
             </form>
         </div>
     )
