@@ -6,16 +6,13 @@ export default async function Login({
 	searchParams,
 }: {
 	searchParams?: {
-		step?: string;
 		email?: string;
 		return_to?: string;
-		error?: string;
 	};
 }) {
-	const step = searchParams?.step === "passphrase" ? "passphrase" : "email";
-	const email = searchParams?.email ?? "";
+	const email = searchParams?.email;
 	const return_to = searchParams?.return_to ?? "/apply-mentor";
-	const error = searchParams?.error;
+	// const error = searchParams?.error;
 
 	const identity = await getUserIdentity();
 	if (identity.uid !== null) {
@@ -26,7 +23,7 @@ export default async function Login({
 		<div className={styles.container}>
 			<h1 className={styles.title}>Log In</h1>
 			<p className={styles.subtitle}>
-				{step === "email" ? (
+				{!email ? (
 					"Enter your email to receive a passphrase."
 				) : (
 					<>
@@ -35,13 +32,13 @@ export default async function Login({
 				)}
 			</p>
 
-			{error === "invalid" && (
+			{/* {error === "invalid" && (
 				<div className={styles.errorBanner}>
 					Invalid passphrase. Please try again.
 				</div>
-			)}
+			)} */}
 
-			{step === "email" && (
+			{!email ? (
 				<form className={styles.form} method="post" action="/api/guest/login">
 					<label htmlFor="email" className={styles.label}>
 						Email
@@ -60,9 +57,7 @@ export default async function Login({
 						Send Passphrase
 					</button>
 				</form>
-			)}
-
-			{step === "passphrase" && (
+			) : (
 				<form className={styles.form} method="post" action="/api/guest/verify">
 					<input type="hidden" name="email" value={email} />
 					<input type="hidden" name="return_to" value={return_to} />
