@@ -35,7 +35,7 @@ export default async function MentorsInfo() {
 					</p>
 					<p>
 						<strong>Decisions Released: </strong>Oct. 31, 2025
-				</p>
+					</p>
 					<span className={styles.note}>
 						If you have any questions about ZotHacks or being a mentor, please
 						send an email to hack@uci.edu.
