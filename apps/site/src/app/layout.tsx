@@ -7,10 +7,10 @@ import "@/lib/styles/bootstrap.scss";
 import "@/lib/styles/globals.scss";
 
 export const metadata: Metadata = {
-	title: "ZotHacks 2024",
+	title: "ZotHacks 2025",
 	description: "Hack at UCI's premier hackathon for beginners at UCI",
 	openGraph: {
-		title: "ZotHacks 2024",
+		title: "ZotHacks 2025",
 		images: "./zothacks_banner.png",
 		description: "Hack at UCI's premier hackathon for beginners at UCI",
 	},
@@ -32,7 +32,7 @@ export default function RootLayout({
 			<body className="background">
 				<NavBar />
 				<main>{children}</main>
-				<Footer />
+				{/* <Footer /> */}
 			</body>
 		</html>
 	);
