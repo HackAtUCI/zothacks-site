@@ -1,6 +1,7 @@
-import styles from "./login.module.scss";
 import { redirect } from "next/navigation";
 import getUserIdentity from "@/lib/utils/getUserIdentity";
+
+import styles from "./login.module.scss";
 
 export default async function Login({
 	searchParams,
@@ -82,6 +83,12 @@ export default async function Login({
 						className={styles.input}
 						placeholder="123456"
 					/>
+
+					<span className={styles.errorText}>
+						If you cannot find the passphrase, please check your spam. If the
+						email is still missing, try again later, use a different email, or
+						contact us at contact@irvinehacks.com for assistance.
+					</span>
 
 					<button type="submit" className={styles.button}>
 						Verify & Continue
