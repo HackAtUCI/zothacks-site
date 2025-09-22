@@ -9,12 +9,17 @@ export default async function MentorsForm() {
 			</p>
 
 			<form
-				action="apply-mentor/submitted"
+				action="/api/user/mentor"
 				method="post"
 				className={styles.mentorForm}
 			>
-				<input type="text" name="firstName" placeholder="First Name" required />
-				<input type="text" name="lastName" placeholder="Last Name" required />
+				<input
+					type="text"
+					name="first_name"
+					placeholder="First Name"
+					required
+				/>
+				<input type="text" name="last_name" placeholder="Last Name" required />
 				<input type="email" name="email" placeholder="Email Address" required />
 
 				<fieldset className={styles.radioGroup}>
@@ -30,11 +35,15 @@ export default async function MentorsForm() {
 				<input type="text" name="pronouns" placeholder="Preferred Pronouns" />
 				<input type="text" name="degree" placeholder="Degree" />
 				<input type="text" name="major" placeholder="Major" />
-				<input type="text" name="gradYear" placeholder="Expected Grad Year" />
+				<input
+					type="text"
+					name="graduation_year"
+					placeholder="Expected Grad Year"
+				/>
 
 				<input
 					type="text"
-					name="mentoringExp"
+					name="mentoring_experience"
 					placeholder="Have you mentored a hackathon before? If so, list which ones..."
 				/>
 
@@ -43,7 +52,7 @@ export default async function MentorsForm() {
 						How would you help participants turn an ambitious idea into
 						something achievable within the hackathon?
 					</label>
-					<textarea name="helpParticipants" />
+					<textarea name="help_participants_frq" />
 				</div>
 
 				<div className={styles.textareaGroup}>
@@ -51,12 +60,12 @@ export default async function MentorsForm() {
 						If your team were completely new to web development, what steps
 						would you take to make their learning palatable?
 					</label>
-					<textarea name="newTeamHelp" />
+					<textarea name="new_team_help_frq" />
 				</div>
 
 				<input
 					type="text"
-					name="techStack"
+					name="tech_stack_frq"
 					placeholder="What tech stack experience do you have?"
 				/>
 
@@ -66,7 +75,7 @@ export default async function MentorsForm() {
 						connecting the front end with the back end? Answer in at least 2-3
 						sentences.
 					</label>
-					<textarea name="frontendBackend" />
+					<textarea name="frontend_backend_frq" />
 				</div>
 
 				<fieldset className={styles.checkboxGroup}>
@@ -126,7 +135,7 @@ export default async function MentorsForm() {
 				<input type="url" name="github" placeholder="Github" />
 				<input
 					type="url"
-					name="personalWebsite"
+					name="personal_website"
 					placeholder="Personal Website"
 				/>
 				<label className={styles.fileField}>
