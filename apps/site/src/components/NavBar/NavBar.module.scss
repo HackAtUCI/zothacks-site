@@ -8,7 +8,7 @@
 	position: fixed;
 	text-align: right;
 	transition: background-color 0.2s ease;
-	background-color: rgba(20, 20, 20, 0.7);
+	background-color: transparent;
 
 	@include utils.media-breakpoint-up(lg) {
 		backdrop-filter: none;
