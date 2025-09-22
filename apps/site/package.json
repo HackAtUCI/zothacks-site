@@ -26,6 +26,7 @@
 		"react-dom": "^18.3.1",
 		"react-use": "^17.5.1",
 		"sass": "^1.79.2",
+		"swr": "^2.3.6",
 		"zod": "^3.23.8"
 	},
 	"devDependencies": {
