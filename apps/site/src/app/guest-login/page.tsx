@@ -14,6 +14,11 @@ export default async function Login({
 	const return_to = searchParams?.return_to ?? "/apply-mentor";
 	// const error = searchParams?.error;
 
+	const newSearchParams = new URLSearchParams();
+	if (return_to) {
+		newSearchParams.append("return_to", return_to);
+	}
+
 	const identity = await getUserIdentity();
 	if (identity.uid !== null) {
 		redirect(return_to);
@@ -58,7 +63,11 @@ export default async function Login({
 					</button>
 				</form>
 			) : (
-				<form className={styles.form} method="post" action="/api/guest/verify">
+				<form
+					className={styles.form}
+					method="post"
+					action={`/api/guest/verify?${newSearchParams}`}
+				>
 					<input type="hidden" name="email" value={email} />
 					<input type="hidden" name="return_to" value={return_to} />
 
