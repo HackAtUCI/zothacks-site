@@ -25,10 +25,10 @@ export default async function MentorsForm() {
 				<fieldset className={styles.radioGroup}>
 					<legend>Are you 18 years or older?</legend>
 					<label>
-						<input type="radio" name="age" value="yes" /> Yes
+						<input type="radio" name="is_18_older" value="yes" /> Yes
 					</label>
 					<label>
-						<input type="radio" name="age" value="no" /> No
+						<input type="radio" name="is_18_older" value="no" /> No
 					</label>
 				</fieldset>
 
@@ -135,7 +135,7 @@ export default async function MentorsForm() {
 				<input type="url" name="github" placeholder="Github" />
 				<input
 					type="url"
-					name="personal_website"
+					name="portfolio"
 					placeholder="Personal Website"
 				/>
 				<label className={styles.fileField}>
