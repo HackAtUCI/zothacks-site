@@ -8,7 +8,7 @@ export default async function MentorsForm () {
                 your application status.
             </p>
 
-            <form action="placeholder" method="post" className={styles.mentorForm}>
+            <form action="localhost:8000" method="post" className={styles.mentorForm}>
                 <input type="text" name="firstName" placeholder="First Name" required />
                 <input type="text" name="lastName" placeholder="Last Name" required />
                 <input type="email" name="email" placeholder="Email Address" required />
