@@ -6,8 +6,6 @@
 	align-items: start;
 	justify-content: center;
 	height: 80vh;
-	background: url("~@/assets/background/anteater-fishing-background.png") center /
-		cover;
 }
 
 .content {
@@ -41,6 +39,7 @@
 	font-weight: 400;
 	color: theme.$white;
 	max-width: 60%;
+	padding: 1rem;
 
 	@include utils.media-breakpoint-up(lg) {
 		font-size: 1.75rem;
@@ -49,4 +48,24 @@
 	@include utils.media-breakpoint-up(xl) {
 		font-size: 2.25rem;
 	}
+}
+
+.button {
+  background-color: #d200fc;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #c301b6;
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
 }
