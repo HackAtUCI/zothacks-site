@@ -130,7 +130,7 @@
 			0 0 20px theme.$turquoise,
 			0 0 40px rgba(83, 183, 171, 0.4);
 		background-color: theme.$dark-blue;
-		transform: translateX(-50%) scale(1.03);
+		transform: scale(1.03);
 	}
 
 	@include bootstrap.media-breakpoint-down(lg) {
