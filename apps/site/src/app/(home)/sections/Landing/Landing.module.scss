@@ -17,7 +17,7 @@
 	background-repeat: no-repeat;
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-start;
+	justify-content: center;
 	align-items: center;
 	text-align: center;
 	overflow: hidden;
@@ -37,11 +37,6 @@
 }
 
 .title {
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	top: 27vh;
-	width: 877px;
 	font-size: 120px;
 	font-weight: 700;
 	color: theme.$white;
@@ -74,11 +69,6 @@
 }
 
 .subtitle {
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	top: 43vh;
-	width: 483px;
 	font-size: 48px;
 	font-weight: 700;
 	color: theme.$white;
@@ -112,10 +102,7 @@
 }
 
 .applyButton {
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	top: 63vh;
+	margin-top: 80px;
 
 	display: flex;
 	align-items: center;
