@@ -28,7 +28,6 @@ export default async function MentorsForm() {
 					required
 				/>
 				<input type="text" name="last_name" placeholder="Last Name" required />
-				<input type="email" name="email" placeholder="Email Address" required />
 
 				<fieldset className={styles.radioGroup}>
 					<legend>Are you 18 years or older?</legend>
