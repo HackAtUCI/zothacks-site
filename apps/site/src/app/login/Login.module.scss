@@ -1,60 +1,59 @@
 .container {
-    background-image: url("~@/assets/background/mountains-background.png");
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1.875rem;
-  }
+	background-image: url("~@/assets/background/mountains-background.png");
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1.875rem;
+}
 
-  .form {
-    background: #0F152BCC;
-    padding: 3.125rem;
-    border-radius: 1.25rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  }
+.form {
+	background: #0f152bcc;
+	padding: 3.125rem;
+	border-radius: 1.25rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
 
-  .title {
-    color: #FFFFFF;
-    margin: auto;
-    font-size: 3rem;
-  }
+.title {
+	color: #ffffff;
+	margin: auto;
+	font-size: 3rem;
+}
 
-  .inputSection {
-    display: flex;
-    flex-direction: column;
-    gap: 0.625rem;
-  }
+.inputSection {
+	display: flex;
+	flex-direction: column;
+	gap: 0.625rem;
+}
 
-  .label {
-    color: #FFFFFF;
-    font-size: 1.5rem
-  }
+.label {
+	color: #ffffff;
+	font-size: 1.5rem;
+}
 
-  .input {
-    color: #FFFFFF;
-    padding: 0.625rem;
-    height: 2.75rem;
-    background-color: #ABABAB47;
-    border: 0.063rem solid #99B1CB;
-    border-radius: 0.625rem;
-  }
+.input {
+	color: #ffffff;
+	padding: 0.625rem;
+	height: 2.75rem;
+	background-color: #ababab47;
+	border: 0.063rem solid #99b1cb;
+	border-radius: 0.625rem;
+}
 
-  .subtitle {
-    color: #99B1CB;
-    font-size: 1rem;
-  }
+.subtitle {
+	color: #99b1cb;
+	font-size: 1rem;
+}
 
-  .button {
-    background-color: #2A504BB0;
-    padding: 0.625rem 1.875rem;
-    border: 0.313rem solid #2A504B;
-    border-radius: 1.25rem;
-    color: #DDDDDD;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  }
-
+.button {
+	background-color: #2a504bb0;
+	padding: 0.625rem 1.875rem;
+	border: 0.313rem solid #2a504b;
+	border-radius: 1.25rem;
+	color: #dddddd;
+	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}

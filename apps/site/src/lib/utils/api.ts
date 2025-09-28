@@ -1,10 +1,4 @@
 import axios from "axios";
-<<<<<<< HEAD
-
-const api = axios.create({
-  baseURL: process.env.IH_API_BASE, 
-  withCredentials: true,                
-=======
 import { cookies } from "next/headers";
 
 const LOCAL_API_URL = "http://localhost:8000";
@@ -26,7 +20,6 @@ api.interceptors.request.use((config) => {
 	config.headers.set("X-Hackathon-Name", "zothacks");
 
 	return config;
->>>>>>> ca08bc10444620eb339c4a14f5033c452e89e2de
 });
 
 export default api;
