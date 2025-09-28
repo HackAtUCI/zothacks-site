@@ -1,9 +1,10 @@
-import styles from "./login.module.scss";
 import { redirect } from "next/navigation";
 import getUserIdentity from "@/lib/utils/getUserIdentity";
 import { Reddit_Mono } from "next/font/google";
 
 const redditMono = Reddit_Mono({ subsets: ["latin"] });
+
+import styles from "./Login.module.scss";
 
 export default async function Login({
 	searchParams,
@@ -27,25 +28,10 @@ export default async function Login({
 
 	return (
 		<div className={`${styles.container} ${redditMono.className}`}>
-			{/* <p className={styles.subtitle}>
-				{step === "email" ? (
-					"Enter your email to receive a passphrase."
-				) : (
-					<>
-						We emailed a passphrase to <b>{email}</b>. Enter it below.
-					</>
-				)}
-			</p>
-
-			{error === "invalid" && (
-				<div className={styles.errorBanner}>
-					Invalid passphrase. Please try again.
-				</div>
-			)} */}
-
 			{step === "email" && (
 				<form className={styles.form} method="post" action="/api/guest/login">
 					<h1 className={styles.title}>Log In</h1>
+
 					<div className={styles.inputSection}>
 						<label htmlFor="email" className={styles.label}>
 							Email*
@@ -59,20 +45,18 @@ export default async function Login({
 						/>
 						<input type="hidden" name="return_to" value={return_to} />
 					</div>
+
 					<p className={styles.subtitle}>
-						{" "}
 						UCI students will log in with UCI SSO. Please use your school email
 						address if you have one.
 					</p>
 				</form>
 			)}
 
-			<button type="submit" className={styles.button}>
-				Continue
-			</button>
-
 			{step === "passphrase" && (
 				<form className={styles.form} method="post" action="/api/guest/verify">
+					<h1 className={styles.title}>Enter Passphrase</h1>
+
 					<input type="hidden" name="email" value={email} />
 					<input type="hidden" name="return_to" value={return_to} />
 
@@ -88,12 +72,20 @@ export default async function Login({
 						placeholder="123456"
 					/>
 
-					{/* <div className={styles.switchLink}>
-						<a href={`/login?return_to=${encodeURIComponent(return_to)}`}>
-							&larr; Use a different email
-						</a>
-					</div> */}
+					<button type="submit" className={styles.button}>
+						Verify & Continue
+					</button>
 				</form>
+			)}
+
+			<button type="submit" className={styles.button}>
+				Continue
+			</button>
+
+			{error === "invalid" && (
+				<div className={styles.errorBanner}>
+					Invalid passphrase. Please try again.
+				</div>
 			)}
 		</div>
 	);
