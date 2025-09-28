@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fredoka } from "next/font/google";
+import { DM_Sans, Reddit_Mono } from "next/font/google";
 
 import NavBar from "@/components/NavBar/NavBar";
 import Footer from "@/components/Footer/Footer";
@@ -7,19 +7,25 @@ import "@/lib/styles/bootstrap.scss";
 import "@/lib/styles/globals.scss";
 
 export const metadata: Metadata = {
-	title: "ZotHacks 2024",
+	title: "ZotHacks 2025",
 	description: "Hack at UCI's premier hackathon for beginners at UCI",
 	openGraph: {
-		title: "ZotHacks 2024",
+		title: "ZotHacks 2025",
 		images: "./zothacks_banner.png",
 		description: "Hack at UCI's premier hackathon for beginners at UCI",
 	},
 };
 
-const fredoka = Fredoka({
+const dmSans = DM_Sans({
 	weight: ["400", "500", "600", "700"],
 	subsets: ["latin"],
-	variable: "--next-font-fredoka",
+	variable: "--next-font-dm-sans",
+});
+
+const redditMono = Reddit_Mono({
+	weight: ["400", "600", "800"],
+	subsets: ["latin"],
+	variable: "--next-font-reddit-mono",
 });
 
 export default function RootLayout({
@@ -28,11 +34,11 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en" className={fredoka.variable}>
+		<html lang="en" className={redditMono.variable}>
 			<body className="background">
 				<NavBar />
 				<main>{children}</main>
-				<Footer />
+				{/* <Footer /> */}
 			</body>
 		</html>
 	);

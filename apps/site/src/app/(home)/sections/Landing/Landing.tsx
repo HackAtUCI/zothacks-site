@@ -1,19 +1,14 @@
 "use client";
-import ApplyButton from "./ApplyButton";
-import Title from "@/app/(home)/sections/Landing/Title";
-import Characters from "./Characters";
-import Intro from "../Intro";
 import styles from "./Landing.module.scss";
 
 const Landing = () => {
 	return (
 		<div className={styles.landing}>
-			<div className={styles.title}>
-				<Characters />
-				<Title />
-				<ApplyButton />
-				<Intro />
-			</div>
+			<h1 className={styles.title}>ZotHacks 2025</h1>
+			<h2 className={styles.subtitle}>Theme Coming Soon</h2>
+			<a href="/mentor" className={styles.applyButton}>
+				Mentor Applications Now Open
+			</a>
 		</div>
 	);
 };
