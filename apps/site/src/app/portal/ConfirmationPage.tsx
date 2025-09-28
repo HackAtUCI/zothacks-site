@@ -9,9 +9,8 @@ const redditMono = Reddit_Mono({ subsets: ["latin"] });
 export default function ConfirmationPage() {
 	return (
 		<div className={`${styles.container} ${redditMono.className}`}>
-
 			<div className={styles.messageBox}>
-            <Image src={mascots} alt="Hacker Anteater" className={styles.mascot} />
+				<Image src={mascots} alt="Hacker Anteater" className={styles.mascot} />
 				<h1 className={styles.title}>Thank you for applying!</h1>
 			</div>
 
