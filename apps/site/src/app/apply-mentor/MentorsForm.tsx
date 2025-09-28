@@ -12,7 +12,15 @@ export default async function MentorsForm() {
 				action="/api/user/mentor"
 				method="post"
 				className={styles.mentorForm}
+				encType="multipart/form-data"
 			>
+				<input
+					type="text"
+					name="application_type"
+					value="Mentor"
+					readOnly
+					hidden
+				/>
 				<input
 					type="text"
 					name="first_name"
@@ -133,11 +141,7 @@ export default async function MentorsForm() {
 
 				<input type="url" name="linkedin" placeholder="Linkedin" />
 				<input type="url" name="github" placeholder="Github" />
-				<input
-					type="url"
-					name="portfolio"
-					placeholder="Personal Website"
-				/>
+				<input type="url" name="portfolio" placeholder="Personal Website" />
 				<label className={styles.fileField}>
 					<span className={styles.fileText}>Resume Upload</span>
 					<input
