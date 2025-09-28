@@ -18,7 +18,7 @@ export default async function Login({
 }) {
 	const step = searchParams?.step === "passphrase" ? "passphrase" : "email";
 	const email = searchParams?.email ?? "";
-	const return_to = searchParams?.return_to ?? "/apply-mentor";
+	const return_to = searchParams?.return_to ?? "/";
 	const error = searchParams?.error;
 
 	const identity = await getUserIdentity();
