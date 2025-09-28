@@ -39,6 +39,7 @@ export default function NavBar() {
 							<Image src={ZotHacksLogo.src} alt="Hacks Logo" fill />
 						</div>
 					</Navbar.Brand>
+					{/*
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="ms-auto text">
@@ -91,6 +92,7 @@ export default function NavBar() {
 							</Link>
 						</Nav>
 					</Navbar.Collapse>
+					*/}
 				</Container>
 			</Navbar>
 		</div>

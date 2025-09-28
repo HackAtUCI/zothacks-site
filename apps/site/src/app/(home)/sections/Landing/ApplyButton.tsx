@@ -55,12 +55,16 @@ const ApplyButton = () => {
 			}}
 			transition={{ duration: 0.5 }}
 		>
+<<<<<<< HEAD
 			<Link className={styles.applyLink} href="/apply-mentor">
 				<div className={styles.applyContainer}>
 					<h1 className={styles.title}>Mentor Applications Now Open</h1>
 				</div>
 			</Link>
 			{/* <ApplyButtonIcon /> */}
+=======
+			<ApplyButtonIcon />
+>>>>>>> ca08bc10444620eb339c4a14f5033c452e89e2de
 		</motion.div>
 	);
 };

@@ -15,8 +15,17 @@ const nextConfig = {
 			},
 			{
 				source: "/mentor",
-				destination: "/",
+				destination: "https://docs.google.com/forms/d/e/1FAIpQLSc68omDO40vn16-QmmdrvVgdLh9vFN623u5hLOG64je8t_VQA/viewform?usp=dialog",
 				permanent: true,
+			},
+		];
+	},
+
+	async rewrites() {
+		return [
+			{
+				source: "/api/:path*",
+				destination: `${process.env.IH_BACKEND_URL || "https://irvinehacks.com/api"}/:path*`,
 			},
 		];
 	},
