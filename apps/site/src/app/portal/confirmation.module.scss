@@ -7,6 +7,7 @@
 	gap: 2rem;
 	background: url("~@/assets/background/mountains-background.png");
 	padding-top: 8rem;
+	font-family: var(--next-font-reddit-mono), monospace;
 }
 
 .mascot {
@@ -40,4 +41,8 @@
 	border-radius: 1.25rem;
 	color: #dddddd;
 	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.button:hover {
+	background-color: #61876DB0;
 }
