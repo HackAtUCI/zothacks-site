@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans } from "next/font/google";
+import { DM_Sans, Reddit_Mono } from "next/font/google";
 
 import NavBar from "@/components/NavBar/NavBar";
 import Footer from "@/components/Footer/Footer";
@@ -22,13 +22,19 @@ const dmSans = DM_Sans({
 	variable: "--next-font-dm-sans",
 });
 
+const redditMono = Reddit_Mono({
+	weight: ["400", "600", "800"],
+	subsets: ["latin"],
+	variable: "--next-font-reddit-mono",
+});
+
 export default function RootLayout({
 	children,
 }: {
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en" className={dmSans.variable}>
+		<html lang="en" className={redditMono.variable}>
 			<body className="background">
 				<NavBar />
 				<main>{children}</main>
