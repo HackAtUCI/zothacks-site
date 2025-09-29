@@ -1,8 +1,5 @@
 import { redirect } from "next/navigation";
 import getUserIdentity from "@/lib/utils/getUserIdentity";
-import { Reddit_Mono } from "next/font/google";
-
-const redditMono = Reddit_Mono({ subsets: ["latin"] });
 
 import styles from "./Login.module.scss";
 
@@ -27,7 +24,7 @@ export default async function Login({
 	}
 
 	return (
-		<div className={`${styles.container} ${redditMono.className}`}>
+		<div className={styles.container}>
 			{step === "email" && (
 				<form className={styles.form} method="post" action="/api/guest/login">
 					<h1 className={styles.title}>Log In</h1>
