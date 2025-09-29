@@ -1,5 +1,6 @@
 "use client"; // This tells Next.js this runs in the browser, not the server
 
+import React from "react";
 import styles from "./fireflies.module.scss";
 import { Canvas } from "@react-three/fiber";
 import { Sparkles } from "@react-three/drei";
