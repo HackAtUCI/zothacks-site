@@ -2,7 +2,6 @@ import styles from "./confirmation.module.scss";
 import Image from "next/image";
 import mascots from "@/assets/images/mentor-hacker-anteaters.svg";
 
-
 export default function ConfirmationPage() {
 	return (
 		<div className={styles.container}>
