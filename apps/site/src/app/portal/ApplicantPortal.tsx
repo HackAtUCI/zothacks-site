@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import useUserIdentity from "@/lib/utils/useUserIdentity";
 import { Status } from "@/lib/userRecord";
 
-import ConfirmationPage from "./ConfirmationPage"
+import ConfirmationPage from "./ConfirmationPage";
 
 const rolesArray = ["Mentor", "Hacker", "Volunteer"];
 
@@ -22,7 +22,6 @@ function Portal() {
 		redirect("/apply-mentor");
 	} else {
 		return <ConfirmationPage />;
-
 	}
 }
 
