@@ -1,6 +1,5 @@
 "use client";
-import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
+import { Container, Button } from "react-bootstrap";
 import anteater_left from "@/assets/images/involved_anteater_left.png";
 import anteater_right from "@/assets/images/involved_anteater_right.png";
 import styles from "./GetInvolved.module.scss";
@@ -12,7 +11,7 @@ const GetInvolved = () => {
 		<p>Otherwise, if you have some experience under your belt,</p>
 	);
 	const applyLink = (
-		<Button href="/apply" type="button" className={styles.applyButton} disabled>
+		<Button type="button" className={styles.applyButton} disabled>
 			Hacker Apps Closed
 		</Button>
 	);
