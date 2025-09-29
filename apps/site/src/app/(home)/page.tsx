@@ -7,7 +7,6 @@ import FAQ from "./sections/FAQ";
 import Clubs from "./sections/Clubs/Clubs";
 
 import styles from "./page.module.scss";
-import Countdown from "./sections/Countdown";
 
 const Home = () => {
 	return (
