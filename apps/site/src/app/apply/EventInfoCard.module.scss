@@ -1,12 +1,14 @@
+@use "zothacks-theme" as theme;
+
 .eventInfoCard {
-	background-color: #244b49;
+	background-color: theme.$dark-green;
 	border-radius: 16px;
 	padding: 24px;
 }
 
 .title {
 	margin: 0 0 16px 0;
-	color: #e6f1ee;
+	color: theme.$off-white;
 	font-size: 24px;
 	font-weight: 700;
 }
@@ -17,17 +19,17 @@
 }
 
 .label {
-	color: #e6f1ee;
+	color: theme.$off-white;
 	font-weight: 600;
 	margin-right: 8px;
 }
 
 .value {
-	color: #a7cde3;
+	color: theme.$baby-blue;
 }
 
 .footnote {
-	color: #a7cde3;
+	color: theme.$baby-blue;
 	margin-top: 16px;
 	display: block;
 }
