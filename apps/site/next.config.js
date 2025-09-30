@@ -9,13 +9,9 @@ const nextConfig = {
 	async redirects() {
 		return [
 			{
-				source: "/apply",
-				destination: "/",
-				permanent: true,
-			},
-			{
 				source: "/mentor",
-				destination: "https://docs.google.com/forms/d/e/1FAIpQLSc68omDO40vn16-QmmdrvVgdLh9vFN623u5hLOG64je8t_VQA/viewform?usp=dialog",
+				destination:
+					"https://docs.google.com/forms/d/e/1FAIpQLSc68omDO40vn16-QmmdrvVgdLh9vFN623u5hLOG64je8t_VQA/viewform?usp=dialog",
 				permanent: true,
 			},
 		];
