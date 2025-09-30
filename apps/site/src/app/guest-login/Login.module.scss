@@ -1,78 +1,83 @@
 .container {
+	background-image: url("~@/assets/background/mountains-background.png");
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	padding: 2rem;
-	background: #fafafa;
-}
-
-.title {
-	font-size: 2rem;
-	font-weight: 700;
-	margin-bottom: 0.5rem;
-}
-
-.subtitle {
-	font-size: 0.9rem;
-	color: #666;
-	margin-bottom: 1.5rem;
-	text-align: center;
-	max-width: 320px;
+	gap: 1.875rem;
+	font-family: var(--next-font-reddit-mono), monospace;
 }
 
 .form {
-	width: 100%;
-	max-width: 400px;
-	background: white;
-	border: 1px solid #ddd;
-	border-radius: 12px;
-	padding: 1.5rem;
+	background: #0f152bcc;
+	padding: 3.125rem;
+	border-radius: 1.25rem;
 	display: flex;
 	flex-direction: column;
-	gap: 1rem;
-	margin-bottom: 1rem;
+	gap: 1.25rem;
+	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+	width: 800px;
+}
+
+.formTag {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+}
+
+.title {
+	color: #ffffff;
+	margin: auto;
+	font-size: 3rem;
+}
+
+.inputSection {
+	display: flex;
+	flex-direction: column;
+	gap: 0.625rem;
 }
 
 .label {
-	font-size: 0.85rem;
-	font-weight: 500;
-	color: #333;
+	color: #ffffff;
+	font-size: 1.5rem;
 }
 
 .input {
-	border: 1px solid #ccc;
-	border-radius: 8px;
-	padding: 0.6rem 0.8rem;
-	font-size: 0.95rem;
-	outline: none;
-	transition: border-color 0.2s;
+	color: #ffffff;
+	padding: 0.625rem;
+	height: 2.75rem;
+	background-color: #ababab47;
+	border: 0.063rem solid #99b1cb;
+	border-radius: 0.625rem;
+	width: 100%;
+}
 
-	&:focus {
-		border-color: #0070f3;
-	}
+.subtitle {
+	color: #99b1cb;
+	font-size: 1rem;
 }
 
 .button {
-	padding: 0.7rem 1rem;
-	border-radius: 8px;
-	border: 1px solid #0070f3;
-	background: #0070f3;
-	color: white;
-	font-weight: 600;
-	cursor: pointer;
-	transition: background 0.2s;
-
-	&:hover {
-		background: #0059c9;
-	}
+	background-color: #2a504bb0;
+	padding: 0.625rem 1.875rem;
+	border: 0.313rem solid #2a504b;
+	border-radius: 1.25rem;
+	color: #dddddd;
+	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+	max-width: 200px;
 }
 
-.hidden {
-	display: none;
+.button:hover {
+	background-color: #61876db0;
 }
 
-.errorText {
-	color: #ff2222;
+.redText {
+	color: red;
+}
+
+.passphraseDescription {
+	color: #ffffff;
 }
