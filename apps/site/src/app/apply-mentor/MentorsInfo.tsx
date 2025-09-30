@@ -7,14 +7,16 @@ export default async function MentorsInfo() {
 				<div className={styles.infoRow}>
 					<h3>Who You Are:</h3>
 					<p>
-						Someone who wants to help beginners participate in their first hackathon!
+						Someone who wants to help beginners participate in their first
+						hackathon!
 					</p>
 				</div>
 				<div className={styles.infoRow}>
 					<h3>When:</h3>
 					<p>
-						Nov. 7-9, 2025 (2-day weekend event and mandatory attendance on Friday from 7-10 pm for 
-						team formation, project ideation, and answering questions - not overnight)
+						Nov. 7-9, 2025 (2-day weekend event and mandatory attendance on
+						Friday from 7-10 pm for team formation, project ideation, and
+						answering questions - not overnight)
 					</p>
 				</div>
 				<div className={styles.infoRow}>
@@ -35,7 +37,8 @@ export default async function MentorsInfo() {
 						<strong>Decisions Released: </strong>Oct. 31, 2025
 					</p>
 					<span className={styles.note}>
-						If you have any questions about ZotHacks or being a mentor, please send an email to hack@uci.edu.
+						If you have any questions about ZotHacks or being a mentor, please
+						send an email to hack@uci.edu.
 					</span>
 				</div>
 			</div>

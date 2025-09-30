@@ -1,27 +1,27 @@
 @use "zothacks-theme" as theme;
 
 .title {
-    color: theme.$turquoise;
-    font-size: 3rem;
-    font-weight: 600;
-    text-align: center;
-    padding-top: 8rem;
+	color: theme.$turquoise;
+	font-size: 3rem;
+	font-weight: 600;
+	text-align: center;
+	padding-top: 8rem;
 
-    @media (max-width: 1000px) {
-        font-size: 2.25rem;
-        padding: 6rem 2rem 0rem 2rem;
-    }
-}   
+	@media (max-width: 1000px) {
+		font-size: 2.25rem;
+		padding: 6rem 2rem 0rem 2rem;
+	}
+}
 
 .description {
-    color: theme.$white;
-    font-size: 1.5rem;
-    font-weight: 400;
-    text-align: center;
-    margin: 2rem 10rem;
+	color: theme.$white;
+	font-size: 1.5rem;
+	font-weight: 400;
+	text-align: center;
+	margin: 2rem 10rem;
 
-    @media (max-width: 1000px) {
-        margin: 2rem 2rem;
-        font-size: 1.25rem;
-    }
+	@media (max-width: 1000px) {
+		margin: 2rem 2rem;
+		font-size: 1.25rem;
+	}
 }
