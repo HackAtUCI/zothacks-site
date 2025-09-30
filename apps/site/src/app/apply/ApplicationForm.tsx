@@ -75,18 +75,20 @@ export default function ApplicationForm() {
 						</label>
 					))}
 				</div>
+				{isPronounsOther && (
+					<div className={styles.otherField}>
+						<label className={styles.field}>
+							<span className={styles.label}>Specify other pronouns*</span>
+							<input
+								className={styles.input}
+								type="text"
+								name="_other_pronouns"
+								required
+							/>
+						</label>
+					</div>
+				)}
 			</fieldset>
-			{isPronounsOther && (
-				<label className={styles.field}>
-					<span className={styles.label}>Specify other pronouns*</span>
-					<input
-						className={styles.input}
-						type="text"
-						name="_other_pronouns"
-						required
-					/>
-				</label>
-			)}
 
 			<fieldset>
 				<legend className={styles.label}>
@@ -137,20 +139,22 @@ export default function ApplicationForm() {
 						</label>
 					))}
 				</div>
+				{isDietaryOther && (
+					<div className={styles.otherField}>
+						<label className={styles.field}>
+							<span className={styles.label}>
+								Specify other dietary restrictions*
+							</span>
+							<input
+								className={styles.input}
+								type="text"
+								name="_other_dietary_restrictions"
+								required
+							/>
+						</label>
+					</div>
+				)}
 			</fieldset>
-			{isDietaryOther && (
-				<label className={styles.field}>
-					<span className={styles.label}>
-						Specify other dietary restrictions*
-					</span>
-					<input
-						className={styles.input}
-						type="text"
-						name="_other_dietary_restrictions"
-						required
-					/>
-				</label>
-			)}
 
 			<label className={styles.field}>
 				<span className={styles.label}>Allergies? (Please List)*</span>

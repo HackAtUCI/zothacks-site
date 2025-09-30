@@ -56,7 +56,7 @@
 }
 
 .option input[type="radio"]:checked {
-	background: #abababcc; /* keep base so ring shows nicely */
+	background: #abababcc;
 	border-color: theme.$dark-green;
 }
 
@@ -71,7 +71,6 @@
 	border-radius: 50%;
 	background: theme.$dark-green; /* inner circle */
 }
-
 
 .legend {
 	font-weight: 700;
@@ -91,7 +90,44 @@
 	gap: 8px;
 }
 
+/* Dietary restriction checkboxes */
+.option input[type="checkbox"] {
+	appearance: none;
+	-webkit-appearance: none;
+	moz-appearance: none;
+	width: 18px;
+	height: 18px;
+	border-radius: 6px;
+	border: 2px solid transparent;
+	background: #abababcc; /* unselected */
+	position: relative;
+	outline: none;
+	cursor: pointer;
+}
+
+.option input[type="checkbox"]:checked {
+	background: theme.$dark-green; /* selected background */
+	border-color: theme.$dark-green;
+}
+
+.option input[type="checkbox"]:checked::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -60%) rotate(45deg);
+	width: 5px;
+	height: 10px;
+	border: solid #fff; /* white check mark */
+	border-width: 0 2px 2px 0;
+}
+
 .helper {
 	font-size: 0.9rem;
 	opacity: 0.85;
+}
+
+.otherField {
+	margin-top: 15px;
+	margin-left: 40px;
 }
