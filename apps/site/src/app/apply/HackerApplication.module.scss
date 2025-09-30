@@ -1,0 +1,39 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: 60px;
+}
+
+.eventInfoCard {
+	background-color: #244b49;
+	border-radius: 16px;
+	padding: 24px;
+}
+
+.title {
+	margin: 0 0 16px 0;
+	color: #e6f1ee;
+	font-size: 24px;
+	font-weight: 700;
+}
+
+.line {
+	margin: 8px 0;
+	line-height: 1.6;
+}
+
+.label {
+	color: #e6f1ee;
+	font-weight: 600;
+	margin-right: 8px;
+}
+
+.value {
+	color: #a7cde3;
+}
+
+.footnote {
+	color: #a7cde3;
+	margin-top: 16px;
+	display: block;
+}
