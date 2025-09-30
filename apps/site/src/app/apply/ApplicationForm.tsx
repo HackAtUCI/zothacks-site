@@ -208,6 +208,9 @@ export default function ApplicationForm() {
 				<span className={styles.label}>
 					Please upload a link to your resume*
 				</span>
+				<span className={styles.helper}>
+					Example: a shareable PDF link from Google Drive
+				</span>
 				<input
 					className={styles.input}
 					type="url"
@@ -215,9 +218,6 @@ export default function ApplicationForm() {
 					placeholder="https://..."
 					required
 				/>
-				<span className={styles.helper}>
-					Example: a shareable PDF link from Google Drive
-				</span>
 			</label>
 		</div>
 	);
