@@ -1,0 +1,72 @@
+@use "zothacks-theme" as theme;
+
+.applicationContainer {
+	background: #161f3cb0;
+	border-radius: 16px;
+	padding: 24px;
+	width: 100%;
+	max-width: 920px;
+	margin: 0 auto;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.row {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 16px;
+}
+
+.field {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.label {
+	font-weight: 600;
+}
+
+.input,
+.select,
+.textarea {
+	background: rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 8px;
+	padding: 10px 12px;
+	color: #fff;
+}
+
+.fieldset {
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 12px;
+	padding: 16px;
+}
+
+.legend {
+	font-weight: 700;
+	margin-bottom: 8px;
+}
+
+.inlineGroup {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+	align-items: center;
+}
+
+.option {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.helper {
+	font-size: 0.9rem;
+	opacity: 0.85;
+}
