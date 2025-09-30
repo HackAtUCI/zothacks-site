@@ -23,11 +23,12 @@
 .field {
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
 }
 
 .label {
 	font-weight: 600;
+	margin-bottom: 10px;
+	display: block;
 }
 
 .input,
@@ -88,6 +89,11 @@
 	display: inline-flex;
 	align-items: center;
 	gap: 8px;
+}
+
+/* Option text color for radio/checkbox items */
+.option span {
+	color: theme.$baby-blue;
 }
 
 /* Dietary restriction checkboxes */
