@@ -3,17 +3,19 @@
 import { FormEvent, PropsWithChildren, useState } from "react";
 import axios from "axios";
 
-import api from "@/lib/utils/api";
+import axiosInstance from "@/lib/utils/axiosInstance";
 import hasDeadlinePassed from "@/lib/utils/hasDeadlinePassed";
 
 interface BaseFormProps {
 	applicationType: "Hacker" | "Mentor" | "Volunteer";
 	applyPath: string;
+	className: string;
 }
 
 export default function BaseForm({
 	applicationType,
 	applyPath,
+	className,
 	children,
 }: PropsWithChildren<BaseFormProps>) {
 	const [sessionExpired, setSessionExpired] = useState(false);
@@ -37,7 +39,7 @@ export default function BaseForm({
 		const formData = new FormData(event.currentTarget);
 
 		try {
-			const res = await api.post(applyPath, formData);
+			const res = await axiosInstance.post(applyPath, formData);
 			if (res.status === 201) {
 				console.log("Application submitted");
 
@@ -68,7 +70,12 @@ export default function BaseForm({
 	);
 
 	return (
-		<form method="post" encType="multipart/form-data" onSubmit={handleSubmit}>
+		<form
+			method="post"
+			encType="multipart/form-data"
+			className={className}
+			onSubmit={handleSubmit}
+		>
 			<input
 				type="text"
 				name="application_type"

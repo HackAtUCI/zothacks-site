@@ -1,3 +1,4 @@
+import BaseForm from "@/components/BaseForm/BaseForm";
 import styles from "./MentorsForm.module.scss";
 
 export default async function MentorsForm() {
@@ -8,19 +9,11 @@ export default async function MentorsForm() {
 				with your application status.
 			</p>
 
-			<form
-				action="/api/user/mentor"
-				method="post"
+			<BaseForm
+				applyPath="/api/user/mentor"
 				className={styles.mentorForm}
-				encType="multipart/form-data"
+				applicationType="Mentor"
 			>
-				<input
-					type="text"
-					name="application_type"
-					value="Mentor"
-					readOnly
-					hidden
-				/>
 				<input
 					type="text"
 					name="first_name"
@@ -162,7 +155,7 @@ export default async function MentorsForm() {
 				<button type="submit" className={styles.submitButton}>
 					Submit Application
 				</button>
-			</form>
+			</BaseForm>
 		</div>
 	);
 }
