@@ -4,6 +4,8 @@
 	background-color: theme.$dark-green;
 	border-radius: 16px;
 	padding: 24px;
+	position: relative;
+	z-index: 1;
 }
 
 .title {
@@ -32,4 +34,20 @@
 	color: theme.$baby-blue;
 	margin-top: 16px;
 	display: block;
+}
+
+.eventInfoWrapper {
+	position: relative;
+	display: inline-block;
+}
+
+.eventInfoBorder {
+	position: absolute;
+	top: -8px;
+	left: -8px;
+	width: calc(100% + 16px);
+	height: calc(100% + 16px);
+	border-radius: 20px;
+	background-color: #2a504bb0;
+	z-index: 0;
 }
