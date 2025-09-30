@@ -99,11 +99,11 @@ function BasicQuestions() {
 				</span>
 				<div className={styles.inlineGroup}>
 					<label className={styles.option}>
-						<input type="radio" name="age_requirement" value="Yes" required />
+						<input type="radio" name="is_18_older" value="Yes" required />
 						<span>Yes</span>
 					</label>
 					<label className={styles.option}>
-						<input type="radio" name="age_requirement" value="No" required />
+						<input type="radio" name="is_18_older" value="No" required />
 						<span>No</span>
 					</label>
 				</div>
@@ -176,7 +176,7 @@ function BasicQuestions() {
 						<input
 							type="radio"
 							name="hackathon_experience"
-							value="First time"
+							value="first_time"
 							required
 						/>
 						<span>No, this is my first time!</span>
@@ -185,7 +185,7 @@ function BasicQuestions() {
 						<input
 							type="radio"
 							name="hackathon_experience"
-							value="Some experience"
+							value="some_experience"
 							required
 						/>
 						<span>
@@ -197,7 +197,7 @@ function BasicQuestions() {
 						<input
 							type="radio"
 							name="hackathon_experience"
-							value="Veteran"
+							value="veteran"
 							required
 						/>
 						<span>Yes, I am a hackathon veteran.</span>
@@ -234,7 +234,7 @@ function SAQSection() {
 				</span>
 				<textarea
 					className={styles.textarea}
-					name="q_elevator_pitch"
+					name="elevator_pitch_saq"
 					required
 				/>
 			</label>
@@ -249,7 +249,7 @@ function SAQSection() {
 				</span>
 				<textarea
 					className={styles.textarea}
-					name="q_tech_experience"
+					name="tech_experience_saq"
 					required
 				/>
 			</label>
@@ -261,7 +261,7 @@ function SAQSection() {
 				</span>
 				<textarea
 					className={styles.textarea}
-					name="q_learn_about_self"
+					name="learn_about_self_saq"
 					required
 				/>
 			</label>
