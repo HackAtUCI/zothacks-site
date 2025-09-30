@@ -8,12 +8,10 @@
 	max-width: 920px;
 	margin: 0 auto;
 	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-}
-
-.form {
+	color: theme.$off-white;
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
+	gap: 30px;
 }
 
 .row {
@@ -42,11 +40,38 @@
 	color: #fff;
 }
 
-.fieldset {
-	border: 1px solid rgba(255, 255, 255, 0.2);
-	border-radius: 12px;
-	padding: 16px;
+/* Radio buttons */
+.option input[type="radio"] {
+	appearance: none;
+	-webkit-appearance: none;
+	moz-appearance: none;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	border: 2px solid transparent;
+	background: #abababcc; /* unselected */
+	position: relative;
+	outline: none;
+	cursor: pointer;
 }
+
+.option input[type="radio"]:checked {
+	background: #abababcc; /* keep base so ring shows nicely */
+	border-color: theme.$dark-green;
+}
+
+.option input[type="radio"]:checked::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: theme.$dark-green; /* inner circle */
+}
+
 
 .legend {
 	font-weight: 700;

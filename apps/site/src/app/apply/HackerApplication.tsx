@@ -5,11 +5,11 @@ import styles from "./HackerApplication.module.scss";
 
 export default function HackerApplication() {
 	return (
-		<div className={styles.container}>
-			<BaseForm applyPath="/api/user/mentor" applicationType="Mentor">
+		<BaseForm applyPath="/api/user/mentor" applicationType="Mentor">
+			<div className={styles.container}>
 				<EventInfoCard />
 				<ApplicationForm />
-			</BaseForm>
-		</div>
+			</div>
+		</BaseForm>
 	);
 }
