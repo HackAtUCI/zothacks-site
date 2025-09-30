@@ -158,7 +158,7 @@ function BasicQuestions() {
 			</fieldset>
 
 			<label className={styles.field}>
-				<span className={styles.label}>Allergies? (Please List)*</span>
+				<span className={styles.label}>Allergies? (Please list)*</span>
 				<input className={styles.input} type="text" name="allergies" required />
 			</label>
 
