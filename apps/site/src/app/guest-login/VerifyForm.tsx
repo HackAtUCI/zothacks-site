@@ -43,7 +43,7 @@ export default function VerifyForm({
 
 	return (
 		<form className={styles.form} method="post" onSubmit={onSubmit}>
-			<h1 className={styles.title}>Enter Passphrase</h1>
+			{/* <h1 className={styles.title}>Passphrase</h1> */}
 
 			<input type="hidden" name="email" value={email} />
 			<input type="hidden" name="return_to" value={returnTo} />
@@ -57,15 +57,24 @@ export default function VerifyForm({
 				type="text"
 				required
 				className={styles.input}
-				placeholder="123456"
+				placeholder="Enter passphrase here..."
 			/>
+
+			<small className={styles.passphraseDescription}>
+				A login passphrase was sent to your email. Please enter the passphrase.
+			</small>
+			<span className={styles.redText}>
+				If you cannot find the passphrase, please check your spam. If the email
+				is still missing, try again later, use a different email, or contact us
+				at contact@irvinehacks.com for assistance.
+			</span>
 
 			<button type="submit" className={styles.button} disabled={submitting}>
 				{submitting ? "Verifying..." : "Verify & Continue"}
 			</button>
 
 			{showError && (
-				<div className={styles.errorText}>
+				<div className={styles.redText}>
 					Invalid passphrase. Please try again.
 				</div>
 			)}
