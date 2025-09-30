@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import styles from "./ApplicationForm.module.scss";
+import PixelArt from "./PixelArt";
 
 const pronounOptions = ["He/Him", "She/Her", "They/Them/Theirs", "Other"];
 const dietaryOptions = [
@@ -271,6 +272,7 @@ function SAQSection() {
 					Pixel art: Draw something that represents you and paste the output.
 					Briefly explain your choice. [100 words]*
 				</span>
+				<PixelArt />
 				<textarea className={styles.textarea} name="q_pixel_art" required />
 			</label>
 
