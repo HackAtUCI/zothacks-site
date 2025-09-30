@@ -1,0 +1,185 @@
+@use "zothacks-theme" as theme;
+@use "bootstrap-utils" as bootstrap;
+.about {
+  position: relative;      // needed for absolute children
+  text-align: center;
+  margin: 0 auto;
+  padding: 4rem 1rem 10rem; // bottom padding ensures text stays above characters
+  max-width: 900px;
+}
+
+.content {
+  position: relative;
+  z-index: 2;              // keeps text above background/overlaps
+}
+
+.aboutTitle {
+  font-size: 25px;
+  font-weight: 800;
+  color: rgba(202, 202, 202, 1);
+  margin-bottom: 1rem;
+}
+
+.aboutText {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(153, 177, 203, 1);
+}
+
+.characters {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 3rem;
+  gap: 2rem;
+
+  width: 100%;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  gap: 20px;
+  width: 440px;   // matches Figma
+  height: auto;
+}
+
+.left,
+.right {
+  max-width: 400px;
+  height: auto;
+}
+
+.leftSide {
+  transform: rotate(4deg);
+}
+
+.rightSide {
+  transform: rotate(-5deg); 
+}
+
+.prompt {
+  font-size: 16px;
+  color: rgba(202, 202, 202, 1);
+  margin: 0;
+}
+
+.applyButton {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: 40px;
+  background: rgba(42, 80, 75, 0.69);
+  border: 1px solid rgba(42, 80, 75, 1);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(42, 80, 75, 0.9);
+    box-shadow:
+      0 0 12px rgba(42, 80, 75, 0.7),
+      0 0 24px rgba(42, 80, 75, 0.4);
+    transform: scale(1.05);
+  }
+}
+
+/* ✅ Responsive rules */
+@media (max-width: 1024px) {
+  .left,
+  .right {
+    max-width: 180px;
+  }
+
+  .side {
+    width: 360px;
+  }
+}
+
+@media (max-width: 768px) {
+  .characters {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .side {
+    width: 100%;
+    max-width: 400px;
+    transform: rotate(0deg); // flatten buttons
+  }
+
+  .left,
+  .right {
+    max-width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .side {
+    max-width: 300px;
+  }
+
+  .left,
+  .right {
+    max-width: 120px;
+}
+
+  .applyButton {
+    font-size: 14px;
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+.bearWithFlashlight {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 400px;
+
+  /* shared anchor + sizes (tweak these) */
+  --flash-x: 28%;      /* horizontal position of the flashlight base */
+  --flash-y: 42%;      /* vertical position of the flashlight base */
+  --flash-size: 18%;   /* flashlight width relative to bear */
+  --beam-length: 220%; /* beam length relative to bear */
+}
+
+/* flashlight in paw (left/bottom use the shared anchor) */
+.flashlight {
+  position: absolute;
+  left: var(--flash-x);
+  bottom: var(--flash-y);
+  width: var(--flash-size);
+  height: auto;
+  z-index: 2;
+}
+
+/* beam: right edge pinned to the same anchor */
+.light {
+  position: absolute;
+  right: calc(100% - var(--flash-x));  
+  bottom: calc(var(--flash-y) + 2%); 
+  width: var(--beam-length);
+  height: auto;
+  transform-origin: right center;      /* pivot from flashlight */
+  transform: rotate(-5deg);
+  z-index: 1;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+/* responsive tweaks (optional) */
+@media (max-width: 1024px) {
+  .bearWithFlashlight { --beam-length: 180%; }
+}
+@media (max-width: 768px) {
+  .bearWithFlashlight { --beam-length: 150%; --flash-x: 27%; --flash-y: 40%; }
+}
+
