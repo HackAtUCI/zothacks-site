@@ -32,8 +32,11 @@
 
 .footnote {
 	color: theme.$baby-blue;
-	margin-top: 16px;
 	display: block;
+}
+
+.footnoteContainer {
+	margin-top: 50px;
 }
 
 .eventInfoWrapper {

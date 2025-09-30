@@ -26,19 +26,20 @@ export default function EventInfoCard() {
 					<span className={styles.label}>Application Due Date:</span>
 					<span className={styles.value}>Friday 10/17 11:59 PM</span>
 				</p>
-				<p className={styles.line}>
-					<span className={styles.footnote}>
-						** This is a limited capacity event, meaning not all applications
-						will be accepted.
-					</span>
-				</p>
-				<p className={styles.line}>
-					<span className={styles.footnote}>
-						** 3rd years and up should consider applying to be a ZotHacks
-						mentor. We will still take your application should you choose to
-						apply as a hacker!
-					</span>
-				</p>
+				<div className={styles.footnoteContainer}>
+					<p className={styles.line}>
+						<span className={styles.footnote}>
+							** This is a limited capacity event, meaning not all applications
+							will be accepted.
+						</span>
+
+						<span className={styles.footnote}>
+							** 3rd years and up should consider applying to be a ZotHacks
+							mentor. We will still take your application should you choose to
+							apply as a hacker!
+						</span>
+					</p>
+				</div>
 			</div>
 		</div>
 	);
