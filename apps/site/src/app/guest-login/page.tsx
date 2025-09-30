@@ -51,10 +51,10 @@ export default async function Login({
 							<input type="hidden" name="return_to" value={return_to} />
 						</div>
 
-						<p className={styles.subtitle}>
+						{/* <p className={styles.subtitle}>
 							UCI students will log in with UCI SSO. Please use your school
 							email address if you have one.
-						</p>
+						</p> */}
 					</div>
 
 					<button type="submit" className={styles.button}>

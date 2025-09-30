@@ -68,11 +68,11 @@ export default function VerifyForm({
 			<span className={styles.redText}>
 				If you cannot find the passphrase, please check your spam. If the email
 				is still missing, try again later, use a different email, or contact us
-				at contact@irvinehacks.com for assistance.
+				at zothacks@gmail.com for assistance.
 			</span>
 
 			<button type="submit" className={styles.button} disabled={submitting}>
-				{submitting ? "Verifying..." : "Verify & Continue"}
+				{submitting ? "Verifying..." : "Continue"}
 			</button>
 
 			{showError && (
