@@ -1,5 +1,161 @@
+import BaseForm from "@/components/BaseForm/BaseForm";
 import styles from "./MentorsForm.module.scss";
 
 export default async function MentorsForm() {
-	return <div></div>;
+	return (
+		<div className={styles.formWrapper}>
+			<p>
+				Please fill out the following form, and we&apos;ll get back to you soon
+				with your application status.
+			</p>
+
+			<BaseForm
+				applyPath="/api/user/mentor"
+				className={styles.mentorForm}
+				applicationType="Mentor"
+			>
+				<input
+					type="text"
+					name="first_name"
+					placeholder="First Name"
+					required
+				/>
+				<input type="text" name="last_name" placeholder="Last Name" required />
+
+				<fieldset className={styles.radioGroup}>
+					<legend>Are you 18 years or older?</legend>
+					<label>
+						<input type="radio" name="is_18_older" value="yes" /> Yes
+					</label>
+					<label>
+						<input type="radio" name="is_18_older" value="no" /> No
+					</label>
+				</fieldset>
+
+				<input type="text" name="pronouns" placeholder="Preferred Pronouns" />
+				<input type="text" name="degree" placeholder="Degree" />
+				<input type="text" name="major" placeholder="Major" />
+				<input
+					type="text"
+					name="graduation_year"
+					placeholder="Expected Grad Year"
+				/>
+
+				<input
+					type="text"
+					name="mentoring_experience"
+					placeholder="Have you mentored a hackathon before? If so, list which ones..."
+				/>
+
+				<div className={styles.textareaGroup}>
+					<label className={styles.textareaLabel}>
+						How would you help participants turn an ambitious idea into
+						something achievable within the hackathon?
+					</label>
+					<textarea name="help_participants_frq" />
+				</div>
+
+				<div className={styles.textareaGroup}>
+					<label className={styles.textareaLabel}>
+						If your team were completely new to web development, what steps
+						would you take to make their learning palatable?
+					</label>
+					<textarea name="new_team_help_frq" />
+				</div>
+
+				<input
+					type="text"
+					name="tech_stack_frq"
+					placeholder="What tech stack experience do you have?"
+				/>
+
+				<div className={styles.textareaGroup}>
+					<label className={styles.textareaLabel}>
+						Given the stack that you mentioned, how do you usually go about
+						connecting the front end with the back end? Answer in at least 2-3
+						sentences.
+					</label>
+					<textarea name="frontend_backend_frq" />
+				</div>
+
+				<fieldset className={styles.checkboxGroup}>
+					<legend>Select any technical skills you have:</legend>
+					<label>
+						<input type="checkbox" name="skills" value="Python" /> Python
+					</label>
+					<label>
+						<input type="checkbox" name="skills" value="Java" /> Java
+					</label>
+					<label>
+						<input type="checkbox" name="skills" value="C++" /> C++
+					</label>
+					<label>
+						<input type="checkbox" name="skills" value="JavaScript" />{" "}
+						JavaScript
+					</label>
+					<label>
+						<input type="checkbox" name="skills" value="HTML/CSS" /> HTML/CSS
+					</label>
+					<label>
+						<input type="checkbox" name="skills" value="React" /> React
+					</label>
+					<label>
+						<input type="checkbox" name="skills" value="Next.js" /> Next.js
+					</label>
+					<label>
+						<input type="checkbox" name="skills" value="C#" /> C#
+					</label>
+					<label>
+						<input type="checkbox" name="skills" value="Git" /> Git
+					</label>
+					<label>
+						<input type="checkbox" name="skills" value="SQL" /> SQL (Any
+						variation)
+					</label>
+					<label>
+						<input type="checkbox" name="skills" value="AWS Services" /> AWS
+						Services
+					</label>
+					<label>
+						<input type="checkbox" name="skills" value="Vercel" /> Vercel
+					</label>
+					<label>
+						<input type="checkbox" name="skills" value="Netlify" /> Netlify
+					</label>
+					<label>
+						<input type="checkbox" name="skills" value="Github Pages" /> Github
+						Pages
+					</label>
+					<label>
+						<input type="checkbox" name="skills" value="Other" /> Other
+					</label>
+				</fieldset>
+
+				<input type="url" name="linkedin" placeholder="Linkedin" />
+				<input type="url" name="github" placeholder="Github" />
+				<input type="url" name="portfolio" placeholder="Personal Website" />
+				<label className={styles.fileField}>
+					<span className={styles.fileText}>Resume Upload</span>
+					<input
+						type="file"
+						name="resume"
+						id="resume"
+						className={styles.fileInput}
+					/>
+					<span className={styles.fileButton}>Choose File</span>
+				</label>
+
+				<div className={styles.textareaGroup}>
+					<label className={styles.textareaLabel}>
+						Questions / comments / concerns
+					</label>
+					<textarea name="comments" />
+				</div>
+
+				<button type="submit" className={styles.submitButton}>
+					Submit Application
+				</button>
+			</BaseForm>
+		</div>
+	);
 }
