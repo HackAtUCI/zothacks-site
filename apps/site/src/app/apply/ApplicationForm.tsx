@@ -267,14 +267,14 @@ function SAQSection() {
 				/>
 			</label>
 
-			<label className={styles.field}>
+			<div className={styles.field}>
 				<span className={styles.label}>
-					Pixel art: Draw something that represents you and paste the output.
-					Briefly explain your choice. [100 words]*
+					Pixel art: Draw something that represents you. Briefly explain your
+					art. [100 words]*
 				</span>
-				<PixelArt />
 				<textarea className={styles.textarea} name="q_pixel_art" required />
-			</label>
+				<PixelArt />
+			</div>
 
 			<label className={styles.field}>
 				<span className={styles.label}>Questions, comments, or concerns?</span>
