@@ -29,7 +29,11 @@ export default async function Login({
 	return (
 		<div className={styles.container}>
 			{!email && (
-				<form method="post" action="/api/guest/login">
+				<form
+					method="post"
+					action="/api/guest/login"
+					className={styles.formTag}
+				>
 					<div className={styles.form}>
 						<h1 className={styles.title}>Log In</h1>
 

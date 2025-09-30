@@ -42,9 +42,11 @@ export default function VerifyForm({
 	);
 
 	return (
-		<form className={styles.form} method="post" onSubmit={onSubmit}>
-			{/* <h1 className={styles.title}>Passphrase</h1> */}
-
+		<form
+			className={`${styles.form} ${styles.formTag}`}
+			method="post"
+			onSubmit={onSubmit}
+		>
 			<input type="hidden" name="email" value={email} />
 			<input type="hidden" name="return_to" value={returnTo} />
 
