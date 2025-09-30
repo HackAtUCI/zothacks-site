@@ -1,4 +1,5 @@
 @use "zothacks-theme" as theme;
+@use "bootstrap-utils" as utils;
 
 .applicationContainer {
 	background: #161f3cb0;
@@ -15,14 +16,19 @@
 }
 
 .row {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
+	display: flex;
+	flex-direction: column;
 	gap: 16px;
+
+	@include utils.media-breakpoint-up(md) {
+		flex-direction: row;
+	}
 }
 
 .field {
 	display: flex;
 	flex-direction: column;
+	flex-grow: 1;
 }
 
 .label {
