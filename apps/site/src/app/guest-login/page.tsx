@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
 import getUserIdentity from "@/lib/utils/getUserIdentity";
+import VerifyForm from "./VerifyForm";
 
 import styles from "./Login.module.scss";
 
@@ -7,10 +8,8 @@ export default async function Login({
 	searchParams,
 }: {
 	searchParams?: {
-		step?: string;
 		email?: string;
 		return_to?: string;
-		error?: string;
 	};
 }) {
 	const email = searchParams?.email;
@@ -20,6 +19,7 @@ export default async function Login({
 	if (return_to) {
 		newSearchParams.append("return_to", return_to);
 	}
+	const newSearchParamsString = newSearchParams.toString();
 
 	const identity = await getUserIdentity();
 	if (identity.uid !== null) {
@@ -60,39 +60,12 @@ export default async function Login({
 			)}
 
 			{email && (
-				<form
-					className={styles.form}
-					method="post"
-					action={`/api/guest/verify?${newSearchParams}`}
-				>
-					<h1 className={styles.title}>Enter Passphrase</h1>
-
-					<input type="hidden" name="email" value={email} />
-					<input type="hidden" name="return_to" value={return_to} />
-
-					<label htmlFor="passphrase" className={styles.label}>
-						Passphrase
-					</label>
-					<input
-						id="passphrase"
-						name="passphrase"
-						type="text"
-						required
-						className={styles.input}
-						placeholder="123456"
-					/>
-
-					<button type="submit" className={styles.button}>
-						Verify & Continue
-					</button>
-				</form>
+				<VerifyForm
+					email={email}
+					returnTo={return_to}
+					newSearchParamsString={newSearchParamsString}
+				/>
 			)}
-
-			{/* {error === "invalid" && (
-				<div className={styles.errorBanner}>
-					Invalid passphrase. Please try again.
-				</div>
-			)} */}
 		</div>
 	);
 }
