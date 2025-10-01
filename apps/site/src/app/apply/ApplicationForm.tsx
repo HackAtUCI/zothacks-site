@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import styles from "./ApplicationForm.module.scss";
+
 import PixelArt from "./PixelArt";
+
+import styles from "./ApplicationForm.module.scss";
 
 const pronounOptions = ["He/Him", "She/Her", "They/Them/Theirs", "Other"];
 const dietaryOptions = [
@@ -304,7 +306,9 @@ export default function ApplicationForm() {
 		<>
 			<BasicQuestions />
 			<SAQSection />
-			<button type="submit">Submit</button>
+			<button type="submit" className={styles.applyButton}>
+				Submit Application
+			</button>
 		</>
 	);
 }
