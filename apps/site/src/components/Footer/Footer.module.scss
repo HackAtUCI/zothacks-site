@@ -1,4 +1,4 @@
-@import "../../lib/styles/zothacks-theme";
+@use "zothacks-theme" as theme;
 
 .footer {
 	padding: 30px 40px;
@@ -42,12 +42,12 @@
 	line-height: 180%;
 	letter-spacing: 2%;
 	text-align: right;
-	color: $baby-blue;
+	color: theme.$baby-blue;
 	text-decoration: none;
 	transition: color 0.25s;
 
 	&:hover {
-		color: lighten($baby-blue, 10%);
+		color: lighten(theme.$baby-blue, 10%);
 		text-decoration: underline;
 	}
 }
@@ -75,7 +75,7 @@
 	line-height: 180%;
 	letter-spacing: 2%;
 	text-align: right;
-	color: $baby-blue;
+	color: theme.$baby-blue;
 	margin: 0;
 }
 
