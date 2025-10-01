@@ -163,6 +163,7 @@ function BasicQuestions() {
 				<input className={styles.input} type="text" name="allergies" required />
 			</label>
 
+			{/* Should make this a dropdown with "other" field */}
 			<label className={styles.field}>
 				<span className={styles.label}>Major*</span>
 				<input className={styles.input} type="text" name="major" required />
@@ -278,7 +279,7 @@ function SAQSection() {
 					Pixel art: Draw something that represents you. Briefly explain your
 					art. [100 words]*
 				</span>
-				<textarea className={styles.textarea} name="q_pixel_art" required />
+				<textarea className={styles.textarea} name="pixel_art_saq" required />
 				<PixelArt
 					gridColors={gridColors}
 					setGridColors={handleGridColorsChange}
