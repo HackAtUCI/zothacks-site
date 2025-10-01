@@ -56,7 +56,12 @@ export default function Footer() {
 				<div className={styles.top_row}>
 					<div className={styles.logo}>
 						{LEFT_SOCIALS.map(({ icon, link, alt }) => (
-							<a key={link} href={link} target="_blank">
+							<a
+								key={link}
+								href={link}
+								target="_blank"
+								rel="noopener noreferrer"
+							>
 								<Image
 									src={icon.src}
 									alt={alt}
@@ -69,7 +74,12 @@ export default function Footer() {
 					</div>
 					<div className={styles.right_footer}>
 						{RIGHT_SOCIALS.map(({ icon, link, alt }) => (
-							<a key={link} href={link} target="_blank">
+							<a
+								key={link}
+								href={link}
+								target="_blank"
+								rel="noopener noreferrer"
+							>
 								<Image
 									src={icon.src}
 									alt={alt}
@@ -90,6 +100,7 @@ export default function Footer() {
 							href="https://hack.ics.uci.edu/"
 							className={styles.left_footer_text}
 							target="_blank"
+							rel="noopener noreferrer"
 						>
 							About
 						</Link>
