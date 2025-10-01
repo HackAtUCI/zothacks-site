@@ -94,7 +94,9 @@ export default function Footer() {
 							About
 						</Link>
 					</div>
-					<p className={styles.text}>Made with &lt;3 in Irvine, CA | Hack at UCI</p>
+					<p className={styles.text}>
+						Made with &lt;3 in Irvine, CA | Hack at UCI
+					</p>
 				</div>
 			</div>
 		</footer>
