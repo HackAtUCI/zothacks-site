@@ -306,9 +306,6 @@ export default function ApplicationForm() {
 		<>
 			<BasicQuestions />
 			<SAQSection />
-			<button type="submit" className={styles.applyButton}>
-				Submit Application
-			</button>
 		</>
 	);
 }

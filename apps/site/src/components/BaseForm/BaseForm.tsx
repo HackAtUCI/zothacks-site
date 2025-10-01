@@ -6,6 +6,8 @@ import axios from "axios";
 import axiosInstance from "@/lib/utils/axiosInstance";
 import hasDeadlinePassed from "@/lib/utils/hasDeadlinePassed";
 
+import styles from "./BaseForm.module.scss";
+
 const FIELDS_WITH_OTHER = [
 	"pronouns",
 	"ethnicity",
@@ -27,6 +29,7 @@ export default function BaseForm({
 	className,
 	children,
 }: PropsWithChildren<BaseFormProps>) {
+	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [sessionExpired, setSessionExpired] = useState(false);
 
 	const handleSubmit = async (
@@ -55,7 +58,7 @@ export default function BaseForm({
 
 			const valuesWithoutOther = formData
 				.getAll(field)
-				.filter((value) => value !== "other");
+				.filter((value) => value !== "other" && value !== "Other");
 
 			formData.delete(field);
 
@@ -65,6 +68,7 @@ export default function BaseForm({
 		}
 
 		try {
+			setIsSubmitting(true);
 			const res = await axiosInstance.post(applyPath, formData);
 			if (res.status === 201) {
 				console.log("Application submitted");
@@ -82,6 +86,7 @@ export default function BaseForm({
 					setSessionExpired(true);
 				}
 			}
+			setIsSubmitting(false);
 		}
 	};
 
@@ -111,6 +116,13 @@ export default function BaseForm({
 			/>
 			{children}
 			{sessionExpired && sessionExpiredMessage}
+			<button
+				type="submit"
+				className={styles.applyButton}
+				disabled={isSubmitting}
+			>
+				Submit Application
+			</button>
 		</form>
 	);
 }
