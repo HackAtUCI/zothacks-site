@@ -52,39 +52,20 @@ const RIGHT_SOCIALS: Social[] = [
 export default function Footer() {
 	return (
 		<footer className={styles.footer}>
-			<div className={clsx(styles.left_footer, styles.hack_icon)}>
-				{LEFT_SOCIALS.map(({ icon, link, alt }) => (
-					<a key={link} href={link} target="_blank">
-						<Image
-							src={icon.src}
-							alt={alt}
-							width={55}
-							height={55}
-							className={styles.socials}
-						/>
-					</a>
-				))}
-			</div>
-			<div className={styles.buttons}>
-				<div id={styles.box}>
-					<div className={clsx(styles.left_footer, styles.links)}>
-						<Link href="/" className={styles.left_footer_text}>
-							Home
-						</Link>
-						{/* <Link
-							href="https://zothacks-2023.devpost.com/"
-							className={styles.left_footer_text}
-							target="_blank"
-						>
-							Devpost
-						</Link> */}
-						<Link
-							href="https://hack.ics.uci.edu/"
-							className={styles.left_footer_text}
-							target="_blank"
-						>
-							About Us
-						</Link>
+			<div className={styles.footer_content}>
+				<div className={styles.top_row}>
+					<div className={styles.logo}>
+						{LEFT_SOCIALS.map(({ icon, link, alt }) => (
+							<a key={link} href={link} target="_blank">
+								<Image
+									src={icon.src}
+									alt={alt}
+									width={55}
+									height={55}
+									className={styles.socials}
+								/>
+							</a>
+						))}
 					</div>
 					<div className={styles.right_footer}>
 						{RIGHT_SOCIALS.map(({ icon, link, alt }) => (
@@ -100,8 +81,22 @@ export default function Footer() {
 						))}
 					</div>
 				</div>
+				<div className={styles.bottom_row}>
+					<div className={styles.left_footer}>
+						<Link href="/" className={styles.left_footer_text}>
+							Home
+						</Link>
+						<Link
+							href="https://hack.ics.uci.edu/"
+							className={styles.left_footer_text}
+							target="_blank"
+						>
+							About
+						</Link>
+					</div>
+					<p className={styles.text}>Made with &lt;3 in Irvine, CA | Hack at UCI</p>
+				</div>
 			</div>
-			<p className={styles.text}>Made with 👋 in Irvine, CA - Hack at UCI</p>
 		</footer>
 	);
 }
