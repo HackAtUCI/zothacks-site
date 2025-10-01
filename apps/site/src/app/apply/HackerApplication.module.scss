@@ -1,19 +1,32 @@
 @use "zothacks-theme" as theme;
 
 .container {
+	background-color: #0f152b;
+}
+
+.formContainer {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	gap: 60px;
 	padding: 10px;
-	background-color: #0f152b;
+	padding-top: 120px;
 }
 
-.container > * {
+.formContainer > * {
 	max-width: 1100px;
+	z-index: 10;
+}
+
+.background {
+	position: absolute;
+	width: 100%;
+	height: auto;
+	z-index: 0;
 }
 
 .title {
 	font-size: 2.5rem;
+	text-align: center;
 	color: theme.$off-white;
 }
