@@ -1,3 +1,5 @@
+@use "zothacks-theme" as theme;
+
 .container {
 	display: flex;
 	flex-direction: column;
@@ -7,6 +9,11 @@
 	background-color: #0f152b;
 }
 
-.container > div {
+.container > * {
 	max-width: 1100px;
+}
+
+.title {
+	font-size: 2.5rem;
+	color: theme.$off-white;
 }
