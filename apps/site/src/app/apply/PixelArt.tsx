@@ -36,9 +36,13 @@ const COLOR_CLASSES = [
 	styles.cPinkDark,
 ];
 
-export default function PixelArt() {
+interface PixelArtProps {
+	gridColors: number[];
+	setGridColors: (colors: number[]) => void;
+}
+
+export default function PixelArt({ gridColors, setGridColors }: PixelArtProps) {
 	const [selectedColor, setSelectedColor] = useState<number | null>(null);
-	const [gridColors, setGridColors] = useState<number[]>(Array(64).fill(0)); // store indices 0-26
 	// eraser removed; always draw selected color (white index 0 clears)
 	const [isDragging, setIsDragging] = useState(false);
 	const clearModalRef = useRef<HTMLDialogElement | null>(null);
@@ -54,11 +58,9 @@ export default function PixelArt() {
 	};
 
 	const applyColor = (index: number) => {
-		setGridColors((prev) => {
-			const next = [...prev];
-			if (selectedColor !== null) next[index] = selectedColor; // index 0 acts as eraser
-			return next;
-		});
+		const next = [...gridColors];
+		if (selectedColor !== null) next[index] = selectedColor; // index 0 acts as eraser
+		setGridColors(next);
 	};
 
 	const handleMouseDown = (i: number) => {

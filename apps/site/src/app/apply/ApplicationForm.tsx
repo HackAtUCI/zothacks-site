@@ -226,6 +226,12 @@ function BasicQuestions() {
 }
 
 function SAQSection() {
+	const [gridColors, setGridColors] = useState<number[]>(Array(64).fill(0)); // store indices 0-26
+
+	const handleGridColorsChange = (newGridColors: number[]) => {
+		setGridColors(newGridColors);
+	};
+
 	return (
 		<div className={styles.applicationContainer}>
 			<label className={styles.field}>
@@ -273,7 +279,15 @@ function SAQSection() {
 					art. [100 words]*
 				</span>
 				<textarea className={styles.textarea} name="q_pixel_art" required />
-				<PixelArt />
+				<PixelArt
+					gridColors={gridColors}
+					setGridColors={handleGridColorsChange}
+				/>
+				<input
+					type="hidden"
+					name="pixel_art_data"
+					value={JSON.stringify(gridColors)}
+				/>
 			</div>
 
 			<label className={styles.field}>
@@ -289,6 +303,7 @@ export default function ApplicationForm() {
 		<>
 			<BasicQuestions />
 			<SAQSection />
+			<button type="submit">Submit</button>
 		</>
 	);
 }
