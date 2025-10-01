@@ -5,7 +5,7 @@ import styles from "./HackerApplication.module.scss";
 
 export default function HackerApplication() {
 	return (
-		<BaseForm applyPath="/api/user/mentor" applicationType="Mentor">
+		<BaseForm applyPath="/api/user/apply" applicationType="Hacker">
 			<div className={styles.container}>
 				<EventInfoCard />
 				<ApplicationForm />
