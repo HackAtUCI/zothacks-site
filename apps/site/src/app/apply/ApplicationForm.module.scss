@@ -47,6 +47,14 @@
 	color: #fff;
 }
 
+/* Margin for the file input's browse button */
+.input[type="file"]::file-selector-button {
+	margin-right: 15px;
+}
+.input[type="file"]::-webkit-file-upload-button {
+	margin-right: 15px;
+}
+
 /* Radio buttons */
 .option input[type="radio"] {
 	appearance: none;

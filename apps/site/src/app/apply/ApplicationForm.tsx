@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ChangeEvent } from "react";
 
 import PixelArt from "./PixelArt";
 
@@ -38,6 +38,28 @@ function BasicQuestions() {
 			}
 			return prev.filter((v) => v !== option);
 		});
+	}
+
+	function handleResumeChange(e: ChangeEvent<HTMLInputElement>) {
+		const file = e.target.files?.[0];
+		if (!file) {
+			e.target.setCustomValidity("");
+			return;
+		}
+		const tenMbBytes = 10 * 1024 * 1024;
+		if (file.type !== "application/pdf") {
+			e.target.setCustomValidity("Please upload a PDF file.");
+			e.target.reportValidity();
+			e.target.value = "";
+			return;
+		}
+		if (file.size > tenMbBytes) {
+			e.target.setCustomValidity("File must be 10MB or smaller.");
+			e.target.reportValidity();
+			e.target.value = "";
+			return;
+		}
+		e.target.setCustomValidity("");
 	}
 
 	return (
@@ -211,17 +233,15 @@ function BasicQuestions() {
 
 			<label className={styles.field}>
 				<span className={styles.label}>
-					Please upload a link to your resume*
-				</span>
-				<span className={styles.helper}>
-					Example: a shareable PDF link from Google Drive
+					Please upload your resume (PDF, max 10MB)*
 				</span>
 				<input
 					className={styles.input}
-					type="url"
-					name="resume_link"
-					placeholder="https://..."
+					type="file"
+					name="resume"
+					accept="application/pdf,.pdf"
 					required
+					onChange={handleResumeChange}
 				/>
 			</label>
 		</div>
