@@ -1,10 +1,12 @@
 "use client";
 import Image from "next/image";
+
 import styles from "./About.module.scss";
-import LeftCharacter from "./LeftCharacter.png";
-import RightCharacter from "./RightCharacter.png";
-import Flashlight from "./flashlight.png"; // actual flashlight
-import Light from "./light.png";
+import LeftCharacter from "@/assets/images/LeftCharacter.png";
+import RightCharacter from "@/assets/images/RightCharacter.png";
+import Flashlight from "@/assets/images/flashlight.png";
+import Light from "@/assets/images/light.png";
+import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 
 const About = () => {
 	return (
@@ -31,9 +33,7 @@ const About = () => {
 					/>
 
 					<p className={styles.prompt}>Want to develop your first project?</p>
-					<a href="/hacker" className={styles.applyButton}>
-						Apply to be a hacker
-					</a>
+					<PrimaryButton href="/hacker">Apply to be a hacker</PrimaryButton>
 				</div>
 
 				<div className={`${styles.side} ${styles.rightSide}`}>
@@ -57,9 +57,7 @@ const About = () => {
 					</div>
 
 					<p className={styles.prompt}>Have experience under your belt?</p>
-					<a href="/mentor" className={styles.applyButton}>
-						Apply to be a mentor
-					</a>
+					<PrimaryButton href="/mentor">Apply to be a mentor</PrimaryButton>
 				</div>
 			</div>
 		</section>

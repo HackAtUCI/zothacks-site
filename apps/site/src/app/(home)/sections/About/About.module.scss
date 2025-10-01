@@ -16,14 +16,14 @@
 .aboutTitle {
 	font-size: 25px;
 	font-weight: 800;
-	color: rgba(202, 202, 202, 1);
+	color: theme.$off-white;
 	margin-bottom: 1rem;
 }
 
 .aboutText {
 	font-size: 16px;
 	line-height: 1.6;
-	color: rgba(153, 177, 203, 1);
+	color: theme.$baby-blue;
 }
 
 .characters {
@@ -34,7 +34,6 @@
 	gap: 2rem;
 
 	width: 100%;
-	max-width: 1100px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -46,59 +45,51 @@
 	text-align: center;
 	flex: 1;
 	gap: 20px;
-	width: 440px; // matches Figma
+	width: 440px;
 	height: auto;
 }
 
-.left,
+.left {
+	max-width: 577px;
+	height: auto;
+	transform: translateX(-35%);
+}
 .right {
-	max-width: 400px;
+	max-width: 687px;
 	height: auto;
 }
 
 .leftSide {
 	transform: rotate(-4deg);
+	align-items: flex-start;
+	text-align: left;
 }
 
 .rightSide {
 	transform: rotate(4deg);
+	align-items: flex-end;
+	text-align: right;
 }
 
 .prompt {
 	font-size: 16px;
-	color: rgba(202, 202, 202, 1);
-	margin: 0;
+	color: theme.$off-white;
+	margin: 100000;
 }
 
-.applyButton {
-	display: inline-block;
-	padding: 0.8rem 1.5rem;
-	border-radius: 40px;
-	background: rgba(42, 80, 75, 0.69);
-	border: 1px solid rgba(42, 80, 75, 1);
-	color: #fff;
-	font-size: 16px;
-	font-weight: 600;
-	text-decoration: none;
-	transition: all 0.3s ease;
 
-	&:hover {
-		background: rgba(42, 80, 75, 0.9);
-		box-shadow:
-			0 0 12px rgba(42, 80, 75, 0.7),
-			0 0 24px rgba(42, 80, 75, 0.4);
-		transform: scale(1.05);
-	}
-}
 
 @media (max-width: 1024px) {
-	.left,
+	.left {
+		max-width: 150px;
+	}
+
 	.right {
 		max-width: 180px;
 	}
 
 	.side {
-		width: 360px;
+		width: auto;
 	}
 }
 
@@ -115,26 +106,29 @@
 		transform: rotate(0deg);
 	}
 
-	.left,
+	.left {
+		max-width: 120px;
+	}
+
 	.right {
-		max-width: 150px;
+		max-width: 140px;
 	}
 }
 
 @media (max-width: 480px) {
 	.side {
-		max-width: 300px;
+		max-width: 280px;
 	}
 
-	.left,
+	.left {
+		max-width: 90px;
+	}
+
 	.right {
-		max-width: 120px;
+		max-width: 105px;
 	}
 
-	.applyButton {
-		font-size: 14px;
-		padding: 0.6rem 1.2rem;
-	}
+
 }
 
 .bearWithFlashlight {
@@ -142,11 +136,12 @@
 	display: inline-block;
 	width: 100%;
 	max-width: 400px;
+	overflow: visible;
 
-	--flash-x: 28%; /* horizontal position of the flashlight base */
-	--flash-y: 42%; /* vertical position of the flashlight base */
+	--flash-x: 60%; /* horizontal position of the flashlight base */
+	--flash-y: 45%; /* vertical position of the flashlight base */
 	--flash-size: 18%; /* flashlight width relative to bear */
-	--beam-length: 220%; /* beam length relative to bear */
+	--beam-length: 350%; /* beam length relative to bear */
 }
 
 .flashlight {
@@ -161,7 +156,7 @@
 .light {
 	position: absolute;
 	right: calc(100% - var(--flash-x));
-	bottom: calc(var(--flash-y) + 2%);
+	bottom: calc(var(--flash-y) + 1%);
 	width: var(--beam-length);
 	height: auto;
 	transform-origin: right center;
@@ -173,13 +168,27 @@
 
 @media (max-width: 1024px) {
 	.bearWithFlashlight {
-		--beam-length: 180%;
+		--flash-x: 40%; /* move slightly left */
+		--flash-y: 42%; /* raise beam */
+		--beam-length: 220%; /* shorten beam */
+		--flash-size: 10%;
 	}
 }
+
 @media (max-width: 768px) {
 	.bearWithFlashlight {
+		--flash-x: 40%; /* closer to center of bear */
+		--flash-y: 42%; /* higher up since bear shrinks */
+		--beam-length: 180%; /* shorten beam more */
+		--flash-size: 8%; /* flashlight scales with bear */
+	}
+}
+
+@media (max-width: 480px) {
+	.bearWithFlashlight {
+		--flash-x: 53%;
+		--flash-y: 38%;
 		--beam-length: 150%;
-		--flash-x: 27%;
-		--flash-y: 40%;
+		--flash-size: 14%;
 	}
 }
