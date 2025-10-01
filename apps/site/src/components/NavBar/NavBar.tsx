@@ -39,7 +39,7 @@ export default function NavBar() {
 							<Image src={ZotHacksLogo.src} alt="Hacks Logo" fill />
 						</div>
 					</Navbar.Brand>
-					{/*
+
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="ms-auto text">
@@ -49,7 +49,7 @@ export default function NavBar() {
 									activeRoute === "/" ? styles.active : styles.notActive
 								}
 							>
-								HOME
+								Home
 							</Link>
 							<Link
 								href="/resources"
@@ -59,7 +59,7 @@ export default function NavBar() {
 										: styles.notActive
 								}
 							>
-								RESOURCES
+								Resources
 							</Link>
 							<Link
 								href="/schedule"
@@ -67,32 +67,31 @@ export default function NavBar() {
 									activeRoute === "/schedule" ? styles.active : styles.notActive
 								}
 							>
-								SCHEDULE
+								Schedule
 							</Link>
-							<Link
-								href="https://forms.gle/cCixQqKR2gDXAUMLA"
+							{/* <Link
+								href="#"
 								className={styles.notActive}
 								target="_blank"
 							>
-								INCIDENT FORM
+								Incident Form
 							</Link>
 							<Link
-								href="https://zothacks-2024.devpost.com/"
+								href="#"
 								className={styles.notActive}
 								target="_blank"
 							>
-								DEVPOST
+								DevPost
 							</Link>
 							<Link
-								href="https://forms.gle/xD7XMhnSF5jYzXPN6"
+								href="#"
 								className={styles.notActive}
 								target="_blank"
 							>
-								FEEDBACK FORM
-							</Link>
+								Feedback Form
+							</Link> */}
 						</Nav>
 					</Navbar.Collapse>
-					*/}
 				</Container>
 			</Navbar>
 		</div>
