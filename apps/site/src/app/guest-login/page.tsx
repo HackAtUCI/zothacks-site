@@ -1,5 +1,8 @@
 import { redirect } from "next/navigation";
+
 import getUserIdentity from "@/lib/utils/getUserIdentity";
+import VerifyForm from "./VerifyForm";
+import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 
 import styles from "./Login.module.scss";
 
@@ -12,13 +15,13 @@ export default async function Login({
 	};
 }) {
 	const email = searchParams?.email;
-	const return_to = searchParams?.return_to ?? "/apply-mentor";
-	// const error = searchParams?.error;
+	const return_to = searchParams?.return_to ?? "/apply";
 
 	const newSearchParams = new URLSearchParams();
 	if (return_to) {
 		newSearchParams.append("return_to", return_to);
 	}
+	const newSearchParamsString = newSearchParams.toString();
 
 	const identity = await getUserIdentity();
 	if (identity.uid !== null) {
@@ -27,79 +30,45 @@ export default async function Login({
 
 	return (
 		<div className={styles.container}>
-			<h1 className={styles.title}>Log In</h1>
-			<p className={styles.subtitle}>
-				{!email ? (
-					"Enter your email to receive a passphrase."
-				) : (
-					<>
-						We emailed a passphrase to <b>{email}</b>. Enter it below.
-					</>
-				)}
-			</p>
-
-			{/* {error === "invalid" && (
-				<div className={styles.errorBanner}>
-					Invalid passphrase. Please try again.
-				</div>
-			)} */}
-
-			{!email ? (
-				<form className={styles.form} method="post" action="/api/guest/login">
-					<label htmlFor="email" className={styles.label}>
-						Email
-					</label>
-					<input
-						id="email"
-						name="email"
-						type="email"
-						required
-						className={styles.input}
-						placeholder="you@example.com"
-					/>
-					<input type="hidden" name="return_to" value={return_to} />
-
-					<button type="submit" className={styles.button}>
-						Send Passphrase
-					</button>
-				</form>
-			) : (
+			{!email && (
 				<form
-					className={styles.form}
 					method="post"
-					action={`/api/guest/verify?${newSearchParams}`}
+					action="/api/guest/login"
+					className={styles.formTag}
 				>
-					<input type="hidden" name="email" value={email} />
-					<input type="hidden" name="return_to" value={return_to} />
+					<div className={styles.form}>
+						<h1 className={styles.title}>Log In</h1>
 
-					<label htmlFor="passphrase" className={styles.label}>
-						Passphrase
-					</label>
-					<input
-						id="passphrase"
-						name="passphrase"
-						type="text"
-						required
-						className={styles.input}
-						placeholder="123456"
-					/>
+						<div className={styles.inputSection}>
+							<label htmlFor="email" className={styles.label}>
+								Email*
+							</label>
+							<input
+								id="email"
+								name="email"
+								type="email"
+								required
+								className={styles.input}
+							/>
+							<input type="hidden" name="return_to" value={return_to} />
+						</div>
 
-					<span className={styles.errorText}>
-						If you cannot find the passphrase, please check your spam. If the
-						email is still missing, try again later, use a different email, or
-						contact us at contact@irvinehacks.com for assistance.
-					</span>
-
-					<button type="submit" className={styles.button}>
-						Verify & Continue
-					</button>
-
-					<div className={styles.switchLink}>
-						<a href={`/login?return_to=${encodeURIComponent(return_to)}`}>
-							&larr; Use a different email
-						</a>
+						{/* <p className={styles.subtitle}>
+							UCI students will log in with UCI SSO. Please use your school
+							email address if you have one.
+						</p> */}
 					</div>
+
+					<PrimaryButton>Continue</PrimaryButton>
 				</form>
+			)}
+
+			{email && (
+				<VerifyForm
+					email={email}
+					returnTo={return_to}
+					newSearchParamsString={newSearchParamsString}
+				/>
 			)}
 		</div>
 	);

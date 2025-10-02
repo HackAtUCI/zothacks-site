@@ -1,9 +1,8 @@
 @use "zothacks-theme" as theme;
 @use "bootstrap-utils" as bootstrap;
 
-.landing {
+.backgroundWrapper {
 	background-color: #001233;
-	height: 100vh;
 	background-image: linear-gradient(
 			to bottom,
 			rgba(#001233, 0.9),
@@ -15,14 +14,11 @@
 	background-size: 100% auto;
 	background-position: center 95px;
 	background-repeat: no-repeat;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: center;
-	text-align: center;
-	overflow: hidden;
+
+	width: 100%;
+	min-height: 100vh;
+	overflow-x: hidden;
 	position: relative;
-	padding-top: 0;
 
 	@include bootstrap.media-breakpoint-down(sm) {
 		background-position: center;
@@ -35,13 +31,17 @@
 		padding-top: 40px;
 	}
 }
+.landing {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding-top: 0;
+}
 
 .title {
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	top: 27vh;
-	width: 877px;
 	font-size: 120px;
 	font-weight: 700;
 	color: theme.$white;
@@ -74,11 +74,6 @@
 }
 
 .subtitle {
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	top: 43vh;
-	width: 483px;
 	font-size: 48px;
 	font-weight: 700;
 	color: theme.$white;
@@ -112,10 +107,7 @@
 }
 
 .applyButton {
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	top: 63vh;
+	margin-top: 80px;
 
 	display: flex;
 	align-items: center;
@@ -143,7 +135,7 @@
 			0 0 20px theme.$turquoise,
 			0 0 40px rgba(83, 183, 171, 0.4);
 		background-color: theme.$dark-blue;
-		transform: translateX(-50%) scale(1.03);
+		transform: scale(1.03);
 	}
 
 	@include bootstrap.media-breakpoint-down(lg) {

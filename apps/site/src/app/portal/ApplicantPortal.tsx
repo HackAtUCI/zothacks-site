@@ -5,6 +5,8 @@ import { redirect } from "next/navigation";
 import useUserIdentity from "@/lib/utils/useUserIdentity";
 import { Status } from "@/lib/userRecord";
 
+import ConfirmationPage from "./ConfirmationPage";
+
 const rolesArray = ["Mentor", "Hacker", "Volunteer"];
 
 function Portal() {
@@ -17,12 +19,10 @@ function Portal() {
 	const status = identity.status;
 
 	if (status === null) {
-		redirect("/apply-mentor");
+		redirect("/apply");
 	} else {
-		// redirect to confirmation page for now
-		// redirect()
+		return <ConfirmationPage />;
 	}
-	return <></>;
 }
 
 export default Portal;
