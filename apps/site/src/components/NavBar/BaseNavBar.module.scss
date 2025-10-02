@@ -1,0 +1,37 @@
+@use "bootstrap-utils" as utils;
+@use "zothacks-theme" as theme;
+
+.nav {
+	width: 100%;
+	z-index: 101;
+	position: fixed;
+	text-align: right;
+	transition: background-color 0.2s ease;
+	background-color: theme.$dark-sky;
+	box-shadow: 0px 4px 4px 0px #00000040;
+	padding: 10px 30px;
+	display: flex;
+	align-items: center;
+
+	@include utils.media-breakpoint-up(sm) {
+		height: 68px;
+	}
+}
+
+.navbar {
+	position: static;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.logo {
+	position: relative;
+	width: 30px;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
