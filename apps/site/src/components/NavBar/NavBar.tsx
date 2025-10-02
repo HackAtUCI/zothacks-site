@@ -17,21 +17,8 @@ import styles from "./NavBar.module.scss";
 export default function NavBar() {
 	const activeRoute = usePathname();
 
-	const [hasScrolled, setHasScrolled] = useState(false);
-
-	useEffect(() => {
-		const handleScroll = () =>
-			window.scrollY !== 0 ? setHasScrolled(true) : setHasScrolled(false);
-
-		window.addEventListener("scroll", handleScroll);
-
-		return () => window.removeEventListener("scroll", handleScroll);
-	}, []);
-
 	return (
-		<div
-			className={`${styles.nav} fixed-top ${hasScrolled ? "" : styles["bg-no-scroll"]}`}
-		>
+		<div className={`${styles.nav} fixed-top`}>
 			<Navbar variant="dark" expand="sm" className={`${styles.navbar}`}>
 				<Container fluid>
 					<Navbar.Brand href="/" as={Link}>
