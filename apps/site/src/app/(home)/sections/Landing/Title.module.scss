@@ -8,8 +8,8 @@
 	font-size: 4rem;
 
 	@include bootstrap.media-breakpoint-up(md) {
-		width: 70rem;
-		height: 5rem;
+		width: 27rem;
+		height: 24rem;
 		font-size: 6rem;
 	}
 }
@@ -20,6 +20,7 @@
 	font-weight: 500;
 	margin-top: 2rem;
 	margin-bottom: 1rem;
+	font-family: var(--next-font-reddit-mono), monospace;
 
 	@include bootstrap.media-breakpoint-up(md) {
 		font-size: 2rem;
