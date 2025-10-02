@@ -1,5 +1,3 @@
-import { redirect } from "next/navigation";
-
 export default function Logout() {
-	redirect("/api/user/logout");
+	return <meta httpEquiv="refresh" content="0; url=/api/user/logout" />;
 }
