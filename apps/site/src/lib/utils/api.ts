@@ -18,8 +18,11 @@ api.interceptors.request.use((config) => {
 	const newCookies = (provided ? `${provided}; ` : "") + cookieStore.toString();
 	(config.headers as AxiosHeaders).set("Cookie", newCookies);
 	(config.headers as AxiosHeaders).set("X-Hackathon-Name", "zothacks");
+	(config.headers as AxiosHeaders).set(
+		"User-Agent",
+		"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36",
+	);
 
-	console.log(config.baseURL);
 	return config;
 });
 
