@@ -8,7 +8,7 @@
 	position: fixed;
 	text-align: right;
 	transition: background-color 0.2s ease;
-	background-color: #0f152b;
+	background-color: theme.$dark-sky;
 	box-shadow: 0px 4px 4px 0px #00000040;
 	padding: 10px 30px;
 	display: flex;
@@ -19,12 +19,6 @@
 		backdrop-filter: none;
 	}
 }
-
-// .bg-no-scroll {
-// 	@include utils.media-breakpoint-up(lg) {
-// 		background-color: transparent !important;
-// 	}
-// }
 
 .navbar {
 	position: static;
