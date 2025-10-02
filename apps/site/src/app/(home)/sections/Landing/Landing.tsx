@@ -3,6 +3,7 @@ import styles from "./Landing.module.scss";
 import About from "../About/About";
 import Title from "./Title";
 import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
+import Image from "next/image";
 
 const Landing = () => {
 	return (
@@ -11,7 +12,9 @@ const Landing = () => {
 				<Title />
 				<PrimaryButton href="/apply">Apply Now</PrimaryButton>
 			</section>
-			<About />
+			<div className={styles.aboutSection}>
+				<About />
+			</div>
 		</div>
 	);
 };
