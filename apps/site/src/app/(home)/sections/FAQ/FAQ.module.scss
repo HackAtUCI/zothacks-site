@@ -31,13 +31,12 @@ $item-padding-x: 3rem;
 }
 
 .question-body {
-	background-color: #2a504bb0;
-	border: 5px solid #2a504b;
+	background-color: rgba(theme.$dark-green, 0.69);
+	border: 5px solid theme.$dark-green;
 	border-radius: 25px;
 	color: white;
 	padding: 0.5rem 1rem;
 	transition: all 0.3s ease;
-	font-family: var(--next-font-reddit-mono), monospace;
 	font-size: 0.9rem;
 	font-weight: 400;
 
