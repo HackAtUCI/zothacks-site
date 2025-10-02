@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
-import styles from "./PrimaryButton.module.scss";
 import clsx from "clsx";
+
+import styles from "./PrimaryButton.module.scss";
 
 interface PrimaryButtonProps {
 	href: string;
