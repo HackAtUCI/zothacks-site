@@ -1,0 +1,192 @@
+@use "zothacks-theme" as theme;
+@use "bootstrap-utils" as bootstrap;
+.about {
+	position: relative;
+	text-align: center;
+	margin: 0 auto;
+	padding: 4rem 1rem 10rem;
+	max-width: 900px;
+}
+
+.content {
+	position: relative;
+	z-index: 2;
+}
+
+.aboutTitle {
+	font-size: 25px;
+	font-weight: 800;
+	color: theme.$off-white;
+	margin-bottom: 1rem;
+}
+
+.aboutText {
+	font-size: 16px;
+	line-height: 1.6;
+	color: theme.$baby-blue;
+}
+
+.characters {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	margin-top: 3rem;
+	gap: 10rem;
+
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.side {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	flex: 1;
+	gap: 20px;
+	width: 440px;
+	height: auto;
+}
+
+.left {
+	max-width: 400px;
+	height: auto;
+	transform: translateX(-35%);
+}
+.right {
+	max-width: 400px;
+	height: auto;
+	transform: translateX(30%);
+}
+
+.leftSide {
+	transform: rotate(-4deg);
+	text-align: left;
+}
+
+.rightSide {
+	transform: rotate(4deg);
+	text-align: right;
+}
+
+.prompt {
+	font-size: 16px;
+	color: theme.$off-white;
+	margin: 100000;
+}
+
+@media (max-width: 1024px) {
+	.left {
+		max-width: 180px;
+		transform: translateX(0);
+	}
+
+	.right {
+		max-width: 180px;
+		transform: translateX(-30%);
+	}
+
+	.side {
+		width: auto;
+	}
+}
+
+@media (max-width: 768px) {
+	.characters {
+		flex-direction: column;
+		align-items: center;
+		gap: 3rem;
+	}
+
+	.side {
+		width: 100%;
+		max-width: 400px;
+		transform: rotate(0deg);
+	}
+
+	.left {
+		max-width: 120px;
+	}
+
+	.right {
+		max-width: 140px;
+		transform: translateX(-80%);
+	}
+}
+
+@media (max-width: 480px) {
+	.side {
+		max-width: 280px;
+	}
+
+	.left {
+		max-width: 90px;
+	}
+
+	.right {
+		max-width: 105px;
+	}
+}
+
+.bearWithFlashlight {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	max-width: 400px;
+	overflow: visible;
+
+	--flash-x: 48%; /* horizontal position of the flashlight base */
+	--flash-y: 35%; /* vertical position of the flashlight base */
+	--flash-size: 18%; /* flashlight width relative to bear */
+	--beam-length: 350%; /* beam length relative to bear */
+}
+
+.flashlight {
+	position: absolute;
+	left: var(--flash-x);
+	bottom: var(--flash-y);
+	width: var(--flash-size);
+	height: auto;
+	z-index: 2;
+}
+
+.light {
+	position: absolute;
+	right: calc(100% - var(--flash-x));
+	bottom: calc(var(--flash-y) + 1%);
+	width: var(--beam-length);
+	height: auto;
+	transform-origin: right center;
+	transform: rotate(-5deg);
+	z-index: 1;
+	opacity: 0.8;
+	pointer-events: none;
+}
+
+@media (max-width: 1024px) {
+	.bearWithFlashlight {
+		--flash-x: 42%;
+		--flash-y: 35%;
+		--beam-length: 220%;
+		--flash-size: 10%;
+	}
+}
+
+@media (max-width: 768px) {
+	.bearWithFlashlight {
+		--flash-x: 42%;
+		--flash-y: 35%;
+		--beam-length: 180%;
+		--flash-size: 8%;
+	}
+}
+
+@media (max-width: 480px) {
+	.bearWithFlashlight {
+		--flash-x: 38%;
+		--flash-y: 34%;
+		--beam-length: 150%;
+		--flash-size: 8%;
+	}
+}

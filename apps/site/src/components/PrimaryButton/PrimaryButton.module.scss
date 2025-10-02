@@ -1,0 +1,21 @@
+@use "zothacks-theme" as theme;
+.primaryButton {
+	display: inline-block;
+	padding: 0.8rem 1.5rem;
+	border-radius: 40px;
+	background: #26403d;
+	border: 5px solid #2a504b;
+	color: #fff;
+	font-size: 16px;
+	font-weight: 400;
+	text-decoration: none;
+	transition: all 0.3s ease;
+
+	&:hover {
+		background: theme.$light-green;
+		box-shadow:
+			0 0 12px rgba(42, 80, 75, 0.7),
+			0 0 24px rgba(42, 80, 75, 0.4);
+		transform: scale(1.05);
+	}
+}

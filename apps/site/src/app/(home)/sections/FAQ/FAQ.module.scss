@@ -14,6 +14,8 @@ $item-padding-x: 3rem;
 	display: flex;
 	justify-content: space-evenly;
 	width: 100vw;
+	background: linear-gradient(to bottom, #0d1321, #070a11);
+	min-height: 100vh;
 }
 
 .left-anteater {
@@ -25,66 +27,109 @@ $item-padding-x: 3rem;
 }
 
 .accordion-border {
-	margin-bottom: 8px;
+	margin-bottom: 12px;
 }
 
 .question-body {
-	background-color: theme.$white;
-	border: 6px solid theme.$white;
-	box-shadow: inset 0 0 0 6px theme.$black;
-	border-radius: 16px;
+	background-color: rgba(theme.$dark-green, 0.69);
+	border: 5px solid theme.$dark-green;
+	border-radius: 25px;
+	color: white;
+	padding: 0.5rem 1rem;
+	transition: all 0.3s ease;
+	font-size: 0.9rem;
+	font-weight: 400;
 
 	& > * > * {
-		font-weight: 600;
+		font-weight: 400;
+		color: white;
+		font-family: var(--next-font-reddit-mono), monospace;
+		font-size: 0.9rem;
 	}
 }
 
 .answer-body {
-	background-color: theme.$light-green;
-	border: 6px solid theme.$light-green;
-	box-shadow: inset 0 0 0 6px theme.$lighter-black;
-	border-radius: 16px;
+	background-color: #61876db0;
+	border: 5px solid #2a504b;
+	border-radius: 25px;
+	color: #cacaca;
+	margin-top: 15px;
+	padding: 1.5rem 2rem;
+	font-family: var(--next-font-reddit-mono), monospace;
+	font-size: 0.9rem;
+	font-weight: 400;
 
-	margin-top: 8px;
-
-	& > * {
+	* {
 		margin: 0;
-		font-weight: 500;
-	}
-
-	& > * > * {
-		font-weight: 500;
+		font-weight: 200;
+		color: #cacaca;
+		letter-spacing: 0.03em;
+		line-height: 2;
+		font-family: var(--next-font-reddit-mono), monospace;
+		font-size: 1rem;
 	}
 }
 
-.header-body {
-	padding: $mobile-item-padding-y $mobile-item-padding-x;
+.header-section {
+	padding: 0;
+	margin-bottom: 4rem;
 }
 
-.faq-header,
-.faq-header > * {
-	font-weight: 600;
+.faq-header {
+	font-weight: 800;
+	color: #cacaca;
+	font-size: 1.6rem;
+	margin-bottom: 1rem;
+	letter-spacing: 0.03em;
+	font-family: var(--next-font-reddit-mono), monospace;
+}
+
+.faq-subtitle {
+	color: #99b1cb;
+	margin: 0;
+	font-family: var(--next-font-reddit-mono), monospace;
+	font-weight: 400;
+	font-size: 1rem;
+	align-self: center;
+	width: 100%;
+	text-align: center;
 }
 
 .light-blue-text {
-	color: theme.$light-blue;
+	color: white;
 }
 
 .purple-text {
-	color: theme.$purple;
+	color: white;
 }
 
 .accordion {
-	--bs-accordion-body-padding-y: #{$mobile-item-padding-y};
-	--bs-accordion-body-padding-x: #{$mobile-item-padding-x};
+	--bs-accordion-body-padding-y: 0.5rem;
+	--bs-accordion-body-padding-x: 1rem;
 
-	--bs-accordion-btn-padding-y: #{$mobile-item-padding-y};
-	--bs-accordion-btn-padding-x: #{$mobile-item-padding-x};
+	--bs-accordion-btn-padding-y: 0.5rem;
+	--bs-accordion-btn-padding-x: 1rem;
 
-	--bs-accordion-btn-icon-width: 32px;
-	--bs-accordion-btn-icon: url("~@/assets/icons/plus.svg");
-	--bs-accordion-btn-active-icon: url("~@/assets/icons/dash.svg");
+	--bs-accordion-btn-icon-width: 16px;
+	--bs-accordion-btn-icon: url("~@/assets/icons/faq-arrow.svg");
+	--bs-accordion-btn-active-icon: url("~@/assets/icons/faq-arrow.svg");
 	--bs-accordion-bg: none;
+	--bs-accordion-color: white;
+	--bs-accordion-btn-color: white;
+	--bs-accordion-btn-focus-box-shadow: none;
+
+	.accordion-button {
+		&:focus {
+			box-shadow: none !important;
+			border: none !important;
+		}
+
+		&:not(.collapsed) {
+			&::after {
+				transform: rotate(180deg);
+			}
+		}
+	}
 }
 
 @include utils.media-breakpoint-up(sm) {
@@ -94,48 +139,42 @@ $item-padding-x: 3rem;
 }
 
 @include utils.media-breakpoint-up(md) {
+	.container {
+		justify-content: center;
+		align-items: flex-start;
+		padding: 4rem 16rem;
+	}
+
 	.body {
-		margin-left: 110px;
+		margin-left: 0;
+		max-width: 500px;
+		width: 100%;
 	}
 
 	.header-body {
 		padding: $item-padding-y $item-padding-x;
+		margin-bottom: 2rem;
 	}
 
 	.accordion {
-		--bs-accordion-body-padding-y: #{$item-padding-y};
-		--bs-accordion-body-padding-x: #{$item-padding-x};
+		--bs-accordion-body-padding-y: 0.5rem;
+		--bs-accordion-body-padding-x: 1rem;
 
-		--bs-accordion-btn-padding-y: #{$item-padding-y};
-		--bs-accordion-btn-padding-x: #{$item-padding-x};
+		--bs-accordion-btn-padding-y: 0.5rem;
+		--bs-accordion-btn-padding-x: 1rem;
 	}
 
 	.accordion-border {
-		margin-left: 10px;
-		margin-right: 10px;
+		margin-left: 0;
+		margin-right: 0;
+		margin-bottom: 1rem;
 	}
 
 	.left-anteater {
-		display: block;
-		position: sticky;
-
-		top: 0;
-		margin-bottom: 250px;
-		z-index: 2;
+		display: none;
 	}
 
 	.right-anteater {
-		display: block;
-		position: sticky;
-
-		margin-top: 20%;
-		margin-bottom: 250px;
-		top: 25%;
-
-		z-index: 2;
-	}
-
-	.container {
-		padding-right: 30px;
+		display: none;
 	}
 }
