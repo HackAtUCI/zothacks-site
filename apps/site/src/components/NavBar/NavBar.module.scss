@@ -48,6 +48,26 @@
 	margin: 0;
 }
 
+@include utils.media-breakpoint-down(sm) {
+	.nav :global(.navbar-collapse) {
+		background-color: theme.$dark-sky;
+		margin-top: 10px;
+		padding: 15px 20px;
+		border-radius: 8px;
+		box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.3);
+		width: fit-content;
+		position: absolute;
+		right: 30px;
+		top: 100%;
+		text-align: center;
+		transform: translateX(50%);
+	}
+
+	.navbar {
+		position: relative;
+	}
+}
+
 .navbar {
 	position: static;
 	height: 100%;
