@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./EventInfoCard.module.scss";
 
 export default function EventInfoCard() {
@@ -34,9 +35,9 @@ export default function EventInfoCard() {
 						</span>
 
 						<span className={styles.footnote}>
-							** 3rd years and up should consider applying to be a ZotHacks
-							mentor. We will still take your application should you choose to
-							apply as a hacker!
+							** 3rd years and up should consider applying to be a ZotHacks{" "}
+							<Link href="/mentor">mentor</Link>. We will still take your
+							application should you choose to apply as a hacker!
 						</span>
 					</p>
 				</div>
