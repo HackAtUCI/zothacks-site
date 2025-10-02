@@ -6,15 +6,10 @@
 	justify-content: center;
 	gap: 2rem;
 	background: url("~@/assets/background/mountains-background.png");
-	padding-top: 8rem;
 	font-family: var(--next-font-reddit-mono), monospace;
 }
 
 .mascot {
-	position: absolute;
-	top: -23.5rem;
-	left: 50%;
-	transform: translateX(-50%);
 	height: auto;
 }
 
