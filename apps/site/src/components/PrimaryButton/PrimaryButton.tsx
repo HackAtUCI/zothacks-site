@@ -1,9 +1,9 @@
 "use client";
+import Link from "next/link";
 import React from "react";
 import clsx from "clsx";
 
 import styles from "./PrimaryButton.module.scss";
-import Link from "next/link";
 
 interface PrimaryButtonProps {
 	href?: string;
