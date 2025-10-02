@@ -6,29 +6,49 @@ import styles from "./PrimaryButton.module.scss";
 import Link from "next/link";
 
 interface PrimaryButtonProps {
-	href: string;
-	children: React.ReactNode;
+	href?: string;
+	type?: "submit" | "reset" | "button" | undefined;
 	className?: string;
 	variant?: "small" | "large";
+	disabled?: boolean;
+	children: React.ReactNode;
 }
 
 const PrimaryButton = ({
 	href,
-	children,
+	type,
 	className,
 	variant = "large",
+	disabled = false,
+	children,
 }: PrimaryButtonProps) => {
 	const variants = {
 		small: styles.small,
 		large: styles.large,
 	};
 
+	if (!href) {
+		return (
+			<button
+				type={type}
+				className={clsx(variants[variant], className)}
+				disabled={disabled}
+			>
+				{children}
+			</button>
+		);
+	}
+
 	return href.startsWith("/") ? (
-		<Link href={href} className={clsx(variants[variant], className)}>
+		<Link
+			href={href}
+			type={type}
+			className={clsx(variants[variant], className)}
+		>
 			{children}
 		</Link>
 	) : (
-		<a href={href} className={clsx(variants[variant], className)}>
+		<a href={href} type={type} className={clsx(variants[variant], className)}>
 			{children}
 		</a>
 	);

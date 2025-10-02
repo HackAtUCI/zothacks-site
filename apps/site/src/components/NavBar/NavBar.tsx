@@ -1,7 +1,5 @@
 "use client";
 
-import { useState, useEffect } from "react";
-
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -11,9 +9,9 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
 import ZotHacksLogo from "@/assets/icons/zothacks-logo.png";
+import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 
 import styles from "./NavBar.module.scss";
-import PrimaryButton from "../PrimaryButton/PrimaryButton";
 
 export default function NavBar() {
 	const activeRoute = usePathname();

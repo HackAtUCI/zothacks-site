@@ -19,7 +19,7 @@ function Portal() {
 	const status = identity.status;
 
 	if (status === null) {
-		redirect("/apply-mentor");
+		redirect("/apply");
 	} else {
 		return <ConfirmationPage />;
 	}
