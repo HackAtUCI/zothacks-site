@@ -17,29 +17,16 @@ import styles from "./NavBar.module.scss";
 export default function NavBar() {
 	const activeRoute = usePathname();
 
-	const [hasScrolled, setHasScrolled] = useState(false);
-
-	useEffect(() => {
-		const handleScroll = () =>
-			window.scrollY !== 0 ? setHasScrolled(true) : setHasScrolled(false);
-
-		window.addEventListener("scroll", handleScroll);
-
-		return () => window.removeEventListener("scroll", handleScroll);
-	}, []);
-
 	return (
-		<div
-			className={`${styles.nav} fixed-top ${hasScrolled ? "" : styles["bg-no-scroll"]}`}
-		>
-			<Navbar variant="dark" expand="lg" className={`${styles.navbar}`}>
+		<div className={`${styles.nav} fixed-top`}>
+			<Navbar variant="dark" expand="sm" className={`${styles.navbar}`}>
 				<Container fluid>
 					<Navbar.Brand href="/" as={Link}>
 						<div className={styles.logo}>
 							<Image src={ZotHacksLogo.src} alt="Hacks Logo" fill />
 						</div>
 					</Navbar.Brand>
-					{/*
+
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="ms-auto text">
@@ -49,7 +36,7 @@ export default function NavBar() {
 									activeRoute === "/" ? styles.active : styles.notActive
 								}
 							>
-								HOME
+								Home
 							</Link>
 							<Link
 								href="/resources"
@@ -59,7 +46,7 @@ export default function NavBar() {
 										: styles.notActive
 								}
 							>
-								RESOURCES
+								Resources
 							</Link>
 							<Link
 								href="/schedule"
@@ -67,32 +54,31 @@ export default function NavBar() {
 									activeRoute === "/schedule" ? styles.active : styles.notActive
 								}
 							>
-								SCHEDULE
+								Schedule
 							</Link>
-							<Link
-								href="https://forms.gle/cCixQqKR2gDXAUMLA"
+							{/* <Link
+								href="#"
 								className={styles.notActive}
 								target="_blank"
 							>
-								INCIDENT FORM
+								Incident Form
 							</Link>
 							<Link
-								href="https://zothacks-2024.devpost.com/"
+								href="#"
 								className={styles.notActive}
 								target="_blank"
 							>
-								DEVPOST
+								DevPost
 							</Link>
 							<Link
-								href="https://forms.gle/xD7XMhnSF5jYzXPN6"
+								href="#"
 								className={styles.notActive}
 								target="_blank"
 							>
-								FEEDBACK FORM
-							</Link>
+								Feedback Form
+							</Link> */}
 						</Nav>
 					</Navbar.Collapse>
-					*/}
 				</Container>
 			</Navbar>
 		</div>
