@@ -45,12 +45,6 @@
 	line-height: 7vh;
 	color: theme.$off-white;
 
-	@include utils.media-breakpoint-up(sm) {
-		font-size: 1rem;
-		margin-top: 0;
-		transform: translateY(-4px);
-	}
-
 	&:hover {
 		text-shadow: 0 0 5px white;
 	}

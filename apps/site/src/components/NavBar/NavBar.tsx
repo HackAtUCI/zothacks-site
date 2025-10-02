@@ -13,6 +13,7 @@ import Navbar from "react-bootstrap/Navbar";
 import ZotHacksLogo from "@/assets/icons/zothacks-logo.png";
 
 import styles from "./NavBar.module.scss";
+import PrimaryButton from "../PrimaryButton/PrimaryButton";
 
 export default function NavBar() {
 	const activeRoute = usePathname();
@@ -77,6 +78,9 @@ export default function NavBar() {
 							>
 								Feedback Form
 							</Link> */}
+							<PrimaryButton href="/guest-login" variant="small">
+								Log in
+							</PrimaryButton>
 						</Nav>
 					</Navbar.Collapse>
 				</Container>
