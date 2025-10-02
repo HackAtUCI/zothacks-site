@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosHeaders } from "axios";
 import { cookies } from "next/headers";
 
 const LOCAL_API_URL = "http://localhost:8000";
@@ -16,8 +16,12 @@ api.interceptors.request.use((config) => {
 	// Inject user's client-side cookies along with API request
 	const provided = config.headers.get("Cookie");
 	const newCookies = (provided ? `${provided}; ` : "") + cookieStore.toString();
-	config.headers.set("Cookie", newCookies);
-	config.headers.set("X-Hackathon-Name", "zothacks");
+	(config.headers as AxiosHeaders).set("Cookie", newCookies);
+	(config.headers as AxiosHeaders).set("X-Hackathon-Name", "zothacks");
+	(config.headers as AxiosHeaders).set(
+		"User-Agent",
+		"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36",
+	);
 
 	return config;
 });
