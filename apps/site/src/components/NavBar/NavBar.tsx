@@ -32,7 +32,7 @@ export default function NavBar() {
 		<div
 			className={`${styles.nav} fixed-top ${hasScrolled ? "" : styles["bg-no-scroll"]}`}
 		>
-			<Navbar variant="dark" expand="lg" className={`${styles.navbar}`}>
+			<Navbar variant="dark" expand="sm" className={`${styles.navbar}`}>
 				<Container fluid>
 					<Navbar.Brand href="/" as={Link}>
 						<div className={styles.logo}>

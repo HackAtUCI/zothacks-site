@@ -26,15 +26,16 @@
 	width: 100%;
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 }
 
 .logo {
 	position: relative;
 	width: 30px;
 	height: 30px;
-	align-items: left;
-	text-align: left;
-	top: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .text {
@@ -46,7 +47,7 @@
 	line-height: 7vh;
 	color: theme.$off-white;
 
-	@include utils.media-breakpoint-up(lg) {
+	@include utils.media-breakpoint-up(sm) {
 		font-size: 1rem;
 		margin-top: 0;
 		transform: translateY(-4px);
