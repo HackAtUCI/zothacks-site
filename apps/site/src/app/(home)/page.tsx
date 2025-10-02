@@ -16,8 +16,8 @@ const Home = () => {
 			{/* <GetInvolved />
 			<Countdown />
 			<Sponsors />
-			<Clubs />
-			<FAQ /> */}
+			<Clubs /> */}
+			<FAQ />
 		</div>
 	);
 };

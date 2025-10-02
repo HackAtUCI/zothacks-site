@@ -6,10 +6,6 @@ import FAQAccordion from "./FAQAccordion";
 
 import styles from "./FAQ.module.scss";
 
-import leftAnteater from "@/assets/images/left-faq-anteater.svg";
-import rightAnteater from "@/assets/images/right-faq-anteater.svg";
-import AnteaterFloatie from "./AnteaterFloatie";
-
 const FAQ = async () => {
 	const questions = await getQuestions();
 	const faq = questions[0]["faqs"].map(({ _key, question, answer }) => ({
@@ -20,23 +16,11 @@ const FAQ = async () => {
 
 	return (
 		<section className={styles.container}>
-			<AnteaterFloatie
-				src={leftAnteater}
-				alt="left anteater on floatie"
-				className={styles["left-anteater"]}
-			/>
-
 			<Container as="div" className="m-0">
-				<div
-					className={`${styles["accordion-border"]} ${styles["answer-body"]} ${styles["header-body"]}`}
-				>
-					<span className={styles["faq-header"] + " h4"}>
-						<h2 className="visually-hidden">FAQ</h2>
-						<span className={styles["light-blue-text"]}>FAQ!</span> Here&apos;s
-						answers to our most commonly asked questions!
-					</span>
+				<div className={styles["header-section"]}>
+					<h2 className={styles["faq-header"]}>Frequently Asked Questions</h2>
 
-					<p>
+					<p className={styles["faq-subtitle"]}>
 						If you don&apos;t find what you&apos;re looking for, reach out to
 						our team at{" "}
 						<a className={styles["purple-text"]} href="mailto:hack@uci.edu">
@@ -46,12 +30,6 @@ const FAQ = async () => {
 				</div>
 				<FAQAccordion faq={faq} />
 			</Container>
-
-			<AnteaterFloatie
-				src={rightAnteater}
-				alt="left anteater on floatie"
-				className={styles["right-anteater"]}
-			/>
 		</section>
 	);
 };
