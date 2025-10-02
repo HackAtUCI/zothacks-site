@@ -3,8 +3,8 @@
 
 .title {
 	color: theme.$white;
-	width: 70rem;
-	height: 5rem;
+	width: 27rem;
+	height: 14rem;
 	font-size: 4rem;
 
 	@include bootstrap.media-breakpoint-up(md) {
@@ -16,14 +16,14 @@
 
 .date {
 	color: theme.$white;
-	font-size: 1.5rem;
+	font-size: 1.2rem;
 	font-weight: 500;
 	margin-top: 2rem;
 	margin-bottom: 1rem;
 	font-family: var(--next-font-reddit-mono), monospace;
 
 	@include bootstrap.media-breakpoint-up(md) {
-		font-size: 2rem;
+		font-size: 1.5rem;
 		margin-bottom: 3rem;
 	}
 

@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/Link";
 import React from "react";
 import clsx from "clsx";
 
@@ -12,9 +13,9 @@ interface PrimaryButtonProps {
 
 const PrimaryButton = ({ href, children, className }: PrimaryButtonProps) => {
 	return (
-		<a href={href} className={clsx(styles.primaryButton, className)}>
+		<Link href={href} className={clsx(styles.primaryButton, className)}>
 			{children}
-		</a>
+		</Link>
 	);
 };
 
