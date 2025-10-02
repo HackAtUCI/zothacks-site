@@ -119,7 +119,7 @@ export default function BaseForm({
 				className={styles.applyButton}
 				disabled={isSubmitting}
 			>
-				Submit Application
+				{isSubmitting ? "Submitting..." : "Submit Application"}
 			</button>
 		</form>
 	);

@@ -198,8 +198,10 @@ function BasicQuestions() {
 			</fieldset>
 
 			<label className={styles.field}>
-				<span className={styles.label}>Allergies? (Please list)*</span>
-				<input className={styles.input} type="text" name="allergies" required />
+				<span className={styles.label}>
+					Do you have any allergies? If so, please list.
+				</span>
+				<input className={styles.input} type="text" name="allergies" />
 			</label>
 
 			<label className={styles.field}>
@@ -208,11 +210,9 @@ function BasicQuestions() {
 					className={styles.select}
 					name="major"
 					onChange={(e) => setMajor(e.target.value)}
+					defaultValue="Computer Science"
 					required
 				>
-					<option value="" disabled>
-						Select a major
-					</option>
 					{majorOptions.map((major) => (
 						<option key={major} value={major}>
 							{major}
