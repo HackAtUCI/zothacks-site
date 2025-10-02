@@ -21,7 +21,7 @@ const nextConfig = {
 		return [
 			{
 				source: "/api/:path*",
-				destination: `${process.env.IH_BACKEND_URL || "https://irvinehacks.com"}/:path*`,
+				destination: `${process.env.IH_BACKEND_URL || "https://irvinehacks.com/api"}/:path*`,
 			},
 		];
 	},
