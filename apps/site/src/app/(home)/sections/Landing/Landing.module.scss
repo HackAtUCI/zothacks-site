@@ -1,9 +1,8 @@
 @use "zothacks-theme" as theme;
 @use "bootstrap-utils" as bootstrap;
 
-.landing {
+.backgroundWrapper {
 	background-color: #001233;
-	height: 100vh;
 	background-image: linear-gradient(
 			to bottom,
 			rgba(#001233, 0.9),
@@ -15,14 +14,11 @@
 	background-size: 100% auto;
 	background-position: center 95px;
 	background-repeat: no-repeat;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	overflow: hidden;
+
+	width: 100%;
+	min-height: 100vh;
+	overflow-x: hidden;
 	position: relative;
-	padding-top: 0;
 
 	@include bootstrap.media-breakpoint-down(sm) {
 		background-position: center;
@@ -34,6 +30,15 @@
 		background-size: cover;
 		padding-top: 40px;
 	}
+}
+.landing {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding-top: 0;
 }
 
 .title {
