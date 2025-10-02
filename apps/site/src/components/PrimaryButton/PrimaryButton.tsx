@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/Link";
+import Link from "next/link";
 import React from "react";
 import clsx from "clsx";
 
