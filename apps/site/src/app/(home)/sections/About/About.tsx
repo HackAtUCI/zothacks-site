@@ -34,7 +34,7 @@ const About = () => {
 					/>
 
 					<p className={styles.prompt}>Want to develop your first project?</p>
-					<PrimaryButton href="/hacker">Apply to be a hacker</PrimaryButton>
+					<PrimaryButton href="/apply">Apply to be a hacker</PrimaryButton>
 				</div>
 
 				<div className={`${styles.side} ${styles.rightSide}`}>
