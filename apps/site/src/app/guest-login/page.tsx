@@ -1,6 +1,8 @@
 import { redirect } from "next/navigation";
+
 import getUserIdentity from "@/lib/utils/getUserIdentity";
 import VerifyForm from "./VerifyForm";
+import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 
 import styles from "./Login.module.scss";
 
@@ -13,7 +15,7 @@ export default async function Login({
 	};
 }) {
 	const email = searchParams?.email;
-	const return_to = searchParams?.return_to ?? "/apply-mentor";
+	const return_to = searchParams?.return_to ?? "/apply";
 
 	const newSearchParams = new URLSearchParams();
 	if (return_to) {
@@ -57,9 +59,7 @@ export default async function Login({
 						</p> */}
 					</div>
 
-					<button type="submit" className={styles.button}>
-						Continue
-					</button>
+					<PrimaryButton>Continue</PrimaryButton>
 				</form>
 			)}
 

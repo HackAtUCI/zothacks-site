@@ -1,0 +1,28 @@
+@use "zothacks-theme" as theme;
+
+.text {
+	margin-left: 1vw;
+	margin-right: 1vw;
+	font-size: 1rem;
+	font-weight: 400;
+	text-decoration: none;
+	line-height: 7vh;
+	color: theme.$off-white;
+
+	&:hover {
+		text-shadow: 0 0 5px white;
+	}
+}
+
+.notActive {
+	@extend .text;
+	color: white;
+}
+
+.active {
+	@extend .text;
+	color: white;
+	text-decoration: underline;
+	text-underline-offset: 0.3rem;
+	text-decoration-thickness: 0.14rem;
+}

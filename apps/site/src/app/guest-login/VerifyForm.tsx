@@ -1,7 +1,9 @@
 "use client";
 
 import { useCallback, useState } from "react";
+
 import axiosInstance from "@/lib/utils/axiosInstance";
+import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 
 import styles from "./Login.module.scss";
 
@@ -71,9 +73,13 @@ export default function VerifyForm({
 				at zothacks@gmail.com for assistance.
 			</span>
 
-			<button type="submit" className={styles.button} disabled={submitting}>
+			<PrimaryButton
+				type="submit"
+				className={styles.button}
+				disabled={submitting}
+			>
 				{submitting ? "Verifying..." : "Continue"}
-			</button>
+			</PrimaryButton>
 
 			{showError && (
 				<div className={styles.redText}>

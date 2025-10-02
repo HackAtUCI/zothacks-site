@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans, Reddit_Mono } from "next/font/google";
 
-import NavBar from "@/components/NavBar/NavBar";
+import NavbarParent from "@/components/NavBar/NavBarParent";
 import Footer from "@/components/Footer/Footer";
 import "@/lib/styles/bootstrap.scss";
 import "@/lib/styles/globals.scss";
@@ -36,7 +36,7 @@ export default function RootLayout({
 	return (
 		<html lang="en" className={redditMono.variable}>
 			<body className="background">
-				<NavBar />
+				<NavbarParent />
 				<main>{children}</main>
 				<Footer />
 			</body>
