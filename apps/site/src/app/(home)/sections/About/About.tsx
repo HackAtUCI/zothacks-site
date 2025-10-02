@@ -1,12 +1,13 @@
 "use client";
 import Image from "next/image";
 
-import styles from "./About.module.scss";
 import LeftCharacter from "@/assets/images/LeftCharacter.png";
 import RightCharacter from "@/assets/images/RightCharacter.png";
 import Flashlight from "@/assets/images/flashlight.png";
 import Light from "@/assets/images/light.png";
 import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
+
+import styles from "./About.module.scss";
 
 const About = () => {
 	return (

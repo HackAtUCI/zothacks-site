@@ -31,7 +31,7 @@
 	justify-content: space-between;
 	align-items: flex-end;
 	margin-top: 3rem;
-	gap: 2rem;
+	gap: 10rem;
 
 	width: 100%;
 	margin-left: auto;
@@ -50,24 +50,23 @@
 }
 
 .left {
-	max-width: 577px;
+	max-width: 400px;
 	height: auto;
 	transform: translateX(-35%);
 }
 .right {
-	max-width: 687px;
+	max-width: 400px;
 	height: auto;
+	transform: translateX(30%);
 }
 
 .leftSide {
 	transform: rotate(-4deg);
-	align-items: flex-start;
 	text-align: left;
 }
 
 .rightSide {
 	transform: rotate(4deg);
-	align-items: flex-end;
 	text-align: right;
 }
 
@@ -79,11 +78,13 @@
 
 @media (max-width: 1024px) {
 	.left {
-		max-width: 150px;
+		max-width: 180px;
+		transform: translateX(0);
 	}
 
 	.right {
 		max-width: 180px;
+		transform: translateX(-30%);
 	}
 
 	.side {
@@ -110,6 +111,7 @@
 
 	.right {
 		max-width: 140px;
+		transform: translateX(-80%);
 	}
 }
 
@@ -134,8 +136,8 @@
 	max-width: 400px;
 	overflow: visible;
 
-	--flash-x: 60%; /* horizontal position of the flashlight base */
-	--flash-y: 45%; /* vertical position of the flashlight base */
+	--flash-x: 48%; /* horizontal position of the flashlight base */
+	--flash-y: 35%; /* vertical position of the flashlight base */
 	--flash-size: 18%; /* flashlight width relative to bear */
 	--beam-length: 350%; /* beam length relative to bear */
 }
@@ -164,27 +166,27 @@
 
 @media (max-width: 1024px) {
 	.bearWithFlashlight {
-		--flash-x: 40%; /* move slightly left */
-		--flash-y: 42%; /* raise beam */
-		--beam-length: 220%; /* shorten beam */
+		--flash-x: 42%;
+		--flash-y: 35%;
+		--beam-length: 220%;
 		--flash-size: 10%;
 	}
 }
 
 @media (max-width: 768px) {
 	.bearWithFlashlight {
-		--flash-x: 40%; /* closer to center of bear */
-		--flash-y: 42%; /* higher up since bear shrinks */
-		--beam-length: 180%; /* shorten beam more */
-		--flash-size: 8%; /* flashlight scales with bear */
+		--flash-x: 42%;
+		--flash-y: 35%;
+		--beam-length: 180%;
+		--flash-size: 8%;
 	}
 }
 
 @media (max-width: 480px) {
 	.bearWithFlashlight {
-		--flash-x: 53%;
-		--flash-y: 38%;
+		--flash-x: 38%;
+		--flash-y: 34%;
 		--beam-length: 150%;
-		--flash-size: 14%;
+		--flash-size: 8%;
 	}
 }
