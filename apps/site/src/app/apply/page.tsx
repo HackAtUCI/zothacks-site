@@ -3,7 +3,7 @@ import HackerApplication from "./HackerApplication";
 
 export const revalidate = 60;
 
-const Component = process.env.MAINTENANCE_MODE_SCHEDULE
+const Component = process.env.MAINTENANCE_MODE_APPLICATION
 	? Maintenance
 	: HackerApplication;
 
