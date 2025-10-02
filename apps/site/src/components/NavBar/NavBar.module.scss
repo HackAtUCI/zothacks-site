@@ -8,23 +8,45 @@
 	position: fixed;
 	text-align: right;
 	transition: background-color 0.2s ease;
-	background-color: #0f152b;
+	background-color: theme.$dark-sky;
 	box-shadow: 0px 4px 4px 0px #00000040;
 	height: 68px;
 	padding: 10px 30px;
 	display: flex;
 	align-items: center;
 
-	@include utils.media-breakpoint-up(lg) {
+	@include utils.media-breakpoint-up(sm) {
 		backdrop-filter: none;
 	}
 }
 
-// .bg-no-scroll {
-// 	@include utils.media-breakpoint-up(lg) {
-// 		background-color: transparent !important;
-// 	}
-// }
+.nav :global(.navbar-toggler) {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 68px;
+	padding: 0 !important;
+	margin: 0;
+	border: none;
+}
+
+.nav :global(.navbar-toggler-icon) {
+	width: 24px;
+	height: 24px;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.nav :global(.navbar-brand) {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
 
 .navbar {
 	position: static;
@@ -32,15 +54,16 @@
 	width: 100%;
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 }
 
 .logo {
 	position: relative;
 	width: 30px;
 	height: 30px;
-	align-items: left;
-	text-align: left;
-	top: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .text {
@@ -52,7 +75,7 @@
 	line-height: 7vh;
 	color: #cacaca;
 
-	@include utils.media-breakpoint-up(lg) {
+	@include utils.media-breakpoint-up(sm) {
 		font-size: 1rem;
 		margin-top: 0;
 		transform: translateY(-4px);
