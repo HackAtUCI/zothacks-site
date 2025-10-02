@@ -1,0 +1,56 @@
+@use "zothacks-theme" as theme;
+
+.eventInfoCard {
+	background-color: theme.$dark-green;
+	border-radius: 16px;
+	padding: 24px;
+	position: relative;
+	z-index: 1;
+}
+
+.title {
+	margin: 0 0 16px 0;
+	color: theme.$off-white;
+	font-size: 24px;
+	font-weight: 700;
+}
+
+.line {
+	margin: 8px 0;
+	line-height: 1.6;
+}
+
+.label {
+	color: theme.$off-white;
+	font-weight: 600;
+	margin-right: 8px;
+}
+
+.value {
+	color: theme.$baby-blue;
+}
+
+.footnote {
+	color: theme.$baby-blue;
+	display: block;
+}
+
+.footnoteContainer {
+	margin-top: 50px;
+}
+
+.eventInfoWrapper {
+	position: relative;
+	display: inline-block;
+}
+
+.eventInfoBorder {
+	position: absolute;
+	top: -8px;
+	left: -8px;
+	width: calc(100% + 16px);
+	height: calc(100% + 16px);
+	border-radius: 20px;
+	background-color: #2a504bb0;
+	z-index: 0;
+}

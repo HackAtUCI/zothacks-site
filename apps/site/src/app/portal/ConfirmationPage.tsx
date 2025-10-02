@@ -1,6 +1,9 @@
-import styles from "./confirmation.module.scss";
 import Image from "next/image";
+
 import mascots from "@/assets/images/mentor-hacker-anteaters.svg";
+import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
+
+import styles from "./confirmation.module.scss";
 
 export default function ConfirmationPage() {
 	return (
@@ -10,7 +13,7 @@ export default function ConfirmationPage() {
 				<h1 className={styles.title}>Thank you for applying!</h1>
 			</div>
 
-			<button className={styles.button}>Return to Homepage</button>
+			<PrimaryButton href="/">Return to Homepage</PrimaryButton>
 		</div>
 	);
 }

@@ -6,10 +6,21 @@ import axios from "axios";
 import axiosInstance from "@/lib/utils/axiosInstance";
 import hasDeadlinePassed from "@/lib/utils/hasDeadlinePassed";
 
+import styles from "./BaseForm.module.scss";
+
+const FIELDS_WITH_OTHER = [
+	"pronouns",
+	"ethnicity",
+	"school",
+	"major",
+	"experienced_technologies",
+	"dietary_restrictions",
+];
+
 interface BaseFormProps {
 	applicationType: "Hacker" | "Mentor" | "Volunteer";
 	applyPath: string;
-	className: string;
+	className?: string;
 }
 
 export default function BaseForm({
@@ -18,6 +29,7 @@ export default function BaseForm({
 	className,
 	children,
 }: PropsWithChildren<BaseFormProps>) {
+	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [sessionExpired, setSessionExpired] = useState(false);
 
 	const handleSubmit = async (
@@ -37,12 +49,28 @@ export default function BaseForm({
 		setSessionExpired(false);
 
 		const formData = new FormData(event.currentTarget);
+		// Use other values when selected
+		for (const field of FIELDS_WITH_OTHER) {
+			const otherField = `_other_${field}`;
+			const otherFieldValue = formData.get(otherField);
+
+			formData.delete(otherField);
+
+			const valuesWithoutOther = formData
+				.getAll(field)
+				.filter((value) => value !== "other" && value !== "Other");
+
+			formData.delete(field);
+
+			for (const value of valuesWithoutOther) formData.append(field, value);
+
+			if (otherFieldValue) formData.append(field, otherFieldValue);
+		}
 
 		try {
+			setIsSubmitting(true);
 			const res = await axiosInstance.post(applyPath, formData);
 			if (res.status === 201) {
-				console.log("Application submitted");
-
 				// Use window.location instead of router.push in order
 				// to force reload the page to allow user identity to
 				// update with the new status
@@ -56,6 +84,7 @@ export default function BaseForm({
 					setSessionExpired(true);
 				}
 			}
+			setIsSubmitting(false);
 		}
 	};
 
@@ -85,6 +114,13 @@ export default function BaseForm({
 			/>
 			{children}
 			{sessionExpired && sessionExpiredMessage}
+			<button
+				type="submit"
+				className={styles.applyButton}
+				disabled={isSubmitting}
+			>
+				Submit Application
+			</button>
 		</form>
 	);
 }
