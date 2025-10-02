@@ -1,14 +1,17 @@
 "use client";
 import styles from "./Landing.module.scss";
+import About from "../About/About";
+import Title from "./Title";
+import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 
 const Landing = () => {
 	return (
-		<div className={styles.landing}>
-			<h1 className={styles.title}>ZotHacks 2025</h1>
-			<h2 className={styles.subtitle}>Theme Coming Soon</h2>
-			<a href="/mentor" className={styles.applyButton}>
-				Mentor Applications Now Open
-			</a>
+		<div className={styles.backgroundWrapper}>
+			<section className={styles.landing}>
+				<Title />
+				<PrimaryButton href="/apply">Apply Now</PrimaryButton>
+			</section>
+			<About />
 		</div>
 	);
 };
