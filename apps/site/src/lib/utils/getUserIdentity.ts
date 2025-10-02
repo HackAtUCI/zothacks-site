@@ -27,6 +27,30 @@ async function _getUserIdentity(): Promise<Identity> {
 	} catch (err) {
 		if (axios.isAxiosError(err)) {
 			console.error("[getUserIdentity]", err.message);
+
+			// Full error object
+			console.error("[getUserIdentity] Axios Error Full Object:", err);
+
+			// Optional: check response info if available
+			if (err.response) {
+				console.error(
+					"[getUserIdentity] Response status:",
+					err.response.status,
+				);
+				console.error(
+					"[getUserIdentity] Response headers:",
+					err.response.headers,
+				);
+				console.error("[getUserIdentity] Response data:", err.response.data);
+			}
+
+			// Optional: request info
+			if (err.request) {
+				console.error(
+					"[getUserIdentity] Request made but no response:",
+					err.request,
+				);
+			}
 		} else {
 			console.error(err);
 		}
