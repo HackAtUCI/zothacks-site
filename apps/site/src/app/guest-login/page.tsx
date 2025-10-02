@@ -1,9 +1,10 @@
 import { redirect } from "next/navigation";
+
 import getUserIdentity from "@/lib/utils/getUserIdentity";
 import VerifyForm from "./VerifyForm";
+import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 
 import styles from "./Login.module.scss";
-import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 
 export default async function Login({
 	searchParams,

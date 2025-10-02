@@ -1,10 +1,11 @@
 "use client";
 
 import { useCallback, useState } from "react";
+
 import axiosInstance from "@/lib/utils/axiosInstance";
+import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 
 import styles from "./Login.module.scss";
-import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 
 type VerifyFormProps = {
 	email: string;

@@ -10,9 +10,9 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
 import ZotHacksLogo from "@/assets/icons/zothacks-logo.png";
+import NavLinkItem from "./NavLinkItem";
 
 import styles from "./BaseNavBar.module.scss";
-import NavLinkItem from "./NavLinkItem";
 
 export default function BaseNavBar({ children }: PropsWithChildren) {
 	const activeRoute = usePathname();

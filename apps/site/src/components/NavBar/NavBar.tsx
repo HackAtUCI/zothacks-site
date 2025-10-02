@@ -1,20 +1,11 @@
 "use client";
 
-import { usePathname } from "next/navigation";
-import Link from "next/link";
-import Image from "next/image";
-
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-
-import ZotHacksLogo from "@/assets/icons/zothacks-logo.png";
 import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 import { Identity } from "@/lib/utils/getUserIdentity";
 import BaseNavBar from "./BaseNavBar";
+import NavLinkItem from "./NavLinkItem";
 
 import styles from "./NavBar.module.scss";
-import NavLinkItem from "./NavLinkItem";
 
 interface NavbarProps {
 	identity: Identity;
