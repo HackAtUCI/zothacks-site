@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { redirect } from "next/navigation";
 
 import BaseForm from "@/components/BaseForm/BaseForm";
 import ApplicationForm from "./ApplicationForm";
@@ -7,8 +8,19 @@ import hackerAnteater from "@/assets/images/hacker-anteater.png";
 import background from "@/assets/images/application-background.png";
 
 import styles from "./HackerApplication.module.scss";
+import getUserIdentity from "@/lib/utils/getUserIdentity";
 
-export default function HackerApplication() {
+export default async function HackerApplication() {
+	const { status, uid } = await getUserIdentity();
+
+	if (status) {
+		redirect("/portal");
+	}
+
+	if (!uid) {
+		redirect("/guest-login");
+	}
+
 	return (
 		<div className={styles.container}>
 			<Image
