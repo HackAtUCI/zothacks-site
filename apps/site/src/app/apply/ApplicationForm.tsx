@@ -22,13 +22,28 @@ const yearOptions = [
 	"4th Year",
 	"5th Year",
 ];
+const majorOptions = [
+	"Business Information Management",
+	"Computer Game Science",
+	"Computer Science",
+	"Computer Science and Engineering",
+	"Data Science",
+	"Electrical Engineering",
+	"Informatics",
+	"Software Engineering",
+	"Undeclared",
+	"N/A (High School)",
+	"Other",
+];
 
 function BasicQuestions() {
 	const [pronouns, setPronouns] = useState<string>("");
 	const [dietary, setDietary] = useState<string[]>([]);
+	const [major, setMajor] = useState<string>("");
 
 	const isPronounsOther = pronouns === "Other";
 	const isDietaryOther = dietary.includes("Other");
+	const isMajorOther = major === "Other";
 
 	function handleDietaryChange(option: string, checked: boolean) {
 		setDietary((prev) => {
@@ -187,10 +202,36 @@ function BasicQuestions() {
 				<input className={styles.input} type="text" name="allergies" required />
 			</label>
 
-			{/* Should make this a dropdown with "other" field */}
 			<label className={styles.field}>
 				<span className={styles.label}>Major*</span>
-				<input className={styles.input} type="text" name="major" required />
+				<select
+					className={styles.select}
+					name="major"
+					onChange={(e) => setMajor(e.target.value)}
+					required
+				>
+					<option value="" disabled>
+						Select a major
+					</option>
+					{majorOptions.map((major) => (
+						<option key={major} value={major}>
+							{major}
+						</option>
+					))}
+				</select>
+				{isMajorOther && (
+					<div className={styles.otherField}>
+						<label className={styles.field}>
+							<span className={styles.label}>Specify other major*</span>
+							<input
+								className={styles.input}
+								type="text"
+								name="_other_major"
+								required
+							/>
+						</label>
+					</div>
+				)}
 			</label>
 
 			<fieldset>

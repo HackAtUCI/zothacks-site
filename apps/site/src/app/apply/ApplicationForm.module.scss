@@ -152,3 +152,19 @@
 	margin-top: 15px;
 	margin-left: 40px;
 }
+
+.select {
+	background: rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 8px;
+	padding: 10px 12px;
+	color: theme.$off-white;
+
+	font-family: var(--next-font-reddit-mono), monospace;
+}
+
+.select option {
+	background: rgba(255, 255, 255, 0.1);
+	color: black;
+	font-family: var(--next-font-reddit-mono), monospace;
+}
