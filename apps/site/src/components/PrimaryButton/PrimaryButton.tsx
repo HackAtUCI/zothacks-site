@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import styles from "./PrimaryButton.module.scss";
+import clsx from "clsx";
 
 interface PrimaryButtonProps {
 	href: string;
@@ -10,7 +11,7 @@ interface PrimaryButtonProps {
 
 const PrimaryButton = ({ href, children, className }: PrimaryButtonProps) => {
 	return (
-		<a href={href} className={`${styles.primaryButton} ${className || ""}`}>
+		<a href={href} className={clsx(styles.primaryButton, className)}>
 			{children}
 		</a>
 	);
