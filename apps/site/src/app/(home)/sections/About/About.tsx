@@ -21,7 +21,9 @@ const About = () => {
 	return (
 		<section className={styles.about}>
 			<div className={styles.content}>
-				<h3 className={styles.aboutTitle}>What is ZotHacks?</h3>
+				<h3 id="about-section" className={styles.aboutTitle}>
+					What is ZotHacks?
+				</h3>
 				<p className={styles.aboutText}>
 					ZotHacks is a 12-hour hackathon designed for beginners where students
 					with minimal computer science experience will learn to build their
@@ -42,6 +44,7 @@ const About = () => {
 				<Image src={GrassPatch} alt="Grass patch" className={styles.grass} />
 				<div className={`${styles.side} ${styles.leftSide}`}>
 					<Image
+						id="hacker-application"
 						src={LeftCharacter}
 						alt="Left character"
 						className={styles.left}

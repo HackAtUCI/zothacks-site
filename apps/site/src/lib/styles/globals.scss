@@ -21,6 +21,11 @@ section.container {
 	@include bootstrap.padding-bottom($container-padding);
 }
 
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: 100px;
+}
+
 html,
 body {
 	overflow-x: clip;

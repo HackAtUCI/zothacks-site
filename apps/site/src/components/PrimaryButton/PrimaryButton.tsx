@@ -39,7 +39,7 @@ const PrimaryButton = ({
 		);
 	}
 
-	return href.startsWith("/") ? (
+	return href.startsWith("/") || href.startsWith("#") ? (
 		<Link
 			href={href}
 			type={type}
