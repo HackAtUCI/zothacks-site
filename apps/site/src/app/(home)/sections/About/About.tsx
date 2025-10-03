@@ -7,7 +7,7 @@ import Flashlight from "@/assets/images/flashlight.png";
 import Light from "@/assets/images/light.png";
 import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 import GrassPatch from "@/assets/background/landing/grass-patch.png";
-import CampBase from "@/assets/background/landing/Camp_Base.png";
+import CampBase from "@/assets/background/landing/Camp_base.png";
 import LogShading from "@/assets/background/landing/Log_shading.png";
 import Log from "@/assets/background/landing/Log.png";
 import LogTexture from "@/assets/background/landing/Log_texture.png";
