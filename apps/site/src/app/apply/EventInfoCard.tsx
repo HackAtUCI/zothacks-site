@@ -25,7 +25,7 @@ export default function EventInfoCard() {
 				</p>
 				<p className={styles.line}>
 					<span className={styles.label}>Application Due Date:</span>
-					<span className={styles.value}>Friday 10/17 11:59 PM</span>
+					<span className={styles.value}>Friday 10/27 11:59 PM</span>
 				</p>
 				<div className={styles.footnoteContainer}>
 					<p className={styles.line}>
