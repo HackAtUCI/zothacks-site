@@ -10,7 +10,8 @@ export default function EventInfoCard() {
 				<p className={styles.line}>
 					<span className={styles.label}>What:</span>
 					<span className={styles.value}>
-						Beginner Hackathon for 1st and 2nd year UCI students
+						Beginner-exclusive hackathon for UCI students of any year and any
+						major
 					</span>
 				</p>
 				<p className={styles.line}>
@@ -35,9 +36,9 @@ export default function EventInfoCard() {
 						</span>
 
 						<span className={styles.footnote}>
-							** 3rd years and up should consider applying to be a ZotHacks{" "}
-							<Link href="/mentor">mentor</Link>. We will still take your
-							application should you choose to apply as a hacker!
+							** Have project or hackathon experience? Consider applying to be a
+							ZotHacks <Link href="/mentor">mentor</Link>! We will still take
+							your application should you choose to apply as a hacker!
 						</span>
 					</p>
 				</div>

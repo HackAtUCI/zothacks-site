@@ -23,8 +23,11 @@ const FAQ = async () => {
 					<p className={styles["faq-subtitle"]}>
 						If you don&apos;t find what you&apos;re looking for, reach out to
 						our team at{" "}
-						<a className={styles["purple-text"]} href="mailto:hack@uci.edu">
-							hack@uci.edu
+						<a
+							className={styles["purple-text"]}
+							href="mailto:contact@zothacks.com"
+						>
+							contact@zothacks.com
 						</a>
 					</p>
 				</div>
