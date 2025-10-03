@@ -6,6 +6,14 @@ import RightCharacter from "@/assets/images/RightCharacter.png";
 import Flashlight from "@/assets/images/flashlight.png";
 import Light from "@/assets/images/light.png";
 import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
+import GrassPatch from "@/assets/background/landing/grass-patch.png";
+import CampBase from "@/assets/background/landing/Camp_base.png";
+import LogShading from "@/assets/background/landing/Log_shading.png";
+import Log from "@/assets/background/landing/Log.png";
+import LogTexture from "@/assets/background/landing/Log_texture.png";
+import Tent from "@/assets/background/landing/Tent.png";
+import TentShading1 from "@/assets/background/landing/Tent_shading_1.png";
+import TentShading2 from "@/assets/background/landing/Tent_shading_2.png";
 
 import styles from "./About.module.scss";
 
@@ -26,23 +34,40 @@ const About = () => {
 			</div>
 			{/* Characters + call-to-action text/buttons */}
 			<div className={styles.characters}>
+				<Image
+					src={CampBase}
+					alt="Camp base foreground"
+					className={styles.campBase}
+				/>
+				<Image src={GrassPatch} alt="Grass patch" className={styles.grass} />
 				<div className={`${styles.side} ${styles.leftSide}`}>
 					<Image
 						src={LeftCharacter}
 						alt="Left character"
 						className={styles.left}
 					/>
-
-					<p className={styles.prompt}>Want to develop your first project?</p>
-					<PrimaryButton href="/apply">Apply to be a hacker</PrimaryButton>
+					<Image
+						src={LogShading}
+						alt="Log shading"
+						className={styles.logShading}
+					/>
+					<Image src={Log} alt="Log" className={styles.log} />
+					<Image
+						src={LogTexture}
+						alt="Log texture"
+						className={styles.logTexture}
+					/>
+					<div className={styles.prompt}>
+						<p>Want to develop your first project?</p>
+						<PrimaryButton href="/apply">Apply to be a hacker</PrimaryButton>
+					</div>
 				</div>
 
 				<div className={`${styles.side} ${styles.rightSide}`}>
-					<div className={styles.bearWithFlashlight}>
-						{/* beam behind */}
-						<Image src={Light} alt="Flashlight beam" className={styles.light} />
+					<Image src={Tent} alt="Tent" className={styles.tent} />
 
-						{/* flashlight object */}
+					<div className={styles.bearWithFlashlight}>
+						<Image src={Light} alt="Flashlight beam" className={styles.light} />
 						<Image
 							src={Flashlight}
 							alt="Flashlight"
@@ -56,9 +81,10 @@ const About = () => {
 							className={styles.right}
 						/>
 					</div>
-
-					<p className={styles.prompt}>Have experience under your belt?</p>
-					<PrimaryButton href="/mentor">Apply to be a mentor</PrimaryButton>
+					<div className={styles.prompt}>
+						<p>Have experience under your belt?</p>
+						<PrimaryButton href="/mentor">Apply to be a mentor</PrimaryButton>
+					</div>
 				</div>
 			</div>
 		</section>

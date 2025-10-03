@@ -2,36 +2,17 @@
 @use "bootstrap-utils" as bootstrap;
 
 .backgroundWrapper {
-	background-color: #001233;
-	background-image: linear-gradient(
-			to bottom,
-			rgba(#001233, 0.9),
-			rgba(theme.$dark-sky, 0.6),
-			rgba(theme.$dark-sky, 0.3),
-			transparent
-		),
-		url("~@/assets/background/aurora-background-mountain.png");
-	background-size: 100% auto;
-	background-position: center 95px;
-	background-repeat: no-repeat;
+	background:
+		url("~@/assets/background/landing/Stars.png") repeat center center,
+		url("~@/assets/background/landing/northern-lights.png") no-repeat top center,
+		radial-gradient(105.24% 56.33% at 50% 50%, #233e7d 0%, #101a30 100%);
 
-	width: 100%;
-	min-height: 100vh;
-	overflow-x: hidden;
-	position: relative;
-
-	@include bootstrap.media-breakpoint-down(sm) {
-		background-position: center;
-		background-size: cover;
-	}
-
-	@include bootstrap.media-breakpoint-down(md) {
-		background-position: center top;
-		background-size: cover;
-		padding-top: 40px;
-	}
+	background-size: cover, cover, cover;
+	background-attachment: fixed, scroll, scroll, scroll;
 }
+
 .landing {
+	position: relative;
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
@@ -39,8 +20,8 @@
 	align-items: center;
 	text-align: center;
 	padding-top: 0;
+	z-index: 10;
 }
-
 .title {
 	font-size: 120px;
 	font-weight: 700;
@@ -107,67 +88,38 @@
 }
 
 .applyButton {
-	margin-top: 80px;
+	z-index: 10;
+}
 
-	display: flex;
-	align-items: center;
-	justify-content: center;
+.moon {
+	position: absolute;
+	right: 4vw;
+	width: 100px;
 
-	width: 840px;
-	max-width: 90%;
+	@include bootstrap.media-breakpoint-up(lg) {
+		width: 300px;
+	}
+
+	@include bootstrap.media-breakpoint-up(md) {
+		width: 150px;
+	}
+}
+
+.trees {
+	position: absolute;
+	width: 100vw;
 	height: auto;
-	min-height: 88px;
-	padding: 16px 30px;
-	background-color: rgba(theme.$dark-blue, 0.85);
-	color: theme.$turquoise;
-	font-size: 48px;
-	font-weight: 600;
-	text-decoration: none;
-	border-radius: 50px;
-	border: 1px solid theme.$dark-blue;
-	text-align: center;
-	transition: all 0.3s ease;
-	line-height: normal;
-	z-index: 2;
+	bottom: -15px;
 
-	&:hover {
-		box-shadow:
-			0 0 20px theme.$turquoise,
-			0 0 40px rgba(83, 183, 171, 0.4);
-		background-color: theme.$dark-blue;
-		transform: scale(1.03);
+	@include bootstrap.media-breakpoint-up(sm) {
+		bottom: -50px;
 	}
 
-	@include bootstrap.media-breakpoint-down(lg) {
-		width: auto;
-		font-size: 36px;
-		min-height: 72px;
-		padding: 12px 24px;
-		height: auto;
+	@include bootstrap.media-breakpoint-up(md) {
+		bottom: -100px;
 	}
 
-	@include bootstrap.media-breakpoint-down(md) {
-		font-size: 30px;
-		padding: 12px 30px;
-		min-height: 70px;
-		width: 60%;
-		max-width: 500px;
-		top: 60vh;
-		bottom: auto;
-		border-radius: 40px;
-	}
-
-	@include bootstrap.media-breakpoint-down(sm) {
-		font-size: 22px;
-		padding: 20px;
-		width: 240px;
-		max-width: 70%;
-		top: auto;
-		bottom: 15%;
-		border-radius: 30px;
-		flex-direction: column;
-		line-height: 1.3;
-		min-height: auto;
-		text-align: center;
+	@include bootstrap.media-breakpoint-up(lg) {
+		bottom: -150px;
 	}
 }
