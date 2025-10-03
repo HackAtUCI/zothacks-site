@@ -8,13 +8,14 @@ import Light from "@/assets/images/light.png";
 import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 import GrassPatch from "@/assets/background/landing/grass-patch.png";
 import CampBase from "@/assets/background/landing/Camp_Base.png";
-import styles from "./About.module.scss";
 import LogShading from "@/assets/background/landing/Log_shading.png";
 import Log from "@/assets/background/landing/Log.png";
 import LogTexture from "@/assets/background/landing/Log_texture.png";
 import Tent from "@/assets/background/landing/Tent.png";
 import TentShading1 from "@/assets/background/landing/Tent_shading_1.png";
 import TentShading2 from "@/assets/background/landing/Tent_shading_2.png";
+
+import styles from "./About.module.scss";
 
 const About = () => {
 	return (
