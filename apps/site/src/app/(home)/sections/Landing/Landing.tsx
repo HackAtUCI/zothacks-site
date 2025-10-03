@@ -1,20 +1,24 @@
 "use client";
-import styles from "./Landing.module.scss";
-import About from "../About/About";
+
+import Image from "next/image";
+
 import Title from "./Title";
 import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
-import Image from "next/image";
+import Moon from "@/assets/background/landing/moon.svg";
+import Trees from "@/assets/background/landing/main-trees.svg";
+
+import styles from "./Landing.module.scss";
 
 const Landing = () => {
 	return (
 		<div className={styles.backgroundWrapper}>
+			<Image src={Moon} alt="moon" className={styles.moon} />
+
 			<section className={styles.landing}>
+				<Image src={Trees} alt="trees" className={styles.trees} />
 				<Title />
-				<PrimaryButton href="/apply">Apply Now</PrimaryButton>
+				<PrimaryButton href="/apply" className={styles.applyButton}>Apply Now</PrimaryButton>
 			</section>
-			<div className={styles.aboutSection}>
-				<About />
-			</div>
 		</div>
 	);
 };
