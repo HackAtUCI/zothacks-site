@@ -2,17 +2,20 @@
 @use "bootstrap-utils" as bootstrap;
 
 .backgroundWrapper {
-  background: 
-    url("~@/assets/background/landing/Stars.png") repeat center center,
-    url("~@/assets/background/landing/northern-lights.png") no-repeat top center,
-    url("~@/assets/background/landing/Moon_and_tree_block.svg") no-repeat top center,
-    radial-gradient(105.24% 56.33% at 50% 50%, #233E7D 0%, #101A30 100%);
-	background-color: rgba(15, 21, 43, 1);
-  background-size: cover, 100% auto, 100% auto, cover;
-  background-attachment: fixed, scroll, scroll, scroll; 
+	background:
+		url("~@/assets/background/landing/Stars.png") repeat center center,
+		url("~@/assets/background/landing/northern-lights.png") no-repeat top center,
+		url("~@/assets/background/landing/Moon_and_tree_block.svg") no-repeat top
+			center,
+		radial-gradient(105.24% 56.33% at 50% 50%, #233e7d 0%, #101a30 100%);
+
+	background-size:
+		cover,
+		100% auto,
+		100% auto,
+		cover;
+	background-attachment: fixed, scroll, scroll, scroll;
 }
-
-
 
 .landing {
 	min-height: 100vh;

@@ -12,7 +12,7 @@ export default function Title() {
 				scale: 1,
 			}}
 			transition={{ duration: 0.5 }}
-			className={styles.titleWrapper} 
+			className={styles.titleWrapper}
 		>
 			<Image
 				src={zothacks_title}

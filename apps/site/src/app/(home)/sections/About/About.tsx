@@ -64,21 +64,9 @@ const About = () => {
 
 				<div className={`${styles.side} ${styles.rightSide}`}>
 					<Image src={Tent} alt="Tent" className={styles.tent} />
-					{/* <Image
-						src={TentShading1}
-						alt="Tent shading"
-						className={styles.tentShading1}
-					/>
-					<Image
-						src={TentShading2}
-						alt="Tent shading"
-						className={styles.tentShading2}
-					/> */}
-					<div className={styles.bearWithFlashlight}>
-						{/* beam behind */}
-						<Image src={Light} alt="Flashlight beam" className={styles.light} />
 
-						{/* flashlight object */}
+					<div className={styles.bearWithFlashlight}>
+						<Image src={Light} alt="Flashlight beam" className={styles.light} />
 						<Image
 							src={Flashlight}
 							alt="Flashlight"

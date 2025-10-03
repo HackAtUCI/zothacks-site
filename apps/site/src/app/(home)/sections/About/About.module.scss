@@ -194,16 +194,15 @@
 
 @media (max-width: 1024px) {
 	.left {
-	max-width: 180px;
-	transform: translateX(30%) translateY(40%); 
+		max-width: 180px;
+		transform: translateX(30%) translateY(40%);
 	}
 
 	.right {
-	max-width: 180px;
-	transform: translateX(-40%) translateY(30%); 
+		max-width: 180px;
+		transform: translateX(-40%) translateY(30%);
 	}
 
-	
 	.prompt {
 		transform: translateY(50%);
 	}
@@ -238,7 +237,7 @@
 		max-width: 140px;
 		transform: translateX(-80%);
 	}
-	.tent{
+	.tent {
 		width: 0%;
 	}
 
@@ -247,7 +246,6 @@
 	.logShading {
 		width: 0%;
 	}
-
 }
 
 @media (max-width: 480px) {
