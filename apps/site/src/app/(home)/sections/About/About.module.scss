@@ -129,9 +129,6 @@
 		left: 60%;
 		bottom: 20%;
 	}
-	// .tent{
-	// 	transform:translateY(1%) translateX(40%)
-	// }
 }
 
 @media (max-width: 768px) {
@@ -178,12 +175,10 @@
 
 .leftSide {
 	transform: rotate(-4deg);
-	text-align: left;
 }
 
 .rightSide {
 	transform: rotate(4deg);
-	text-align: right;
 }
 
 .prompt {
@@ -196,12 +191,12 @@
 @media (max-width: 1024px) {
 	.left {
 		max-width: 180px;
-		transform: translateX(30%) translateY(40%);
+		transform: translateX(0) translateY(30%);
 	}
 
 	.right {
 		max-width: 180px;
-		transform: translateX(-40%) translateY(30%);
+		transform: translateX(0) translateY(30%);
 	}
 
 	.prompt {
@@ -221,7 +216,6 @@
 	.characters {
 		flex-direction: column;
 		align-items: center;
-		gap: 3rem;
 	}
 
 	.side {
@@ -232,12 +226,18 @@
 
 	.left {
 		max-width: 120px;
+		transform: translateY(0);
 	}
 
 	.right {
 		max-width: 140px;
-		transform: translateX(-80%);
+		transform: translateX(10%);
 	}
+
+	.prompt {
+		transform: translateY(0);
+	}
+
 	.tent {
 		width: 0%;
 	}
