@@ -61,7 +61,7 @@ function BasicQuestions() {
 			e.target.setCustomValidity("");
 			return;
 		}
-		const tenMbBytes = 10 * 1024 * 1024;
+		const tenMbBytes = 1 * 1024 * 1024;
 		if (file.type !== "application/pdf") {
 			e.target.setCustomValidity("Please upload a PDF file.");
 			e.target.reportValidity();
@@ -69,7 +69,7 @@ function BasicQuestions() {
 			return;
 		}
 		if (file.size > tenMbBytes) {
-			e.target.setCustomValidity("File must be 10MB or smaller.");
+			e.target.setCustomValidity("File must be 1MB or smaller.");
 			e.target.reportValidity();
 			e.target.value = "";
 			return;
@@ -274,7 +274,7 @@ function BasicQuestions() {
 
 			<label className={styles.field}>
 				<span className={styles.label}>
-					Please upload your resume (PDF, max 10MB)*
+					Please upload your resume (PDF, max 1MB)*
 				</span>
 				<input
 					className={styles.input}
