@@ -2,27 +2,20 @@
 import { useEffect, useState } from "react";
 
 import Header from "../Header/Header";
-import DayOne from "../DayOne/DayOne";
-import DayTwo from "../DayTwo/DayTwo";
-import DayThree from "../DayThree/DayThree";
+import OptionSelector from "../OptionSelector/optionSelector";
+import OptionsDropdown from "../OptionsDropdown/optionsDropdown";
+import Image from "next/image";
+import scheduleImage from "@/assets/images/Schedule-bears.png";
 
-import styles from "./ScheduleTimer.module.scss";
+import styles from "./ScheduleView.module.scss";
 
 interface ScheduleProps {
 	schedule: Array<any>;
 }
 
-const ScheduleTimer: React.FC<ScheduleProps> = ({ schedule }) => {
-	const [time, setTime] = useState(Date.now());
+const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
+	const [selectedDay, setSelectedDay] = useState("dayOne");
 
-	useEffect(() => {
-		function updatePerSecond() {
-			setTime(Date.now());
-		}
-		let ret = setInterval(updatePerSecond, 1000);
-
-		return () => clearInterval(ret);
-	}, []);
 
 	const scheduleFlat = schedule.flat();
 	const dayOne = scheduleFlat.filter(
@@ -47,12 +40,17 @@ const ScheduleTimer: React.FC<ScheduleProps> = ({ schedule }) => {
 
 	return (
 		<div className={styles.timer}>
-			<Header time={time} />
-			<DayOne schedule={dayOne} time={time} />
-			<DayTwo schedule={dayTwo} time={time} />
-			<DayThree schedule={dayThree} time={time} />
+			<Header />
+			<OptionSelector selectedDay={selectedDay} selectDay={setSelectedDay} />
+			<OptionsDropdown 
+				selectedDay={selectedDay} 
+				dayOne={dayOne} 
+				dayTwo={dayTwo} 
+				dayThree={dayThree} 
+			/>
+			<Image src={scheduleImage} alt="schedule" className={styles.scheduleImage} />
 		</div>
 	);
 };
 
-export default ScheduleTimer;
+export default ScheduleView;

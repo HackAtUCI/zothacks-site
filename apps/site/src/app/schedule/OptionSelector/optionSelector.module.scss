@@ -1,0 +1,101 @@
+.container {
+    width: 40%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+.SelectTrigger {
+	display: inline-flex;
+    justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	width: 100%;
+	opacity: 1;
+	border: 5px solid #2A504B;
+	background-color: rgba(42, 80, 75, 0.69);
+	color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--next-font-reddit-mono), monospace;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.SelectTriggerContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    height: 100%;
+}
+
+.SelectTriggerText {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.SelectTriggerIconOpen {
+    width: 32px;
+    height: 32px;
+}
+
+.SelectTriggerIconDown {
+    width: 32px;
+    height: 32px;
+    transform: rotate(180deg);
+}
+
+.SelectContent {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #61876db0;
+    border: 5px solid #2a504b;
+    border-radius: 25px;
+    margin-top: 15px;
+    padding: 0.5rem;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.SelectContentItem {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 15px;
+    width: 100%;
+    border: 3px solid #2a504b;
+    background-color: rgba(42, 80, 75, 0.69);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--next-font-reddit-mono), monospace;
+    font-size: 0.9rem;
+    font-weight: 400;
+    padding: 0.75rem 1rem;
+    outline: none;
+    border: none;
+    text-align: left;
+
+    &:hover {
+        background-color: rgba(42, 80, 75, 0.8);
+        transform: translateY(-1px);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
