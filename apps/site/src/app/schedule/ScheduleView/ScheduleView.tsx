@@ -16,7 +16,6 @@ interface ScheduleProps {
 const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
 	const [selectedDay, setSelectedDay] = useState("dayOne");
 
-
 	const scheduleFlat = schedule.flat();
 	const dayOne = scheduleFlat.filter(
 		(s) =>
@@ -42,13 +41,17 @@ const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
 		<div className={styles.timer}>
 			<Header />
 			<OptionSelector selectedDay={selectedDay} selectDay={setSelectedDay} />
-			<OptionsDropdown 
-				selectedDay={selectedDay} 
-				dayOne={dayOne} 
-				dayTwo={dayTwo} 
-				dayThree={dayThree} 
+			<OptionsDropdown
+				selectedDay={selectedDay}
+				dayOne={dayOne}
+				dayTwo={dayTwo}
+				dayThree={dayThree}
 			/>
-			<Image src={scheduleImage} alt="schedule" className={styles.scheduleImage} />
+			<Image
+				src={scheduleImage}
+				alt="schedule"
+				className={styles.scheduleImage}
+			/>
 		</div>
 	);
 };

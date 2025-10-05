@@ -1,78 +1,77 @@
 .optionsDropdown {
-    background-color: #0F152BB0;
-    border-radius: 25px;
-    padding: 1rem;
-    width: 50%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+	background-color: #0f152bb0;
+	border-radius: 25px;
+	padding: 1rem;
+	width: 50%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
 }
 
-
 .optionsDropdownContent {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    max-height: 450px; 
-    overflow-y: auto;
-    padding: 1rem;
-    font-size: 1rem;
-    background-color: #0F152BB0;
-    border-radius: 15px;
-    border: 2px;
-    gap: 2rem;
-    
-    /* Custom scrollbar styling */
-    &::-webkit-scrollbar {
-        width: 8px;
-    }
-    
-    &::-webkit-scrollbar-track {
-        background: #000000;
-        border-radius: 4px;
-    }
-    
-    &::-webkit-scrollbar-thumb {
-        background: #CACACA;
-        border-radius: 4px;
-        min-height: 150px;
-    }
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	align-items: center;
+	justify-content: flex-start;
+	width: 100%;
+	max-height: 450px;
+	overflow-y: auto;
+	padding: 1rem;
+	font-size: 1rem;
+	background-color: #0f152bb0;
+	border-radius: 15px;
+	border: 2px;
+	gap: 2rem;
+
+	/* Custom scrollbar styling */
+	&::-webkit-scrollbar {
+		width: 8px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: #000000;
+		border-radius: 4px;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: #cacaca;
+		border-radius: 4px;
+		min-height: 150px;
+	}
 }
 
 .optionsDropdownContentItem {
-    background-color: #99B1CB;
-    color: black;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 100%;
-    padding: 1rem;
-    font-size: 1rem;
-    border-radius: 10px;
-    
-    h1 {
-        font-size: 0.9rem;
-        margin: 0;
-        font-family: var(--next-font-reddit-mono), monospace;
-        font-weight: 400;
-    }
+	background-color: #99b1cb;
+	color: black;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	width: 100%;
+	padding: 1rem;
+	font-size: 1rem;
+	border-radius: 10px;
 
-    span {
-        font-size: 0.9rem;
-        margin: 0;
-        font-family: var(--next-font-reddit-mono), monospace;
-        font-weight: 400;
-    }
+	h1 {
+		font-size: 0.9rem;
+		margin: 0;
+		font-family: var(--next-font-reddit-mono), monospace;
+		font-weight: 400;
+	}
 
-    p {
-        font-size: 0.9rem;
-        margin: 0;
-        font-family: var(--next-font-reddit-mono), monospace;
-        font-weight: 400;
-    }
+	span {
+		font-size: 0.9rem;
+		margin: 0;
+		font-family: var(--next-font-reddit-mono), monospace;
+		font-weight: 400;
+	}
+
+	p {
+		font-size: 0.9rem;
+		margin: 0;
+		font-family: var(--next-font-reddit-mono), monospace;
+		font-weight: 400;
+	}
 }

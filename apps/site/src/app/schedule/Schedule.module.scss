@@ -4,14 +4,13 @@ $sm-width: 170vw;
 $md-width: 140vw;
 $width: 100vw;
 
-
 .backgroundWrapper {
 	background:
 		url("~@/assets/background/schedule-mountains-bg.png") no-repeat top center,
 		radial-gradient(105.24% 56.33% at 50% 50%, #233e7d 0%, #101a30 100%);
-		
-	background-size: cover;       
-	background-repeat: no-repeat; 
-	background-position: center;  
+
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
 	background-attachment: fixed;
 }
