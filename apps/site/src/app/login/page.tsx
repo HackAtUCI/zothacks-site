@@ -30,7 +30,11 @@ export default async function Login({
 	return (
 		<div className={styles.container}>
 			{!email && (
-				<form method="post" action="/api/user/login" className={styles.formTag}>
+				<form
+					method="post"
+					action={`/api/user/login?return_to=${encodeURIComponent("https://zothacks.com/#hacker-application")}`}
+					className={styles.formTag}
+				>
 					<div className={styles.form}>
 						<h1 className={styles.title}>Log In UCI</h1>
 
