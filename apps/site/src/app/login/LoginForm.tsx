@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
 import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 
@@ -13,16 +13,10 @@ type LoginFormProps = {
 export default function LoginForm({ returnTo }: LoginFormProps) {
 	const [email, setEmail] = useState("");
 
-	const isUciEmail = useMemo(() => {
-		const trimmed = email.trim().toLowerCase();
-		return trimmed.endsWith("@uci.edu");
-	}, [email]);
-
-	const action = useMemo(() => {
-		return isUciEmail
-			? `/api/user/login?return_to=${encodeURIComponent("https://zothacks.com/auth")}`
-			: "/api/user/login";
-	}, [isUciEmail]);
+	const isUciEmail = email.endsWith("@uci.edu");
+	const action = isUciEmail
+		? `/api/user/login?return_to=${encodeURIComponent("https://zothacks.com/auth")}`
+		: "/api/user/login";
 
 	return (
 		<form method="post" action={action} className={styles.formTag}>
