@@ -25,7 +25,13 @@ export default function AuthCallback() {
 
 				if (res.ok) {
 					setStatus("Login successful! Redirecting...");
-					setTimeout(() => router.push("/#hacker-application"), 1000);
+					setTimeout(
+						// Use window.location instead of router.push in order
+						// to force reload the page to allow user identity to
+						// update with the new status
+						() => (window.location.href = "/#hacker-application"),
+						1000,
+					);
 				} else {
 					const text = await res.text();
 					setStatus(`Login failed: ${text}`);
