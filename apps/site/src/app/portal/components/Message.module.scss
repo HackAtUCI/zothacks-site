@@ -1,17 +1,17 @@
 @use "zothacks-theme" as theme;
 
 div.messageWrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    color: theme.$white;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	color: theme.$white;
 
-    p {
-        font-size: 1.1rem;
-    }
-    
-    h4 {
-        font-size: 1.5rem;
-        margin-bottom: 0;
-    }
+	p {
+		font-size: 1.1rem;
+	}
+
+	h4 {
+		font-size: 1.5rem;
+		margin-bottom: 0;
+	}
 }

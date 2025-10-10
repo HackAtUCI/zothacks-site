@@ -1,23 +1,23 @@
 @use "zothacks-theme" as theme;
 
 .actionButton {
-    border: 5px solid theme.$dark-green;
-    background-color: rgba(theme.$dark-green, 0.69);
-    border-radius: 30px;
-    padding: 30px 40px;
-    width: 100%;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 1.5rem;
-    color: theme.$off-white;
-    font-size: 1.2rem;
-    justify-content: center;
-    letter-spacing: 1px;
-    text-decoration: none;
+	border: 5px solid theme.$dark-green;
+	background-color: rgba(theme.$dark-green, 0.69);
+	border-radius: 30px;
+	padding: 30px 40px;
+	width: 100%;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 1.5rem;
+	color: theme.$off-white;
+	font-size: 1.2rem;
+	justify-content: center;
+	letter-spacing: 1px;
+	text-decoration: none;
 
-    &:hover {
-        background-color: rgba(theme.$light-green, 0.69);
-    }
+	&:hover {
+		background-color: rgba(theme.$light-green, 0.69);
+	}
 }

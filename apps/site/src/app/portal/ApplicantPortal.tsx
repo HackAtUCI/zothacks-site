@@ -22,18 +22,19 @@ function Portal() {
 	if (status === null) {
 		redirect("/apply");
 	} else {
-		return <div className={styles.container}>
-			<h1>Portal</h1>
+		return (
+			<div className={styles.container}>
+				<h1>Portal</h1>
 
-			<div className={styles.wrapper}>
-				<Timeline status={status} />
-				
-				<Message status={status} />
-				
-				<ActionButton status={status} />
+				<div className={styles.wrapper}>
+					<Timeline status={status} />
 
+					<Message status={status} />
+
+					<ActionButton status={status} />
+				</div>
 			</div>
-		</div>;
+		);
 	}
 }
 

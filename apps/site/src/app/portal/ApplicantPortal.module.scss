@@ -9,16 +9,16 @@
 	gap: 2rem;
 	background: url("~@/assets/background/mountains-background.png");
 	font-family: var(--next-font-reddit-mono), monospace;
-	
+
 	* {
 		font-weight: 600;
 	}
-	
+
 	h1 {
 		color: theme.$white;
 		font-size: 4rem;
 	}
-	
+
 	p {
 		font-weight: 400;
 		letter-spacing: 1px;
@@ -31,7 +31,4 @@
 		flex-direction: column;
 		gap: 16px;
 	}
-
-
-	
 }

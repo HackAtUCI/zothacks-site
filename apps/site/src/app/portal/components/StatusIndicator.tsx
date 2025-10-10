@@ -7,9 +7,15 @@ interface StatusIndicatorProps {
 	children: React.ReactNode;
 }
 
-export default function StatusIndicator({ icon, dark, children }: StatusIndicatorProps) {
+export default function StatusIndicator({
+	icon,
+	dark,
+	children,
+}: StatusIndicatorProps) {
 	return (
-        <div className={styles.indicator + " " + (dark ? styles.dark : styles.light)}>
+		<div
+			className={styles.indicator + " " + (dark ? styles.dark : styles.light)}
+		>
 			<p>{children}</p>
 			<Image src={icon} alt="Status icon" />
 		</div>
