@@ -36,7 +36,7 @@ export default async function Login({
 					className={styles.formTag}
 				>
 					<div className={styles.form}>
-						<h1 className={styles.title}>Log In UCI</h1>
+						<h1 className={styles.title}>Log In</h1>
 
 						<div className={styles.inputSection}>
 							<label htmlFor="email" className={styles.label}>
@@ -52,10 +52,10 @@ export default async function Login({
 							<input type="hidden" name="return_to" value={return_to} />
 						</div>
 
-						{/* <p className={styles.subtitle}>
+						<p className={styles.subtitle}>
 							UCI students will log in with UCI SSO. Please use your school
 							email address if you have one.
-						</p> */}
+						</p>
 					</div>
 
 					<PrimaryButton>Continue</PrimaryButton>
