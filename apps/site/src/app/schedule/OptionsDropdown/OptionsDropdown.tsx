@@ -1,4 +1,4 @@
-import styles from "./optionsDropdown.module.scss";
+import styles from "./OptionsDropdown.module.scss";
 
 interface OptionsDropdownProps {
 	selectedDay: string;
@@ -47,7 +47,7 @@ export default function OptionsDropdown({
 						<span>
 							{formatTime(event.startTime)} - {formatTime(event.endTime)}
 						</span>
-						<p>{event.location}</p>
+						<span>{event.location}</span>
 					</div>
 				))}
 			</div>

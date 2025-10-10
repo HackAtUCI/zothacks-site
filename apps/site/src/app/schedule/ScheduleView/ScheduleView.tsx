@@ -2,10 +2,12 @@
 import { useEffect, useState } from "react";
 
 import Header from "../Header/Header";
-import OptionSelector from "../OptionSelector/optionSelector";
-import OptionsDropdown from "../OptionsDropdown/optionsDropdown";
+import OptionSelector from "../OptionSelector/OptionSelector";
+import OptionsDropdown from "../OptionsDropdown/OptionsDropdown";
 import Image from "next/image";
-import scheduleImage from "@/assets/images/Schedule-bears.png";
+import schedulePageBears from "@/assets/images/Schedule-bears.png";
+import BackgroundMountains from "@/assets/background/BackgroundMountains.svg";
+import ForegroundMountains from "@/assets/background/ForegroundMountains.svg";
 
 import styles from "./ScheduleView.module.scss";
 
@@ -38,7 +40,7 @@ const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
 	);
 
 	return (
-		<div className={styles.timer}>
+		<div className={styles.scheduleContainer}>
 			<Header />
 			<OptionSelector selectedDay={selectedDay} selectDay={setSelectedDay} />
 			<OptionsDropdown
@@ -48,9 +50,9 @@ const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
 				dayThree={dayThree}
 			/>
 			<Image
-				src={scheduleImage}
-				alt="schedule"
-				className={styles.scheduleImage}
+				src={schedulePageBears}
+				alt="Bears"
+				className={styles.schedulePageBears}
 			/>
 		</div>
 	);

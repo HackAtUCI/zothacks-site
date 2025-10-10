@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 import Image from "next/image";
-import styles from "./optionSelector.module.scss";
+import styles from "./OptionSelector.module.scss";
 import faqArrow from "@/assets/icons/faq-arrow.svg";
 
 interface OptionSelectorProps {
