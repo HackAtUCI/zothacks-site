@@ -1,0 +1,10 @@
+@use "zothacks-theme" as theme;
+
+.auth {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 80vh;
+	text-align: center;
+	color: theme.$off-white;
+}
