@@ -5,7 +5,7 @@ import { useCallback, useState } from "react";
 import axiosInstance from "@/lib/utils/axiosInstance";
 import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 
-import styles from "./Login.module.scss";
+import styles from "../login/Login.module.scss";
 
 type VerifyFormProps = {
 	email: string;
@@ -53,7 +53,7 @@ export default function VerifyForm({
 			<input type="hidden" name="return_to" value={returnTo} />
 
 			<label htmlFor="passphrase" className={styles.label}>
-				Passphrase
+				Enter Passphrase
 			</label>
 			<input
 				id="passphrase"
