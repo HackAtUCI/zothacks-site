@@ -12,7 +12,6 @@ export default function AuthCallback() {
 		const code = params.get("code");
 		if (!code) {
 			setStatus("Missing code. Please try logging in again.");
-			router.push("/");
 			return;
 		}
 
@@ -38,8 +37,12 @@ export default function AuthCallback() {
 	}, [params, router]);
 
 	return (
-		<div className="flex items-center justify-center h-screen">
-			<p>{status}</p>
+		<div className="pt-16 flex items-center justify-center h-screen">
+			<br />
+			<br />
+			<br />
+			<br />
+			<h1>{status}</h1>
 		</div>
 	);
 }
