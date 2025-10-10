@@ -18,7 +18,7 @@ export default async function HackerApplication() {
 	}
 
 	if (!uid) {
-		redirect("/guest-login");
+		redirect("/login");
 	}
 
 	return (
