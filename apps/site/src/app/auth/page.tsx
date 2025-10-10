@@ -2,6 +2,7 @@
 
 import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import styles from "./Auth.module.scss";
 
 export default function AuthCallback() {
 	const params = useSearchParams();
@@ -37,12 +38,8 @@ export default function AuthCallback() {
 	}, [params, router]);
 
 	return (
-		<div className="pt-16 flex items-center justify-center h-screen">
-			<br />
-			<br />
-			<br />
-			<br />
-			<h1>{status}</h1>
+		<div className={styles.auth}>
+			<p>{status}</p>
 		</div>
 	);
 }
