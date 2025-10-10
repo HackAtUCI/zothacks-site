@@ -4,10 +4,11 @@ import { redirect } from "next/navigation";
 
 import useUserIdentity from "@/lib/utils/useUserIdentity";
 import { Status } from "@/lib/userRecord";
+import Message from "./components/Message";
+import ActionButton from "./components/ActionButton";
+import Timeline from "./components/Timeline";
 
-import ConfirmationPage from "./ConfirmationPage";
-
-const rolesArray = ["Mentor", "Hacker", "Volunteer"];
+import styles from "./ApplicantPortal.module.scss";
 
 function Portal() {
 	const identity = useUserIdentity();
@@ -16,12 +17,23 @@ function Portal() {
 		return <div>Loading...</div>;
 	}
 
-	const status = identity.status;
+	const status = identity.status as Status;
 
 	if (status === null) {
 		redirect("/apply");
 	} else {
-		return <ConfirmationPage />;
+		return <div className={styles.container}>
+			<h1>Portal</h1>
+
+			<div className={styles.wrapper}>
+				<Timeline status={status} />
+				
+				<Message status={status} />
+				
+				<ActionButton status={status} />
+
+			</div>
+		</div>;
 	}
 }
 
