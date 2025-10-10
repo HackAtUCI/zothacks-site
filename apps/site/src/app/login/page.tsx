@@ -32,7 +32,7 @@ export default async function Login({
 			{!email && (
 				<form
 					method="post"
-					action={`/api/user/login?return_to=${encodeURIComponent("https://zothacks.com/#hacker-application")}`}
+					action={`/api/user/login?return_to=${encodeURIComponent("https://zothacks.com/auth")}`}
 					className={styles.formTag}
 				>
 					<div className={styles.form}>
