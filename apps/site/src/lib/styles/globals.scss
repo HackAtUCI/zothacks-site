@@ -3,7 +3,7 @@
 $container-padding: 8rem;
 
 .background {
-	background: linear-gradient(#01a6c4, #01a7c5 67%, #00c1a9 82%, #8dbd9e);
+	background: linear-gradient(180deg, #0d1321 77.73%, #070a11 100%);
 }
 
 .accordion {
@@ -19,6 +19,11 @@ section.container {
 	// responsive padding
 	@include bootstrap.padding-top($container-padding);
 	@include bootstrap.padding-bottom($container-padding);
+}
+
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: 100px;
 }
 
 html,

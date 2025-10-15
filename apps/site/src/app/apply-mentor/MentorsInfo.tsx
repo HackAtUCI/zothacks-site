@@ -7,8 +7,8 @@ export default async function MentorsInfo() {
 				<div className={styles.infoRow}>
 					<h3>Who You Are:</h3>
 					<p>
-						A currently enrolled undergrad, master&apos;s, or PhD student at UC
-						Irvine
+						Someone who wants to help beginners participate in their first
+						hackathon!
 					</p>
 				</div>
 				<div className={styles.infoRow}>

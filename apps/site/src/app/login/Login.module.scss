@@ -17,12 +17,23 @@
 	flex-direction: column;
 	gap: 1.25rem;
 	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+	width: 100%;
+}
+
+.formTag {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+	width: min(80%, 800px);
 }
 
 .title {
 	color: #ffffff;
 	margin: auto;
 	font-size: 3rem;
+	text-align: center;
 }
 
 .inputSection {
@@ -43,6 +54,7 @@
 	background-color: #ababab47;
 	border: 0.063rem solid #99b1cb;
 	border-radius: 0.625rem;
+	width: 100%;
 }
 
 .subtitle {
@@ -57,8 +69,17 @@
 	border-radius: 1.25rem;
 	color: #dddddd;
 	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+	max-width: 200px;
 }
 
 .button:hover {
 	background-color: #61876db0;
+}
+
+.redText {
+	color: red;
+}
+
+.passphraseDescription {
+	color: #ffffff;
 }

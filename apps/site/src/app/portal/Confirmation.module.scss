@@ -1,3 +1,5 @@
+@use "bootstrap-utils" as utils;
+
 .container {
 	min-height: 100vh;
 	display: flex;
@@ -6,31 +8,36 @@
 	justify-content: center;
 	gap: 2rem;
 	background: url("~@/assets/background/mountains-background.png");
-	padding-top: 8rem;
 	font-family: var(--next-font-reddit-mono), monospace;
 }
 
 .mascot {
-	position: absolute;
-	top: -23.5rem;
-	left: 50%;
-	transform: translateX(-50%);
-	height: auto;
+	height: 150px;
+	width: auto;
+
+	@include utils.media-breakpoint-up(md) {
+		height: auto;
+	}
 }
 
 .messageBox {
 	position: relative;
 	background: #0f152bb0;
 	padding: 1.75rem;
+	margin: 0 1rem;
 	border-radius: 1.25rem;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
 }
 
 .title {
 	color: #cacaca;
-	font-size: 2.5rem;
+	font-size: 1.5rem;
 	font-weight: 700;
 	text-align: center;
+
+	@include utils.media-breakpoint-up(md) {
+		font-size: 2.5rem;
+	}
 }
 
 .button {

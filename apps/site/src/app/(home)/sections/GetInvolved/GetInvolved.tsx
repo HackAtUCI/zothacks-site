@@ -1,5 +1,9 @@
 "use client";
-import { Container, Button } from "react-bootstrap";
+
+import Image from "next/image";
+
+import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
 import anteater_left from "@/assets/images/involved_anteater_left.png";
 import anteater_right from "@/assets/images/involved_anteater_right.png";
 import styles from "./GetInvolved.module.scss";
@@ -39,7 +43,7 @@ const GetInvolved = () => {
 						</div>
 					</div>
 					<div className={styles.anteaterContainerLeft}>
-						<img
+						<Image
 							className={styles.anteaterImage}
 							src={anteater_left.src}
 							alt="A cartoon anteater sitting on a ring buoy coding"
@@ -54,7 +58,7 @@ const GetInvolved = () => {
 						</div>
 					</div>
 					<div className={styles.anteaterContainerRight}>
-						<img
+						<Image
 							className={styles.anteaterImage}
 							src={anteater_right.src}
 							alt="A cartoon anteater captain sitting on a ring buoy"

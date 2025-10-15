@@ -8,16 +8,18 @@ import Clubs from "./sections/Clubs/Clubs";
 
 import styles from "./page.module.scss";
 import Countdown from "./sections/Countdown";
+import About from "./sections/About/About";
 
 const Home = () => {
 	return (
 		<div className={styles.home}>
 			<Landing />
+			<About />
 			{/* <GetInvolved />
 			<Countdown />
 			<Sponsors />
-			<Clubs />
-			<FAQ /> */}
+			<Clubs /> */}
+			<FAQ />
 		</div>
 	);
 };

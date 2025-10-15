@@ -1,0 +1,326 @@
+@use "zothacks-theme" as theme;
+@use "bootstrap-utils" as bootstrap;
+.about {
+	position: relative;
+	text-align: center;
+	margin: 0 auto;
+	padding: 4rem 1rem 10rem;
+	max-width: 900px;
+	z-index: 101;
+}
+
+.content {
+	position: relative;
+}
+
+.aboutTitle {
+	font-size: 25px;
+	font-weight: 800;
+	color: theme.$off-white;
+	margin-bottom: 1rem;
+}
+
+.aboutText {
+	font-size: 16px;
+	line-height: 1.6;
+	color: theme.$baby-blue;
+}
+
+.characters {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	margin-top: 3rem;
+	gap: 10rem;
+
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	z-index: 3;
+}
+.grass {
+	position: absolute;
+	bottom: 20%;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100%; // default for large screens
+	height: auto;
+	z-index: 1;
+}
+.campBase {
+	position: absolute;
+	bottom: 23%;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100%; // default for large screens
+	height: auto;
+	z-index: 0;
+}
+
+.log,
+.logTexture,
+.logShading {
+	position: absolute;
+	bottom: 22%;
+	left: 25%;
+	transform: translateX(-50%);
+	width: 75%;
+	height: auto;
+}
+
+.log {
+	z-index: 1; // base layer
+}
+
+.logTexture {
+	z-index: 2; // texture above base
+	pointer-events: none; // purely visual
+}
+
+.logShading {
+	z-index: 3; // shading on top
+	opacity: 0.8; // if you want blend-like effect
+}
+
+.tent,
+.tentShading1,
+.tentShading2 {
+	position: absolute;
+	bottom: 20%;
+	right: 15%;
+	transform: translateX(50%);
+
+	height: auto;
+}
+
+.tent {
+	position: absolute;
+	bottom: 15%;
+	right: 55%;
+	transform: translateX(50%);
+
+	height: auto;
+	z-index: 0;
+	width: 110%;
+}
+
+.tentShading1 {
+	z-index: 2; // mid shading
+	opacity: 0.7;
+	width: 30%;
+}
+
+.tentShading2 {
+	z-index: 3; // top shading
+	opacity: 0.9;
+}
+
+@media (max-width: 1024px) {
+	.grass {
+		width: 70%;
+	}
+	.campBase {
+		width: 60%;
+	}
+	.log,
+	.logTexture,
+	.logShading {
+		width: 50%;
+		left: 60%;
+		bottom: 20%;
+	}
+}
+
+@media (max-width: 768px) {
+	.grass {
+		width: 0%; // smaller tablets
+	}
+	.campBase {
+		width: 0%;
+	}
+}
+
+@media (max-width: 480px) {
+	.grass {
+		width: 0%; // mobile
+	}
+	.campBase {
+		width: 0%;
+	}
+}
+
+.side {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	flex: 1;
+	gap: 20px;
+	width: 440px;
+	height: auto;
+	z-index: 3;
+}
+
+.left {
+	max-width: 400px;
+	height: auto;
+	transform: translateX(-30%);
+	z-index: 5;
+}
+.right {
+	max-width: 400px;
+	height: auto;
+	transform: translateX(5%);
+}
+
+.leftSide {
+	transform: rotate(-4deg);
+}
+
+.rightSide {
+	transform: rotate(4deg);
+}
+
+.prompt {
+	font-size: 16px;
+	color: theme.$off-white;
+	position: relative;
+	z-index: 2;
+}
+
+@media (max-width: 1024px) {
+	.left {
+		max-width: 180px;
+		transform: translateX(0) translateY(30%);
+	}
+
+	.right {
+		max-width: 180px;
+		transform: translateX(0) translateY(30%);
+	}
+
+	.prompt {
+		transform: translateY(50%);
+	}
+
+	.tent {
+		width: 90%;
+	}
+
+	.side {
+		width: auto;
+	}
+}
+
+@media (max-width: 768px) {
+	.characters {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.side {
+		width: 100%;
+		max-width: 400px;
+		transform: rotate(0deg);
+	}
+
+	.left {
+		max-width: 120px;
+		transform: translateY(0);
+	}
+
+	.right {
+		max-width: 140px;
+		transform: translateX(10%);
+	}
+
+	.prompt {
+		transform: translateY(0);
+	}
+
+	.tent {
+		width: 0%;
+	}
+
+	.log,
+	.logTexture,
+	.logShading {
+		width: 0%;
+	}
+}
+
+@media (max-width: 480px) {
+	.side {
+		max-width: 280px;
+	}
+
+	.left {
+		max-width: 90px;
+	}
+
+	.right {
+		max-width: 105px;
+	}
+}
+
+.bearWithFlashlight {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	max-width: 400px;
+	overflow: visible;
+
+	--flash-x: 20%; /* horizontal position of the flashlight base */
+	--flash-y: 35%; /* vertical position of the flashlight base */
+	--flash-size: 18%; /* flashlight width relative to bear */
+	--beam-length: 350%; /* beam length relative to bear */
+}
+
+.flashlight {
+	position: absolute;
+	left: var(--flash-x);
+	bottom: var(--flash-y);
+	width: var(--flash-size);
+	height: auto;
+	z-index: 2;
+}
+
+.light {
+	position: absolute;
+	right: calc(100% - var(--flash-x));
+	bottom: calc(var(--flash-y) + 1%);
+	width: var(--beam-length);
+	height: auto;
+	transform-origin: right center;
+	transform: rotate(-5deg);
+	z-index: 1;
+	opacity: 0.8;
+	pointer-events: none;
+}
+
+@media (max-width: 1024px) {
+	.bearWithFlashlight {
+		--flash-x: 35%;
+		--flash-y: 5%;
+		--beam-length: 220%;
+		--flash-size: 10%;
+	}
+}
+
+@media (max-width: 768px) {
+	.bearWithFlashlight {
+		--flash-x: 42%;
+		--flash-y: 35%;
+		--beam-length: 180%;
+		--flash-size: 8%;
+	}
+}
+
+@media (max-width: 480px) {
+	.bearWithFlashlight {
+		--flash-x: 38%;
+		--flash-y: 34%;
+		--beam-length: 150%;
+		--flash-size: 8%;
+	}
+}
