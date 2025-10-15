@@ -15,6 +15,17 @@ $width: 100vw;
 
 	background-size: cover;
 	background-repeat: no-repeat;
-	// background-position: center top;
 	background-attachment: fixed;
+
+	@include bootstrap.media-breakpoint-down(lg) {
+		background-position: center 70%;
+	}
+
+	@include bootstrap.media-breakpoint-down(md) {
+		background-position: center 70%;
+	}
+
+	@include bootstrap.media-breakpoint-down(sm) {
+		background-position: center 70%;
+	}
 }

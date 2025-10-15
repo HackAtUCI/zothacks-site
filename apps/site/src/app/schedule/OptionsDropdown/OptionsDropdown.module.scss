@@ -1,4 +1,5 @@
 @use "bootstrap-utils" as bootstrap;
+@use "zothacks-theme" as theme;
 
 .optionsDropdown {
 	background-color: #0f152bb0;
@@ -84,7 +85,7 @@
 }
 
 .optionsDropdownContentItem {
-	background-color: #99b1cb;
+	background-color: theme.$off-white;
 	color: black;
 	display: flex;
 	flex-direction: column;
