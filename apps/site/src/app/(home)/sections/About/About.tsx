@@ -59,8 +59,8 @@ const About = () => {
 						className={styles.logTexture}
 					/>
 					<div className={styles.prompt}>
-						{/* <p>Want to develop your first project?</p>
-						<PrimaryButton href="/apply">Apply to be a hacker</PrimaryButton> */}
+						<p>Want to develop your first project?</p>
+						<PrimaryButton href="/apply">Apply to be a hacker</PrimaryButton>
 					</div>
 				</div>
 
@@ -83,8 +83,8 @@ const About = () => {
 						/>
 					</div>
 					<div className={styles.prompt}>
-						{/* <p>Have experience under your belt?</p>
-						<PrimaryButton href="/mentor">Apply to be a mentor</PrimaryButton> */}
+						<p>Have experience under your belt?</p>
+						<PrimaryButton href="/mentor">Apply to be a mentor</PrimaryButton>
 					</div>
 				</div>
 			</div>
