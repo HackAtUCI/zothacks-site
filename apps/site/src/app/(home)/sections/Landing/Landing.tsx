@@ -17,6 +17,33 @@ const Landing = () => {
 			<section className={styles.landing}>
 				<Image src={Trees} alt="trees" className={styles.trees} />
 				<Title />
+				<div className={styles.errorBanner}>
+					<p>
+						<strong className={styles.important}>
+							IMPORTANT: If you applied as a hacker after Oct 14, 10:53 p.m.
+						</strong>{" "}
+						<br />
+						your application was not saved to our system.
+					</p>
+					<ul>
+						<li>
+							We have disabled the application page temporarily and will resolve
+							it shortly.
+						</li>
+						<li>
+							If you applied during that time, you will need to reapply once
+							we&apos;re back online.
+						</li>
+						<li>
+							Hacker applications are NOT first-come, first-served, so applying
+							later won&apos;t hurt your chances at all.
+						</li>
+					</ul>
+					<p>
+						We truly apologize for the inconvenience and appreciate your
+						patience.
+					</p>
+				</div>
 				{/* <PrimaryButton
 					href="#hacker-application"
 					className={styles.applyButton}
