@@ -19,7 +19,7 @@
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	padding-top: 0;
+	padding-top: 200px;
 	z-index: 10;
 }
 .title {
@@ -121,5 +121,20 @@
 
 	@include bootstrap.media-breakpoint-up(lg) {
 		bottom: -150px;
+	}
+}
+
+.errorBanner {
+	background-color: rgb(167, 16, 16);
+	padding: 16px;
+	z-index: 1000;
+	color: theme.$off-white;
+
+	ul > li {
+		text-align: left;
+	}
+
+	.important {
+		font-size: 28px;
 	}
 }
