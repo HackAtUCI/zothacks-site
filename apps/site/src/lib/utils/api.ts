@@ -2,12 +2,14 @@ import axios, { AxiosHeaders } from "axios";
 import { cookies } from "next/headers";
 
 const LOCAL_API_URL = "http://localhost:8000";
-const SERVER_HOST = process.env.VERCEL_URL;
+const SERVER_HOST = process.env.IH_BACKEND_URL;
+
+console.log("A", SERVER_HOST);
 
 // The Vercel Serverless Function for the API lives outside the scope of Next.js
 // so the publicly deployed URL must be used instead of a rewrite
 const api = axios.create({
-	baseURL: SERVER_HOST ? `https://${SERVER_HOST}/api/` : LOCAL_API_URL,
+	baseURL: SERVER_HOST ? `${SERVER_HOST}` : LOCAL_API_URL,
 });
 
 api.interceptors.request.use((config) => {
