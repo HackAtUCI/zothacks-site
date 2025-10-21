@@ -19,10 +19,12 @@ export default function ActionButton({ status }: ActionButtonProps) {
 		case Status.Confirmed:
 		case Status.Attending: {
 			buttonJSX = (
-				<PrimaryButton variant="large" href="/">Return to Homepage</PrimaryButton>
+				<PrimaryButton variant="large" href="/">
+					Return to Homepage
+				</PrimaryButton>
 			);
 			break;
-		}	
+		}
 
 		// case Status.Waitlisted: {
 		//     buttonJSX = <button className={styles.actionButton}>I am no longer able to attend ZotHacks 2025</button>;
