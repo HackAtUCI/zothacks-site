@@ -8,10 +8,12 @@ import Moon from "@/assets/background/landing/moon.svg";
 import Trees from "@/assets/background/landing/main-trees.svg";
 
 import styles from "./Landing.module.scss";
+import Fireflies from "@/components/Fireflies/fireflies";
 
 const Landing = () => {
 	return (
 		<div className={styles.backgroundWrapper}>
+			<Fireflies />
 			<Image src={Moon} alt="moon" className={styles.moon} />
 
 			<section className={styles.landing}>

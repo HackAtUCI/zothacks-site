@@ -15,7 +15,7 @@ const GetInvolved = () => {
 		<p>Otherwise, if you have some experience under your belt,</p>
 	);
 	const applyLink = (
-		<Button href="/apply" type="button" className={styles.applyButton} disabled>
+		<Button type="button" className={styles.applyButton} disabled>
 			Hacker Apps Closed
 		</Button>
 	);
