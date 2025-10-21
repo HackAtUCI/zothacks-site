@@ -17,7 +17,7 @@ export default function StatusIndicator({
 			className={styles.indicator + " " + (dark ? styles.dark : styles.light)}
 		>
 			<p>{children}</p>
-			<Image src={icon} alt="Status icon" />
+			<Image src={icon} className={styles.icon} alt="Status icon" />
 		</div>
 	);
 }

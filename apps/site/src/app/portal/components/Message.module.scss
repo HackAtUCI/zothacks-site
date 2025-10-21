@@ -1,10 +1,11 @@
 @use "zothacks-theme" as theme;
 
-div.messageWrapper {
+.messageWrapper {
 	display: flex;
 	flex-direction: column;
 	gap: 8px;
 	color: theme.$white;
+	margin-top: 32px;
 
 	p {
 		font-size: 1.1rem;
