@@ -1,10 +1,15 @@
 "use client";
 
+// React
 import { useState } from "react";
 
+// Next
 import Image from "next/image";
-import styles from "./OptionSelector.module.scss";
 import faqArrow from "@/assets/icons/faq-arrow.svg";
+
+// Styles
+import styles from "./OptionSelector.module.scss";
+
 
 interface OptionSelectorProps {
 	selectedDay: string;
@@ -22,17 +27,6 @@ export default function OptionSelector({
 		setIsOpen(false);
 	};
 
-	const formattedSelectedDay = (selectedDay: string) => {
-		switch (selectedDay) {
-			case "dayOne":
-				return "Day One";
-			case "dayTwo":
-				return "Day Two";
-			case "dayThree":
-				return "Day Three";
-		}
-	};
-
 	return (
 		<div className={styles.container}>
 			<button
@@ -41,7 +35,7 @@ export default function OptionSelector({
 			>
 				<div className={styles.SelectTriggerContent}>
 					<p className={styles.SelectTriggerText}>
-						{formattedSelectedDay(selectedDay)}
+						{selectedDay}
 					</p>
 					{isOpen ? (
 						<Image
@@ -63,21 +57,21 @@ export default function OptionSelector({
 				<div className={styles.SelectContent}>
 					<button
 						className={styles.SelectContentItem}
-						onClick={() => handleSelectDay("dayOne")}
+						onClick={() => handleSelectDay("Day One")}
 						type="button"
 					>
 						Day One
 					</button>
 					<button
 						className={styles.SelectContentItem}
-						onClick={() => handleSelectDay("dayTwo")}
+						onClick={() => handleSelectDay("Day Two")}
 						type="button"
 					>
 						Day Two
 					</button>
 					<button
 						className={styles.SelectContentItem}
-						onClick={() => handleSelectDay("dayThree")}
+						onClick={() => handleSelectDay("Day Three")}
 						type="button"
 					>
 						Day Three

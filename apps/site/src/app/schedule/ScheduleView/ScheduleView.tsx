@@ -16,7 +16,7 @@ interface ScheduleProps {
 }
 
 const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
-	const [selectedDay, setSelectedDay] = useState("dayOne");
+	const [selectedDay, setSelectedDay] = useState("Day One");
 
 	const scheduleFlat = schedule.flat();
 	const dayOne = scheduleFlat.filter(

@@ -16,11 +16,11 @@ export default function OptionsDropdown({
 	// Get the current day's events safely
 	const getCurrentDayEvents = () => {
 		switch (selectedDay) {
-			case "dayOne":
+			case "Day One":
 				return dayOne || [];
-			case "dayTwo":
+			case "Day Two":
 				return dayTwo || [];
-			case "dayThree":
+			case "Day Three":
 				return dayThree || [];
 			default:
 				return [];
@@ -43,8 +43,8 @@ export default function OptionsDropdown({
 			<div className={styles.optionsDropdownContent}>
 				{currentEvents.map((event, index) => (
 					<div className={styles.optionsDropdownContentItem} key={event._id}>
-						<h1>{event.title}</h1>
-						<span>
+						<h2 className={styles.optionsDropdownContentItemTitle}>{event.title}</h2>
+						<span className={styles.optionsDropdownContentItemDescription}>
 							{formatTime(event.startTime)} - {formatTime(event.endTime)}
 						</span>
 						<span>{event.location}</span>

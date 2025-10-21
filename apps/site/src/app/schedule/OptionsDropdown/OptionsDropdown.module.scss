@@ -67,7 +67,6 @@
 		gap: 1rem;
 	}
 
-	/* Custom scrollbar styling */
 	&::-webkit-scrollbar {
 		width: 8px;
 	}
@@ -112,42 +111,44 @@
 		font-size: 0.8rem;
 		border-radius: 6px;
 	}
+}
+.optionsDropdownContentItemTitle {
+	margin: 0;
+	font-weight: 400;
+	font-size: 1.1rem;
+	margin-bottom: 15px;
 
-	h1 {
-		margin: 0;
-		font-family: var(--next-font-reddit-mono), monospace;
-		font-weight: 400;
-		font-size: 1.1rem;
-
-		@include bootstrap.media-breakpoint-down(lg) {
-			font-size: 1rem;
-		}
-
-		@include bootstrap.media-breakpoint-down(md) {
-			font-size: 0.9rem;
-		}
-
-		@include bootstrap.media-breakpoint-down(sm) {
-			font-size: 0.8rem;
-		}
+	@include bootstrap.media-breakpoint-down(lg) {
+		font-size: 1rem;
+		margin-bottom: 15px;
 	}
 
-	span {
-		margin: 0;
-		font-family: var(--next-font-reddit-mono), monospace;
-		font-weight: 400;
-		font-size: 1rem;
+	@include bootstrap.media-breakpoint-down(md) {
+		font-size: 0.9rem;
+		margin-bottom: 10px;
+	}
 
-		@include bootstrap.media-breakpoint-down(lg) {
-			font-size: 0.9rem;
-		}
-
-		@include bootstrap.media-breakpoint-down(md) {
-			font-size: 0.8rem;
-		}
-
-		@include bootstrap.media-breakpoint-down(sm) {
-			font-size: 0.75rem;
-		}
+	@include bootstrap.media-breakpoint-down(sm) {
+		font-size: 0.8rem;
+		margin-bottom: 10px;
 	}
 }
+
+.optionsDropdownContentItemDescription {
+	margin: 0;
+	font-weight: 400;
+	font-size: 1rem;
+
+	@include bootstrap.media-breakpoint-down(lg) {
+		font-size: 0.9rem;
+	}
+
+	@include bootstrap.media-breakpoint-down(md) {
+		font-size: 0.8rem;
+	}
+
+	@include bootstrap.media-breakpoint-down(sm) {
+		font-size: 0.75rem;
+	}
+}
+
