@@ -10,7 +10,6 @@ import faqArrow from "@/assets/icons/faq-arrow.svg";
 // Styles
 import styles from "./OptionSelector.module.scss";
 
-
 interface OptionSelectorProps {
 	selectedDay: string;
 	selectDay: (day: string) => void;
@@ -34,9 +33,7 @@ export default function OptionSelector({
 				onClick={() => setIsOpen(!isOpen)}
 			>
 				<div className={styles.SelectTriggerContent}>
-					<p className={styles.SelectTriggerText}>
-						{selectedDay}
-					</p>
+					<p className={styles.SelectTriggerText}>{selectedDay}</p>
 					{isOpen ? (
 						<Image
 							src={faqArrow}

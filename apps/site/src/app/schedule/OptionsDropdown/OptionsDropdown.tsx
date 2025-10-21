@@ -43,7 +43,9 @@ export default function OptionsDropdown({
 			<div className={styles.optionsDropdownContent}>
 				{currentEvents.map((event, index) => (
 					<div className={styles.optionsDropdownContentItem} key={event._id}>
-						<h2 className={styles.optionsDropdownContentItemTitle}>{event.title}</h2>
+						<h2 className={styles.optionsDropdownContentItemTitle}>
+							{event.title}
+						</h2>
 						<span className={styles.optionsDropdownContentItemDescription}>
 							{formatTime(event.startTime)} - {formatTime(event.endTime)}
 						</span>
