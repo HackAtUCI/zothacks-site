@@ -11,11 +11,6 @@ interface HeadingCardProps {
 export default function HeadingCard({ title, description }: HeadingCardProps) {
 	return (
 		<div className={styles.card}>
-			<Image
-				className={styles.bang}
-				src={resourcesBang}
-				alt="exclamation mark"
-			/>
 			<div>
 				<h2 className={styles.title}>{title}</h2>
 				<p className={styles.description}>{description}</p>

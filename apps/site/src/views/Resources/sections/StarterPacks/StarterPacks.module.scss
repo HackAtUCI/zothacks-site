@@ -1,15 +1,20 @@
 @use "bootstrap-utils" as utils;
 
 .bottom-spacer {
-	margin-bottom: 50px;
-}
-
-.column {
-	display: flex;
-	flex-direction: row;
 	justify-content: center;
-	margin-bottom: 20px;
-	gap: 60px;
+	align-items: stretch;
+	margin-bottom: 50px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+
+}
+.column {
+  flex: 1 1 320px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  max-width: 420px;
 }
 
 .card {
@@ -57,4 +62,9 @@
 	.text {
 		font-size: 14px;
 	}
+}
+
+.starterPacks {
+	padding-bottom: 20vh;
+	margin-bottom: 80px;
 }

@@ -1,16 +1,20 @@
 @use "bootstrap-utils" as utils;
 
 .bottom-spacer {
-	margin-bottom: 50px;
-}
-
-.column {
-	display: flex;
-	flex-direction: row;
 	justify-content: center;
-	align-items: center;
+	align-items: stretch;
+	margin-bottom: 50px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
 }
-
+.column {
+  flex: 1 1 320px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  max-width: 420px;
+}
 .card {
 	background-image: url("~@/assets/index_cards/api-description-card.svg");
 	background-repeat: no-repeat;

@@ -6,10 +6,14 @@
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	margin-top: 15vh;
+	padding-top: 15vh;
 	margin-bottom: 5vh;
 	text-align: left;
 }
+.header {
+  color: rgba(202, 202, 202, 1);
+}
+
 
 .title {
 	width: 60%;
@@ -17,7 +21,7 @@
 
 @include bootstrap.media-breakpoint-up(lg) {
 	.landing {
-		margin-top: 200px;
+		padding-top: 200px;
 		margin-bottom: 300px;
 	}
 }

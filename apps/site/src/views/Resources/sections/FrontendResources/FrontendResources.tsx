@@ -25,10 +25,7 @@ async function FrontendResources() {
 							<ResourceCard
 								title={title}
 								description={<PortableText value={description} />}
-								stickerSrc={urlImageBuilder(client).image(logo).url()}
-								islandBackground={urlImageBuilder(client)
-									.image(background)
-									.url()}
+								image={urlImageBuilder(client).image(logo).url()}
 								links={[{ text: "Reference", link: link }]}
 							/>
 						</div>
