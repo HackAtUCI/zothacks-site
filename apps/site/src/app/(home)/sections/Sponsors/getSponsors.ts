@@ -17,7 +17,8 @@ const Sponsors = SanityDocument.extend({
 			]),
 			logo: SanityImageReference,
 		}),
-	),
+	)
+	.default([]),
 });
 
 export const getSponsors = cache(async () => {
