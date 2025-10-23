@@ -19,18 +19,16 @@ async function BackendResources() {
 					needs."
 			/>
 			<div className={styles["bottom-spacer"] + " row"}>
-				{resources.map(
-					({ _id, title, description, link, logo }) => (
-						<div className={styles.column + " col"} key={_id}>
-							<ResourceCard
-								title={title}
-								description={<PortableText value={description} />}
-								image={urlImageBuilder(client).image(logo).url()}
-								links={[{ text: "Reference", link: link }]}
-							/>
-						</div>
-					),
-				)}
+				{resources.map(({ _id, title, description, link, logo }) => (
+					<div className={styles.column + " col"} key={_id}>
+						<ResourceCard
+							title={title}
+							description={<PortableText value={description} />}
+							image={urlImageBuilder(client).image(logo).url()}
+							links={[{ text: "Reference", link: link }]}
+						/>
+					</div>
+				))}
 			</div>
 		</div>
 	);

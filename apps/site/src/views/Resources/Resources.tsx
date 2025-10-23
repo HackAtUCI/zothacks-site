@@ -7,21 +7,14 @@ import BackendResources from "./sections/BackendResources/BackendResources";
 import FrontendResources from "./sections/FrontendResources/FrontendResources";
 import StarterPacks from "./sections/StarterPacks/StarterPacks";
 
-
-
 export default function Resources() {
-	// console.log(frontMountains, backMountains);
-
 	return (
-		<div
-			className={styles.resources}
-		>
+		<div className={styles.resources}>
 			<Landing />
 			<ApiResources />
-			<StarterPacks />
-			<FrontendResources />
 			<BackendResources />
-			
+			<FrontendResources />
+			<StarterPacks />
 		</div>
 	);
 }

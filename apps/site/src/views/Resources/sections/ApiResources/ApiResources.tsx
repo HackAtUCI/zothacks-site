@@ -13,9 +13,6 @@ async function ApiResources() {
 	const resources = await getResources("api");
 	const builder = imageUrlBuilder(client);
 
-	console.log(resources);
-	// console.log('resources');
-	// console.log(resources);
 	return (
 		<div className={`container ${styles.apiResources}`}>
 			<HeadingCard

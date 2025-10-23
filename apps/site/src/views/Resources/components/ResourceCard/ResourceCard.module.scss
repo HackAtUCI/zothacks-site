@@ -1,71 +1,69 @@
 @use "zothacks-theme" as theme;
 @use "bootstrap-utils" as utils;
 .frame {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 423px;
-  height: auto;
-  gap: 20px;
-  padding: 30px;
-  border-radius: 20px;
-  border: 5px solid rgba(42, 80, 75, 1);
-  background-color: rgba(42, 80, 75, 0.69);
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 423px;
+	height: auto;
+	gap: 20px;
+	padding: 30px;
+	border-radius: 20px;
+	border: 5px solid rgba(42, 80, 75, 1);
+	background-color: rgba(42, 80, 75, 0.69);
+	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .logo {
-  width: 80px;
-  height: auto;
-  fill:#FFFFFF ;
+	width: 80px;
+	height: auto;
+	fill: #ffffff;
 }
 
 .cardLinkWrapper {
-  display: flex;
-  flex: 1 1 auto;
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+	display: flex;
+	flex: 1 1 auto;
+	text-decoration: none;
+	color: inherit;
+	cursor: pointer;
+	transition:
+		transform 0.2s ease,
+		box-shadow 0.2s ease;
 
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
-  }
+	&:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+	}
 }
 
-
-
 .text {
-  font-family: "Reddit Mono", monospace;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 180%;
-  letter-spacing: 0.02em;
-  text-align: center;
-  color: rgba(153, 177, 203, 1);
-  max-width: 90%;
+	font-family: "Reddit Mono", monospace;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 180%;
+	letter-spacing: 0.02em;
+	text-align: center;
+	color: rgba(153, 177, 203, 1);
+	max-width: 90%;
 }
 
 .bold {
-  font-weight: 800;
-  color: rgba(202, 202, 202, 1);
+	font-weight: 800;
+	color: rgba(202, 202, 202, 1);
 }
 
 @media (max-width: 480px) {
-  .frame {
-    width: 90%;
-    padding: 20px;
-  }
+	.frame {
+		width: 90%;
+		padding: 20px;
+	}
 
-  .logo {
-    width: 60px;
-  }
+	.logo {
+		width: 60px;
+	}
 
-  .text {
-    font-size: 15px;
-  }
+	.text {
+		font-size: 15px;
+	}
 }
-

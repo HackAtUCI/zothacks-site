@@ -10,6 +10,7 @@ import styles from "./FrontendResources.module.scss";
 
 async function FrontendResources() {
 	const resources = await getResources("frontend");
+	console.log(urlImageBuilder(client).image(resources[0].logo).url());
 	return (
 		<div className="container">
 			<HeadingCard

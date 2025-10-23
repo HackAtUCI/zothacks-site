@@ -11,7 +11,7 @@ import styles from "./StarterPacks.module.scss";
 async function StarterPacks() {
 	const resources = await getResources("starter-pack");
 	return (
-		<div className="container">
+		<div className={`container ${styles.starterPacks}`}>
 			<HeadingCard
 				title="Starter Pack Resources"
 				description="Various starter packs to start you off on your coding journeys at
