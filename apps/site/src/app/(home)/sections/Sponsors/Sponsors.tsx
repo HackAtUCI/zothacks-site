@@ -29,11 +29,10 @@ const Sponsors = async () => {
 									alt={`${name} logo`}
 								/>
 							</a>
-					  ))
-					: 
-					  Array.from({ length: 2 }).map((_, i) => (
+						))
+					: Array.from({ length: 2 }).map((_, i) => (
 							<div key={i} className={styles.placeholderLogo}></div>
-					  ))}
+						))}
 			</div>
 		</Container>
 	);
