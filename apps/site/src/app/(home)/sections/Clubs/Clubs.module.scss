@@ -3,7 +3,7 @@
 
 .title {
 	text-align: center;
-	color: theme.$white;
+	color: #CACACA;
 	font-size: 2rem;
 	font-weight: 600;
 	margin-bottom: 48px;
@@ -19,14 +19,14 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	gap: 2rem;
-	max-width: 1200px;
+	gap: 3.125rem;
+	max-width: 800px;
 	margin: 0 auto;
 	padding: 0 1rem;
 }
 
 .logo {
-	background-color: rgba(255, 255, 255, 0.1);
+	background-color: #ABABAB;
 	border-radius: 8px;
 	display: flex;
 	align-items: center;
@@ -38,7 +38,7 @@
 
 	&:hover {
 		transform: scale(1.05);
-		background-color: rgba(255, 255, 255, 0.15);
+		// background-color: rgba(255, 255, 255, 0.15);
 	}
 
 	img {
