@@ -2,10 +2,6 @@
 
 .dark {
 	background-color: rgba(theme.$dark-green, 0.69);
-
-	&:hover {
-		background-color: rgba(theme.$light-green, 0.69);
-	}
 }
 
 .light {
