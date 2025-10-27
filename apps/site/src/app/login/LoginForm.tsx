@@ -13,7 +13,8 @@ type LoginFormProps = {
 export default function LoginForm({ returnTo }: LoginFormProps) {
 	const [email, setEmail] = useState("");
 
-	const isUciEmail = email.endsWith("@uci.edu");
+	const normalizedEmail = email.trim().toLowerCase();
+	const isUciEmail = normalizedEmail.endsWith("@uci.edu");
 	const action = isUciEmail
 		? `/api/user/login?return_to=${encodeURIComponent("https://zothacks.com/auth")}`
 		: "/api/user/login";
@@ -33,7 +34,7 @@ export default function LoginForm({ returnTo }: LoginFormProps) {
 						type="email"
 						required
 						className={styles.input}
-						value={email}
+						value={normalizedEmail}
 						onChange={(e) => setEmail(e.target.value)}
 					/>
 					{isUciEmail && (
