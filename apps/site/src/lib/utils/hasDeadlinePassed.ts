@@ -1,8 +1,5 @@
 export default function hasDeadlinePassed() {
-	const pstDeadline = "2025-10-27T00:00:59";
-	const utcOffset = "-08:00";
-
-	const deadline = new Date(pstDeadline + utcOffset);
+	const deadline = new Date("2025-10-28T00:00:59");
 	const now = new Date();
 
 	return now > deadline;
