@@ -1,0 +1,48 @@
+@use "bootstrap-utils" as utils;
+@use "zothacks-theme" as theme;
+
+.container {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
+	font-family: var(--next-font-reddit-mono), monospace;
+}
+
+.mascot {
+	height: 150px;
+	width: auto;
+	z-index: 100;
+
+	@include utils.media-breakpoint-up(md) {
+		height: auto;
+	}
+}
+
+.messageBox {
+	color: theme.$off-white;
+	position: relative;
+	background: #0f152bb0;
+	padding: 1.75rem;
+	margin: 0 2rem;
+	border-radius: 1.25rem;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+.title {
+	color: theme.$off-white;
+	font-size: 1.5rem;
+	font-weight: 700;
+	text-align: center;
+
+	@include utils.media-breakpoint-up(md) {
+		font-size: 2.5rem;
+	}
+}
+
+.buttonContainer {
+	max-width: 300px;
+	margin: auto;
+}
