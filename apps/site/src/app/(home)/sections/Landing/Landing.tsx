@@ -17,12 +17,12 @@ const Landing = () => {
 			<section className={styles.landing}>
 				<Image src={Trees} alt="trees" className={styles.trees} />
 				<Title />
-				<PrimaryButton
+				{/* <PrimaryButton
 					href="#hacker-application"
 					className={styles.applyButton}
 				>
 					Apply Now
-				</PrimaryButton>
+				</PrimaryButton> */}
 				<div className={styles.errorBanner}>
 					<p>
 						<strong className={styles.important}>
