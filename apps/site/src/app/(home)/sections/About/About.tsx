@@ -58,10 +58,10 @@ const About = () => {
 						alt="Log texture"
 						className={styles.logTexture}
 					/>
-					<div className={styles.prompt}>
+					{/* <div className={styles.prompt}>
 						<p>Want to develop your first project?</p>
 						<PrimaryButton href="/apply">Apply to be a hacker</PrimaryButton>
-					</div>
+					</div> */}
 				</div>
 
 				<div className={`${styles.side} ${styles.rightSide}`}>
@@ -82,10 +82,10 @@ const About = () => {
 							className={styles.right}
 						/>
 					</div>
-					<div className={styles.prompt}>
+					{/* <div className={styles.prompt}>
 						<p>Have experience under your belt?</p>
 						<PrimaryButton href="/mentor">Apply to be a mentor</PrimaryButton>
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</section>
