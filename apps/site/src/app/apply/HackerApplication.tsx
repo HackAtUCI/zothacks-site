@@ -7,15 +7,11 @@ import EventInfoCard from "./EventInfoCard";
 import hackerAnteater from "@/assets/images/hacker-anteater.png";
 import background from "@/assets/images/application-background.png";
 
-import getUserIdentity from "@/lib/utils/getUserIdentity";
-import hasDeadlinePassed from "@/lib/utils/hasDeadlinePassed";
-import ApplicationsClosed from "./ApplicationsClosed";
-
 import styles from "./HackerApplication.module.scss";
+import getUserIdentity from "@/lib/utils/getUserIdentity";
 
 export default async function HackerApplication() {
 	const { status, uid } = await getUserIdentity();
-	const deadlinePassed = hasDeadlinePassed();
 
 	if (status) {
 		redirect("/portal");
@@ -32,20 +28,16 @@ export default async function HackerApplication() {
 				alt="tree background"
 				className={styles.background}
 			/>
-			{deadlinePassed ? (
-				<ApplicationsClosed />
-			) : (
-				<BaseForm
-					applyPath="/api/user/apply"
-					applicationType="Hacker"
-					className={styles.formContainer}
-				>
-					<Image src={hackerAnteater} alt="hacker anteater" />
-					<h1 className={styles.title}>ZotHacks 2025: Hacker Application</h1>
-					<EventInfoCard />
-					<ApplicationForm />
-				</BaseForm>
-			)}
+			<BaseForm
+				applyPath="/api/user/apply"
+				applicationType="Hacker"
+				className={styles.formContainer}
+			>
+				<Image src={hackerAnteater} alt="hacker anteater" />
+				<h1 className={styles.title}>ZotHacks 2025: Hacker Application</h1>
+				<EventInfoCard />
+				<ApplicationForm />
+			</BaseForm>
 		</div>
 	);
 }
