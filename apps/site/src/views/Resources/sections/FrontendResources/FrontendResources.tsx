@@ -10,6 +10,7 @@ import styles from "./FrontendResources.module.scss";
 
 async function FrontendResources() {
 	const resources = await getResources("frontend");
+	console.log(urlImageBuilder(client).image(resources[0].logo).url());
 	return (
 		<div className="container">
 			<HeadingCard
@@ -25,10 +26,7 @@ async function FrontendResources() {
 							<ResourceCard
 								title={title}
 								description={<PortableText value={description} />}
-								stickerSrc={urlImageBuilder(client).image(logo).url()}
-								islandBackground={urlImageBuilder(client)
-									.image(background)
-									.url()}
+								image={urlImageBuilder(client).image(logo).url()}
 								links={[{ text: "Reference", link: link }]}
 							/>
 						</div>
