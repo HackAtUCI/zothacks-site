@@ -15,10 +15,10 @@ const Home = () => {
 		<div className={styles.home}>
 			<Landing />
 			<About />
-			{/* <GetInvolved />
-			<Countdown />
+			{/* <GetInvolved /> */}
+			{/* <Countdown /> */}
 			<Sponsors />
-			<Clubs /> */}
+			{/* <Clubs /> */}
 			<FAQ />
 		</div>
 	);
