@@ -22,21 +22,21 @@ const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
 	const dayOne = scheduleFlat.filter(
 		(s) =>
 			s.startTime.getTime() <
-			new Date(new Date("2024-11-02T00:00:00").toUTCString()).getTime(),
+			new Date(new Date("2025-11-08T00:00:00").toUTCString()).getTime(),
 	);
 	const dayTwo = scheduleFlat.filter(
 		(s) =>
 			s.startTime.getTime() <
-				new Date(new Date("2024-11-03T00:00:00").toUTCString()).getTime() &&
+				new Date(new Date("2025-11-09T00:00:00").toUTCString()).getTime() &&
 			s.startTime.getTime() >
-				new Date(new Date("2024-11-02T00:00:00").toUTCString()).getTime(),
+				new Date(new Date("2025-11-08T00:00:00").toUTCString()).getTime(),
 	);
 	const dayThree = scheduleFlat.filter(
 		(s) =>
 			s.startTime.getTime() <
-				new Date(new Date("2024-11-04T00:00:00").toUTCString()).getTime() &&
+				new Date(new Date("2025-11-10T00:00:00").toUTCString()).getTime() &&
 			s.startTime.getTime() >
-				new Date(new Date("2024-11-03T00:00:00").toUTCString()).getTime(),
+				new Date(new Date("2025-11-09T00:00:00").toUTCString()).getTime(),
 	);
 
 	return (
