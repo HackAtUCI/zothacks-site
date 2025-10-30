@@ -1,0 +1,169 @@
+@use "zothacks-theme" as theme;
+@use "bootstrap-utils" as bootstrap;
+
+.container {
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	width: 40%;
+
+	@include bootstrap.media-breakpoint-down(lg) {
+		width: 50%;
+	}
+
+	@include bootstrap.media-breakpoint-down(md) {
+		width: 60%;
+	}
+
+	@include bootstrap.media-breakpoint-down(sm) {
+		width: 70%;
+	}
+}
+
+.SelectTrigger {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	width: 100%;
+	border: 5px solid #2a504b;
+	background-color: rgba(42, 80, 75, 0.69);
+	color: theme.$off-white;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	font-size: 1rem;
+	font-weight: 400;
+}
+
+.SelectTriggerContent {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.5rem 1rem;
+	width: 100%;
+	height: 100%;
+}
+
+.SelectTriggerText {
+	margin: 0;
+	padding: 0;
+	line-height: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	font-weight: 400;
+	font-size: 1.5rem;
+
+	@include bootstrap.media-breakpoint-down(lg) {
+		font-size: 1.5rem;
+	}
+
+	@include bootstrap.media-breakpoint-down(md) {
+		font-size: 1.2rem;
+	}
+
+	@include bootstrap.media-breakpoint-down(sm) {
+		font-size: 1rem;
+	}
+}
+
+.SelectTriggerIconOpen {
+	width: 32px;
+	height: 32px;
+
+	@include bootstrap.media-breakpoint-down(lg) {
+		width: 32px;
+		height: 32px;
+	}
+
+	@include bootstrap.media-breakpoint-down(md) {
+		width: 28px;
+		height: 28px;
+	}
+
+	@include bootstrap.media-breakpoint-down(sm) {
+		width: 24px;
+		height: 24px;
+	}
+}
+
+.SelectTriggerIconDown {
+	transform: rotate(180deg);
+	width: 32px;
+	height: 32px;
+
+	@include bootstrap.media-breakpoint-down(lg) {
+		width: 32px;
+		height: 32px;
+	}
+	@include bootstrap.media-breakpoint-down(md) {
+		width: 28px;
+		height: 28px;
+	}
+
+	@include bootstrap.media-breakpoint-down(sm) {
+		width: 24px;
+		height: 24px;
+	}
+}
+
+.SelectContent {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	background-color: rgb(31, 59, 54);
+	border: 5px solid #2a504b;
+	opacity: 1;
+	border-radius: 25px;
+	margin-top: 15px;
+	padding: 0.5rem;
+	z-index: 1000;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.SelectContentItem {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	border-radius: 15px;
+	width: 100%;
+	border: 3px solid #2a504b;
+	background-color: rgba(42, 80, 75, 1);
+	color: white;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	font-size: 1rem;
+	font-weight: 400;
+	padding: 0.75rem 1rem;
+	outline: none;
+	border: none;
+	text-align: left;
+
+	@include bootstrap.media-breakpoint-down(lg) {
+		font-size: 0.9rem;
+		padding: 0.75rem 1rem;
+	}
+
+	@include bootstrap.media-breakpoint-down(md) {
+		font-size: 0.8rem;
+		padding: 0.6rem 0.8rem;
+	}
+
+	@include bootstrap.media-breakpoint-down(sm) {
+		font-size: 0.75rem;
+		padding: 0.5rem 0.6rem;
+	}
+
+	&:hover {
+		background-color: rgba(42, 80, 75);
+		transform: translateY(-1px);
+	}
+
+	&:active {
+		transform: translateY(0);
+	}
+}

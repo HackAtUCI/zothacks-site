@@ -1,0 +1,153 @@
+@use "bootstrap-utils" as bootstrap;
+@use "zothacks-theme" as theme;
+
+.optionsDropdown {
+	background-color: #0f152bb0;
+	border-radius: 25px;
+	padding: 1rem;
+	width: 50%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+
+	@include bootstrap.media-breakpoint-down(lg) {
+		width: 60%;
+		padding: 1rem;
+		border-radius: 20px;
+	}
+
+	@include bootstrap.media-breakpoint-down(md) {
+		width: 70%;
+		padding: 0.8rem;
+		border-radius: 20px;
+	}
+
+	@include bootstrap.media-breakpoint-down(sm) {
+		width: 80%;
+		padding: 0.6rem;
+		border-radius: 15px;
+	}
+}
+
+.optionsDropdownContent {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	width: 100%;
+	overflow-y: auto;
+	background-color: #0f152bb0;
+	border: 2px;
+	max-height: 450px;
+	padding: 1rem;
+	font-size: 1rem;
+	gap: 2rem;
+	border-radius: 15px;
+
+	@include bootstrap.media-breakpoint-down(lg) {
+		max-height: 450px;
+		padding: 1rem;
+		font-size: 1rem;
+		gap: 1.5rem;
+	}
+
+	@include bootstrap.media-breakpoint-down(md) {
+		max-height: 350px;
+		padding: 0.8rem;
+		font-size: 0.9rem;
+		gap: 1rem;
+	}
+
+	@include bootstrap.media-breakpoint-down(sm) {
+		max-height: 300px;
+		padding: 0.6rem;
+		font-size: 0.8rem;
+		gap: 1rem;
+	}
+
+	&::-webkit-scrollbar {
+		width: 8px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: #000000;
+		border-radius: 4px;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: #cacaca;
+		border-radius: 4px;
+		min-height: 150px;
+	}
+}
+
+.optionsDropdownContentItem {
+	background-color: theme.$off-white;
+	color: black;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	width: 100%;
+	font-size: 1rem;
+	padding: 1rem;
+	border-radius: 10px;
+
+	@include bootstrap.media-breakpoint-down(lg) {
+		padding: 1rem;
+		font-size: 1rem;
+		border-radius: 10px;
+	}
+
+	@include bootstrap.media-breakpoint-down(md) {
+		padding: 0.8rem;
+		font-size: 0.9rem;
+		border-radius: 8px;
+	}
+
+	@include bootstrap.media-breakpoint-down(sm) {
+		padding: 0.6rem;
+		font-size: 0.8rem;
+		border-radius: 6px;
+	}
+}
+.optionsDropdownContentItemTitle {
+	margin: 0;
+	font-weight: 400;
+	font-size: 1.1rem;
+	margin-bottom: 15px;
+
+	@include bootstrap.media-breakpoint-down(lg) {
+		font-size: 1rem;
+		margin-bottom: 15px;
+	}
+
+	@include bootstrap.media-breakpoint-down(md) {
+		font-size: 0.9rem;
+		margin-bottom: 10px;
+	}
+
+	@include bootstrap.media-breakpoint-down(sm) {
+		font-size: 0.8rem;
+		margin-bottom: 10px;
+	}
+}
+
+.optionsDropdownContentItemDescription {
+	margin: 0;
+	font-weight: 400;
+	font-size: 1rem;
+
+	@include bootstrap.media-breakpoint-down(lg) {
+		font-size: 0.9rem;
+	}
+
+	@include bootstrap.media-breakpoint-down(md) {
+		font-size: 0.8rem;
+	}
+
+	@include bootstrap.media-breakpoint-down(sm) {
+		font-size: 0.75rem;
+	}
+}
