@@ -12,7 +12,7 @@ const Clubs = async () => {
 
 	return (
 		<Container as="section">
-			<h2 className={styles.title}>PARTNER CLUBS</h2>
+			<h2 className={styles.title}>Partner Clubs</h2>
 			<div className={styles.logos}>
 				{clubs.clubs.map(({ _key, name, url, logo }) => (
 					<a
