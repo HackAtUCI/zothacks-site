@@ -75,14 +75,18 @@ export default function ResourceCard({
 
 	return (
 		<AnimatePresence mode="wait">
-			<Link
-				href={mainLink}
-				target="_blank"
-				rel="noopener noreferrer"
-				className={styles.cardLinkWrapper}
-			>
-				{content}
-			</Link>
+			{mainLink ? (
+				<Link
+					href={mainLink}
+					target="_blank"
+					rel="noopener noreferrer"
+					className={styles.cardLinkWrapper}
+				>
+					{content}
+				</Link>
+			) : (
+				content
+			)}
 		</AnimatePresence>
 	);
 }
