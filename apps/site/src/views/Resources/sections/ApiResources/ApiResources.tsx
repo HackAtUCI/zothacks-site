@@ -19,7 +19,7 @@ async function ApiResources() {
 				description="Application Programming Interface (API) are interfaces or communication protocols that simplify implementation and maintenance of software. In order to access most APIs, many languages use HTTP protocol to communicate with the servers that host the API and retrieve data."
 			/>
 
-			<div className={styles["bottom-spacer"]}>
+			<div className={styles["bottom-spacer"] + " row"}>
 				{resources.map(({ _id, title, description, link, logo }) => {
 					const plainText =
 						description[0]?.children?.map((c: any) => c.text).join("") || "";
