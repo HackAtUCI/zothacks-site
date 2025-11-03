@@ -6,14 +6,18 @@
 	align-items: center;
 	justify-content: center;
 	width: 423px;
-	height: auto;
-	gap: 20px;
-	padding: 30px;
+	min-height: 260px;
+	padding: 3vh 0 0; 
 	border-radius: 20px;
 	border: 5px solid rgba(42, 80, 75, 1);
 	background-color: rgba(42, 80, 75, 0.69);
 	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+	gap: 16px;
 }
+
+
+
+
 
 .logo {
 	width: 80px;

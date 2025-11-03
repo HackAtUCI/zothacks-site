@@ -3,6 +3,7 @@ import { motion, AnimatePresence, cubicBezier, Variants } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./ResourceCard.module.scss";
+import React from "react";
 
 type Tag = {
 	text: string;
@@ -41,6 +42,22 @@ export default function ResourceCard({
 }: ResourceCardProps) {
 	const mainLink = links.length > 0 ? links[0].link : null;
 
+	const renderedDescription =
+		typeof description === "string" ? (
+			<>
+				{description.includes(title) ? (
+					<>
+						<span className={styles.bold}>{title}</span>
+						{description.replace(title, "")}
+					</>
+				) : (
+					description
+				)}
+			</>
+		) : (
+			description
+		);
+
 	const content = (
 		<motion.div
 			className={styles.frame}
@@ -52,26 +69,20 @@ export default function ResourceCard({
 		>
 			<img src={image} alt={`${title} logo`} className={styles.logo} />
 
-			<p className={styles.text}>
-				<span className={styles.bold}>{title}</span> {description}
-			</p>
+			<p className={styles.text}>{renderedDescription}</p>
 		</motion.div>
 	);
 
 	return (
 		<AnimatePresence mode="wait">
-			{mainLink ? (
-				<Link
-					href={mainLink}
-					target="_blank"
-					rel="noopener noreferrer"
-					className={styles.cardLinkWrapper}
-				>
-					{content}
-				</Link>
-			) : (
-				content
-			)}
+			<Link
+				href={mainLink}
+				target="_blank"
+				rel="noopener noreferrer"
+				className={styles.cardLinkWrapper}
+			>
+				{content}
+			</Link>
 		</AnimatePresence>
 	);
 }

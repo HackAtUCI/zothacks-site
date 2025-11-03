@@ -19,16 +19,22 @@ async function BackendResources() {
 					needs."
 			/>
 			<div className={styles["bottom-spacer"] + " row"}>
-				{resources.map(({ _id, title, description, link, logo }) => (
-					<div className={styles.column + " col"} key={_id}>
-						<ResourceCard
-							title={title}
-							description={<PortableText value={description} />}
-							image={urlImageBuilder(client).image(logo).url()}
-							links={[{ text: "Reference", link: link }]}
-						/>
-					</div>
-				))}
+				{resources.map(({ _id, title, description, link, logo }) => {
+					const plainText =
+						description[0]?.children?.map((c: any) => c.text).join("") || "";
+
+					return (
+						<div className={styles.column + " col"} key={_id}>
+							<ResourceCard
+								key={_id}
+								title={title}
+								description={plainText}
+								image={urlImageBuilder(client).image(logo).url()}
+								links={[{ text: "API Reference", link }]}
+							/>
+						</div>
+					);
+				})}
 			</div>
 		</div>
 	);

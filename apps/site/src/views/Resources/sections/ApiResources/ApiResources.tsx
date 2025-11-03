@@ -7,7 +7,6 @@ import { getResources } from "../../getResources";
 import { client } from "@/lib/sanity/client";
 
 import styles from "./ApiResources.module.scss";
-import xLogo from "@/assets/icons/x-logo.png";
 
 async function ApiResources() {
 	const resources = await getResources("api");
@@ -17,23 +16,24 @@ async function ApiResources() {
 		<div className={`container ${styles.apiResources}`}>
 			<HeadingCard
 				title="API Resources"
-				description="Application Programming Interface (API) are interfaces or communication protocols that simplify implementation and maintenance of software. In order to access most API's, many languages use HTTP protocol to communicate with the servers that host the API and retrieve data.."
+				description="Application Programming Interface (API) are interfaces or communication protocols that simplify implementation and maintenance of software. In order to access most APIs, many languages use HTTP protocol to communicate with the servers that host the API and retrieve data."
 			/>
 
-			<div className={styles["bottom-spacer"] + " row"}>
-				{resources.map(
-					({ _id, title, description, link, logo, background }) => (
-						<div className={styles.column + " col"} key={_id}>
-							<ResourceCard
-								key={_id}
-								title={title}
-								description={<PortableText value={description} />}
-								image={builder.image(logo).url()}
-								links={[{ text: "API Reference", link: link }]}
-							/>
-						</div>
-					),
-				)}
+			<div className={styles["bottom-spacer"]}>
+				{resources.map(({ _id, title, description, link, logo }) => {
+					const plainText =
+						description[0]?.children?.map((c: any) => c.text).join("") || "";
+
+					return (
+						<ResourceCard
+							key={_id}
+							title={title}
+							description={plainText}
+							image={builder.image(logo).url()}
+							links={[{ text: "API Reference", link }]}
+						/>
+					);
+				})}
 			</div>
 		</div>
 	);

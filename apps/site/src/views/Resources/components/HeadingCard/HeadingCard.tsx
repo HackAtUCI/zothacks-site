@@ -1,6 +1,3 @@
-import Image from "next/image";
-import resourcesBang from "@/assets/images/resources-bang.svg";
-
 import styles from "./HeadingCard.module.scss";
 
 interface HeadingCardProps {
