@@ -25,6 +25,7 @@ async function ApiResources() {
 						description[0]?.children?.map((c: any) => c.text).join("") || "";
 
 					return (
+						<div className={styles.column + " col"} key={_id}>
 						<ResourceCard
 							key={_id}
 							title={title}
@@ -32,6 +33,7 @@ async function ApiResources() {
 							image={builder.image(logo).url()}
 							links={[{ text: "API Reference", link }]}
 						/>
+						</div>
 					);
 				})}
 			</div>
