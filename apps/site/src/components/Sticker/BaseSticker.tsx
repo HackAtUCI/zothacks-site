@@ -63,7 +63,7 @@ const BaseSticker: React.FC<StickerProps> = ({
 				dragConstraints: dragConstraints ? dragConstraints : pageRef,
 				dragElastic: 0.2,
 				transition: transitionProps,
-		  }
+			}
 		: {};
 
 	return (

@@ -1,8 +1,27 @@
+@use "zothacks-theme" as theme;
+@use "bootstrap-utils" as bootstrap;
+
 .header {
 	height: auto;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-
+	color: theme.$off-white;
 	gap: 50px;
+	margin-top: 50px;
+
+	@include bootstrap.media-breakpoint-down(lg) {
+		gap: 50px;
+		margin-top: 50px;
+	}
+
+	@include bootstrap.media-breakpoint-down(md) {
+		margin-top: 100px;
+		gap: 30px;
+	}
+
+	@include bootstrap.media-breakpoint-down(sm) {
+		margin-top: 100px;
+		gap: 20px;
+	}
 }
