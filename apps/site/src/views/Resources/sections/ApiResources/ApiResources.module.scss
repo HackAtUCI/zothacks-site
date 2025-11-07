@@ -1,16 +1,23 @@
 @use "bootstrap-utils" as utils;
 
 .bottom-spacer {
-	margin-bottom: 50px;
-	width: 100%;
-	height: auto;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
+	margin: 0 auto 3rem;
+	width: fit-content;
+	max-width: 100%;
+	padding-left: 2rem;
 }
 
 .column {
+	flex: 1 1 320px;
 	display: flex;
-	flex-direction: row;
 	justify-content: center;
-	align-items: center;
+	align-items: stretch;
+	max-width: 420px;
 }
 
 .text {
@@ -49,4 +56,25 @@
 	.text {
 		font-size: 13px;
 	}
+}
+
+@include utils.media-breakpoint-down(md) {
+	.bottom-spacer {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.column {
+		max-width: 90%;
+	}
+}
+
+@include utils.media-breakpoint-down(sm) {
+	.text {
+		font-size: 13px;
+	}
+}
+
+.apiResources {
+	padding-top: 20vh;
 }

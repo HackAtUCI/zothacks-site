@@ -1,94 +1,69 @@
 @use "zothacks-theme" as theme;
 @use "bootstrap-utils" as utils;
-
-.group {
-	position: relative;
-	padding: 1rem 0;
-	width: 200px;
-}
-
-.container {
-	position: relative;
+.frame {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	align-items: center;
-	gap: 10px;
+	justify-content: center;
+	width: 423px;
+	min-height: 260px;
+	padding: 3vh 0 0;
+	border-radius: 20px;
+	border: 5px solid rgba(42, 80, 75, 1);
+	background-color: rgba(42, 80, 75, 0.69);
+	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+	gap: 16px;
 }
 
-.buttonImage {
-	width: 50px;
+.logo {
+	width: 80px;
+	height: auto;
+	fill: #ffffff;
 }
 
-.titleLink {
-	font-family: inherit;
+.cardLinkWrapper {
+	display: flex;
+	flex: 1 1 auto;
 	text-decoration: none;
 	color: inherit;
-	font-weight: 600;
-	color: theme.$lighter-black;
-	:link {
-		text-decoration: none;
+	cursor: pointer;
+	transition:
+		transform 0.2s ease,
+		box-shadow 0.2s ease;
+
+	&:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
 	}
 }
 
-.titleLinkIcon {
-	margin-bottom: 0.2rem;
+.text {
+	font-family: "Reddit Mono", monospace;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 180%;
+	letter-spacing: 0.02em;
+	text-align: center;
+	color: rgba(153, 177, 203, 1);
+	max-width: 90%;
 }
 
-.islandBackground {
-	position: absolute;
-	width: 350px;
+.bold {
+	font-weight: 800;
+	color: rgba(202, 202, 202, 1);
 }
 
-.CardContainer {
-	position: relative;
-	height: auto;
-	aspect-ratio: 1 / 1.3;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-family: utils.$font-family-base;
-	width: 350px;
-	min-width: 350px;
-}
-
-.description > * {
-	margin: 0;
-	font-size: 1.05rem;
-	color: theme.$lighter-black;
-}
-
-@include utils.media-breakpoint-up(md) {
-	.container {
-		position: relative;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		gap: 10px;
-		height: 450px;
+@media (max-width: 480px) {
+	.frame {
+		width: 90%;
+		padding: 20px;
 	}
 
-	.buttonImage {
-		width: 100px;
-	}
-}
-
-@include utils.media-breakpoint-up(sm) {
-	.CardContainer {
-		width: 500px;
-		min-width: 500px;
+	.logo {
+		width: 60px;
 	}
 
-	.islandBackground {
-		width: 500px;
-	}
-
-	.group {
-		width: 300px;
-	}
-
-	.description > * {
-		font-size: 24px;
+	.text {
+		font-size: 15px;
 	}
 }

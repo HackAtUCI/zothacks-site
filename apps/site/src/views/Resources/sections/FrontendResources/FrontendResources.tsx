@@ -19,21 +19,22 @@ async function FrontendResources() {
 					frontend."
 			/>
 			<div className={styles["bottom-spacer"] + " row"}>
-				{resources.map(
-					({ _id, title, description, link, logo, background }) => (
+				{resources.map(({ _id, title, description, link, logo }) => {
+					const plainText =
+						description[0]?.children?.map((c: any) => c.text).join("") || "";
+
+					return (
 						<div className={styles.column + " col"} key={_id}>
 							<ResourceCard
+								key={_id}
 								title={title}
-								description={<PortableText value={description} />}
-								stickerSrc={urlImageBuilder(client).image(logo).url()}
-								islandBackground={urlImageBuilder(client)
-									.image(background)
-									.url()}
-								links={[{ text: "Reference", link: link }]}
+								description={plainText}
+								image={urlImageBuilder(client).image(logo).url()}
+								links={[{ text: "API Reference", link }]}
 							/>
 						</div>
-					),
-				)}
+					);
+				})}
 			</div>
 		</div>
 	);

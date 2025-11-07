@@ -11,3 +11,18 @@ $container-padding: 6rem;
 		}
 	}
 }
+.resources {
+	background: url("~@/assets/background/resources/stars.png"),
+		url("~@/assets/background/resources/front-mountains.png"),
+		url("~@/assets/background/resources/back-mountains.png"),
+		radial-gradient(101.83% 44.96% at 50% 50%, #172750 0%, #121c32 100%);
+
+	background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+	background-size: cover, cover, cover, cover;
+	background-position:
+		center top,
+		center 50vh,
+		center 30vh,
+		center;
+	padding-bottom: 2rem;
+}

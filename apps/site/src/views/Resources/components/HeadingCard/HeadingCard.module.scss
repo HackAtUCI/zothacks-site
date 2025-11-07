@@ -10,40 +10,41 @@ $item-padding-x: 3rem;
 $heading-font-size: 1.75rem;
 
 .card {
-	background-color: theme.$white;
-	border: 6px solid theme.$white;
-	box-shadow: inset 0 0 0 6px theme.$black;
-	border-radius: 16px;
-
-	padding: $mobile-item-padding-y $mobile-item-padding-x;
-
 	display: flex;
+	flex-direction: column;
 	align-items: center;
-}
-
-.bang {
-	display: none;
-	margin-right: $mobile-item-padding-x - 0.4375;
+	justify-content: center;
+	width: 100%;
+	max-width: 900px;
+	margin: 0 auto;
+	height: auto;
+	gap: 10px;
+	padding: 20px;
 }
 
 .title {
-	font-size: $heading-font-size;
-	font-weight: 600;
-	color: theme.$light-blue;
+	font-family: "Reddit Mono", monospace;
+	font-weight: 800;
+	font-style: normal;
+	font-size: 25px;
+	line-height: 180%;
+	letter-spacing: 2%;
+	text-align: center;
+	color: rgba(202, 202, 202, 1);
 }
 
 .description {
-	margin: 0;
-	font-weight: 500;
+	font-family: "Reddit Mono", monospace;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 180%;
+	letter-spacing: 0.02em;
+	text-align: center;
+	color: rgba(153, 177, 203, 1);
 }
 
 @include utils.media-breakpoint-up(md) {
 	.card {
 		padding: $item-padding-y $item-padding-x;
-	}
-
-	.bang {
-		display: block;
-		margin-right: $item-padding-x - 0.4375;
 	}
 }

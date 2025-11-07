@@ -1,7 +1,8 @@
 "use client";
-import Image from "next/image";
-import { Variants, motion, AnimatePresence, cubicBezier } from "framer-motion";
-import openNewWindow from "@/assets/icons/open-new-window.svg";
+import React from "react";
+import { motion, AnimatePresence, cubicBezier, Variants } from "framer-motion";
+import Link from "next/link";
+
 import styles from "./ResourceCard.module.scss";
 
 type Tag = {
@@ -11,28 +12,23 @@ type Tag = {
 
 interface ResourceCardProps {
 	title: string;
-	description: JSX.Element;
-	stickerSrc?: string;
-	links: Tag[];
-	islandBackground: string;
+	description: string | React.ReactNode;
+	image: string;
+	links?: Tag[];
 }
 
 const variant: Variants = {
 	initial: {
-		scale: 1.1,
+		scale: 1.05,
 		opacity: 0,
-		rotateX: 20,
 		translateY: 30,
 	},
 	animate: {
 		scale: 1,
-		rotateX: 0,
 		opacity: 1,
 		translateY: 0,
 		transition: {
-			duration: 0.85,
-			staggerChildren: 0.1,
-			staggerDirection: -1,
+			duration: 0.8,
 			ease: cubicBezier(0.33, 1, 0.68, 1),
 		},
 	},
@@ -41,74 +37,55 @@ const variant: Variants = {
 export default function ResourceCard({
 	title,
 	description,
-	stickerSrc,
-	links,
-	islandBackground,
+	image,
+	links = [],
 }: ResourceCardProps) {
+	const mainLink = links.length > 0 ? links[0].link : null;
+
+	const renderedDescription =
+		typeof description === "string" ? (
+			<>
+				{description.includes(title) ? (
+					<>
+						<span className={styles.bold}>{title}</span>
+						{description.replace(title, "")}
+					</>
+				) : (
+					description
+				)}
+			</>
+		) : (
+			description
+		);
+
+	const content = (
+		<motion.div
+			className={styles.frame}
+			initial="initial"
+			whileInView="animate"
+			viewport={{ once: true }}
+			variants={variant}
+			whileHover={{ scale: 1.03 }}
+		>
+			<motion.img src={image} alt={`${title} logo`} className={styles.logo} />
+			<p className={styles.text}>{renderedDescription}</p>
+		</motion.div>
+	);
+
 	return (
 		<AnimatePresence mode="wait">
-			<motion.div className={styles.CardContainer}>
-				<motion.img
-					src={islandBackground}
-					alt="island"
-					initial="initial"
-					viewport={{ once: true }}
-					whileInView="animate"
-					className={styles.islandBackground}
-					variants={variant}
-				/>
-				<motion.div
-					variants={variant}
-					initial="initial"
-					whileInView="animate"
-					viewport={{ once: true }}
-					className={styles.group}
+			{mainLink ? (
+				<Link
+					href={mainLink}
+					target="_blank"
+					rel="noopener noreferrer"
+					className={styles.cardLinkWrapper}
 				>
-					<div className={styles.container + " text-center px-3"}>
-						{stickerSrc && (
-							<motion.img
-								src={stickerSrc}
-								alt="Resource logo"
-								className={styles.buttonImage}
-								variants={variant}
-							/>
-						)}
-						<h3>
-							{links && links[0] ? (
-								<motion.a
-									href={links[0].link}
-									target="_blank"
-									rel="noopener noreferrer"
-									className={styles.titleLink}
-								>
-									{title}
-								</motion.a>
-							) : (
-								title
-							)}{" "}
-							{links.map(({ text, link }) => (
-								<motion.a
-									className={"d-inline ms-1 vertical-align-middle"}
-									variants={variant}
-									key={link}
-									href={link}
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-									<Image
-										className={styles.titleLinkIcon}
-										src={openNewWindow}
-										width="20"
-										height="20"
-										alt="Open link in new window"
-									/>
-								</motion.a>
-							))}
-						</h3>
-						<div className={styles.description}>{description}</div>
-					</div>
-				</motion.div>
-			</motion.div>
+					{content}
+				</Link>
+			) : (
+				content
+			)}
 		</AnimatePresence>
 	);
 }

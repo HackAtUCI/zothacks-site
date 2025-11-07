@@ -6,9 +6,12 @@
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	margin-top: 15vh;
-	margin-bottom: 5vh;
-	text-align: left;
+	min-height: 100vh;
+	margin: 0;
+}
+.header {
+	color: rgba(202, 202, 202, 1);
+	font-size: clamp(2.5rem, 5vw, 4rem);
 }
 
 .title {
@@ -17,7 +20,7 @@
 
 @include bootstrap.media-breakpoint-up(lg) {
 	.landing {
-		margin-top: 200px;
+		min-height: 90vh;
 		margin-bottom: 300px;
 	}
 }
