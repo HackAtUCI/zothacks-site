@@ -1,9 +1,9 @@
 "use client";
-import { motion, AnimatePresence, cubicBezier, Variants } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
-import styles from "./ResourceCard.module.scss";
 import React from "react";
+import { motion, AnimatePresence, cubicBezier, Variants } from "framer-motion";
+import Link from "next/link";
+
+import styles from "./ResourceCard.module.scss";
 
 type Tag = {
 	text: string;
@@ -67,8 +67,7 @@ export default function ResourceCard({
 			variants={variant}
 			whileHover={{ scale: 1.03 }}
 		>
-			<img src={image} alt={`${title} logo`} className={styles.logo} />
-
+			<motion.img src={image} alt={`${title} logo`} className={styles.logo} />
 			<p className={styles.text}>{renderedDescription}</p>
 		</motion.div>
 	);
