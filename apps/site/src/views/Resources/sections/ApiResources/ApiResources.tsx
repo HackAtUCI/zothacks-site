@@ -26,13 +26,13 @@ async function ApiResources() {
 
 					return (
 						<div className={styles.column + " col"} key={_id}>
-						<ResourceCard
-							key={_id}
-							title={title}
-							description={plainText}
-							image={builder.image(logo).url()}
-							links={[{ text: "API Reference", link }]}
-						/>
+							<ResourceCard
+								key={_id}
+								title={title}
+								description={plainText}
+								image={builder.image(logo).url()}
+								links={[{ text: "API Reference", link }]}
+							/>
 						</div>
 					);
 				})}
