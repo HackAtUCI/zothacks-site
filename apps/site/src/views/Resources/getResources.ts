@@ -50,7 +50,7 @@ const Resources = z.array(
 export const getResources = cache(async (resourceType: string) => {
 	return Resources.parse(
 		await client.fetch(
-			`*[_type == 'resource' && resourceType == '${resourceType}']`,
+			`*[_type == 'resource' && resourceType == '${resourceType}'] | order(lower(title) asc)`,
 		),
 	);
 });
