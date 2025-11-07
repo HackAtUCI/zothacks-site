@@ -18,13 +18,13 @@ async function BackendResources() {
 					connect to other API and database vendors to fit your project's
 					needs."
 			/>
-			<div className={styles["bottom-spacer"] + " row"}>
+			<div className={styles["bottom-spacer"]}>
 				{resources.map(({ _id, title, description, link, logo }) => {
 					const plainText =
 						description[0]?.children?.map((c: any) => c.text).join("") || "";
 
 					return (
-						<div className={styles.column + " col"} key={_id}>
+						<div className={styles.column} key={_id}>
 							<ResourceCard
 								key={_id}
 								title={title}

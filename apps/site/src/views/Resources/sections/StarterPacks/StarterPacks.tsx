@@ -17,13 +17,13 @@ async function StarterPacks() {
 				description="Various starter packs to start you off on your coding journeys at
 					ZotHacks, featuring a variety of technologies and tech stacks!"
 			/>
-			<div className={styles["bottom-spacer"] + " row"}>
+			<div className={styles["bottom-spacer"]}>
 				{resources.map(({ _id, title, description, link, logo }) => {
 					const plainText =
 						description[0]?.children?.map((c: any) => c.text).join("") || "";
 
 					return (
-						<div className={styles.column + " col"} key={_id}>
+						<div className={styles.column} key={_id}>
 							<ResourceCard
 								key={_id}
 								title={title}
