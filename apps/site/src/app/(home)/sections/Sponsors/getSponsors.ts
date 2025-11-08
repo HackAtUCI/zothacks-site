@@ -4,20 +4,22 @@ import { client } from "@/lib/sanity/client";
 import { SanityDocument, SanityImageReference } from "@/lib/sanity/types";
 
 const Sponsors = SanityDocument.extend({
-	sponsors: z.array(
-		z.object({
-			_type: z.literal("sponsor"),
-			_key: z.string(),
-			name: z.string(),
-			url: z.string().url().optional(),
-			tier: z.union([
-				z.literal("bronze"),
-				z.literal("silver"),
-				z.literal("gold"),
-			]),
-			logo: SanityImageReference,
-		}),
-	),
+	sponsors: z
+		.array(
+			z.object({
+				_type: z.literal("sponsor"),
+				_key: z.string(),
+				name: z.string(),
+				url: z.string().url().optional(),
+				tier: z.union([
+					z.literal("bronze"),
+					z.literal("silver"),
+					z.literal("gold"),
+				]),
+				logo: SanityImageReference,
+			}),
+		)
+		.default([]),
 });
 
 export const getSponsors = cache(async () => {
