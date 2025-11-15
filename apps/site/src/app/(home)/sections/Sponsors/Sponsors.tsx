@@ -14,7 +14,7 @@ const Sponsors = async () => {
 	return (
 		<Container as="section">
 			<h2 className={styles.title}>Sponsors</h2>
-			<div className={styles.logos}>
+			<div className={styles.sponsorsLogos}>
 				{hasSponsors
 					? sponsors.sponsors.map(({ _key, name, url, logo, tier }) => (
 							<a
