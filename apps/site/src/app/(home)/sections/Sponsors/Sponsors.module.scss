@@ -15,9 +15,9 @@
 	}
 }
 
-.logos {
+.sponsorsLogos {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	align-items: center;
 	gap: 1.5rem;
 	max-width: 1200px;
@@ -30,7 +30,6 @@
 }
 
 .logo {
-	// background-color: theme.$white;
 	border-radius: 8px;
 	display: flex;
 	align-items: center;
