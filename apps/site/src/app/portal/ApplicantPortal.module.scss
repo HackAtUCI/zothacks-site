@@ -1,0 +1,35 @@
+@use "zothacks-theme" as theme;
+
+.container {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
+	background: url("~@/assets/background/mountains-background.png");
+	font-family: var(--next-font-reddit-mono), monospace;
+	padding: 150px 0 100px 0;
+
+	* {
+		font-weight: 600;
+	}
+
+	h1 {
+		color: theme.$white;
+		font-size: 4rem;
+	}
+
+	p {
+		font-weight: 400;
+		letter-spacing: 1px;
+	}
+
+	.wrapper {
+		max-width: 600px;
+		margin: 0 40px;
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+}
