@@ -1,0 +1,13 @@
+@use "zothacks-theme" as theme;
+
+.statusWrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	width: 100%;
+
+	h2 {
+		font-size: 2.5rem;
+		color: theme.$white;
+	}
+}

@@ -1,0 +1,30 @@
+@use "zothacks-theme" as theme;
+
+.dark {
+	background-color: rgba(theme.$dark-green, 0.69);
+}
+
+.light {
+	background-color: rgba(theme.$light-green, 0.69);
+}
+
+.indicator {
+	border: 5px solid theme.$dark-green;
+	border-radius: 30px;
+	padding: 30px 40px;
+	width: 100%;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 1.3rem;
+	color: theme.$off-white;
+
+	p {
+		margin: 0;
+	}
+}
+
+.icon {
+	margin-left: 30px;
+}
