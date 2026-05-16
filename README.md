@@ -1,4 +1,4 @@
-# zothacks-site-2023
+# zothacks-site
 
 ## Overview
 
@@ -69,4 +69,4 @@ To develop an individual app or package, first navigate to the corresponding dir
 
 This repo is currently source available, but not licensed under an open source license. This may be subject to change in the future.
 
-Copyright © 2023 Hack at UCI
+Copyright © Hack at UCI
