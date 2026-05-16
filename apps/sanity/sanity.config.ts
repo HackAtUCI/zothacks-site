@@ -8,7 +8,7 @@ import { HeartHandshake, BadgeHelp, Handshake } from "lucide-react";
 
 export default defineConfig({
 	name: "default",
-	title: "zothacks-site-2023",
+	title: "ZotHacks",
 
 	projectId: "tz8iut6e",
 	dataset: "production",
