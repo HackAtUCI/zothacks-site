@@ -1,8 +1,0 @@
-<svg preserveAspectRatio="none" width="1132" height="240" viewBox="0 0 1132 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g>
-<path d="M0.999878 231H1123V0.999998L998.227 17.7993L913.877 10.2874L812.058 30.5012L649.846 10.2874L566.993 17.7993L422.251 23.9454L328.917 0.999998L244.567 30.5012L153.229 10.2874L104.316 30.5012L0.999878 0.999998L0.999878 231Z" fill="#F7FBFF"/>
-</g>
-<line y1="-2.5" x2="1122.01" y2="-2.5" transform="matrix(1 0 0 -1 0.996338 89)" stroke="#FF3750" stroke-opacity="0.5" stroke-width="5"/>
-<line y1="-1.5" x2="1122.01" y2="-1.5" transform="matrix(1 0 0 -1 0.990967 171)" stroke="#81DEEB" stroke-opacity="0.2" stroke-width="3"/>
-<line y1="-1.5" x2="1122.01" y2="-1.5" transform="matrix(1 0 0 -1 1 231)" stroke="#81DEEB" stroke-opacity="0.2" stroke-width="3"/>
-</svg>
