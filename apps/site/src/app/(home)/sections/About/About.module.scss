@@ -26,17 +26,6 @@
 	color: theme.$baby-blue;
 }
 
-// Made this for testing purposes to test on About, feel free to delete later - josh
-.aboutWindowText {
-	margin: 0;
-	padding: 1rem;
-	font-family: var(--next-font-reddit-mono), monospace;
-	font-size: 16px;
-	line-height: 1.6;
-	color: theme.$black;
-	text-align: left;
-}
-
 .characters {
 	display: flex;
 	justify-content: space-between;
