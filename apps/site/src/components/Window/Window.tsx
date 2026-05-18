@@ -57,15 +57,20 @@ const Window = ({
 					</div>
 				</div>
 
-				{isEdit && (
-					<nav className={styles.editMenu} aria-hidden>
-						<span>File</span>
-						<span>Edit</span>
-						<span>Insert</span>
-					</nav>
-				)}
-
-				<div className={styles.body}>
+				<div className={clsx(styles.body, isEdit && styles.bodyWithMenu)}>
+					{isEdit && (
+						<nav className={styles.editMenu} aria-hidden>
+							<span>
+								<span className={styles.menuKey}>F</span>ile
+							</span>
+							<span>
+								<span className={styles.menuKey}>E</span>dit
+							</span>
+							<span>
+								<span className={styles.menuKey}>I</span>nsert
+							</span>
+						</nav>
+					)}
 					<div
 						className={clsx(
 							useChildBackground ? styles.childPanel : styles.childContent,

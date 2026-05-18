@@ -22,7 +22,7 @@ const About = () => {
 	return (
 		<section className={styles.about}>
 			<div className={styles.content}>
-				<Window title="What is ZotHacks?" useChildBackground>
+				<Window title="What is ZotHacks?" useChildBackground isEdit>
 					<p className={styles.aboutWindowText} style={{ backgroundColor: "white" }}>
 						ZotHacks is a 12-hour hackathon designed for beginners where students
 						with minimal computer science experience will learn to build their
