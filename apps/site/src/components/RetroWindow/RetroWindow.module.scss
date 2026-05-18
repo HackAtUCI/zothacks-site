@@ -3,7 +3,7 @@
 $window-gray: #e2e2e0;
 $child-border: #ababad;
 
-.window {
+.root {
 	width: 100%;
 }
 
@@ -27,7 +27,7 @@ $child-border: #ababad;
 	color: theme.$white;
 	font-family: var(--next-font-reddit-mono), monospace;
 	font-size: 14px;
-    padding-left: 0.3rem;
+	padding-left: 0.3rem;
 	line-height: 1.2;
 	white-space: nowrap;
 	overflow: hidden;

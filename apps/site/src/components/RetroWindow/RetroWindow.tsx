@@ -1,14 +1,14 @@
 import clsx from "clsx";
 import React, { PropsWithChildren } from "react";
 
-import styles from "./Window.module.scss";
+import styles from "./RetroWindow.module.scss";
 
 /**
  * Retro window shell: title bar, optional menu bar, main body, optional footer row.
  *
  * `children` (from `PropsWithChildren`) is the main body content.
  */
-export interface WindowProps extends PropsWithChildren {
+export interface RetroWindowProps extends PropsWithChildren {
 	/** When true, shows the “File Edit Insert” menu bar (visual only). */
 	isEdit?: boolean;
 	/** Text shown in the blue gradient title bar. */
@@ -30,16 +30,16 @@ export interface WindowProps extends PropsWithChildren {
 	useChild2Background?: boolean;
 }
 
-const Window = ({
+const RetroWindow = ({
 	title,
 	children,
 	isEdit = false,
 	useChildBackground = false,
 	secondChild,
 	useChild2Background = false,
-}: WindowProps) => {
+}: RetroWindowProps) => {
 	return (
-		<div className={styles.window}>
+		<div className={styles.root}>
 			<div className={styles.mainContainer}>
 				<div className={styles.gradientHeader}>
 					<span className={styles.title}>{title}</span>
@@ -106,4 +106,4 @@ const Window = ({
 	);
 };
 
-export default Window;
+export default RetroWindow;
