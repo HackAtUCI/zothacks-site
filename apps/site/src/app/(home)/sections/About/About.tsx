@@ -12,7 +12,6 @@ import LogShading from "@/assets/background/landing/Log_shading.png";
 import Log from "@/assets/background/landing/Log.png";
 import LogTexture from "@/assets/background/landing/Log_texture.png";
 import Tent from "@/assets/background/landing/Tent.png";
-import RetroWindow from "@/components/RetroWindow/RetroWindow";
 
 import styles from "./About.module.scss";
 
@@ -20,17 +19,16 @@ const About = () => {
 	return (
 		<section className={styles.about}>
 			<div className={styles.content}>
-				<RetroWindow title="What is ZotHacks?" framedContent>
-					<p className={styles.aboutWindowText} style= {{ background: "white"}}>
-						ZotHacks is a 12-hour hackathon designed for beginners where students
-						with minimal computer science experience will learn to build their
-						first CS project. Through ZotHacks, we introduce these students to the
-						world of hackathons and web development by providing technical
-						workshops, dedicated mentors for every team, and free food! We
-						encourage applicants from all backgrounds, including underrepresented
-						minorities, majors, or genders to apply!
-					</p>
-				</RetroWindow>
+				<h3 className={styles.aboutTitle}>What is ZotHacks?</h3>
+				<p className={styles.aboutText}>
+					ZotHacks is a 12-hour hackathon designed for beginners where students
+					with minimal computer science experience will learn to build their
+					first CS project. Through ZotHacks, we introduce these students to the
+					world of hackathons and web development by providing technical
+					workshops, dedicated mentors for every team, and free food! We
+					encourage applicants from all backgrounds, including underrepresented
+					minorities, majors, or genders to apply!
+				</p>
 			</div>
 			{/* Characters + call-to-action text/buttons */}
 			<div className={styles.characters}>
