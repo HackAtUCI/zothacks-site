@@ -43,7 +43,7 @@ $item-padding-x: 3rem;
 	& > * > * {
 		font-weight: 400;
 		color: white;
-		font-family: var(--next-font-reddit-mono), monospace;
+		font-family: var(--font-inter);
 		font-size: 0.9rem;
 	}
 }
@@ -55,7 +55,7 @@ $item-padding-x: 3rem;
 	color: #cacaca;
 	margin-top: 15px;
 	padding: 1.5rem 2rem;
-	font-family: var(--next-font-reddit-mono), monospace;
+	font-family: var(--font-inter);
 	font-size: 0.9rem;
 	font-weight: 400;
 
@@ -65,7 +65,7 @@ $item-padding-x: 3rem;
 		color: #cacaca;
 		letter-spacing: 0.03em;
 		line-height: 2;
-		font-family: var(--next-font-reddit-mono), monospace;
+		font-family: var(--font-inter);
 		font-size: 1rem;
 	}
 }
@@ -81,13 +81,13 @@ $item-padding-x: 3rem;
 	font-size: 1.6rem;
 	margin-bottom: 1rem;
 	letter-spacing: 0.03em;
-	font-family: var(--next-font-reddit-mono), monospace;
+	font-family: var(--font-inter);
 }
 
 .faq-subtitle {
 	color: #99b1cb;
 	margin: 0;
-	font-family: var(--next-font-reddit-mono), monospace;
+	font-family: var(--font-inter);
 	font-weight: 400;
 	font-size: 1rem;
 	align-self: center;

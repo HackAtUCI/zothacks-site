@@ -1,99 +1,15 @@
-@use "bootstrap-utils" as bootstrap;
 @use "zothacks-theme" as theme;
 
-$container-padding: 8rem;
-
-// Design Tokens
+// Shared design tokens
 :root {
-	// Gradients
-	// Figma "Gradient Blue" for primary page background (hacker app flow, portal)
 	--gradient-blue: linear-gradient(180deg, #03036d 0%, #487db5 100%);
-	// Figma window title bars
-	--gradient-title-bar: linear-gradient(90deg, #0a1074 0%, #487db5 100%);
-	// Landing + Schedule radial background
-	--gradient-page-radial: radial-gradient(
-		105.24% 56.33% at 50% 50%,
-		#233e7d 0%,
-		#101a30 100%
-	);
-	// FAQ + main site dark background
-	--gradient-dark: linear-gradient(180deg, #0d1321 77.73%, #070a11 100%);
-	// Mentor and apply pages
-	--gradient-mentor: linear-gradient(
-		135deg,
-		rgba(27, 36, 67, 1) 0%,
-		rgba(60, 80, 147, 1) 50%,
-		rgba(42, 80, 75, 1) 100%
-	);
-
-	// Colors: Blues
-	--color-navy: #03036d; // Figma darkest page bg
-	--color-blue-mid: #487db5; // Figma medium blue
-	--color-blue-btn: #2054b9; // Figma CTA buttons (Continue, Submit, Sign Waiver)
-	--color-navbar: #215fda; // Figma navbar background
-	--color-tab-blue: #3873ce; // Figma footer tab buttons
-
-	// Colors: Dark backgrounds (existing site)
-	--color-dark-sky: #{theme.$dark-sky}; // #0f152b — app page bg
-	--color-dark-blue: #{theme.$dark-blue}; // #1b2443 — landing apply button bg
-
-	// Colors: Greens (existing site)
-	--color-dark-green: #{theme.$dark-green}; // #2a504b — primary green accent
-	--color-light-green: #{theme.$light-green}; // #61876d — lighter green / hover
-	--color-turquoise: #{theme.$turquoise}; // #53b7ab — mentor accent
-
-	// Colors: Neutrals
-	--color-white: #ffffff;
-	--color-off-white: #{theme.$off-white}; // #cacaca — primary text
-	--color-baby-blue: #{theme.$baby-blue}; // #99b1cb — secondary text / links
-
-	// Colors: Figma modal / form surfaces
-	--color-modal-bg: #d5d5d5; // Figma modal outer frame
-	--color-form-bg: #f1f1f1; // Figma portal page background
-	--color-input-bg: #d7d7d7; // Figma form input field backgrounds
-
-	// Colors: Status badges (Figma portal)
-	--color-status-waitlist: #ffb900; // amber — waitlisted
-	--color-status-rejected: #8d0000; // dark red — rejected
-
-	// Typography: Font families
-	--font-mono: var(--next-font-reddit-mono), monospace; // site body font
-	--font-pixel: "DotGothic16", sans-serif; // Figma: hacker app / portal UI
-	--font-brand: "Pixelify Sans", sans-serif; // Figma: "Hack at UCI" branding
-
-	// Typography: Font sizes (rem scale)
-	--font-size-xs: 0.75rem; // 12px
-	--font-size-sm: 0.875rem; // 14px
-	--font-size-base: 1rem; // 16px
-	--font-size-lg: 1.125rem; // 18px
-	--font-size-xl: 1.25rem; // 20px
-	--font-size-2xl: 1.5rem; // 24px
-	--font-size-3xl: 1.875rem; // 30px
-	--font-size-4xl: 2.25rem; // 36px
-
-	// Spacing
-	--container-padding: #{$container-padding};
-
-	// Border radii
-	--radius-sm: 8px;
-	--radius-md: 16px;
-	--radius-lg: 25px;
-	--radius-pill: 40px;
-	--radius-full: 50%;
-
-	// Shadows
-	--shadow-sm: 0 4px 4px rgba(0, 0, 0, 0.25);
-	--shadow-md: 0 8px 24px rgba(0, 0, 0, 0.25);
-
-	// Transitions
-	--transition-base: all 0.3s ease;
-	--transition-fast: all 0.2s ease;
+	--font-inter: var(--next-font-inter), sans-serif;
+	--font-pixel: var(--next-font-dotgothic16), sans-serif;
 }
 
 // Global styles
-
 .background {
-	background: var(--gradient-dark);
+	background: linear-gradient(180deg, #0d1321 77.73%, #070a11 100%);
 }
 
 .accordion {
@@ -103,12 +19,6 @@ $container-padding: 8rem;
 	--bs-accordion-border-color: transparent;
 	--bs-accordion-border-radius: 0;
 	--bs-accordion-btn-icon-width: 14px;
-}
-
-section.container {
-	// responsive padding
-	@include bootstrap.padding-top($container-padding);
-	@include bootstrap.padding-bottom($container-padding);
 }
 
 html {
