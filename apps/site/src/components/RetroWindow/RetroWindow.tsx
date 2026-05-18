@@ -92,9 +92,7 @@ const RetroWindow = ({
 					{secondChild != null && (
 						<div
 							className={clsx(
-								useChild2Background
-									? styles.childPanel
-									: styles.secondChild,
+								useChild2Background ? styles.childPanel : styles.secondChild,
 							)}
 						>
 							{secondChild}
