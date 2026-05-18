@@ -14,6 +14,11 @@ export interface RetroWindowProps extends PropsWithChildren {
 	showEditBar?: boolean;
 	/** Text shown in the blue gradient title bar. */
 	title: string;
+	/**
+	 * When true, wraps the main `children` in the bordered panel; the child sets its
+	 * own background (e.g. white). When false, children sit on the default gray (#E2E2E0).
+	 */
+	framedContent?: boolean;
 	/** Optional row above the main content, e.g. tabs, filters, or tools. */
 	toolbar?: React.ReactNode;
 	/** Optional row below the main content, e.g. status text or actions. */
@@ -24,6 +29,7 @@ const RetroWindow = ({
 	title,
 	children,
 	showEditBar = false,
+	framedContent = false,
 	toolbar,
 	footer,
 }: RetroWindowProps) => {
@@ -73,7 +79,14 @@ const RetroWindow = ({
 
 					{toolbar != null && <div className={styles.toolbar}>{toolbar}</div>}
 
-					<div className={styles.content}>{children}</div>
+					<div
+						className={clsx(
+							styles.content,
+							framedContent && styles.contentFrame,
+						)}
+					>
+						{children}
+					</div>
 
 					{footer != null && <div className={styles.footer}>{footer}</div>}
 				</div>

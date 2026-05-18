@@ -1,6 +1,7 @@
 @use "zothacks-theme" as theme;
 
 $window-gray: #e2e2e0;
+$content-border: #ababad;
 
 .root {
 	width: 100%;
@@ -149,6 +150,12 @@ $control-size: 20px;
 
 .content {
 	padding: 0.25rem 0.5rem;
+}
+
+.contentFrame {
+	border: 2.52px solid $content-border;
+	background: transparent;
+	overflow: hidden;
 }
 
 .footer {
