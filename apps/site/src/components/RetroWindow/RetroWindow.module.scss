@@ -2,6 +2,7 @@
 
 $window-gray: #e2e2e0;
 $content-border: #ababad;
+$content-background: #ffffff;
 
 .root {
 	width: 100%;
@@ -154,7 +155,7 @@ $control-size: 20px;
 
 .contentFrame {
 	border: 2.52px solid $content-border;
-	background: transparent;
+	background: $content-background;
 	overflow: hidden;
 }
 
