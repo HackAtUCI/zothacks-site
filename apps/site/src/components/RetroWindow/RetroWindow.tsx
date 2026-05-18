@@ -4,39 +4,28 @@ import React, { PropsWithChildren } from "react";
 import styles from "./RetroWindow.module.scss";
 
 /**
- * Retro window shell: title bar, optional menu bar, main body, optional footer row.
+ * Retro window shell: title bar, optional menu bar, optional toolbar,
+ * main body, and optional footer row.
  *
  * `children` (from `PropsWithChildren`) is the main body content.
  */
 export interface RetroWindowProps extends PropsWithChildren {
 	/** When true, shows the “File Edit Insert” menu bar (visual only). */
-	isEdit?: boolean;
+	showEditBar?: boolean;
 	/** Text shown in the blue gradient title bar. */
 	title: string;
-	/**
-	 * When true, wraps the main `children` in the bordered panel; the child sets its
-	 * own background (e.g. white). When false, children sit on the default gray (#E2E2E0).
-	 */
-	useChildBackground?: boolean;
-	/**
-	 * Optional row below the main child (e.g. toolbar), on the window gray unless
-	 * `useChild2Background` is true.
-	 */
-	secondChild?: React.ReactNode;
-	/**
-	 * When true with `secondChild`, applies the same bordered panel treatment as
-	 * `useChildBackground` for the second row (rare; e.g. home background picker).
-	 */
-	useChild2Background?: boolean;
+	/** Optional row above the main content, e.g. tabs, filters, or tools. */
+	toolbar?: React.ReactNode;
+	/** Optional row below the main content, e.g. status text or actions. */
+	footer?: React.ReactNode;
 }
 
 const RetroWindow = ({
 	title,
 	children,
-	isEdit = false,
-	useChildBackground = false,
-	secondChild,
-	useChild2Background = false,
+	showEditBar = false,
+	toolbar,
+	footer,
 }: RetroWindowProps) => {
 	return (
 		<div className={styles.root}>
@@ -67,8 +56,8 @@ const RetroWindow = ({
 					</div>
 				</div>
 
-				<div className={clsx(styles.body, isEdit && styles.bodyWithMenu)}>
-					{isEdit && (
+				<div className={clsx(styles.body, showEditBar && styles.bodyWithMenu)}>
+					{showEditBar && (
 						<nav className={styles.editMenu} aria-hidden>
 							<span>
 								<span className={styles.menuKey}>F</span>ile
@@ -81,22 +70,15 @@ const RetroWindow = ({
 							</span>
 						</nav>
 					)}
-					<div
-						className={clsx(
-							useChildBackground ? styles.childPanel : styles.childContent,
-						)}
-					>
-						{children}
-					</div>
 
-					{secondChild != null && (
-						<div
-							className={clsx(
-								useChild2Background ? styles.childPanel : styles.secondChild,
-							)}
-						>
-							{secondChild}
-						</div>
+					{toolbar != null && (
+						<div className={styles.toolbar}>{toolbar}</div>
+					)}
+
+					<div className={styles.content}>{children}</div>
+
+					{footer != null && (
+						<div className={styles.footer}>{footer}</div>
 					)}
 				</div>
 			</div>
