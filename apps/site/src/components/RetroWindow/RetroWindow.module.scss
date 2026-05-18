@@ -39,7 +39,7 @@ $control-highlight: #ffffff;
 $control-highlight-inner: #dfdfdf;
 $control-shadow: #000000;
 $control-shadow-inner: #808080;
-$control-size: 16px;
+$control-size: 20px;
 
 .controls {
 	display: flex;
@@ -87,8 +87,8 @@ $control-size: 16px;
 .minimizeIcon {
 	position: absolute;
 	left: 50%;
-	bottom: 3px;
-	width: 8px;
+	bottom: 4px;
+	width: 10px;
 	height: 2px;
 	transform: translateX(-50%);
 	background-color: $control-shadow;
@@ -96,10 +96,10 @@ $control-size: 16px;
 
 .maximizeIcon {
 	position: absolute;
-	top: 3px;
+	top: 4px;
 	left: 50%;
-	width: 9px;
-	height: 9px;
+	width: 11px;
+	height: 11px;
 	transform: translateX(-50%);
 	box-sizing: border-box;
 	border: 1px solid $control-shadow;
