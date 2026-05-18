@@ -71,15 +71,11 @@ const RetroWindow = ({
 						</nav>
 					)}
 
-					{toolbar != null && (
-						<div className={styles.toolbar}>{toolbar}</div>
-					)}
+					{toolbar != null && <div className={styles.toolbar}>{toolbar}</div>}
 
 					<div className={styles.content}>{children}</div>
 
-					{footer != null && (
-						<div className={styles.footer}>{footer}</div>
-					)}
+					{footer != null && <div className={styles.footer}>{footer}</div>}
 				</div>
 			</div>
 		</div>
