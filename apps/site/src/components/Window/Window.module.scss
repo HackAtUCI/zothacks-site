@@ -1,1 +1,150 @@
 @use "zothacks-theme" as theme;
+
+$window-gray: #e2e2e0;
+$child-border: #ababad;
+
+.window {
+	width: 100%;
+}
+
+.mainContainer {
+	border: 1.68px solid theme.$white;
+	background-color: $window-gray;
+	box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.35);
+	overflow: hidden;
+}
+
+.gradientHeader {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.75rem;
+	padding: 0.35rem 0.5rem;
+	background: linear-gradient(90deg, #03036d 0%, #487db5 100%);
+}
+
+.title {
+	color: theme.$white;
+	font-family: var(--next-font-reddit-mono), monospace;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1.2;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+$control-face: #c6c6c6;
+$control-highlight: #ffffff;
+$control-highlight-inner: #dfdfdf;
+$control-shadow: #000000;
+$control-shadow-inner: #808080;
+$control-size: 16px;
+
+.controls {
+	display: flex;
+	flex-shrink: 0;
+	gap: 2px;
+}
+
+.windowControl {
+	flex-shrink: 0;
+	padding: 0;
+	border: none;
+	background: transparent;
+	cursor: default;
+	line-height: 0;
+}
+
+// Layered borders: inner on the element, outer on ::before (inset -1px)
+.controlBevel {
+	position: relative;
+	display: block;
+	width: $control-size;
+	height: $control-size;
+	box-sizing: border-box;
+	background-color: $control-face;
+	border-style: solid;
+	border-width: 1px;
+	// Inner bevel — light top/left, dark bottom/right
+	border-color: $control-highlight-inner $control-shadow-inner
+		$control-shadow-inner $control-highlight-inner;
+	image-rendering: pixelated;
+
+	&::before {
+		content: "";
+		position: absolute;
+		inset: -1px;
+		border-style: solid;
+		border-width: 1px;
+		// Outer bevel — white top/left, black bottom/right
+		border-color: $control-highlight $control-shadow $control-shadow
+			$control-highlight;
+		pointer-events: none;
+	}
+}
+
+.minimizeIcon {
+	position: absolute;
+	left: 50%;
+	bottom: 3px;
+	width: 8px;
+	height: 2px;
+	transform: translateX(-50%);
+	background-color: $control-shadow;
+}
+
+.maximizeIcon {
+	position: absolute;
+	top: 3px;
+	left: 50%;
+	width: 9px;
+	height: 9px;
+	transform: translateX(-50%);
+	box-sizing: border-box;
+	border: 1px solid $control-shadow;
+	background-color: transparent;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 2px;
+		background-color: $control-shadow;
+	}
+}
+
+.editMenu {
+	display: flex;
+	gap: 1rem;
+	padding: 0.25rem 0.75rem;
+	background-color: $window-gray;
+	border-bottom: 1px solid #ababab;
+	font-family: var(--next-font-reddit-mono), monospace;
+	font-size: 13px;
+	color: theme.$black;
+}
+
+.body {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	padding: 0.75rem;
+	background-color: $window-gray;
+}
+
+.childPanel {
+	border: 2.52px solid $child-border;
+	background: transparent;
+	overflow: hidden;
+}
+
+.childContent {
+	padding: 0.25rem 0.5rem;
+}
+
+.secondChild {
+	padding: 0 0.25rem;
+}
