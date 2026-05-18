@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Reddit_Mono } from "next/font/google";
+import { DotGothic16, Inter } from "next/font/google";
 
 import NavbarParent from "@/components/NavBar/NavBarParent";
 import Footer from "@/components/Footer/Footer";
@@ -16,16 +16,16 @@ export const metadata: Metadata = {
 	},
 };
 
-const dmSans = DM_Sans({
+const inter = Inter({
 	weight: ["400", "500", "600", "700"],
 	subsets: ["latin"],
-	variable: "--next-font-dm-sans",
+	variable: "--next-font-inter",
 });
 
-const redditMono = Reddit_Mono({
-	weight: ["400", "600", "800"],
+const dotGothic16 = DotGothic16({
+	weight: "400",
 	subsets: ["latin"],
-	variable: "--next-font-reddit-mono",
+	variable: "--next-font-dotgothic16",
 });
 
 export default function RootLayout({
@@ -34,7 +34,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en" className={redditMono.variable}>
+		<html lang="en" className={`${inter.variable} ${dotGothic16.variable}`}>
 			<body className="background">
 				<NavbarParent />
 				<main>{children}</main>

@@ -1,24 +1,24 @@
-@use "bootstrap-utils" as bootstrap;
+@use "zothacks-theme" as theme;
 
-$container-padding: 8rem;
+// Shared design tokens
+:root {
+	--gradient-blue: linear-gradient(180deg, #03036d 0%, #487db5 100%);
+	--font-inter: var(--next-font-inter), sans-serif;
+	--font-pixel: var(--next-font-dotgothic16), sans-serif;
+}
 
+// Global styles
 .background {
 	background: linear-gradient(180deg, #0d1321 77.73%, #070a11 100%);
 }
 
 .accordion {
-	--bs-accordion-active-color: theme.$black;
+	--bs-accordion-active-color: #{theme.$black};
 	--bs-accordion-bg: transparent;
 	--bs-accordion-active-bg: transparent;
 	--bs-accordion-border-color: transparent;
 	--bs-accordion-border-radius: 0;
 	--bs-accordion-btn-icon-width: 14px;
-}
-
-section.container {
-	// responsive padding
-	@include bootstrap.padding-top($container-padding);
-	@include bootstrap.padding-bottom($container-padding);
 }
 
 html {
