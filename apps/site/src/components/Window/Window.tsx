@@ -3,22 +3,33 @@ import React, { PropsWithChildren } from "react";
 
 import styles from "./Window.module.scss";
 
+/**
+ * Retro window shell: title bar, optional menu bar, main body, optional footer row.
+ *
+ * `children` (from `PropsWithChildren`) is the main body content.
+ */
 export interface WindowProps extends PropsWithChildren {
+	/** When true, shows the “File Edit Insert” menu bar (visual only). */
 	isEdit?: boolean;
+	/** Text shown in the blue gradient title bar. */
 	title: string;
+	/**
+	 * When true, wraps the main `children` in the bordered panel; the child sets its
+	 * own background (e.g. white). When false, children sit on the default gray (#E2E2E0).
+	 */
 	useChildBackground?: boolean;
+	/**
+	 * Optional row below the main child (e.g. toolbar), on the window gray unless
+	 * `useChild2Background` is true.
+	 */
 	secondChild?: React.ReactNode;
+	/**
+	 * When true with `secondChild`, applies the same bordered panel treatment as
+	 * `useChildBackground` for the second row (rare; e.g. home background picker).
+	 */
 	useChild2Background?: boolean;
 }
 
-// Props:
-//  isEdit: bool -- has edit header e.g. File, Edit Insert (visual only)
-//  title: string -- title of the window
-//  children: PropsWithChildren -- main child component
-//  useChildBackground: bool -- bordered panel; child supplies its own background (e.g. white, black)
-//  secondChild: PropsWithChildren -- optional child component that is outside the main background
-//  useChild2Background: bool -- bordered panel for secondChild; child supplies its own background
-//    ^ lowk only used for the home page background changing window
 const Window = ({
 	title,
 	children,
@@ -29,7 +40,6 @@ const Window = ({
 }: WindowProps) => {
 	return (
 		<div className={styles.window}>
-			{/* Main Content */}
 			<div className={styles.mainContainer}>
 				<div className={styles.gradientHeader}>
 					<span className={styles.title}>{title}</span>
