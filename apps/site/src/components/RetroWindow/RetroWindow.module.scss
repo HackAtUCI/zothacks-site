@@ -26,7 +26,7 @@ $content-background: #ffffff;
 
 .title {
 	color: theme.$white;
-	font-family: var(--next-font-reddit-mono), monospace;
+	font-family: var(--font-pixel), monospace;
 	font-size: 14px;
 	padding-left: 0.3rem;
 	line-height: 1.2;
@@ -121,7 +121,7 @@ $control-size: 20px;
 	display: flex;
 	gap: 1rem;
 	padding-top: 0.6rem;
-	font-family: var(--next-font-reddit-mono), monospace;
+	font-family: var(--font-pixel), monospace;
 	font-size: 13px;
 	line-height: 1;
 	color: theme.$black;

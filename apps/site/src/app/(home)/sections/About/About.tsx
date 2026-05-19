@@ -5,7 +5,6 @@ import LeftCharacter from "@/assets/images/LeftCharacter.png";
 import RightCharacter from "@/assets/images/RightCharacter.png";
 import Flashlight from "@/assets/images/flashlight.png";
 import Light from "@/assets/images/light.png";
-import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 import GrassPatch from "@/assets/background/landing/grass-patch.png";
 import CampBase from "@/assets/background/landing/Camp_base.png";
 import LogShading from "@/assets/background/landing/Log_shading.png";
@@ -56,10 +55,10 @@ const About = () => {
 						alt="Log texture"
 						className={styles.logTexture}
 					/>
-					{/* <div className={styles.prompt}>
+					<div className={styles.prompt}>
 						<p>Want to develop your first project?</p>
-						<PrimaryButton href="/apply">Apply to be a hacker</PrimaryButton>
-					</div> */}
+						<a href="/apply">Apply to be a hacker</a>
+					</div>
 				</div>
 
 				<div className={`${styles.side} ${styles.rightSide}`}>

@@ -1,8 +1,20 @@
 @use "zothacks-theme" as theme;
 
-// Shared design tokens
+// Global CSS variables
 :root {
-	--gradient-blue: linear-gradient(180deg, #03036d 0%, #487db5 100%);
+	--blue-gradient: linear-gradient(180deg, #03036d 0%, #487db5 100%);
+	--radial-gradient-blue: radial-gradient(
+		circle,
+		#f1f1f1 0%,
+		#c5d8ed 35%,
+		#a3c4e9 65%,
+		#5697e2 100%
+	);
+	--green-gradient: radial-gradient(circle, #05dc05 0%, #152e14 100%);
+	--schedule-gray: #d9d9d9;
+	--input-gray: #d7d7d7;
+	--scrollbar-gray: #808080;
+	--vibrant-blue: #215fda;
 	--font-inter: var(--next-font-inter), sans-serif;
 	--font-pixel: var(--next-font-dotgothic16), sans-serif;
 }
