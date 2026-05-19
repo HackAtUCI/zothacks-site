@@ -1,10 +1,10 @@
 import { Maintenance } from "@/views";
-import ApplyLanding from "./ApplyLanding";
+import HackerApplication from "../HackerApplication";
 
 export const revalidate = 60;
 
 const Component = process.env.MAINTENANCE_MODE_APPLICATION
 	? Maintenance
-	: ApplyLanding;
+	: HackerApplication;
 
 export default Component;

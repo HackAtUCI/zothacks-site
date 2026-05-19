@@ -3,7 +3,6 @@
 import Image from "next/image";
 
 import Title from "./Title";
-import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 import Moon from "@/assets/background/landing/moon.svg";
 import Trees from "@/assets/background/landing/main-trees.svg";
 

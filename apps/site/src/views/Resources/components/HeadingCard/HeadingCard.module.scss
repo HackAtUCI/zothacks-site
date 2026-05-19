@@ -23,7 +23,7 @@ $heading-font-size: 1.75rem;
 }
 
 .title {
-	font-family: "Reddit Mono", monospace;
+	font-family: var(--font-inter);
 	font-weight: 800;
 	font-style: normal;
 	font-size: 25px;
@@ -34,7 +34,7 @@ $heading-font-size: 1.75rem;
 }
 
 .description {
-	font-family: "Reddit Mono", monospace;
+	font-family: var(--font-inter);
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 180%;
