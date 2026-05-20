@@ -3,6 +3,10 @@
 $container-padding: 6rem;
 
 .home {
+	min-height: 100vh;
+	background: url("~@/assets/background/aldrich-park-background.jpg") center /
+		cover fixed;
+
 	h2 {
 		text-align: center;
 	}
