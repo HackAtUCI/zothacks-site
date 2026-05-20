@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import RetroWindow from "@/components/RetroWindow/RetroWindow";
+import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 import Title from "./Title";
 import InfoIcon from "@/assets/images/info-icon.png";
 import styles from "./Landing.module.scss";
@@ -35,6 +36,20 @@ const Landing = () => {
 										@ University of California, Irvine
 									</p>
 								</div>
+							</div>
+						</RetroWindow>
+					</div>
+
+					<div className={styles.appsWindow}>
+						<RetroWindow title="System Message">
+							<div className={styles.appsContent}>
+								<p className={styles.infoText}>Apps due October 2nd</p>
+								<PrimaryButton
+									href="#hacker-application"
+									className={styles.applyButton}
+								>
+									Apply Now
+								</PrimaryButton>
 							</div>
 						</RetroWindow>
 					</div>

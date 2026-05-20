@@ -90,22 +90,12 @@
 }
 
 .applyButton {
+	width: 199px;
+	height: 40px;
 	z-index: 10;
 }
 
-.moon {
-	position: absolute;
-	right: 4vw;
-	width: 100px;
 
-	@include bootstrap.media-breakpoint-up(lg) {
-		width: 300px;
-	}
-
-	@include bootstrap.media-breakpoint-up(md) {
-		width: 150px;
-	}
-}
 
 .mainWindow {
 	position: absolute;
@@ -121,13 +111,27 @@
 	width: 491px;
 }
 
+.appsWindow {
+	position: absolute;
+	top: 379px;
+	left: 842px;
+	width: 289px;
+}
+
+.appsContent {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 1rem;
+}
+
 .infoContent {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	gap: 1rem;
 	margin: auto;
-	padding: 1rem 0.5rem;
+	padding: 0.8rem 0.5rem 2.3rem;
 }
 
 .infoIcon {
