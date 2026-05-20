@@ -109,6 +109,18 @@
 	max-width: 590px;
 }
 
+.infoContent {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	padding: 1rem;
+}
+
+.date {
+	width: 100%;
+	height: auto;
+}
+
 .trees {
 	position: absolute;
 	width: 100vw;

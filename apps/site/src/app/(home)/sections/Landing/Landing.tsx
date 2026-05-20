@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import RetroWindow from "@/components/RetroWindow/RetroWindow";
 import Title from "./Title";
+import Date from "@/assets/images/zothacks-date.svg";
 import styles from "./Landing.module.scss";
 
 const Landing = () => {
@@ -15,6 +17,16 @@ const Landing = () => {
 						framedContent
 					>
 						<Title />
+					</RetroWindow>
+
+					<RetroWindow title="Info">
+						<div className={styles.infoContent}>
+							<Image
+								src={Date}
+								alt="Date and location"
+								className={styles.date}
+							/>
+						</div>
 					</RetroWindow>
 				</div>
 			</section>

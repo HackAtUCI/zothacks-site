@@ -16,9 +16,9 @@ export default function Title() {
 			className={styles.titleWrapper}
 		>
 			<Image
-				src ={zothacks_logo}
-				alt = "ZotHacks 2026 Logo"
-				className = {styles.logo}
+				src={zothacks_logo}
+				alt="ZotHacks 2026 Logo"
+				className={styles.logo}
 			/>
 			<Image
 				src={zothacks_title}
