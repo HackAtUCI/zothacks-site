@@ -36,9 +36,9 @@ export default function RootLayout({
 	return (
 		<html lang="en" className={`${inter.variable} ${dotGothic16.variable}`}>
 			<body className="background">
-				<NavbarParent />
+				{/* <NavbarParent /> */}
 				<main>{children}</main>
-				<Footer />
+				{/* <Footer /> */}
 			</body>
 		</html>
 	);

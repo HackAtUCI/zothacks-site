@@ -43,12 +43,9 @@ const Landing = () => {
 					<div className={styles.appsWindow}>
 						<RetroWindow title="System Message">
 							<div className={styles.appsContent}>
-								<p className={styles.infoText}>Apps due October 2nd</p>
-								<PrimaryButton
-									href="#hacker-application"
-									className={styles.applyButton}
-								>
-									Apply Now
+								<p className={styles.infoText}>Apps open in the Fall</p>
+								<PrimaryButton className={styles.applyButton} disabled>
+									Coming Soon
 								</PrimaryButton>
 							</div>
 						</RetroWindow>
