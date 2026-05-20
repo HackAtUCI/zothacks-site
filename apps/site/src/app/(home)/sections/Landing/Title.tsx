@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import zothacks_title from "@/assets/images/zothacks-title.svg";
+import zothacks_logo from "@/assets/images/zothacks-logo.png";
 import styles from "./Title.module.scss";
 
 export default function Title() {
@@ -15,11 +16,15 @@ export default function Title() {
 			className={styles.titleWrapper}
 		>
 			<Image
+				src ={zothacks_logo}
+				alt = "ZotHacks 2026 Logo"
+				className = {styles.logo}
+			/>
+			<Image
 				src={zothacks_title}
-				alt="ZotHacks 2025 Title"
+				alt="ZotHacks 2026 Title"
 				className={styles.title}
 			/>
-			<h1 className={styles.date}>November 7th-9th, 2025</h1>
 		</motion.div>
 	);
 }
