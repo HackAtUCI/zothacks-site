@@ -10,24 +10,24 @@ const Landing = () => {
 	return (
 		<div className={styles.backgroundWrapper}>
 			<section className={styles.landing}>
-				<div className={styles.mainWindow}>
-					<RetroWindow
-						title="Irvine's Beginner Hackathon"
-						showEditBar
-						framedContent
-					>
-						<Title />
-					</RetroWindow>
+				<div className={styles.windowsContainer}>
+					<div className={styles.mainWindow}>
+						<RetroWindow
+							title="Irvine's Beginner Hackathon"
+							showEditBar
+							framedContent
+						>
+							<Title />
+						</RetroWindow>
+					</div>
 
-					<RetroWindow title="Info">
-						<div className={styles.infoContent}>
-							<Image
-								src={Date}
-								alt="Date and location"
-								className={styles.date}
-							/>
-						</div>
-					</RetroWindow>
+					<div className={styles.infoWindow}>
+						<RetroWindow title="Info">
+							<div className={styles.infoContent}>
+								<Image src={Date} alt="Date" className={styles.date} />
+							</div>
+						</RetroWindow>
+					</div>
 				</div>
 			</section>
 		</div>
