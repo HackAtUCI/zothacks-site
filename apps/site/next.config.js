@@ -60,12 +60,12 @@ const nextConfig = {
 			},
 			{
 				source: "/mentor",
-				destination: "",
+				destination: "/",
 				permanent: false,
 			},
 			{
 				source: "/incident",
-				destination: "",
+				destination: "/",
 				permanent: false,
 			},
 		];
