@@ -123,14 +123,27 @@
 
 .infoContent {
 	display: flex;
+	flex-direction: row;
 	align-items: center;
 	gap: 1rem;
-	padding: 1rem;
+	margin: auto;
+	padding: 1rem 0.5rem;
 }
 
-.date {
-	width: 100%;
-	height: auto;
+.infoIcon {
+	width: 75px;
+	height: 77px;
+	flex-shrink: 0;
+}
+
+.infoText {
+	font-family: var(--font-pixel);
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 1;
+	letter-spacing: 0;
+	color: #1c1c1c;
+	white-space: nowrap;
 }
 
 .trees {

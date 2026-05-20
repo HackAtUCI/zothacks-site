@@ -3,7 +3,7 @@
 import Image from "next/image";
 import RetroWindow from "@/components/RetroWindow/RetroWindow";
 import Title from "./Title";
-import Date from "@/assets/images/zothacks-date.svg";
+import InfoIcon from "@/assets/images/info-icon.png";
 import styles from "./Landing.module.scss";
 
 const Landing = () => {
@@ -24,7 +24,17 @@ const Landing = () => {
 					<div className={styles.infoWindow}>
 						<RetroWindow title="Info">
 							<div className={styles.infoContent}>
-								<Image src={Date} alt="Date" className={styles.date} />
+								<Image
+									src={InfoIcon}
+									alt="Info icon"
+									className={styles.infoIcon}
+								/>
+								<div>
+									<p className={styles.infoText}>October16th - October18th</p>
+									<p className={styles.infoText}>
+										@ University of California, Irvine
+									</p>
+								</div>
 							</div>
 						</RetroWindow>
 					</div>
