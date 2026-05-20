@@ -6,6 +6,7 @@ const nextConfig = {
 	sassOptions: {
 		includePaths: [path.join(__dirname, "src", "lib", "styles")],
 	},
+	/* TODO: Remove redirects once we have the new site up and running */
 	async redirects() {
 		return [
 			{
