@@ -23,6 +23,15 @@
 	width: 100%;
 	max-width: 1440px;
 	height: 100vh;
+
+	@include bootstrap.media-breakpoint-down(lg) {
+		height: auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+		padding: 2rem 1rem;
+	}
 }
 
 .mainWindow {
@@ -30,6 +39,12 @@
 	top: 158px;
 	left: 221px;
 	width: 590px;
+
+	@include bootstrap.media-breakpoint-down(lg) {
+		position: static;
+		width: 90%;
+		max-width: 590px;
+	}
 }
 
 .infoWindow {
@@ -37,6 +52,12 @@
 	top: 238px;
 	left: 726px;
 	width: 491px;
+
+	@include bootstrap.media-breakpoint-down(lg) {
+		position: static;
+		width: 90%;
+		max-width: 491px;
+	}
 }
 
 .infoContent {
@@ -62,6 +83,10 @@
 	letter-spacing: 0;
 	color: #1c1c1c;
 	white-space: nowrap;
+
+	@include bootstrap.media-breakpoint-down(lg) {
+		white-space: normal;
+	}
 }
 
 .appsWindow {
@@ -69,6 +94,12 @@
 	top: 379px;
 	left: 842px;
 	width: 289px;
+
+	@include bootstrap.media-breakpoint-down(lg) {
+		position: static;
+		width: 90%;
+		max-width: 289px;
+	}
 }
 
 .appsContent {
