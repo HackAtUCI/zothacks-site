@@ -24,78 +24,6 @@
 	max-width: 1440px;
 	height: 100vh;
 }
-.title {
-	font-size: 120px;
-	font-weight: 700;
-	color: theme.$white;
-	line-height: 1;
-	letter-spacing: 0;
-	text-align: center;
-	margin: 0 auto;
-	max-width: 90%;
-	z-index: 2;
-
-	@include bootstrap.media-breakpoint-down(lg) {
-		width: auto;
-		font-size: 80px;
-		top: 25vh;
-	}
-
-	@include bootstrap.media-breakpoint-down(md) {
-		font-size: 70px;
-		top: 25vh;
-		width: 80%;
-		line-height: 1.1;
-	}
-
-	@include bootstrap.media-breakpoint-down(sm) {
-		font-size: 60px;
-		top: 15vh;
-		width: 90%;
-		line-height: 1.1;
-	}
-}
-
-.subtitle {
-	font-size: 48px;
-	font-weight: 700;
-	color: theme.$white;
-	line-height: 1;
-	text-align: center;
-	letter-spacing: 0;
-	margin: 0 auto;
-	z-index: 2;
-
-	@include bootstrap.media-breakpoint-down(lg) {
-		width: auto;
-		font-size: 36px;
-		top: 40vh;
-	}
-
-	@include bootstrap.media-breakpoint-down(md) {
-		font-size: 32px;
-		top: 42vh;
-		width: 75%;
-		max-width: 500px;
-		line-height: 1.2;
-	}
-
-	@include bootstrap.media-breakpoint-down(sm) {
-		font-size: 24px;
-		top: 35vh;
-		width: 90%;
-		height: auto;
-		line-height: 1.2;
-	}
-}
-
-.applyButton {
-	width: 199px;
-	height: 40px;
-	z-index: 10;
-}
-
-
 
 .mainWindow {
 	position: absolute;
@@ -109,20 +37,6 @@
 	top: 238px;
 	left: 726px;
 	width: 491px;
-}
-
-.appsWindow {
-	position: absolute;
-	top: 379px;
-	left: 842px;
-	width: 289px;
-}
-
-.appsContent {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 1rem;
 }
 
 .infoContent {
@@ -150,21 +64,22 @@
 	white-space: nowrap;
 }
 
-.trees {
+.appsWindow {
 	position: absolute;
-	width: 100vw;
-	height: auto;
-	bottom: -15px;
+	top: 379px;
+	left: 842px;
+	width: 289px;
+}
 
-	@include bootstrap.media-breakpoint-up(sm) {
-		bottom: -50px;
-	}
+.appsContent {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 1rem;
+}
 
-	@include bootstrap.media-breakpoint-up(md) {
-		bottom: -100px;
-	}
-
-	@include bootstrap.media-breakpoint-up(lg) {
-		bottom: -150px;
-	}
+.applyButton {
+	width: 199px;
+	height: 40px;
+	z-index: 10;
 }
