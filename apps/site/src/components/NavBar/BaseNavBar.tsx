@@ -19,8 +19,8 @@ export default function BaseNavBar({ children }: PropsWithChildren) {
 
 	return (
 		<div className={`${styles.nav} fixed-top`}>
-			<Navbar variant="dark" expand="sm" className={`${styles.navbar}`}>
-				<Container fluid>
+			<Navbar variant="dark" expand="sm" className={`${styles.navbar} py-0`}>
+				<Container>
 					<Navbar.Brand href="/" as={Link}>
 						<div className={styles.logo}>
 							<Image src={ZotHacksLogo.src} alt="Hacks Logo" fill />
@@ -33,7 +33,9 @@ export default function BaseNavBar({ children }: PropsWithChildren) {
 							<NavLinkItem href="/">Home</NavLinkItem>
 							<NavLinkItem href="/resources">Resources</NavLinkItem>
 							<NavLinkItem href="/schedule">Schedule</NavLinkItem>
-							<NavLinkItem href="/incident">Incident Form</NavLinkItem>
+							<NavLinkItem href="/incident">
+								Incident Form
+							</NavLinkItem>
 							{/* <NavLinkItem href="#" target="_blank">
 								DevPost
 							</NavLinkItem> */}

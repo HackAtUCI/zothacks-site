@@ -5,21 +5,20 @@
 	align-items: center;
 	justify-content: center;
 
-	border-radius: 40px;
-	background: #26403d;
-	border: 5px solid #2a504b;
+	background: var(--cobalt-green);
+	box-shadow: 3px 2px 4px rgba(255, 255, 255, 0.25) inset;
+	font-family: var(--font-pixel);
 	color: #fff;
 	font-size: 16px;
 	font-weight: 400;
 	text-decoration: none;
-	transition: all 0.3s ease;
 
 	&:hover {
-		background: theme.$light-green;
-		box-shadow:
-			0 0 12px rgba(42, 80, 75, 0.7),
-			0 0 24px rgba(42, 80, 75, 0.4);
-		transform: scale(1.05);
+		background: #49a844;
+	}
+	&:active {
+		background: #3b7a38;
+		box-shadow: 4px 3px 5px rgba(0, 0, 0, 0.25) inset;
 	}
 }
 

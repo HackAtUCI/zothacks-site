@@ -25,7 +25,7 @@ export default function NavBar({ identity }: NavbarProps) {
 					</PrimaryButton>
 				) : (
 					<PrimaryButton href="/login" variant="small">
-						Log In
+						Login
 					</PrimaryButton>
 				)}
 			</BaseNavBar>
