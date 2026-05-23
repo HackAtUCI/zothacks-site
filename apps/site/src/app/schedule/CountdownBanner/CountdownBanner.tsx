@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import hourglass from "@/assets/icons/hourglass.svg"
-import styles from "./CountdownBanner.module.css";
+import styles from "./CountdownBanner.module.scss";
 
 const CountdownBanner: React.FC = () => {
     const [timeLeft, setTimeLeft] = useState("12:00:00");
