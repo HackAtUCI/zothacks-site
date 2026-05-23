@@ -3,11 +3,8 @@
 import { redirect } from "next/navigation";
 
 import useUserIdentity from "@/lib/utils/useUserIdentity";
-import { Status } from "@/lib/userRecord";
 
 import ConfirmationPage from "./ConfirmationPage";
-
-const rolesArray = ["Mentor", "Hacker", "Volunteer"];
 
 function Portal() {
 	const identity = useUserIdentity();
@@ -21,7 +18,7 @@ function Portal() {
 	if (status === null) {
 		redirect("/apply");
 	} else {
-		return <ConfirmationPage />;
+		return <ConfirmationPage status={status} />;
 	}
 }
 
