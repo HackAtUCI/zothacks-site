@@ -1,0 +1,8 @@
+<svg width="128" height="166" viewBox="0 0 128 166" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M60 83.5L9 10L118.5 10L71 83.5" stroke="black" stroke-width="3"/>
+<path d="M60.5 82L9 156H118.5L70.5 82" stroke="black" stroke-width="3"/>
+<line y1="161" x2="128" y2="161" stroke="black" stroke-width="10"/>
+<line y1="5" x2="128" y2="5" stroke="black" stroke-width="10"/>
+<path d="M65.5 80L86.5 48.5H44.5L65.5 80Z" fill="black"/>
+<path d="M65.5 117.5L103.5 148.5H26L65.5 117.5Z" fill="black"/>
+</svg>
