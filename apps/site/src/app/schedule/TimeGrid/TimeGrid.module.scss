@@ -1,0 +1,128 @@
+@use "bootstrap-utils" as utils;
+
+$yellow-pattern:
+    linear-gradient(45deg, #D9D9D9 25%, transparent 25%),
+    linear-gradient(-45deg, #D9D9D9 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #D9D9D9 75%),
+    linear-gradient(-45deg, transparent 75%, #D9D9D9 75%);
+
+.timeGrid {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    //overflow: hidden;
+    flex: 1;
+}
+.gridBody {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: visible;
+    flex: 1;
+}
+
+.gridRow {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    overflow: visible;
+    cursor: pointer;
+    min-height: clamp(4.5rem, 10vh, 7rem);
+}
+
+.gridRow:last-child {
+    .timeCell,
+    .eventCell {
+        border-bottom: none;
+    }
+}
+
+.timeCell {
+    flex: 0 0 clamp(5rem, 20vw, 7rem);
+    min-height: 100%;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black; 
+    background: var(--schedule-gray);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+}
+
+.hour {
+    font-family: var(--font-pixel);
+    font-size: clamp(1rem, 2rem, 2.6rem);
+}
+
+.minutes {
+    font-family: var(--font-pixel);
+    font-size: clamp(0.5rem, 1.5rem, 2rem);
+    line-height: 1;
+}
+
+.minutesStack{
+    display: flex;
+    flex-direction: column;
+}
+
+.eventCell {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0.75rem;
+    background-color: #ffff04;
+    background-image: $yellow-pattern;
+    background-size: 4px 4px;
+    background-position: 0 0, 0 2px, 2px -2px, -2px 0px;
+    border-bottom: 1px dashed black;
+}
+
+.eventLink {
+    font-family: var(--font-pixel);
+    font-size: clamp(0.75rem, 1.5vw, 1rem);
+    color: #000;
+    cursor: pointer;
+}
+
+.eventLinkSelected {
+    @extend .eventLink;
+    text-decoration: underline;
+}
+
+// Double border illusion for selected row
+.gridRowSelected {
+    position: relative;
+    z-index: 5;
+}
+
+.gridRowSelected::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: white;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.gridRowSelected::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 2px;
+    background: white;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.gridRowSelected {
+    box-shadow: 0 2px 0 0 white;
+}
