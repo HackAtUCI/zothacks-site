@@ -7,13 +7,13 @@
     justify-content: center;
     align-items: center;
 
-    border: 3px solid black;
-    padding: 3rem;
-    gap: 1.5rem;
+    padding: clamp(1.5rem, 4vw, 3rem);
+    gap: clamp(1rem, 3vw, 1.5rem);
     font-family: var(--font-pixel);
+    border: 3px solid black;
     box-shadow: 0px 4px 4px 0px #00000040 inset;
 
-    width: 90%;
+    width: min(90%, 1000px);
     box-sizing: border-box;
     overflow: hidden;
 
@@ -23,9 +23,6 @@
         align-items: center;
         justify-content: center;
         text-align: center;
-        width: 100%;
-        padding: 3rem 0.5rem;
-        gap: 1rem;
         border-width: 1.5px;
         box-shadow: 0 1.8px 4px 1.5px #00000040 inset;
     }
@@ -33,18 +30,9 @@
 
 
 .hourglassIcon {
-    width: 5.5rem;
-    height: 7rem;
+    width: 90%;
+    height: 90%;
     object-fit: contain;
-
-    @include utils.media-breakpoint-down(md) {
-        width: 5rem;
-        height: 6.5rem;
-    }
-    @include utils.media-breakpoint-down(sm) {
-        width: 4rem;
-        height: 5.25rem;
-    }
 }
 
 .hourglassWrapper {
@@ -52,27 +40,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 10rem;
-    height: 10rem;
+    width: clamp(7rem, 18vw, 10rem);
+    height: clamp(7rem, 18vw, 10rem);
     flex-shrink: 0;
-    padding: 4rem;
+    padding: 1rem;
     border: 3px solid black;
     box-shadow: 0px 4px 4px 0px #00000040;
     box-sizing: border-box;
 
     @include utils.media-breakpoint-down(md){
-        width: 8rem;
-        height: 8rem;
-        padding: 1rem;
-    }
-    @include utils.media-breakpoint-down(sm){
-        width: 7rem;
-        height: 7rem;
-        padding: 1rem;
         border-width: 1.5px;
         box-shadow: 0 1.8px 1.8px 0 #00000040;
     }
 
+    // Create the double border effect
     &::before {
         content: "";
         position: absolute;
@@ -80,6 +61,7 @@
         left: 0;
         right: 0;
         bottom: 0;
+        border-top: 3px solid white; 
         border-left: 3px solid white;
         pointer-events: none;
     }
@@ -105,19 +87,14 @@
 }
 
 .countdownText p {
-    font-size: 2.75rem;
+    font-size: clamp(1.75rem, 3.25vw, 4.5rem);
     font-weight: 100;
     margin: 0;
     line-height: 1.2;
     text-shadow: 0px 4px 4px #00000040;
 
-    @include utils.media-breakpoint-down(md) {
-        font-size: 2.5rem;
-    }
     @include utils.media-breakpoint-down(sm) {
-        font-size: 2rem;
         text-shadow: 0 1.8px 1.8px #00000040;
-
     }
 }
 
