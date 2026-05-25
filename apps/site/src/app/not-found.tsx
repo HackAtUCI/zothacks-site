@@ -18,7 +18,7 @@ export default function NotFoundPage() {
 							className={styles.icon}
 						/>
 
-						<h4>404 Error</h4>
+						<h4 className={styles.heading}>404 Error</h4>
 						<h5 className={styles["sub-heading"]}>This page was not found</h5>
 
 					</div>

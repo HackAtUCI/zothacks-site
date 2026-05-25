@@ -14,6 +14,10 @@
 	text-align: center;
 	line-height: 1.5;
 	width: 40vw;
+
+	@media (max-width: 768px) {
+		width: 90vw;
+	}
 }
 
 .main-content {
@@ -21,17 +25,35 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	font-family: var(--font-pixel);
 	padding: 0.6rem;
-	gap: 1rem;
-	font-family: var(--font-pixel)
+	gap: 1.5rem;
+
+	@media (max-width: 768px) {
+		padding: 0.6em 0.4rem;
+		gap: 1rem;
+	}
 }
 
 .icon {
-	width: 20%;
-	max-width: 240px;
+	width: 30%;
+	max-width: 100px;
 	height: auto;
+}
+
+.heading {
+	font-size: 2rem;
+
+	@media (max-width: 768px) {
+		font-size: 1.5rem;
+	}
 }
 
 .sub-heading {
 	font-weight: 400;
+	font-size: 1.5rem;
+
+	@media (max-width: 768px) {
+		font-size: 1.3rem;
+	}
 }
