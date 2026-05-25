@@ -1,13 +1,13 @@
 @use "bootstrap-utils" as bootstrap;
 
 .scheduleContainer {
-	padding-top: 100px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	gap: 50px;
-	padding-top: 80px;
+	gap: 50px;	
+	padding-top: 50px;
+	padding-bottom: 50px;
 	padding-left: 20px;
 	padding-right: 20px;
 
@@ -50,5 +50,102 @@
 	@include bootstrap.media-breakpoint-down(sm) {
 		width: 280px;
 		height: 280px;
+	}
+}
+
+.schedulePanel {
+	display: flex;
+    flex-direction: row;
+	align-items: stretch;
+	min-height: 0;
+
+	@include bootstrap.media-breakpoint-down(md) {
+		flex-direction: column; 
+		align-items: center;
+		justify-content: center;
+		gap: 3vw;
+	}
+}
+.scheduleContent {
+	display: flex;
+    flex-direction: column;
+    flex: 1;
+	align-items: stretch;
+	min-height: 0;
+
+	padding: 3vw;
+	background-color: var(--schedule-gray);
+	border: 3px solid black;
+	box-shadow: 
+		0px 3px 0px 0px white, 
+		0px 4px 3px 0px #00000040
+	;
+
+	@include bootstrap.media-breakpoint-down(md) {
+		border: none;
+		background-color: transparent;
+		box-shadow: none;
+	}
+}
+
+.scheduleInfo{
+	display: flex;
+	flex-direction: row;
+	flex: 1;
+	min-height: 0;
+	gap: 0;
+	padding: 0;
+	align-items: stretch;
+
+	@include bootstrap.media-breakpoint-down(md) {
+		flex-direction: column-reverse;
+		align-items: center;
+		justify-content: center;
+		gap: 3vw;
+
+	}
+}
+
+.scheduleHeader {
+	display: flex;
+	flex: row;
+	font-family: var(--font-pixel);
+	border: 2px solid black;
+	border-bottom: none;
+	@include bootstrap.media-breakpoint-down(md) {
+		display: none;
+	}
+}
+
+.headerTime, .headerEvents, .headerInfo {
+	padding: 1vw; 
+	text-align: center;
+}
+
+.headerTime {
+	border-right: 2px solid black;
+	width: 95px; 
+}
+.headerEvents {
+	background: linear-gradient(90deg, #03036d 0%, #487db5 100%);
+	border-right: 2px solid black;
+	color: white;
+	width: 290px;
+
+}
+
+.dayTabs {
+	@include bootstrap.media-breakpoint-down(md) {
+		padding-bottom: 0.625rem;
+		border-bottom: 3px solid black;
+	}
+}
+
+@media (max-width: 575px) {
+	.schedulePanel {
+		flex-direction: column; 
+		align-items: center;
+		justify-items: center;
+		gap: 3vw;
 	}
 }
