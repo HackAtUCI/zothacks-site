@@ -2,18 +2,17 @@
     font-family: var(--font-pixel);
     display: flex;
     flex-direction: column;
-    padding: 2vw;
 }
 
 .tab, .activeTab {
     display: flex;
-    width: 154px;
-    height: 168px;
+    width: 125px;
+    height: 125px;
     padding: 10px;
-    border-radius: 8px;
+    margin-right: -3px;
+    border-radius: 8px 0 0 8px;
     justify-content: center;
     align-items: center;
-    gap: 10px;
 }
 
 .tab {
@@ -23,32 +22,31 @@
 
 .activeTab {
     z-index: 500;
-    border-radius: 8px 0 0 8px;
-    border-top: 3px solid #000;
-    border-bottom: 3px solid #000;
     border-left: 3px solid #000;
     border-right: none;
     background: var(--schedule-gray);
     text-decoration: underline;
     box-shadow: 
         -3px 3px 0px 0px white,
-        0 4px 10px 3px rgba(0, 0, 0, 0.25)
+        -4px 4px 3px 0 #00000040
     ;
-
 }
 
-@media (max-width: 600px) {
+/* Smaller screens */
+@media (max-width: 575px) {
     .container{
         flex-direction: row;
         gap: 7px;
+        margin-bottom: 0;
     }
     .tab, .activeTab {
         height: 54px;
         width: 86px;
-        padding: 13px 30px 13px 30px;
+        padding: 13px 20px;
         flex-shrink: 0;
         border-radius: 6px;
-        border: none
+        border: none;
+        margin-right: 0;
     }
     .activeTab {
         background-color: var(--schedule-gray);
