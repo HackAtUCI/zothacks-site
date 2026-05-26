@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Image from "next/image";
 import zothacks_title from "@/assets/images/zothacks-title.svg";
 import zothacks_logo from "@/assets/images/zothacks-logo.png";
@@ -5,7 +6,15 @@ import styles from "./Title.module.scss";
 
 export default function Title() {
 	return (
-		<div className={styles.titleWrapper}>
+		<motion.div
+			initial={{ opacity: 0, scale: 0 }}
+			animate={{
+				opacity: 1,
+				scale: 1,
+			}}
+			transition={{ duration: 0.5 }}
+			className={styles.titleWrapper}
+		>
 			<Image
 				src={zothacks_logo}
 				alt="ZotHacks 2026 Logo"
@@ -16,6 +25,6 @@ export default function Title() {
 				alt="ZotHacks 2026 Title"
 				className={styles.title}
 			/>
-		</div>
+		</motion.div>
 	);
 }

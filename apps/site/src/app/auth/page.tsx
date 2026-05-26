@@ -1,10 +1,10 @@
 "use client";
 
 import { useSearchParams, useRouter } from "next/navigation";
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Auth.module.scss";
 
-function AuthCallbackContent() {
+export default function AuthCallback() {
 	const params = useSearchParams();
 	const router = useRouter();
 	const [status, setStatus] = useState("Signing you in...");
@@ -47,19 +47,5 @@ function AuthCallbackContent() {
 		<div className={styles.auth}>
 			<p>{status}</p>
 		</div>
-	);
-}
-
-export default function AuthCallback() {
-	return (
-		<Suspense
-			fallback={
-				<div className={styles.auth}>
-					<p>Signing you in...</p>
-				</div>
-			}
-		>
-			<AuthCallbackContent />
-		</Suspense>
 	);
 }
