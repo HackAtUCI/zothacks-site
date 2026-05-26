@@ -3,6 +3,7 @@ export const revalidate = 60;
 import Landing from "./sections/Landing";
 import Sponsors from "./sections/Sponsors";
 import FAQ from "./sections/FAQ";
+import BackToTop from "./sections/BackToTop";
 import Clubs from "./sections/Clubs/Clubs";
 
 import styles from "./page.module.scss";
@@ -18,6 +19,7 @@ const Home = () => {
 			<Sponsors />
 			{/* <Clubs /> */}
 			<FAQ />
+			<BackToTop />
 		</div>
 	);
 };

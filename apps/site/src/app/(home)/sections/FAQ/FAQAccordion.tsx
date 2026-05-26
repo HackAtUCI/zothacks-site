@@ -17,7 +17,9 @@ interface FAQAccordionProps {
 }
 
 const FAQAccordion = ({ faqs }: FAQAccordionProps) => {
-	const [activeKey, setActiveKey] = useState<string | null>(faqs[0]?._key ?? null);
+	const [activeKey, setActiveKey] = useState<string | null>(
+		faqs[0]?._key ?? null,
+	);
 
 	return (
 		<Accordion
@@ -26,7 +28,11 @@ const FAQAccordion = ({ faqs }: FAQAccordionProps) => {
 			onSelect={(key) => setActiveKey(typeof key === "string" ? key : null)}
 		>
 			{faqs.map(({ _key, question, answer }) => (
-				<Accordion.Item key={_key} eventKey={_key} className={styles.accordionItem}>
+				<Accordion.Item
+					key={_key}
+					eventKey={_key}
+					className={styles.accordionItem}
+				>
 					<Accordion.Header as="h3" className={styles.questionHeader}>
 						<span className={styles.questionIcon} aria-hidden>
 							<Image
