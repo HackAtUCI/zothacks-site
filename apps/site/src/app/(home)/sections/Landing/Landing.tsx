@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import RetroWindow from "@/components/RetroWindow/RetroWindow";
 import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
@@ -9,6 +10,8 @@ import InfoIcon from "@/assets/images/info-icon.png";
 import styles from "./Landing.module.scss";
 
 const Landing = () => {
+	const [bgColor, setBgColor] = useState<string>();
+
 	return (
 		<div className={styles.backgroundWrapper}>
 			<section className={styles.landing}>
@@ -18,7 +21,8 @@ const Landing = () => {
 							title="Irvine's Beginner Hackathon"
 							showEditBar
 							framedContent
-							footer={<ColorPicker />}
+							contentBackground={bgColor}
+							footer={<ColorPicker onColorSelect={setBgColor} />}
 						>
 							<Title />
 						</RetroWindow>

@@ -5,39 +5,35 @@ import { useState } from "react";
 import paintbrush from "@/assets/icons/paintbrush.svg";
 import styles from "./ColorPicker.module.scss";
 
-const PALETTE: string[][] = [
-	[
-		"#808080",
-		"#8D0000",
-		"#808000",
-		"#008200",
-		"#008281",
-		"#000086",
-		"#8D0085",
-		"#808035",
-		"#004141",
-		"#0082FF",
-	],
-	[
-		"#FF7575",
-		"#FFFF00",
-		"#00FF00",
-		"#00FFFF",
-		"#0000FF",
-		"#FF00FF",
-		"#FFFF68",
-		"#00FF70",
-		"#FFFFFF",
-		"#002248",
-	],
+const PALETTE: string[] = [
+	"#808080",
+	"#8D0000",
+	"#808000",
+	"#008200",
+	"#008281",
+	"#000086",
+	"#8D0085",
+	"#808035",
+	"#004141",
+	"#0082FF",
+	"#FF7575",
+	"#FFFF00",
+	"#00FF00",
+	"#00FFFF",
+	"#0000FF",
+	"#FF00FF",
+	"#FFFF68",
+	"#00FF70",
+	"#FFFFFF",
+	"#002248",
 ];
 
-export default function ColorPicker() {
-	const [selected, setSelected] = useState<string | null>(null);
+interface ColorPickerProps {
+	onColorSelect?: (color: string) => void;
+}
 
-	const handleSelect = (color: string) => {
-		setSelected(color);
-	};
+export default function ColorPicker({ onColorSelect }: ColorPickerProps) {
+	const [selected, setSelected] = useState<string>();
 
 	return (
 		<div className={styles.colorPicker}>
@@ -50,7 +46,7 @@ export default function ColorPicker() {
 			</div>
 
 			<div className={styles.paletteFrame}>
-				{PALETTE.flat().map((color) => (
+				{PALETTE.map((color) => (
 					<button
 						key={color}
 						type="button"
@@ -58,7 +54,7 @@ export default function ColorPicker() {
 						style={{ backgroundColor: color }}
 						aria-label={color}
 						aria-pressed={selected === color}
-						onClick={() => handleSelect(color)}
+						onClick={() => { setSelected(color); onColorSelect?.(color); }}
 					/>
 				))}
 			</div>
