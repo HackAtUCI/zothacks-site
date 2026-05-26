@@ -2,11 +2,7 @@
 
 // Global CSS variables
 :root {
-	--blue-gradient: linear-gradient(
-		180deg,
-		var(--xp-blue-dark) 0%,
-		var(--xp-blue-medium) 100%
-	);
+	--blue-gradient: linear-gradient(180deg, var(--xp-blue-dark) 0%, var(--xp-blue-medium) 100%);
 	--radial-gradient-blue: radial-gradient(
 		circle,
 		#f1f1f1 0%,
@@ -18,7 +14,7 @@
 	--schedule-gray: #d9d9d9;
 	--input-gray: #d7d7d7;
 	--scrollbar-gray: #808080;
-	--xp-blue-text: #2054b9;
+	--xp-blue-text: #2054B9;
 	--xp-blue-dark: #0a1074;
 	--xp-blue-medium: #487db5;
 	--xp-blue-primary: #215fda;
