@@ -4,6 +4,7 @@ import Image from "next/image";
 import RetroWindow from "@/components/RetroWindow/RetroWindow";
 import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 import Title from "./Title";
+import ColorPicker from "./ColorPicker";
 import InfoIcon from "@/assets/images/info-icon.png";
 import styles from "./Landing.module.scss";
 
@@ -17,6 +18,7 @@ const Landing = () => {
 							title="Irvine's Beginner Hackathon"
 							showEditBar
 							framedContent
+							footer={<ColorPicker />}
 						>
 							<Title />
 						</RetroWindow>
