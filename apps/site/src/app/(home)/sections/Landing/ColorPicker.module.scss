@@ -1,0 +1,70 @@
+@use "bootstrap-utils" as bootstrap;
+
+$color-palette-size: 25.22px;
+
+.colorPicker {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 9.25px;
+	padding: 15px 0;
+}
+
+.brushCell {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 46.23px;
+	height: 54.63px;
+	overflow: hidden;
+	flex-shrink: 0;
+	background-color: #DCDCDC;
+	box-shadow:
+		inset 1.68px 1.68px 0 #DFDFDF,
+		inset 0.84px 0.84px 0 #FFFFFF,
+		inset -1.68px -1.68px 0 #808080,
+		inset -0.84px -0.84px 0 #252525;
+}
+
+.brushIcon {
+	width: 82.37px;
+	height: 82.37px;
+	object-fit: contain;
+}
+
+.paletteFrame {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 297px;
+	gap: 4.2px;
+}
+
+.colorPalette {
+	width: $color-palette-size;
+	height: $color-palette-size;
+	padding: 0;
+	border: 0;
+	cursor: pointer;
+	outline: none;
+
+	box-shadow:
+		inset -1.68px -1.68px 0 #dfdfdf,
+		inset -0.84px -0.84px 0 #ffffff,
+		inset 1.68px 1.68px 0 #808080,
+		inset 0.84px 0.84px 0 #252525;
+
+	&[aria-pressed="true"],
+	&:active {
+		box-shadow:
+			inset 1.68px 1.68px 0 #dfdfdf,
+			inset 0.84px 0.84px 0 #ffffff,
+			inset -1.68px -1.68px 0 #808080,
+			inset -0.84px -0.84px 0 #252525;
+	}
+
+	&:focus-visible {
+		outline: 1px dotted #000000;
+		outline-offset: 1px;
+	}
+}
