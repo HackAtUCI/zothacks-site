@@ -1,16 +1,6 @@
 @use "zothacks-theme" as theme;
 @use "bootstrap-utils" as bootstrap;
 
-.backgroundWrapper {
-	background:
-		url("~@/assets/background/landing/Stars.png") repeat center center,
-		url("~@/assets/background/landing/northern-lights.png") no-repeat top center,
-		radial-gradient(105.24% 56.33% at 50% 50%, #233e7d 0%, #101a30 100%);
-
-	background-size: cover, cover, cover;
-	background-attachment: fixed, scroll, scroll, scroll;
-}
-
 .landing {
 	display: flex;
 	justify-content: center;
