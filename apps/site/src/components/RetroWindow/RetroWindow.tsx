@@ -23,8 +23,6 @@ export interface RetroWindowProps extends PropsWithChildren {
 	toolbar?: React.ReactNode;
 	/** Optional row below the main content, e.g. status text or actions. */
 	footer?: React.ReactNode;
-	/** Optional background color override for the framed content area. */
-	contentBackground?: string;
 }
 
 const RetroWindow = ({
@@ -34,7 +32,6 @@ const RetroWindow = ({
 	framedContent = false,
 	toolbar,
 	footer,
-	contentBackground,
 }: RetroWindowProps) => {
 	return (
 		<div className={styles.root}>
@@ -87,7 +84,6 @@ const RetroWindow = ({
 							styles.content,
 							framedContent && styles.contentFrame,
 						)}
-						style={{ backgroundColor: contentBackground }}
 					>
 						{children}
 					</div>

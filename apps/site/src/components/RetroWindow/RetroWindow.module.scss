@@ -21,11 +21,7 @@ $content-background: #ffffff;
 	justify-content: space-between;
 	gap: 0.75rem;
 	padding: 0.45rem 0.5rem;
-	background: linear-gradient(
-		90deg,
-		var(--xp-blue-dark) 0%,
-		var(--xp-blue-medium) 100%
-	);
+	background: linear-gradient(90deg, var(--xp-blue-dark) 0%, var(--xp-blue-medium) 100%);
 }
 
 .title {
@@ -71,7 +67,7 @@ $control-size: 20px;
 	background-color: $control-face;
 	border-style: solid;
 	border-width: 1px;
-	// Inner bevel - light top/left, dark bottom/right
+	// Inner bevel — light top/left, dark bottom/right
 	border-color: $control-highlight-inner $control-shadow-inner
 		$control-shadow-inner $control-highlight-inner;
 	image-rendering: pixelated;
@@ -82,7 +78,7 @@ $control-size: 20px;
 		inset: -1px;
 		border-style: solid;
 		border-width: 1px;
-		// Outer bevel - white top/left, black bottom/right
+		// Outer bevel — white top/left, black bottom/right
 		border-color: $control-highlight $control-shadow $control-shadow
 			$control-highlight;
 		pointer-events: none;
