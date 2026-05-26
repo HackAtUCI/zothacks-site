@@ -12,113 +12,105 @@
 }
 
 .landing {
-	position: relative;
-	min-height: 100vh;
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
-	align-items: center;
-	text-align: center;
+	min-height: 100vh;
 	z-index: 10;
 }
-.title {
-	font-size: 120px;
-	font-weight: 700;
-	color: theme.$white;
-	line-height: 1;
-	letter-spacing: 0;
-	text-align: center;
-	margin: 0 auto;
-	max-width: 90%;
-	z-index: 2;
+
+.windowsContainer {
+	position: relative;
+	width: 100%;
+	max-width: 1440px;
+	height: 100vh;
 
 	@include bootstrap.media-breakpoint-down(lg) {
-		width: auto;
-		font-size: 80px;
-		top: 25vh;
-	}
-
-	@include bootstrap.media-breakpoint-down(md) {
-		font-size: 70px;
-		top: 25vh;
-		width: 80%;
-		line-height: 1.1;
-	}
-
-	@include bootstrap.media-breakpoint-down(sm) {
-		font-size: 60px;
-		top: 15vh;
-		width: 90%;
-		line-height: 1.1;
+		height: auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+		padding: 2rem 1rem;
 	}
 }
 
-.subtitle {
-	font-size: 48px;
-	font-weight: 700;
-	color: theme.$white;
-	line-height: 1;
-	text-align: center;
-	letter-spacing: 0;
-	margin: 0 auto;
-	z-index: 2;
+.mainWindow {
+	position: absolute;
+	top: 158px;
+	left: 221px;
+	width: 590px;
 
 	@include bootstrap.media-breakpoint-down(lg) {
-		width: auto;
-		font-size: 36px;
-		top: 40vh;
-	}
-
-	@include bootstrap.media-breakpoint-down(md) {
-		font-size: 32px;
-		top: 42vh;
-		width: 75%;
-		max-width: 500px;
-		line-height: 1.2;
-	}
-
-	@include bootstrap.media-breakpoint-down(sm) {
-		font-size: 24px;
-		top: 35vh;
+		position: static;
 		width: 90%;
-		height: auto;
-		line-height: 1.2;
+		max-width: 590px;
 	}
+}
+
+.infoWindow {
+	position: absolute;
+	top: 238px;
+	left: 726px;
+	width: 491px;
+
+	@include bootstrap.media-breakpoint-down(lg) {
+		position: static;
+		width: 90%;
+		max-width: 491px;
+	}
+}
+
+.infoContent {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 1rem;
+	margin: auto;
+	padding: 0.8rem 0.5rem 2.3rem;
+}
+
+.infoIcon {
+	width: 75px;
+	height: 77px;
+	flex-shrink: 0;
+}
+
+.infoText {
+	font-family: var(--font-pixel);
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 1;
+	letter-spacing: 0;
+	color: #1c1c1c;
+	white-space: nowrap;
+
+	@include bootstrap.media-breakpoint-down(lg) {
+		white-space: normal;
+	}
+}
+
+.appsWindow {
+	position: absolute;
+	top: 379px;
+	left: 842px;
+	width: 289px;
+
+	@include bootstrap.media-breakpoint-down(lg) {
+		position: static;
+		width: 90%;
+		max-width: 289px;
+	}
+}
+
+.appsContent {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 1rem;
 }
 
 .applyButton {
+	width: 199px;
+	height: 40px;
 	z-index: 10;
-}
-
-.moon {
-	position: absolute;
-	right: 4vw;
-	width: 100px;
-
-	@include bootstrap.media-breakpoint-up(lg) {
-		width: 300px;
-	}
-
-	@include bootstrap.media-breakpoint-up(md) {
-		width: 150px;
-	}
-}
-
-.trees {
-	position: absolute;
-	width: 100vw;
-	height: auto;
-	bottom: -15px;
-
-	@include bootstrap.media-breakpoint-up(sm) {
-		bottom: -50px;
-	}
-
-	@include bootstrap.media-breakpoint-up(md) {
-		bottom: -100px;
-	}
-
-	@include bootstrap.media-breakpoint-up(lg) {
-		bottom: -150px;
-	}
 }

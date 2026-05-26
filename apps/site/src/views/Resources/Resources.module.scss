@@ -1,28 +1,24 @@
-@use "bootstrap-utils" as bootstrap;
+@use "bootstrap-utils" as utils;
 
-$container-padding: 6rem;
+.page {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--blue-gradient);
+	padding: 4rem 1.5rem;
+}
 
-.resources {
-	:global {
-		section {
-			// responsive padding
-			@include bootstrap.padding-top($container-padding);
-			@include bootstrap.padding-bottom($container-padding);
-		}
+.windowWrapper {
+	width: 700px;
+	height: 300px;
+	max-width: 100%;
+
+	@include utils.media-breakpoint-down(md) {
+		height: auto;
 	}
 }
-.resources {
-	background: url("~@/assets/background/resources/stars.png"),
-		url("~@/assets/background/resources/front-mountains.png"),
-		url("~@/assets/background/resources/back-mountains.png"),
-		radial-gradient(101.83% 44.96% at 50% 50%, #172750 0%, #121c32 100%);
 
-	background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-	background-size: cover, cover, cover, cover;
-	background-position:
-		center top,
-		center 50vh,
-		center 30vh,
-		center;
-	padding-bottom: 2rem;
+.content {
+	padding: 0.5rem 0.25rem;
 }
