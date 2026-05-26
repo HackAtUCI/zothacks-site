@@ -19,6 +19,8 @@ export interface RetroWindowProps extends PropsWithChildren {
 	 * own background (e.g. white). When false, children sit on the default gray (#E2E2E0).
 	 */
 	framedContent?: boolean;
+	/** When `framedContent` is true, controls the panel color. Defaults to `"light"`. */
+	contentTheme?: "light" | "dark";
 	/** Optional row above the main content, e.g. tabs, filters, or tools. */
 	toolbar?: React.ReactNode;
 	/** Optional row below the main content, e.g. status text or actions. */
@@ -30,6 +32,7 @@ const RetroWindow = ({
 	children,
 	showEditBar = false,
 	framedContent = false,
+	contentTheme = "light",
 	toolbar,
 	footer,
 }: RetroWindowProps) => {
@@ -83,6 +86,9 @@ const RetroWindow = ({
 						className={clsx(
 							styles.content,
 							framedContent && styles.contentFrame,
+							framedContent &&
+								contentTheme === "dark" &&
+								styles.contentFrameDark,
 						)}
 					>
 						{children}
