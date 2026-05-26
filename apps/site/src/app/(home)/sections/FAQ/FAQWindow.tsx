@@ -8,6 +8,7 @@ import slidePeter from "@/assets/images/slide_peter.svg";
 
 import FAQAccordion from "./FAQAccordion";
 import FAQCategoryNav from "./FAQCategoryNav";
+import FAQScrollArea from "./FAQScrollArea";
 import { FAQCategory } from "./faqCategories";
 import type { FAQItem } from "./getQuestions";
 
@@ -36,7 +37,7 @@ const FAQWindow = ({ faqs }: FAQWindowProps) => {
 				/>
 			}
 		>
-			<div className={styles.scrollArea}>
+			<FAQScrollArea>
 				<div className={styles.faqList}>
 					{filteredFaqs.length > 0 ? (
 						<FAQAccordion key={activeCategory} faqs={filteredFaqs} />
@@ -52,7 +53,7 @@ const FAQWindow = ({ faqs }: FAQWindowProps) => {
 					className={styles.slidePeter}
 					aria-hidden
 				/>
-			</div>
+			</FAQScrollArea>
 		</RetroWindow>
 	);
 };

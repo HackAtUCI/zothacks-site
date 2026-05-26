@@ -55,26 +55,77 @@ $scrollbar-thumb: var(--scrollbar-gray);
 }
 
 .scrollArea {
-	position: relative;
+	display: flex;
 	height: 380px;
-	overflow-y: auto;
 	background-color: #ffffff;
-	padding: 0.5rem 2rem 6rem 0.75rem;
-	scrollbar-color: $scrollbar-thumb $scrollbar-track;
-	scrollbar-width: thin;
+}
+
+.scrollContent {
+	position: relative;
+	flex: 1;
+	min-width: 0;
+	overflow-y: auto;
+	padding: 0.5rem 0.5rem 6rem 0.75rem;
+	scrollbar-width: none;
 
 	&::-webkit-scrollbar {
-		width: 26px;
+		display: none;
 	}
+}
 
-	&::-webkit-scrollbar-track {
-		background-color: $scrollbar-track;
-	}
+.scrollRail {
+	display: flex;
+	flex-shrink: 0;
+	flex-direction: column;
+	width: 26px;
+	background-color: $scrollbar-track;
+	border-left: 1px solid #ababad;
+	box-shadow: inset -2px 0 4px rgba(0, 0, 0, 0.25);
+}
 
-	&::-webkit-scrollbar-thumb {
-		background-color: $scrollbar-thumb;
-		border: 1px solid #000000;
+.scrollButtonUp,
+.scrollButtonDown {
+	flex-shrink: 0;
+	width: 26px;
+	height: 26px;
+	padding: 0;
+	border: none;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100% 100%;
+	cursor: pointer;
+
+	&:disabled {
+		cursor: default;
+		opacity: 0.6;
 	}
+}
+
+.scrollButtonUp {
+	background-image: url("~@/assets/icons/up_arrow.svg");
+}
+
+.scrollButtonDown {
+	background-image: url("~@/assets/icons/down_arrow.svg");
+}
+
+.scrollTrack {
+	position: relative;
+	flex: 1;
+	min-height: 0;
+}
+
+.scrollThumb {
+	position: absolute;
+	top: 0;
+	left: 4px;
+	width: calc(100% - 8px);
+	background-color: $scrollbar-thumb;
+	border: 1px solid #000000;
+	border-top-color: #dfdfdf;
+	border-left-color: #dfdfdf;
+	pointer-events: none;
 }
 
 .faqList {
@@ -92,7 +143,7 @@ $scrollbar-thumb: var(--scrollbar-gray);
 
 .slidePeter {
 	position: absolute;
-	right: 1.5rem;
+	right: 0.5rem;
 	bottom: 0;
 	z-index: 2;
 	width: 115px;
@@ -206,7 +257,10 @@ $scrollbar-thumb: var(--scrollbar-gray);
 
 	.scrollArea {
 		height: min(380px, 55vh);
-		padding: 0.5rem 1.5rem 5rem 0.5rem;
+	}
+
+	.scrollContent {
+		padding: 0.5rem 0.25rem 5rem 0.5rem;
 	}
 
 	.slidePeter {
