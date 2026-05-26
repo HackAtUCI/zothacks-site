@@ -9,8 +9,7 @@
 	box-shadow: 3px 2px 4px rgba(255, 255, 255, 0.25) inset;
 	font-family: var(--font-pixel);
 	color: #fff;
-	font-size: 16px;
-	font-weight: 400;
+	font-size: 20px;
 	text-decoration: none;
 
 	&:hover {
@@ -24,7 +23,7 @@
 
 .small {
 	@extend .coreButton;
-	padding: 8px 20px;
+	padding: 8px 36px;
 	height: 40px;
 	align-self: center;
 }

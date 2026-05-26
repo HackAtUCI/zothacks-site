@@ -1,17 +1,22 @@
 @use "zothacks-theme" as theme;
 
 .text {
-	margin-left: 1vw;
-	margin-right: 1vw;
-	font-size: 1rem;
-	font-weight: 400;
+	font-size: 20px;
 	text-decoration: none;
-	line-height: 7vh;
-	color: theme.$off-white;
+	font-family: var(--font-pixel);
+	display: flex;
+	align-items: center;
+	gap: 3px;
 
 	&:hover {
 		text-shadow: 0 0 5px white;
 	}
+}
+
+.icon {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
 }
 
 .notActive {
@@ -23,6 +28,4 @@
 	@extend .text;
 	color: white;
 	text-decoration: underline;
-	text-underline-offset: 0.3rem;
-	text-decoration-thickness: 0.14rem;
 }

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { PropsWithChildren } from "react";
 import clsx from "clsx";
 
@@ -9,11 +10,15 @@ import styles from "./NavLinkItem.module.scss";
 interface NavLinkItemInterface extends PropsWithChildren {
 	href: string;
 	className?: string;
+	icon?: string;
+	iconSize?: number;
 }
 
 export default function NavLinkItem({
 	href,
 	className,
+	icon,
+	iconSize = 40,
 	children,
 	...props
 }: NavLinkItemInterface) {
@@ -28,6 +33,11 @@ export default function NavLinkItem({
 			)}
 			{...props}
 		>
+			{icon && (
+				<span className={styles.icon}>
+					<Image src={icon} alt="" width={iconSize} height={iconSize} />
+				</span>
+			)}
 			{children}
 		</Link>
 	);
