@@ -8,14 +8,6 @@
 	cursor: default;
 	border-radius: 2px;
 	transition: background-color 0.1s ease;
-
-	&:hover {
-		background-color: var(--xp-blue-accent);
-
-		.label {
-			color: #ffffff;
-		}
-	}
 }
 
 .image {

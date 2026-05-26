@@ -10,8 +10,8 @@
 }
 
 .windowWrapper {
-	width: 700;
-	height: 300;
+	width: 700px;
+	height: 300px;
 	max-width: 100%;
 
 	@include utils.media-breakpoint-down(md) {
