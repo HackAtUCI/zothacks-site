@@ -38,11 +38,7 @@ export default function ColorPicker({ onColorSelect }: ColorPickerProps) {
 	return (
 		<div className={styles.colorPicker}>
 			<div className={styles.brushCell}>
-				<Image
-					src={paintbrush}
-					alt="Paintbrush"
-					className={styles.brushIcon}
-				/>
+				<Image src={paintbrush} alt="Paintbrush" className={styles.brushIcon} />
 			</div>
 
 			<div className={styles.paletteFrame}>
@@ -54,7 +50,10 @@ export default function ColorPicker({ onColorSelect }: ColorPickerProps) {
 						style={{ backgroundColor: color }}
 						aria-label={color}
 						aria-pressed={selected === color}
-						onClick={() => { setSelected(color); onColorSelect?.(color); }}
+						onClick={() => {
+							setSelected(color);
+							onColorSelect?.(color);
+						}}
 					/>
 				))}
 			</div>
