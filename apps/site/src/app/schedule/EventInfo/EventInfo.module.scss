@@ -1,14 +1,29 @@
+@use "bootstrap-utils" as utils;
+
 .infoPanel {
     display: flex;
     flex-direction: column;
-    width: 250px; 
-    overflow: scroll;
+    flex: 1 1 15.625rem;
+    width: 100%;
+    min-width: 0;
+    max-width: 15.625rem;
+    height: 100%;
+    overflow-y: auto;
+
     background-color: white;
     border: 2px solid black; 
     border-left: none;
     gap: 8px;
     padding: clamp(12px, 2vw, 24px);
     font-family: var(--font-pixel);
+
+    @include utils.media-breakpoint-down(md) {
+        border: 2px solid black; 
+        border-radius: 7px;
+    }
+    @container (max-width: 450px){
+        display: none;
+    }
 }
 
 .empty {

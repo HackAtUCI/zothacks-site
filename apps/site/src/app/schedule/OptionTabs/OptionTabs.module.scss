@@ -1,7 +1,13 @@
+@use "bootstrap-utils" as utils;
+
 .container {
     font-family: var(--font-pixel);
     display: flex;
     flex-direction: column;
+
+    .tab:not(:first-child) {
+        border-top: none;
+    }
 }
 
 .tab, .activeTab {
@@ -33,7 +39,7 @@
 }
 
 /* Smaller screens */
-@media (max-width: 575px) {
+@media (max-width: 768px) {
     .container{
         flex-direction: row;
         gap: 7px;

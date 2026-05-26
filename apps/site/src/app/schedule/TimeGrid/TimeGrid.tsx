@@ -59,6 +59,7 @@ export default function TimeGrid({
                                     <span className={styles.minutes}>{formatMinutes(event.startTime)}</span>
                                     <span className={styles.minutes}>{formatMinutes(event.endTime)}</span>
                                 </div>
+                                <span className={styles.minuteSingle}>{formatMinutes(event.startTime)}</span>
                             </div>
                             <div className={styles.eventCell}>
                                 <span className={event._id === selectedEvent?._id ? styles.eventLinkSelected : styles.eventLink}>

@@ -10,38 +10,40 @@ $yellow-pattern:
     display: flex;
     flex-direction: column;
     border: 2px solid black;
-    //overflow: hidden;
-    flex: 1;
+    overflow: hidden;
+    height: auto;
+    min-width: 0;
+
+    @include utils.media-breakpoint-down(md) {
+        border: 2px solid black; 
+        border-radius: 7px;
+    }
 }
 .gridBody {
     display: flex;
     flex-direction: column;
+    /*
     overflow-y: auto;
-    overflow-x: visible;
-    flex: 1;
+    flex: 1;*/
 }
 
 .gridRow {
-    position: relative;
     display: flex;
     flex-direction: row;
-    overflow: visible;
     cursor: pointer;
-    min-height: clamp(4.5rem, 10vh, 7rem);
-}
+   
+    &:not(:last-child) .eventCell {
+        border-bottom: 1px dashed black;
+    }
 
-.gridRow:last-child {
-    .timeCell,
-    .eventCell {
-        border-bottom: none;
+    &:not(:last-child) .timeCell {
+        border-bottom: 2px solid black;
     }
 }
 
 .timeCell {
-    flex: 0 0 clamp(5rem, 20vw, 7rem);
-    min-height: 100%;
+    flex: 0 0 6rem;
     border-right: 2px solid black;
-    border-bottom: 2px solid black; 
     background: var(--schedule-gray);
     display: flex;
     flex-direction: row;
@@ -50,6 +52,15 @@ $yellow-pattern:
     gap: 0.5rem;
     padding: 0.5rem 1rem;
     box-sizing: border-box;
+
+    @include utils.media-breakpoint-down(md) {
+        flex: 0 0 4.5rem;
+        flex-direction: column;  // stack hour over minutes on mobile
+        align-items: center;
+        justify-content: center;
+        gap: 0.15rem;
+        padding: 0.5rem;
+    }
 }
 
 .hour {
@@ -57,7 +68,7 @@ $yellow-pattern:
     font-size: clamp(1rem, 2rem, 2.6rem);
 }
 
-.minutes {
+.minutes, .minuteSingle {
     font-family: var(--font-pixel);
     font-size: clamp(0.5rem, 1.5rem, 2rem);
     line-height: 1;
@@ -66,19 +77,31 @@ $yellow-pattern:
 .minutesStack{
     display: flex;
     flex-direction: column;
+
+    @include utils.media-breakpoint-down(md){
+        display: none;
+    }
+}
+
+.minuteSingle {
+    display: none;
+    @include utils.media-breakpoint-down(md){
+        display: block;
+    }
 }
 
 .eventCell {
-    flex: 1;
+    flex: 1 1 0;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0.5rem 0.75rem;
-    background-color: #ffff04;
+    min-width: 6rem;
+    overflow: hidden;
+    background-color: hsl(60, 100%, 51%);
     background-image: $yellow-pattern;
     background-size: 4px 4px;
     background-position: 0 0, 0 2px, 2px -2px, -2px 0px;
-    border-bottom: 1px dashed black;
 }
 
 .eventLink {

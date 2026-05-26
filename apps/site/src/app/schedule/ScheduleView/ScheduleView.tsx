@@ -1,16 +1,12 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-import Header from "../Header/Header";
 import CountdownBanner from "../CountdownBanner/CountdownBanner"
 import OptionTabs from "../OptionTabs/OptionTabs"
-import OptionSelector from "../OptionSelector/OptionSelector";
-import OptionsDropdown from "../OptionsDropdown/OptionsDropdown";
-import Image from "next/image";
-
-import styles from "./ScheduleView.module.scss";
 import TimeGrid from "../TimeGrid/TimeGrid";
 import EventInfo from "../EventInfo/EventInfo";
+
+import styles from "./ScheduleView.module.scss";
 
 interface ScheduleProps {
 	schedule: Array<any>;
@@ -19,7 +15,6 @@ interface ScheduleProps {
 const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
 	const [selectedDay, setSelectedDay] = useState("Fri");
 	const [selectedEvent, setSelectedEvent] = useState(schedule[0][0]);
-
 
 	const scheduleFlat = schedule.flat();
 	// TO DO: Fix dates for new year
@@ -43,6 +38,21 @@ const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
 				new Date(new Date("2025-11-09T00:00:00").toUTCString()).getTime(),
 	);
 
+	// Ref to set height to TimeGrid, not EventInfo
+	const scheduleInfoRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		const el = scheduleInfoRef.current;
+		if (!el) return;
+		const grid = el.firstElementChild as HTMLElement;
+		const info = el.lastElementChild as HTMLElement;
+		const update = () => { info.style.maxHeight = `${grid.offsetHeight}px`; };
+		update();
+		window.addEventListener("resize", update);
+		return () => window.removeEventListener("resize", update);
+	}, [selectedDay]);
+
+
 	return (
 		<div className={styles.scheduleContainer}>
 			<CountdownBanner/>
@@ -57,7 +67,7 @@ const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
 						<p className={styles.headerInfo}>Event Info</p>
 					</div>
 
-					<div className={styles.scheduleInfo}>
+					<div className={styles.scheduleInfo} ref={scheduleInfoRef}>
 						<TimeGrid
 							selectedDay={selectedDay}
 							friday={friday}
@@ -68,6 +78,7 @@ const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
 						/>
 						<EventInfo event={selectedEvent}  />
 					</div>
+					
 				</div>
 			</div>
 		</div>
