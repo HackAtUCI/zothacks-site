@@ -16,6 +16,7 @@ export interface RetroWindowClientProps extends PropsWithChildren {
 	footer?: ReactNode;
 	contentBackground?: string;
 	draggable?: boolean;
+	snapBack?: boolean;
 	closeHref?: string;
 }
 
@@ -29,6 +30,7 @@ const RetroWindowClient = ({
 	footer,
 	contentBackground,
 	draggable = true,
+	snapBack = true,
 	closeHref,
 }: RetroWindowClientProps) => {
 	const dragControls = useDragControls();
@@ -44,11 +46,13 @@ const RetroWindowClient = ({
 			dragListener={false}
 			dragMomentum={false}
 			onDragEnd={() => {
-				void animationControls.start({
-					x: 0,
-					y: 0,
-					transition: { type: "spring", stiffness: 520, damping: 34 },
-				});
+				if (snapBack) {
+					void animationControls.start({
+						x: 0,
+						y: 0,
+						transition: { type: "spring", stiffness: 520, damping: 34 },
+					});
+				}
 			}}
 			transition={{ type: "spring", stiffness: 520, damping: 34 }}
 			whileDrag={{ scale: 1.01 }}

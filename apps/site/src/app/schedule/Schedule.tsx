@@ -17,6 +17,7 @@ export default async function Schedule({ overlay = false }: ScheduleProps) {
 				title="Schedule"
 				framedContent
 				closeHref="/"
+				snapBack={!overlay}
 			>
 				<ScheduleView schedule={schedule} />
 			</RetroWindow>

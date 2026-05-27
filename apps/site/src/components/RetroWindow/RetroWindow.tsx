@@ -28,6 +28,8 @@ export interface RetroWindowProps extends PropsWithChildren {
 	contentBackground?: string;
 	/** When true, the title bar temporarily drags the window before snapping back. */
 	draggable?: boolean;
+	/** When true, the window returns to its original position after dragging. */
+	snapBack?: boolean;
 	/** Optional href for a Windows-style close control in the title bar. */
 	closeHref?: string;
 }

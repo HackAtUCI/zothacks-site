@@ -16,6 +16,7 @@ export default function Resources({ overlay = false }: ResourcesProps) {
 				title="Resources"
 				framedContent
 				closeHref="/"
+				snapBack={!overlay}
 			>
 				<div
 					className={clsx(
