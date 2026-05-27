@@ -22,7 +22,6 @@ const Sponsors = async () => {
 	// sponsors figured out yet
 	await getSponsors();
 
-
 	return (
 		<Container as="section" className={styles.section}>
 			<div className={styles.thanksWindow}>
