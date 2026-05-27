@@ -33,11 +33,7 @@ const About = () => {
 	return (
 		<Container as="section" className={styles.section}>
 			<div className={styles.windowWrap}>
-				<RetroWindow
-					title="About ZotHacks"
-					framedContent
-					contentTheme="dark"
-				>
+				<RetroWindow title="About ZotHacks" framedContent contentTheme="dark">
 					<dl className={styles.grid}>
 						{ROWS.map(({ label, body }) => (
 							<div key={label} className={styles.row}>

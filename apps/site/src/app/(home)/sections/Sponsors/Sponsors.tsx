@@ -5,7 +5,7 @@ import RetroWindow from "@/components/RetroWindow/RetroWindow";
 import FolderIcon from "@/assets/icons/folder-icon.svg";
 import SponsorsPeter from "@/assets/images/sponsors-peter.gif";
 
-import { SponsorCardProps} from "./SponsorCard";
+import { SponsorCardProps } from "./SponsorCard";
 import SponsorCard from "./SponsorCard";
 
 import { getSponsors } from "./getSponsors";
@@ -34,9 +34,7 @@ const Sponsors = async () => {
 							aria-hidden
 							className={styles.thanksFolder}
 						/>
-						<div className={styles.thanksText}>
-							Thank you to our sponsors!
-						</div>
+						<div className={styles.thanksText}>Thank you to our sponsors!</div>
 					</div>
 				</RetroWindow>
 			</div>

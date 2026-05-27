@@ -66,10 +66,10 @@
 }
 
 .peacePeter {
-  position: absolute;
-  bottom: 100%;        
-  right: 4rem;
-  width: clamp(60px, 12%, 130px);
-  height: auto;                 
-  pointer-events: none;
+	position: absolute;
+	bottom: 100%;
+	right: 4rem;
+	width: clamp(60px, 12%, 130px);
+	height: auto;
+	pointer-events: none;
 }
