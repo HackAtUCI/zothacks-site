@@ -18,9 +18,9 @@ const PLACEHOLDERS: ReadonlyArray<SponsorCardProps & { key: string }> = [
 ];
 
 const Sponsors = async () => {
-	// Sanity fetcher stays wired; for now we always render the Nami Matcha
-	// placeholder cards from the 2026 Figma (sponsors aren't confirmed yet).
-	const sponsors = await getSponsors();
+	// Keeping sanity fetcher but not using it since we don't have
+	// sponsors figured out yet
+	await getSponsors();
 
 
 	return (
