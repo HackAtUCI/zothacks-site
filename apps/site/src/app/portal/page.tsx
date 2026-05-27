@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "Portal | ZotHacks 2025",
+	title: "Portal | ZotHacks 2026",
 };
 
 export { default as default } from "./ApplicantPortal";

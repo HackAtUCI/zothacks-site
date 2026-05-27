@@ -21,7 +21,7 @@ $content-background: #ffffff;
 	justify-content: space-between;
 	gap: 0.75rem;
 	padding: 0.45rem 0.5rem;
-	background: linear-gradient(90deg, #03036d 0%, #487db5 100%);
+	background: linear-gradient(90deg, var(--xp-blue-dark) 0%, var(--xp-blue-medium) 100%);
 }
 
 .title {

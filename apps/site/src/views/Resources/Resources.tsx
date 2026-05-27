@@ -1,18 +1,20 @@
-import Landing from "./sections/Landing/Landing";
-import ApiResources from "./sections/ApiResources/ApiResources";
-import BackendResources from "./sections/BackendResources/BackendResources";
-import FrontendResources from "./sections/FrontendResources/FrontendResources";
-import StarterPacks from "./sections/StarterPacks/StarterPacks";
+import RetroWindow from "@/components/RetroWindow/RetroWindow";
+
+import CategoryRow from "./sections/CategoryRow/CategoryRow";
+import ResourceSection from "./sections/ResourceSection/ResourceSection";
 import styles from "./Resources.module.scss";
 
 export default function Resources() {
 	return (
-		<div className={styles.resources}>
-			<Landing />
-			<ApiResources />
-			<BackendResources />
-			<FrontendResources />
-			<StarterPacks />
-		</div>
+		<main className={styles.page}>
+			<div className={styles.windowWrapper}>
+				<RetroWindow title="Resources" framedContent>
+					<div className={styles.content}>
+						<CategoryRow />
+						<ResourceSection category="api" label="API Resources" />
+					</div>
+				</RetroWindow>
+			</div>
+		</main>
 	);
 }
