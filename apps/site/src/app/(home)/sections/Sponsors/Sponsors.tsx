@@ -11,10 +11,10 @@ import SponsorCard from "./SponsorCard";
 import { getSponsors } from "./getSponsors";
 import styles from "./Sponsors.module.scss";
 
-const PLACEHOLDERS: ReadonlyArray<SponsorCardProps & { key: string }> = [
-	{ key: "placeholder-1", name: "nami", placeholder: true },
-	{ key: "placeholder-2", name: "nami", placeholder: true },
-	{ key: "placeholder-3", name: "nami", placeholder: true },
+const PLACEHOLDERS: ReadonlyArray<SponsorCardProps> = [
+	{ logo: null, name: "nami"},
+	{ logo: null, name: "nami"},
+	{ logo: null, name: "nami"},
 ];
 
 const Sponsors = async () => {
@@ -46,8 +46,8 @@ const Sponsors = async () => {
 					<div className={styles.mainContent}>
 						<h2 className={styles.heading}>Sponsors</h2>
 						<div className={styles.cards}>
-							{PLACEHOLDERS.map(({ key, ...rest }) => (
-								<SponsorCard key={key} {...rest} />
+							{PLACEHOLDERS.map(({ logo, name }) => (
+								<SponsorCard logo={logo} name={name} />
 							))}
 						</div>
 					</div>

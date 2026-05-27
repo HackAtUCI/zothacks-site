@@ -5,19 +5,29 @@ import SponsorPlaceholder from "@/assets/images/sponsor.svg";
 import styles from "./SponsorCard.module.scss";
 
 export interface SponsorCardProps {
+	logo: string | null;
 	name: string;
-	placeholder?: boolean;
 }
 
-const SponsorCard = ({ name }: SponsorCardProps) => {
+const SponsorCard = ({ logo, name }: SponsorCardProps) => {
 	return (
 		<div className={styles.card}>
-			<Image
-				src={SponsorPlaceholder}
-				alt={`${name} logo`}
-				aria-hidden
-				className={styles.image}
-			/>
+			{logo ? (
+				<Image
+					src={logo}
+					alt={`${name} logo`}
+					aria-hidden
+					className={styles.image}
+				/>
+			) : (
+				<Image
+					src={SponsorPlaceholder}
+					alt={`${name} logo`}
+					aria-hidden
+					className={styles.image}
+				/>
+			)}
+
 			<div className={styles.name}>{name}</div>
 		</div>
 	);
