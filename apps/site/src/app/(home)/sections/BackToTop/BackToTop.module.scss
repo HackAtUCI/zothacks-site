@@ -14,8 +14,8 @@
 
 .sittingPeter {
 	position: absolute;
-	top: -2.5rem;
-	right: -0.25rem;
+	top: -3rem;
+	right: calc(0.5rem + 20px + 0.65rem + 20px + 0.35rem);
 	z-index: 2;
 	width: 80px;
 	height: auto;
@@ -66,8 +66,7 @@
 
 @media (max-width: 480px) {
 	.sittingPeter {
-		top: -2rem;
-		right: 0;
+		top: -1.75rem;
 		width: 64px;
 	}
 
