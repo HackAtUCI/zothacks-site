@@ -159,6 +159,12 @@ $control-size: 20px;
 	overflow: hidden;
 }
 
+.contentFrameDark {
+	border-color: theme.$white;
+	background: theme.$pure-black;
+	color: theme.$white;
+}
+
 .footer {
 	padding: 0 0.25rem;
 }
