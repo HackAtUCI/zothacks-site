@@ -8,7 +8,7 @@ export default function Resources() {
 	return (
 		<main className={styles.page}>
 			<div className={styles.windowWrapper}>
-				<RetroWindow title="Resources" framedContent>
+				<RetroWindow title="Resources" framedContent closeHref="/">
 					<div className={styles.content}>
 						<CategoryRow />
 						<ResourceSection category="api" label="API Resources" />

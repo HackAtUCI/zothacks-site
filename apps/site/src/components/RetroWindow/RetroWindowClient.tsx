@@ -2,6 +2,7 @@
 
 import clsx from "clsx";
 import { motion, useAnimationControls, useDragControls } from "framer-motion";
+import Link from "next/link";
 import type { PropsWithChildren, ReactNode } from "react";
 
 import styles from "./RetroWindow.module.scss";
@@ -15,6 +16,7 @@ export interface RetroWindowClientProps extends PropsWithChildren {
 	footer?: ReactNode;
 	contentBackground?: string;
 	draggable?: boolean;
+	closeHref?: string;
 }
 
 const RetroWindowClient = ({
@@ -27,6 +29,7 @@ const RetroWindowClient = ({
 	footer,
 	contentBackground,
 	draggable = true,
+	closeHref,
 }: RetroWindowClientProps) => {
 	const dragControls = useDragControls();
 	const animationControls = useAnimationControls();
@@ -87,6 +90,18 @@ const RetroWindowClient = ({
 								<span className={styles.maximizeIcon} aria-hidden />
 							</span>
 						</button>
+						{closeHref != null && (
+							<Link
+								href={closeHref}
+								scroll={false}
+								className={styles.windowControl}
+								aria-label="Close"
+							>
+								<span className={styles.controlBevel}>
+									<span className={styles.closeIcon} aria-hidden />
+								</span>
+							</Link>
+						)}
 					</div>
 				</div>
 

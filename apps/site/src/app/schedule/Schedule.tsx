@@ -9,7 +9,7 @@ export default async function Schedule() {
 	return (
 		<div className={styles.backgroundWrapper}>
 			<div className={styles.windowWrapper}>
-                <RetroWindow title="Schedule" framedContent>
+                <RetroWindow title="Schedule" framedContent closeHref="/">
                     <ScheduleView schedule={schedule} />
                 </RetroWindow>
             </div>
