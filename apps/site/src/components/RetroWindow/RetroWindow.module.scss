@@ -67,6 +67,10 @@ $control-size: 20px;
 	line-height: 0;
 }
 
+.closeWindowControl {
+	cursor: pointer;
+}
+
 // Layered borders: inner on the element, outer on ::before (inset -1px)
 .controlBevel {
 	position: relative;

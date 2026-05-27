@@ -94,7 +94,10 @@ const RetroWindowClient = ({
 							<Link
 								href={closeHref}
 								scroll={false}
-								className={styles.windowControl}
+								className={clsx(
+									styles.windowControl,
+									styles.closeWindowControl,
+								)}
 								aria-label="Close"
 							>
 								<span className={styles.controlBevel}>
