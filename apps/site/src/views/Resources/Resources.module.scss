@@ -19,6 +19,30 @@
 	}
 }
 
+.overlayWindowWrapper {
+	width: min(1080px, calc(100vw - 2rem));
+	min-height: 520px;
+	overflow: visible;
+}
+
 .content {
+	--resource-card-width: 180px;
+	--resource-card-logo-size: 80px;
+	--resource-card-text-size: 13px;
+	--resource-category-width: 100px;
+	--resource-category-icon-size: 68px;
+	--resource-category-text-size: 12px;
+
 	padding: 0.5rem 0.25rem;
+}
+
+.overlayContent {
+	--resource-card-width: 240px;
+	--resource-card-logo-size: 112px;
+	--resource-card-text-size: 16px;
+	--resource-category-width: 140px;
+	--resource-category-icon-size: 96px;
+	--resource-category-text-size: 15px;
+
+	padding: 1rem 0.75rem;
 }
