@@ -37,23 +37,33 @@ const FAQWindow = ({ faqs }: FAQWindowProps) => {
 				/>
 			}
 		>
-			<FAQScrollArea>
-				<div className={styles.faqList}>
-					{filteredFaqs.length > 0 ? (
-						<FAQAccordion key={activeCategory} faqs={filteredFaqs} />
-					) : (
-						<p className={styles.emptyMessage}>
-							No questions in this category yet.
-						</p>
-					)}
+			<div className={styles.faqPanel}>
+				<FAQScrollArea>
+					<div className={styles.faqList}>
+						{filteredFaqs.length > 0 ? (
+							<FAQAccordion key={activeCategory} faqs={filteredFaqs} />
+						) : (
+							<p className={styles.emptyMessage}>
+								No questions in this category yet.
+							</p>
+						)}
+					</div>
+					<Image
+						src={slidePeter}
+						alt=""
+						className={styles.slidePeterDesktop}
+						aria-hidden
+					/>
+				</FAQScrollArea>
+				<div className={styles.slidePeterMobileWrap}>
+					<Image
+						src={slidePeter}
+						alt=""
+						className={styles.slidePeterMobile}
+						aria-hidden
+					/>
 				</div>
-				<Image
-					src={slidePeter}
-					alt=""
-					className={styles.slidePeter}
-					aria-hidden
-				/>
-			</FAQScrollArea>
+			</div>
 		</RetroWindow>
 	);
 };

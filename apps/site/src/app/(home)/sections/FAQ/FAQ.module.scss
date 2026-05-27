@@ -141,7 +141,13 @@ $scrollbar-thumb: var(--scrollbar-gray);
 	color: #000000;
 }
 
-.slidePeter {
+.faqPanel {
+	display: flex;
+	flex-direction: column;
+	background-color: #ffffff;
+}
+
+.slidePeterDesktop {
 	position: absolute;
 	right: 0.5rem;
 	bottom: 0;
@@ -149,6 +155,10 @@ $scrollbar-thumb: var(--scrollbar-gray);
 	width: 115px;
 	height: auto;
 	pointer-events: none;
+}
+
+.slidePeterMobileWrap {
+	display: none;
 }
 
 .accordion {
@@ -255,17 +265,49 @@ $scrollbar-thumb: var(--scrollbar-gray);
 		font-size: 14px;
 	}
 
+	.faqPanel {
+		display: grid;
+		grid-template-columns: 1fr 26px;
+		grid-template-rows: minmax(0, min(320px, 48vh)) auto;
+		width: 100%;
+	}
+
 	.scrollArea {
-		height: min(380px, 55vh);
+		display: contents;
 	}
 
 	.scrollContent {
-		padding: 0.5rem 0.25rem 5rem 0.5rem;
+		grid-column: 1;
+		grid-row: 1;
+		height: min(320px, 48vh);
+		max-height: min(320px, 48vh);
+		padding: 0.5rem 0.25rem 1rem 0.5rem;
 	}
 
-	.slidePeter {
-		right: 0.5rem;
+	.scrollRail {
+		grid-column: 2;
+		grid-row: 1 / span 2;
+		align-self: stretch;
+		height: auto;
+	}
+
+	.slidePeterDesktop {
+		display: none;
+	}
+
+	.slidePeterMobileWrap {
+		display: flex;
+		grid-column: 1;
+		grid-row: 2;
+		justify-content: center;
+		flex-shrink: 0;
+		padding: 0.25rem 0 0.5rem;
+	}
+
+	.slidePeterMobile {
 		width: 90px;
+		height: auto;
+		pointer-events: none;
 	}
 
 	.questionHeader :global(.accordion-button),
