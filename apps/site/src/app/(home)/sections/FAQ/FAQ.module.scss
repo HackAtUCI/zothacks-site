@@ -125,7 +125,12 @@ $scrollbar-thumb: var(--scrollbar-gray);
 	border: 1px solid #000000;
 	border-top-color: #dfdfdf;
 	border-left-color: #dfdfdf;
-	pointer-events: none;
+	touch-action: none;
+	cursor: grab;
+
+	&:active {
+		cursor: grabbing;
+	}
 }
 
 .faqList {

@@ -5,6 +5,7 @@ import {
 	useEffect,
 	useRef,
 	useState,
+	type PointerEvent,
 	type ReactNode,
 } from "react";
 
@@ -20,6 +21,8 @@ const MIN_SCROLL_INDICATOR_HEIGHT_PX = 48;
 const FAQScrollArea = ({ children }: FAQScrollAreaProps) => {
 	const scrollableContentRef = useRef<HTMLDivElement>(null);
 	const scrollbarTrackRef = useRef<HTMLDivElement>(null);
+	const dragStartRef = useRef({ pointerY: 0, scrollTop: 0 });
+	const isDraggingThumbRef = useRef(false);
 	const [scrollIndicatorPosition, setScrollIndicatorPosition] = useState({
 		height: MIN_SCROLL_INDICATOR_HEIGHT_PX,
 		offsetTop: 0,
@@ -76,6 +79,65 @@ const FAQScrollArea = ({ children }: FAQScrollAreaProps) => {
 		});
 	};
 
+	const getScrollMetrics = useCallback(() => {
+		const scrollableContent = scrollableContentRef.current;
+		const scrollbarTrack = scrollbarTrackRef.current;
+		if (!scrollableContent || !scrollbarTrack) return null;
+
+		const { scrollHeight, clientHeight } = scrollableContent;
+		const scrollbarTrackHeight = scrollbarTrack.clientHeight;
+		const scrollIndicatorHeight = Math.max(
+			MIN_SCROLL_INDICATOR_HEIGHT_PX,
+			(clientHeight / scrollHeight) * scrollbarTrackHeight,
+		);
+		const maxIndicatorOffset = scrollbarTrackHeight - scrollIndicatorHeight;
+		const maxScrollTop = scrollHeight - clientHeight;
+
+		return { maxIndicatorOffset, maxScrollTop };
+	}, []);
+
+	const handleThumbPointerDown = (event: PointerEvent<HTMLDivElement>) => {
+		if (!hasOverflowContent) return;
+
+		event.preventDefault();
+		const scrollableContent = scrollableContentRef.current;
+		if (!scrollableContent) return;
+
+		dragStartRef.current = {
+			pointerY: event.clientY,
+			scrollTop: scrollableContent.scrollTop,
+		};
+		isDraggingThumbRef.current = true;
+		event.currentTarget.setPointerCapture(event.pointerId);
+	};
+
+	const handleThumbPointerMove = (event: PointerEvent<HTMLDivElement>) => {
+		if (!isDraggingThumbRef.current) return;
+
+		const scrollableContent = scrollableContentRef.current;
+		const metrics = getScrollMetrics();
+		if (!scrollableContent || !metrics || metrics.maxIndicatorOffset <= 0)
+			return;
+
+		const deltaY = event.clientY - dragStartRef.current.pointerY;
+		const scrollDelta =
+			(deltaY / metrics.maxIndicatorOffset) * metrics.maxScrollTop;
+
+		scrollableContent.scrollTop = Math.min(
+			metrics.maxScrollTop,
+			Math.max(0, dragStartRef.current.scrollTop + scrollDelta),
+		);
+	};
+
+	const endThumbDrag = (event: PointerEvent<HTMLDivElement>) => {
+		if (!isDraggingThumbRef.current) return;
+
+		isDraggingThumbRef.current = false;
+		if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+			event.currentTarget.releasePointerCapture(event.pointerId);
+		}
+	};
+
 	return (
 		<div className={styles.scrollArea}>
 			<div
@@ -100,6 +162,10 @@ const FAQScrollArea = ({ children }: FAQScrollAreaProps) => {
 							height: `${scrollIndicatorPosition.height}px`,
 							transform: `translateY(${scrollIndicatorPosition.offsetTop}px)`,
 						}}
+						onPointerDown={handleThumbPointerDown}
+						onPointerMove={handleThumbPointerMove}
+						onPointerUp={endThumbDrag}
+						onPointerCancel={endThumbDrag}
 					/>
 				</div>
 				<button
