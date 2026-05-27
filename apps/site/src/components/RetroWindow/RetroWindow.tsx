@@ -1,7 +1,6 @@
-import clsx from "clsx";
-import React, { PropsWithChildren } from "react";
+import type { PropsWithChildren, ReactNode } from "react";
 
-import styles from "./RetroWindow.module.scss";
+import RetroWindowClient from "./RetroWindowClient";
 
 /**
  * Retro window shell: title bar, optional menu bar, optional toolbar,
@@ -22,87 +21,17 @@ export interface RetroWindowProps extends PropsWithChildren {
 	/** When `framedContent` is true, controls the panel color. Defaults to `"light"`. */
 	contentTheme?: "light" | "dark";
 	/** Optional row above the main content, e.g. tabs, filters, or tools. */
-	toolbar?: React.ReactNode;
+	toolbar?: ReactNode;
 	/** Optional row below the main content, e.g. status text or actions. */
-	footer?: React.ReactNode;
+	footer?: ReactNode;
 	/** Optional background color override for the framed content area. */
 	contentBackground?: string;
+	/** When true, the title bar temporarily drags the window before snapping back. */
+	draggable?: boolean;
 }
 
-const RetroWindow = ({
-	title,
-	children,
-	showEditBar = false,
-	framedContent = false,
-	contentTheme = "light",
-	toolbar,
-	footer,
-	contentBackground,
-}: RetroWindowProps) => {
-	return (
-		<div className={styles.root}>
-			<div className={styles.mainContainer}>
-				<div className={styles.gradientHeader}>
-					<span className={styles.title}>{title}</span>
-					<div className={styles.controls}>
-						<button
-							type="button"
-							className={styles.windowControl}
-							aria-label="Minimize"
-							tabIndex={-1}
-						>
-							<span className={styles.controlBevel}>
-								<span className={styles.minimizeIcon} aria-hidden />
-							</span>
-						</button>
-						<button
-							type="button"
-							className={styles.windowControl}
-							aria-label="Maximize"
-							tabIndex={-1}
-						>
-							<span className={styles.controlBevel}>
-								<span className={styles.maximizeIcon} aria-hidden />
-							</span>
-						</button>
-					</div>
-				</div>
-
-				<div className={clsx(styles.body, showEditBar && styles.bodyWithMenu)}>
-					{showEditBar && (
-						<nav className={styles.editMenu} aria-hidden>
-							<span>
-								<span className={styles.menuKey}>F</span>ile
-							</span>
-							<span>
-								<span className={styles.menuKey}>E</span>dit
-							</span>
-							<span>
-								<span className={styles.menuKey}>I</span>nsert
-							</span>
-						</nav>
-					)}
-
-					{toolbar != null && <div className={styles.toolbar}>{toolbar}</div>}
-
-					<div
-						className={clsx(
-							styles.content,
-							framedContent && styles.contentFrame,
-							framedContent &&
-								contentTheme === "dark" &&
-								styles.contentFrameDark,
-						)}
-						style={{ backgroundColor: contentBackground }}
-					>
-						{children}
-					</div>
-
-					{footer != null && <div className={styles.footer}>{footer}</div>}
-				</div>
-			</div>
-		</div>
-	);
+const RetroWindow = (props: RetroWindowProps) => {
+	return <RetroWindowClient {...props} />;
 };
 
 export default RetroWindow;
