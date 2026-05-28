@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { PropsWithChildren } from "react";
+import { MouseEventHandler, PropsWithChildren } from "react";
 import clsx from "clsx";
 
 import Link from "next/link";
@@ -12,6 +12,7 @@ interface NavLinkItemInterface extends PropsWithChildren {
 	className?: string;
 	icon?: string;
 	iconSize?: number;
+	onClick?: MouseEventHandler<HTMLAnchorElement>;
 }
 
 export default function NavLinkItem({

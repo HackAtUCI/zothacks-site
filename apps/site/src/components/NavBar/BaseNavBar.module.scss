@@ -17,14 +17,14 @@ $inset-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25) inset;
 .nav {
 	display: flex;
 	justify-content: flex-end;
-	margin: 1rem 1rem 0 0;
+	margin: 0.5rem 0.4rem 0 0;
 
 	:global(.navbar-collapse) {
 		@include blue-panel;
 
 		position: fixed;
 		inset: 0;
-		z-index: 101;
+		z-index: 1000;
 		width: 100vw;
 		height: 100dvh;
 		padding: 0 $nav-padding;

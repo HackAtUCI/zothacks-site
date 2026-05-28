@@ -45,11 +45,25 @@ export default function BaseNavBar({ children }: PropsWithChildren) {
 							</div>
 						</Navbar.Brand>
 						<Nav className={`${styles.navItems} mx-auto gap-4 md:gap-2 lg:gap-4`}>
-							<NavLinkItem href="/" icon={home_icon.src}>Home</NavLinkItem>
-							<NavLinkItem href="/?overlay=resources" icon={resources_icon.src}>
+							<NavLinkItem
+								href="/"
+								icon={home_icon.src}
+								onClick={() => setExpanded(false)}
+							>
+								Home
+							</NavLinkItem>
+							<NavLinkItem
+								href="/?overlay=resources"
+								icon={resources_icon.src}
+								onClick={() => setExpanded(false)}
+							>
 								Resources
 							</NavLinkItem>
-							<NavLinkItem href="/?overlay=schedule" icon={schedule_icon.src}>
+							<NavLinkItem
+								href="/?overlay=schedule"
+								icon={schedule_icon.src}
+								onClick={() => setExpanded(false)}
+							>
 								Schedule
 							</NavLinkItem>
 							<NavLinkItem href="/incident" icon={incident_form_icon.src}>
