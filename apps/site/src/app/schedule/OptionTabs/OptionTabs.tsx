@@ -17,18 +17,17 @@ export default function OptionTabs({
 	selectDay,
 	selectedDay,
 }: OptionTabsProps) {
-
 	return (
 		<div className={styles.container}>
-            {DAYS.map((day) =>(
-                <button
-                    className={`${styles.tab} ${selectedDay === day ? styles.activeTab : ""}`}
-                    onClick={() => selectDay(day)}
-                    type="button"
-                >
-                    {day}
-                </button>
-            ))}
+			{DAYS.map((day) => (
+				<button
+					className={`${styles.tab} ${selectedDay === day ? styles.activeTab : ""}`}
+					onClick={() => selectDay(day)}
+					type="button"
+				>
+					{day}
+				</button>
+			))}
 		</div>
 	);
 }

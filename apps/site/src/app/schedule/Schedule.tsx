@@ -12,7 +12,9 @@ export default async function Schedule({ overlay = false }: ScheduleProps) {
 	const schedule = await getSchedule();
 
 	const scheduleWindow = (
-		<div className={overlay ? styles.overlayWindowWrapper : styles.windowWrapper}>
+		<div
+			className={overlay ? styles.overlayWindowWrapper : styles.windowWrapper}
+		>
 			<RetroWindow
 				title="Schedule"
 				framedContent

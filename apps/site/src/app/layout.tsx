@@ -40,7 +40,10 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en" className={`${inter.variable} ${dotGothic16.variable} ${pixelifySans.variable}`}>
+		<html
+			lang="en"
+			className={`${inter.variable} ${dotGothic16.variable} ${pixelifySans.variable}`}
+		>
 			<body className="background">
 				{/* <NavbarParent /> */}
 				<main>{children}</main>

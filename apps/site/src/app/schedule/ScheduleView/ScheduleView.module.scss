@@ -6,7 +6,7 @@
 	align-items: center;
 	justify-content: center;
 	gap: 3rem;
-	padding: 3rem 1.25rem;	
+	padding: 3rem 1.25rem;
 
 	@include bootstrap.media-breakpoint-down(lg) {
 		padding-top: 80px;
@@ -32,13 +32,13 @@
 
 .schedulePanel {
 	display: flex;
-    flex-direction: row;
+	flex-direction: row;
 	align-items: stretch;
 	//min-height: 0;
 	width: min(90%, 1000px);
 
 	@include bootstrap.media-breakpoint-down(md) {
-		flex-direction: column; 
+		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 		gap: 1rem;
@@ -46,8 +46,8 @@
 }
 .scheduleContent {
 	display: flex;
-    flex-direction: column;
-    flex: 1;
+	flex-direction: column;
+	flex: 1;
 	align-items: stretch;
 	//min-height: 0;
 	min-width: 0;
@@ -55,10 +55,9 @@
 	padding: 1.5rem;
 	background-color: var(--schedule-gray);
 	border: 3px solid black;
-	box-shadow: 
-		0px 3px 0px 0px white, 
-		0px 4px 3px 0px #00000040
-	;
+	box-shadow:
+		0px 3px 0px 0px white,
+		0px 4px 3px 0px #00000040;
 	container-type: inline-size;
 
 	@include bootstrap.media-breakpoint-down(md) {
@@ -83,7 +82,7 @@
 		justify-content: center;
 		gap: 1rem;
 	}
-	@container (max-width: 450px){
+	@container (max-width: 450px) {
 		grid-template-columns: 1fr;
 	}
 }
@@ -99,8 +98,10 @@
 	}
 }
 
-.headerTime, .headerEvents, .headerInfo {
-	padding: 1vw; 
+.headerTime,
+.headerEvents,
+.headerInfo {
+	padding: 1vw;
 	text-align: center;
 	margin: 0; 
 }
