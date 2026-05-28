@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import React, { MouseEventHandler } from "react";
 import clsx from "clsx";
 
 import styles from "./PrimaryButton.module.scss";
@@ -10,7 +10,9 @@ interface PrimaryButtonProps {
 	type?: "submit" | "reset" | "button" | undefined;
 	className?: string;
 	variant?: "small" | "large";
+	color?: "blue" | "green";
 	disabled?: boolean;
+	onClick?: MouseEventHandler<HTMLButtonElement>;
 	children: React.ReactNode;
 }
 
@@ -19,20 +21,27 @@ const PrimaryButton = ({
 	type,
 	className,
 	variant = "large",
+	color = "blue",
 	disabled = false,
+	onClick,
 	children,
 }: PrimaryButtonProps) => {
 	const variants = {
 		small: styles.small,
 		large: styles.large,
 	};
+	const colors = {
+		blue: styles.blue,
+		green: styles.green,
+	};
 
 	if (!href) {
 		return (
 			<button
 				type={type}
-				className={clsx(variants[variant], className)}
+				className={clsx(variants[variant], colors[color], className)}
 				disabled={disabled}
+				onClick={onClick}
 			>
 				{children}
 			</button>
@@ -43,12 +52,16 @@ const PrimaryButton = ({
 		<Link
 			href={href}
 			type={type}
-			className={clsx(variants[variant], className)}
+			className={clsx(variants[variant], colors[color], className)}
 		>
 			{children}
 		</Link>
 	) : (
-		<a href={href} type={type} className={clsx(variants[variant], className)}>
+		<a
+			href={href}
+			type={type}
+			className={clsx(variants[variant], colors[color], className)}
+		>
 			{children}
 		</a>
 	);

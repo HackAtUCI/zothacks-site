@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 
+import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 import RetroWindow from "@/components/RetroWindow/RetroWindow";
 import warningIcon from "@/assets/icons/warning.svg";
 import sittingPeter from "@/assets/images/sitting_peter.svg";
@@ -39,13 +40,14 @@ const BackToTop = () => {
 							/>
 							<p className={styles.message}>You&apos;ve gone too far!</p>
 						</div>
-						<button
+						<PrimaryButton
 							type="button"
+							variant="small"
 							className={styles.backToTopButton}
 							onClick={scrollToTop}
 						>
 							Back to Top
-						</button>
+						</PrimaryButton>
 					</div>
 				</RetroWindow>
 			</div>

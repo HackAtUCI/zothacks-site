@@ -24,7 +24,7 @@ export default function NavBar({ identity }: NavbarProps) {
 						Logout
 					</PrimaryButton>
 				) : (
-					<PrimaryButton href="/login" variant="small">
+					<PrimaryButton href="/login" variant="small" color="green">
 						Login
 					</PrimaryButton>
 				)}

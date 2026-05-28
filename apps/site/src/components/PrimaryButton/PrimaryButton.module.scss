@@ -5,7 +5,7 @@
 	align-items: center;
 	justify-content: center;
 
-	background: var(--cobalt-green);
+	background: var(--button-background);
 	box-shadow: 3px 2px 4px rgba(255, 255, 255, 0.25) inset;
 	font-family: var(--font-pixel);
 	color: #fff;
@@ -13,10 +13,11 @@
 	text-decoration: none;
 
 	&:hover {
-		background: #49a844;
+		background: var(--button-background-hover);
 	}
+
 	&:active {
-		background: #3b7a38;
+		background: var(--button-background-active);
 		box-shadow: 4px 3px 5px rgba(0, 0, 0, 0.25) inset;
 	}
 }
@@ -31,4 +32,16 @@
 .large {
 	@extend .coreButton;
 	padding: 0.8rem 1.5rem;
+}
+
+.blue {
+	--button-background: var(--xp-blue-text);
+	--button-background-hover: #2865d9;
+	--button-background-active: #174294;
+}
+
+.green {
+	--button-background: var(--cobalt-green);
+	--button-background-hover: #49a844;
+	--button-background-active: #3b7a38;
 }
