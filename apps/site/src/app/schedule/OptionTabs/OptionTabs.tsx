@@ -1,8 +1,5 @@
 "use client";
 
-// React
-import { useState } from "react";
-
 // Styles
 import styles from "./OptionTabs.module.scss";
 
@@ -21,6 +18,7 @@ export default function OptionTabs({
 		<div className={styles.container}>
 			{DAYS.map((day) => (
 				<button
+					key={day}
 					className={`${styles.tab} ${selectedDay === day ? styles.activeTab : ""}`}
 					onClick={() => selectDay(day)}
 					type="button"
