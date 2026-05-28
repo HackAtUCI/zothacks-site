@@ -40,11 +40,7 @@ export default function ColorPicker({ onColorSelect }: ColorPickerProps) {
 	return (
 		<div className={styles.colorPicker}>
 			<div className={styles.brushCell}>
-				<Image
-					src={paintbrush}
-					alt="Paintbrush"
-					className={styles.brushIcon}
-				/>
+				<Image src={paintbrush} alt="Paintbrush" className={styles.brushIcon} />
 			</div>
 
 			<div className={styles.paletteFrame}>
