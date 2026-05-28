@@ -64,12 +64,12 @@ export default function Footer() {
 					<p className={styles.madeWithLove}>made with love in Irvine, CA</p>
 
 				</div>
-				<div className={styles.mainBarRight}>
+				{/* <div className={styles.mainBarRight}>
 					<FooterNavItem label="home" href="/" />
 					<FooterNavItem label="resources" href="/?overlay=resources" />
 					<FooterNavItem label="schedule" href="/?overlay=schedule" />
 					<FooterNavItem label="incident" href="/incident" />
-				</div>
+				</div> */}
 			</div>
 			<div className={styles.systemTooltray}>
 				{RIGHT_SOCIALS.map(({ icon, link, alt }) => (

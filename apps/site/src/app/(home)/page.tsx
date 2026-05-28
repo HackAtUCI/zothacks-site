@@ -26,18 +26,18 @@ const Home = ({ searchParams }: HomeProps) => {
 			<Landing />
 			<About />
 			{/* <Countdown /> */}
-			<Sponsors />
+			{/* <Sponsors /> */}
 			{/* <Clubs /> */}
 			<FAQ />
 			<BackToTop />
-			{(overlay === "resources" || overlay === "schedule") && (
+			{/* {(overlay === "resources" || overlay === "schedule") && (
 				<div className={styles.overlay} role="dialog" aria-modal="true">
 					<div className={styles.overlayPanel}>
 						{overlay === "resources" && <Resources overlay />}
 						{overlay === "schedule" && <Schedule overlay />}
 					</div>
 				</div>
-			)}
+			)} */}
 		</div>
 	);
 };
