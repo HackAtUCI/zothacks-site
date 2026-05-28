@@ -33,7 +33,19 @@ const About = () => {
 	return (
 		<Container as="section" className={styles.section}>
 			<div className={styles.windowWrap}>
-				<RetroWindow title="About ZotHacks" framedContent contentTheme="dark" draggable={false}>
+				<RetroWindow
+					title="About ZotHacks"
+					framedContent
+					contentTheme="dark"
+					decoration={
+						<Image
+							src={PeacePeter}
+							alt=""
+							aria-hidden
+							className={styles.peacePeter}
+						/>
+					}
+				>
 					<dl className={styles.grid}>
 						{ROWS.map(({ label, body }) => (
 							<div key={label} className={styles.row}>
@@ -43,12 +55,6 @@ const About = () => {
 						))}
 					</dl>
 				</RetroWindow>
-				<Image
-					src={PeacePeter}
-					alt=""
-					aria-hidden
-					className={styles.peacePeter}
-				/>
 			</div>
 		</Container>
 	);

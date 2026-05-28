@@ -24,10 +24,10 @@ export interface RetroWindowProps extends PropsWithChildren {
 	toolbar?: ReactNode;
 	/** Optional row below the main content, e.g. status text or actions. */
 	footer?: ReactNode;
+	/** Optional absolutely positioned decoration that should move with the window. */
+	decoration?: ReactNode;
 	/** Optional background color override for the framed content area. */
 	contentBackground?: string;
-	/** When true, the title bar temporarily drags the window before snapping back. */
-	draggable?: boolean;
 	/** When true, the window returns to its original position after dragging. */
 	snapBack?: boolean;
 	/** Optional href for a Windows-style close control in the title bar. */

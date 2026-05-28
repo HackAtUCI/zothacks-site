@@ -14,8 +14,8 @@ export interface RetroWindowClientProps extends PropsWithChildren {
 	contentTheme?: "light" | "dark";
 	toolbar?: ReactNode;
 	footer?: ReactNode;
+	decoration?: ReactNode;
 	contentBackground?: string;
-	draggable?: boolean;
 	snapBack?: boolean;
 	closeHref?: string;
 }
@@ -28,8 +28,8 @@ const RetroWindowClient = ({
 	contentTheme = "light",
 	toolbar,
 	footer,
+	decoration,
 	contentBackground,
-	draggable = true,
 	snapBack = true,
 	closeHref,
 }: RetroWindowClientProps) => {
@@ -40,7 +40,7 @@ const RetroWindowClient = ({
 		<motion.div
 			className={styles.root}
 			animate={animationControls}
-			drag={draggable}
+			drag
 			dragControls={dragControls}
 			dragElastic={0.08}
 			dragListener={false}
@@ -57,14 +57,12 @@ const RetroWindowClient = ({
 			transition={{ type: "spring", stiffness: 520, damping: 34 }}
 			whileDrag={{ scale: 1.01 }}
 		>
+			{decoration}
 			<div className={styles.mainContainer}>
 				<div
-					className={clsx(
-						styles.gradientHeader,
-						draggable && styles.draggableHeader,
-					)}
+					className={clsx(styles.gradientHeader, styles.draggableHeader)}
 					onPointerDown={(event) => {
-						if (draggable && event.button === 0) {
+						if (event.button === 0) {
 							dragControls.start(event);
 						}
 					}}

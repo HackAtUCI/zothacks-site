@@ -16,13 +16,18 @@ const BackToTop = () => {
 	return (
 		<section className={styles.container}>
 			<div className={styles.windowWrapper}>
-				<Image
-					src={sittingPeter}
-					alt=""
-					className={styles.sittingPeter}
-					aria-hidden
-				/>
-				<RetroWindow title="Warning" framedContent draggable={false}>
+				<RetroWindow
+					title="Warning"
+					framedContent
+					decoration={
+						<Image
+							src={sittingPeter}
+							alt=""
+							className={styles.sittingPeter}
+							aria-hidden
+						/>
+					}
+				>
 					<div className={styles.content}>
 						<div className={styles.messageRow}>
 							<Image
