@@ -22,7 +22,7 @@ const BackToTop = () => {
 					className={styles.sittingPeter}
 					aria-hidden
 				/>
-				<RetroWindow title="Warning" framedContent>
+				<RetroWindow title="Warning" framedContent draggable={false}>
 					<div className={styles.content}>
 						<div className={styles.messageRow}>
 							<Image
