@@ -34,3 +34,7 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# claude specific
+*.claude/
+*CLAUDE.MD

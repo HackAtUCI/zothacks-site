@@ -1,38 +1,61 @@
-/* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
 import Container from "react-bootstrap/Container";
-import imageUrlBuilder from "@sanity/image-url";
-import { client } from "@/lib/sanity/client";
+
+import RetroWindow from "@/components/RetroWindow/RetroWindow";
+import FolderIcon from "@/assets/icons/folder-icon.svg";
+import SponsorsPeter from "@/assets/images/sponsors-peter.gif";
+
+import { SponsorCardProps } from "./SponsorCard";
+import SponsorCard from "./SponsorCard";
+
 import { getSponsors } from "./getSponsors";
 import styles from "./Sponsors.module.scss";
 
-const builder = imageUrlBuilder(client);
+const PLACEHOLDERS: ReadonlyArray<SponsorCardProps & { key: string }> = [
+	{ key: "placeholder-1", name: "nami", placeholder: true },
+	{ key: "placeholder-2", name: "nami", placeholder: true },
+	{ key: "placeholder-3", name: "nami", placeholder: true },
+];
 
 const Sponsors = async () => {
-	const sponsors = await getSponsors();
-	const hasSponsors = sponsors.sponsors && sponsors.sponsors.length > 0;
+	// Keeping sanity fetcher but not using it since we don't have
+	// sponsors figured out yet
+	await getSponsors();
 
 	return (
-		<Container as="section">
-			<h2 className={styles.title}>Sponsors</h2>
-			<div className={styles.sponsorsLogos}>
-				{hasSponsors
-					? sponsors.sponsors.map(({ _key, name, url, logo, tier }) => (
-							<a
-								key={_key}
-								href={url}
-								target="_blank"
-								rel="noopener noreferrer"
-								className={`${styles.logo} ${styles[tier]}`}
-							>
-								<img
-									src={builder.image(logo).width(500).format("webp").url()}
-									alt={`${name} logo`}
-								/>
-							</a>
-						))
-					: Array.from({ length: 2 }).map((_, i) => (
-							<div key={i} className={styles.placeholderLogo}></div>
-						))}
+		<Container as="section" className={styles.section}>
+			<div className={styles.thanksWindow}>
+				<RetroWindow title="Sponsors" framedContent>
+					<div className={styles.thanks}>
+						<Image
+							src={FolderIcon}
+							alt=""
+							aria-hidden
+							className={styles.thanksFolder}
+						/>
+						<div className={styles.thanksText}>Thank you to our sponsors!</div>
+					</div>
+				</RetroWindow>
+			</div>
+
+			<div className={styles.mainWindow}>
+				<RetroWindow title="Sponsors" framedContent>
+					<div className={styles.mainContent}>
+						<h2 className={styles.heading}>Sponsors</h2>
+						<div className={styles.cards}>
+							{PLACEHOLDERS.map(({ key, ...rest }) => (
+								<SponsorCard key={key} {...rest} />
+							))}
+						</div>
+					</div>
+				</RetroWindow>
+				<Image
+					src={SponsorsPeter}
+					alt=""
+					aria-hidden
+					className={styles.cornerPeter}
+					unoptimized
+				/>
 			</div>
 		</Container>
 	);

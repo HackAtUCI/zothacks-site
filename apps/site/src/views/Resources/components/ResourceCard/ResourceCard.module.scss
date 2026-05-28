@@ -12,7 +12,7 @@
 	align-items: center;
 	gap: 0.6rem;
 	padding: 0.75rem 0.5rem;
-	width: 180px;
+	width: var(--resource-card-width, 180px);
 	cursor: pointer;
 	border-radius: 2px;
 	transition: background-color 0.1s ease;
@@ -27,15 +27,15 @@
 }
 
 .logo {
-	width: 80px;
-	height: 80px;
+	width: var(--resource-card-logo-size, 80px);
+	height: var(--resource-card-logo-size, 80px);
 	background-color: #c0c0c0;
 	border: 1px solid #a0a0a0;
 }
 
 .description {
 	font-family: var(--font-pixel), monospace;
-	font-size: 13px;
+	font-size: var(--resource-card-text-size, 13px);
 	text-align: center;
 	color: #000000;
 	line-height: 1.4;

@@ -9,6 +9,7 @@ import styles from "./NavLinkItem.module.scss";
 interface NavLinkItemInterface extends PropsWithChildren {
 	href: string;
 	className?: string;
+	scroll?: boolean;
 }
 
 export default function NavLinkItem({

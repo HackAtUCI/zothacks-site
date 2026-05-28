@@ -31,8 +31,12 @@ export default function BaseNavBar({ children }: PropsWithChildren) {
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="ms-auto">
 							<NavLinkItem href="/">Home</NavLinkItem>
-							<NavLinkItem href="/resources">Resources</NavLinkItem>
-							<NavLinkItem href="/schedule">Schedule</NavLinkItem>
+							<NavLinkItem href="/?overlay=resources">
+								Resources
+							</NavLinkItem>
+							<NavLinkItem href="/?overlay=schedule">
+								Schedule
+							</NavLinkItem>
 							<NavLinkItem href="/incident">Incident Form</NavLinkItem>
 							{/* <NavLinkItem href="#" target="_blank">
 								DevPost

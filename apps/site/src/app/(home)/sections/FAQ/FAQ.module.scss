@@ -11,6 +11,9 @@ $scrollbar-thumb: var(--scrollbar-gray);
 	justify-content: center;
 	width: 100%;
 	padding: 3rem 2rem;
+	justify-content: space-evenly;
+	width: 100vw;
+	min-height: 100vh;
 }
 
 .windowWrapper {

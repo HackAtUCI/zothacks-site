@@ -4,25 +4,25 @@
 	align-items: center;
 	gap: 0.4rem;
 	padding: 0.5rem;
-	width: 100px;
+	width: var(--resource-category-width, 100px);
 	cursor: default;
 	border-radius: 2px;
 	transition: background-color 0.1s ease;
 }
 
 .image {
-	width: 68px;
-	height: 68px;
+	width: var(--resource-category-icon-size, 68px);
+	height: var(--resource-category-icon-size, 68px);
 	background-color: #c0c0c0;
 	border: 1px solid #a0a0a0;
 }
 
 .label {
 	font-family: var(--font-pixel), monospace;
-	font-size: 12px;
+	font-size: var(--resource-category-text-size, 12px);
 	text-align: center;
 	color: #000000;
 	line-height: 1.4;
 	word-break: break-word;
-	max-width: 90px;
+	max-width: var(--resource-category-width, 100px);
 }

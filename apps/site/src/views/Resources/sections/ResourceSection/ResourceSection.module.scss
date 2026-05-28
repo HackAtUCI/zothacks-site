@@ -1,12 +1,12 @@
 @use "bootstrap-utils" as utils;
 
 .section {
-	padding: 0.75rem 0.5rem;
+	padding: 1rem 0.75rem;
 }
 
 .label {
 	font-family: var(--font-pixel), monospace;
-	font-size: 22px;
+	font-size: 26px;
 	font-weight: bold;
 	color: #000000;
 	text-align: center;
@@ -17,7 +17,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	gap: 0.5rem;
+	gap: 1rem;
 
 	@include utils.media-breakpoint-down(sm) {
 		gap: 0.25rem;
