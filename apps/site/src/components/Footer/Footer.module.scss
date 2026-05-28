@@ -1,106 +1,155 @@
+@use "bootstrap-utils" as utils;
 @use "zothacks-theme" as theme;
 
 .footer {
-	padding: 30px 40px;
-	margin: 0 auto;
-}
-
-.footer_content {
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
-}
-
-.top_row {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-.logo {
-	display: flex;
-	align-items: center;
-}
-
-.bottom_row {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-.left_footer {
-	display: flex;
-	gap: 30px;
-}
-
-.left_footer_text {
-	font-weight: 400;
-	font-style: normal;
-	font-size: 16px;
-	line-height: 180%;
-	letter-spacing: 2%;
-	text-align: right;
-	color: theme.$baby-blue;
-	text-decoration: none;
-	transition: color 0.25s;
-
-	&:hover {
-		color: lighten(theme.$baby-blue, 10%);
-		text-decoration: underline;
-	}
-}
-
-.right_footer {
-	display: flex;
-	gap: 15px;
-}
-
-.socials {
-	border-radius: 10px;
-	object-fit: contain;
-	transition: transform 0.25s;
-
-	&:hover {
-		transform: scale(1.05);
-	}
-}
-
-.text {
-	font-weight: 400;
-	font-style: normal;
-	font-size: 16px;
-	line-height: 180%;
-	letter-spacing: 2%;
-	text-align: right;
-	color: theme.$baby-blue;
 	margin: 0;
+	display: flex;
+
+	.mainBar {
+		margin: 0;
+		background-color: var(--vibrant-blue);
+		flex: 1;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		.mainBarLeft {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+
+			.startButton {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				padding: 7px 20px 7px 10px;
+				white-space: nowrap;
+
+
+				font-family: var(--font-big-pixel);
+				font-size: 24px;
+				color: #fff;
+				text-decoration: none;
+				background: var(--green-gradient);
+				background-size: 250% 250%;
+				background-position: center;
+				border-radius: 0 20px 20px 0;
+
+				box-shadow:
+					inset 0px 4px 4px rgba(255, 255, 255, 0.25),
+					inset 0px -4px 4px rgba(255, 255, 255, 0.25),
+					2px 4px 4px rgba(0, 0, 0, 0.25);
+
+				&:hover {
+					background-size: 200% 200%;
+					filter: brightness(1.15);
+				}
+
+				&:active {
+					filter: brightness(0.85);
+				}
+			}
+
+			.madeWithLove {
+				margin: 0;
+				height: fit-content;
+				padding: 5px 15px;
+
+				font-family: var(--font-pixel);
+				font-size: 16px;
+				background-color: rgba(255, 255, 255, 0.45);
+				box-shadow: inset 3px 4px 4px rgba(0, 0, 0, 0.25);
+			}
+		}
+
+		.mainBarRight {
+			display: flex;
+			justify-content: right;
+			flex-wrap: wrap;
+			gap: 5px;
+			margin: 10px;
+		}
+	}
+
+	.systemTooltray {
+		width: fit-content;
+		display: flex;
+		align-items: center;
+		gap: 15px;
+		padding: 0px 25px;
+		background: var(--radial-gradient-blue);
+		background-size: 175% 175%;
+		background-position: center;
+		box-shadow:
+			inset 2px 2px 4px rgba(0, 0, 0, 0.15),
+			inset -2px -2px 4px rgba(0, 0, 0, 0.3),
+			inset 2px 0px 4px rgba(0, 0, 0, 0.25),
+			-2px 4px 4px rgba(0, 0, 0, 0.25);
+
+		.socialIcon {
+			filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.25));
+		}
+	}
 }
 
-@media only screen and (max-width: 600px) {
+.footerNavItem {
+	padding: 8px 12px;
+
+	font-family: var(--font-pixel);
+	font-size: 16px;
+	color: #fff;
+	background-color: #3873ce;
+	box-shadow:
+		inset 1px 4px 4px rgba(255, 255, 255, 0.15),
+		inset 0px -4px 4px rgba(255, 255, 255, 0.15),
+		2px 0px 4px rgba(0, 0, 0, 0.25),
+		-2px 0px 4px rgba(0, 0, 0, 0.25);
+	text-decoration: none;
+}
+
+@include utils.media-breakpoint-down(md) {
 	.footer {
-		padding: 20px;
-	}
+		flex-direction: column; 
 
-	.top_row {
-		flex-direction: column;
-		gap: 20px;
-	}
+		.mainBar {
+			flex-direction: column;
+			gap: 12px;
+			width: 100%;
+			padding-bottom: 12px;
+			padding-top: 10px;
 
-	.bottom_row {
-		flex-direction: column;
-		gap: 15px;
-		text-align: center;
-	}
+			.mainBarLeft {
+				width: 100%;
 
-	.left_footer {
-		gap: 20px;
-	}
+				.startButton {
+					
+					&:hover {
 
-	.left_footer_text {
-		text-align: center;
-	}
+					}
 
-	.text {
-		text-align: center;
+					&:active {
+
+					}
+				}
+
+				.madeWithLove {
+					margin-right: 10px;
+				}
+			}
+
+			.mainBarRight {
+				margin-left: 10px;
+				justify-content: center;
+			}
+		}
+
+		.systemTooltray {
+			width: 100%;
+			justify-content: center;
+			padding: 10px 0px;
+
+			.socialIcon {
+			}
+		}
 	}
 }

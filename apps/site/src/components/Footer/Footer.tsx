@@ -18,14 +18,6 @@ type Social = {
 	alt: string;
 };
 
-const LEFT_SOCIALS: Social[] = [
-	{
-		icon: Hack,
-		link: "https://hack.ics.uci.edu/",
-		alt: "Hack at UCI logo that links to Hack at UCI's club website",
-	},
-];
-
 const RIGHT_SOCIALS: Social[] = [
 	{
 		icon: Mail,
@@ -50,66 +42,66 @@ const RIGHT_SOCIALS: Social[] = [
 ];
 
 export default function Footer() {
+
 	return (
 		<footer className={styles.footer}>
-			<div className={styles.footer_content}>
-				<div className={styles.top_row}>
-					<div className={styles.logo}>
-						{LEFT_SOCIALS.map(({ icon, link, alt }) => (
-							<a
-								key={link}
-								href={link}
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<Image
-									src={icon.src}
-									alt={alt}
-									width={55}
-									height={55}
-									className={styles.socials}
-								/>
-							</a>
-						))}
-					</div>
-					<div className={styles.right_footer}>
-						{RIGHT_SOCIALS.map(({ icon, link, alt }) => (
-							<a
-								key={link}
-								href={link}
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<Image
-									src={icon.src}
-									alt={alt}
-									width={40}
-									height={40}
-									className={styles.socials}
-								/>
-							</a>
-						))}
-					</div>
+			<div className={styles.mainBar}>
+				<div className={styles.mainBarLeft}>
+					<a
+						href="https://hack.ics.uci.edu/"
+						target="_blank"
+						rel="noopener noreferrer"
+						className={styles.startButton}
+					>
+						<Image
+							src={Hack.src}
+							alt="Hack at UCI logo that links to Hack at UCI's club website"
+							width={35}
+							height={35}
+						/>
+						Hack at UCI
+					</a>
+					<p className={styles.madeWithLove}>made with love in Irvine, CA</p>
+
 				</div>
-				<div className={styles.bottom_row}>
-					<div className={styles.left_footer}>
-						<Link href="/" className={styles.left_footer_text}>
-							Home
-						</Link>
-						<Link
-							href="https://hack.ics.uci.edu/"
-							className={styles.left_footer_text}
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							About
-						</Link>
-					</div>
-					<p className={styles.text}>
-						Made with &lt;3 in Irvine, CA | Hack at UCI
-					</p>
+				<div className={styles.mainBarRight}>
+					<FooterNavItem label="home" href="/" />
+					<FooterNavItem label="resources" href="/resources" />
+					<FooterNavItem label="schedule" href="/schedule" />
+					<FooterNavItem label="incident" href="/incident" />
 				</div>
 			</div>
+			<div className={styles.systemTooltray}>
+				{RIGHT_SOCIALS.map(({ icon, link, alt }) => (
+					<a
+						key={link}
+						href={link}
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<Image
+							src={icon.src}
+							alt={alt}
+							width={25}
+							height={25}
+							className={styles.socialIcon}
+						/>
+					</a>
+				))}
+			</div>
 		</footer>
-	);
+	)
+}
+
+interface FooterNavItemProps {
+	label: string;
+	href: string;
+}
+
+function FooterNavItem({ label, href }: FooterNavItemProps) {
+	return (
+		<Link href={href} className={styles.footerNavItem}>
+			{label}
+		</Link>
+	)
 }
