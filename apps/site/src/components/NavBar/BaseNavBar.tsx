@@ -29,7 +29,7 @@ export default function BaseNavBar({ children }: PropsWithChildren) {
 						aria-controls="basic-navbar-nav"
 						onClick={() => setExpanded(true)}
 					>
-						<Image src={ZotHacksLogo.src} alt="" width={60} height={60} />
+						<Image src={ZotHacksLogo.src} alt="" width={55} height={55} />
 					</Navbar.Toggle>
 					<Navbar.Collapse id="basic-navbar-nav" className="justify-between">
 						<button

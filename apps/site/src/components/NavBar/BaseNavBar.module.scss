@@ -17,30 +17,29 @@ $inset-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25) inset;
 .nav {
 	display: flex;
 	justify-content: flex-end;
-	margin: $nav-padding;
+	margin: 1rem 1rem 0 0;
 
-	// Disable collapse animation
-	:global(.navbar-collapse.collapsing) {
-		transition: none;
-		height: auto !important;
-	}
-
-	:global(.navbar-collapse.show) {
+	:global(.navbar-collapse) {
 		@include blue-panel;
 
 		position: fixed;
 		inset: 0;
+		z-index: 101;
 		width: 100vw;
-		height: 100vh;
+		height: 100dvh;
 		padding: 0 $nav-padding;
-
-		display: flex;
+		display: flex !important;
 		flex-direction: column;
 		justify-content: center;
 		gap: 40px;
 		align-items: stretch;
+		visibility: hidden;
+		pointer-events: none;
+		transform: translateX(100%);
+		transition:
+			transform 280ms ease,
+			visibility 0s linear 280ms;
 
-		// Make Bootstrap's container stop constraining width
 		:global(.container) {
 			max-width: 100%;
 			padding: 0;
@@ -50,6 +49,18 @@ $inset-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25) inset;
 			width: 100%;
 		}
 	}
+
+	:global(.navbar-collapse.collapsing) {
+		height: auto !important;
+	}
+
+	:global(.navbar-collapse.show),
+	:global(.navbar-collapse.collapsing) {
+		visibility: visible;
+		pointer-events: auto;
+		transform: translateX(0);
+		transition: transform 280ms ease;
+	}
 }
 
 .navbar {
@@ -57,7 +68,8 @@ $inset-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25) inset;
 		@include blue-panel;
 
 		padding: 20px;
-		border-radius: 30px;
+		border: 0;
+		border-radius: 34px;
 		position: relative;
 	}
 
@@ -118,6 +130,30 @@ $inset-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25) inset;
 		height: 100%;
 		display: flex;
 		align-items: center;
+	}
+
+	.nav {
+		:global(.navbar-collapse) {
+			position: static;
+			width: auto;
+			height: auto;
+			padding: 0;
+			display: flex !important;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+			gap: 0;
+			background-color: transparent;
+			box-shadow: none;
+			visibility: visible;
+			pointer-events: auto;
+			transform: none;
+			transition: none;
+
+			> *:not(.closeBtn) {
+				width: auto;
+			}
+		}
 	}
 
 	.logo {
