@@ -7,7 +7,7 @@
 
 	.mainBar {
 		margin: 0;
-		background-color: var(--vibrant-blue);
+		background-color: var(--xp-blue-primary);
 		flex: 1;
 		display: flex;
 		justify-content: space-between;
@@ -24,7 +24,6 @@
 				gap: 10px;
 				padding: 7px 20px 7px 10px;
 				white-space: nowrap;
-
 
 				font-family: var(--font-big-pixel);
 				font-size: 24px;
@@ -105,11 +104,19 @@
 		2px 0px 4px rgba(0, 0, 0, 0.25),
 		-2px 0px 4px rgba(0, 0, 0, 0.25);
 	text-decoration: none;
+
+	&:hover {
+		filter: brightness(1.15);
+	}
+
+	&:active {
+		filter: brightness(0.85);
+	}
 }
 
 @include utils.media-breakpoint-down(md) {
 	.footer {
-		flex-direction: column; 
+		flex-direction: column;
 
 		.mainBar {
 			flex-direction: column;
@@ -122,13 +129,10 @@
 				width: 100%;
 
 				.startButton {
-					
 					&:hover {
-
 					}
 
 					&:active {
-
 					}
 				}
 

@@ -66,8 +66,8 @@ export default function Footer() {
 				</div>
 				<div className={styles.mainBarRight}>
 					<FooterNavItem label="home" href="/" />
-					<FooterNavItem label="resources" href="/resources" />
-					<FooterNavItem label="schedule" href="/schedule" />
+					<FooterNavItem label="resources" href="/?overlay=resources" />
+					<FooterNavItem label="schedule" href="/?overlay=schedule" />
 					<FooterNavItem label="incident" href="/incident" />
 				</div>
 			</div>

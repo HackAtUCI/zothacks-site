@@ -47,15 +47,15 @@ export default function BaseNavBar({ children }: PropsWithChildren) {
 						<Nav className={`${styles.navItems} mx-auto gap-4 md:gap-2 lg:gap-4`}>
 							<NavLinkItem href="/" icon={home_icon.src}>Home</NavLinkItem>
 							<NavLinkItem href="/?overlay=resources" icon={resources_icon.src}>
-                Resources
-              </NavLinkItem>
+								Resources
+							</NavLinkItem>
 							<NavLinkItem href="/?overlay=schedule" icon={schedule_icon.src}>
-                Schedule
-              </NavLinkItem>
+								Schedule
+							</NavLinkItem>
 							<NavLinkItem href="/incident" icon={incident_form_icon.src}>
 								Incident Form
 							</NavLinkItem>
-              {/* <NavLinkItem href="#" target="_blank">
+							{/* <NavLinkItem href="#" target="_blank">
 								DevPost
 							</NavLinkItem> */}
 							{/* <NavLinkItem href="#" target="_blank">
