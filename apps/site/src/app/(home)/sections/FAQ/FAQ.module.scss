@@ -1,179 +1,326 @@
-@use "zothacks-theme" as theme;
 @use "bootstrap-utils" as utils;
 
-$mobile-item-padding-y: 1.6rem;
-$mobile-item-padding-x: 2rem;
-
-$item-padding-y: 2rem;
-$item-padding-x: 3rem;
+$category-inactive: #747474;
+$category-inactive-border: #6c6b6b;
+$category-active: #f2f2f2;
+$scrollbar-track: #d5d5d5;
+$scrollbar-thumb: var(--scrollbar-gray);
 
 .container {
-	position: relative;
-	padding-top: 6rem;
-	padding-bottom: 6rem;
 	display: flex;
+	justify-content: center;
+	width: 100%;
+	padding: 3rem 2rem;
 	justify-content: space-evenly;
 	width: 100vw;
 	min-height: 100vh;
 }
 
-.left-anteater {
-	display: none;
-}
-
-.right-anteater {
-	display: none;
-}
-
-.accordion-border {
-	margin-bottom: 12px;
-}
-
-.question-body {
-	background-color: rgba(theme.$dark-green, 0.69);
-	border: 5px solid theme.$dark-green;
-	border-radius: 25px;
-	color: white;
-	padding: 0.5rem 1rem;
-	transition: all 0.3s ease;
-	font-size: 0.9rem;
-	font-weight: 400;
-
-	& > * > * {
-		font-weight: 400;
-		color: white;
-		font-family: var(--font-inter);
-		font-size: 0.9rem;
-	}
-}
-
-.answer-body {
-	background-color: #61876db0;
-	border: 5px solid #2a504b;
-	border-radius: 25px;
-	color: #cacaca;
-	margin-top: 15px;
-	padding: 1.5rem 2rem;
-	font-family: var(--font-inter);
-	font-size: 0.9rem;
-	font-weight: 400;
-
-	* {
-		margin: 0;
-		font-weight: 200;
-		color: #cacaca;
-		letter-spacing: 0.03em;
-		line-height: 2;
-		font-family: var(--font-inter);
-		font-size: 1rem;
-	}
-}
-
-.header-section {
-	padding: 0;
-	margin-bottom: 4rem;
-}
-
-.faq-header {
-	font-weight: 800;
-	color: #cacaca;
-	font-size: 1.6rem;
-	margin-bottom: 1rem;
-	letter-spacing: 0.03em;
-	font-family: var(--font-inter);
-}
-
-.faq-subtitle {
-	color: #99b1cb;
-	margin: 0;
-	font-family: var(--font-inter);
-	font-weight: 400;
-	font-size: 1rem;
-	align-self: center;
+.windowWrapper {
 	width: 100%;
-	text-align: center;
+	max-width: 1100px;
+	filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
 }
 
-.light-blue-text {
-	color: white;
+.categoryNav {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	width: 100%;
+	padding: 15px 0;
 }
 
-.purple-text {
-	color: white;
+.categoryButton {
+	flex: 1 1 200px;
+	max-width: 200px;
+	height: 40px;
+	padding: 4px 40px;
+	border: 1px solid $category-inactive-border;
+	background-color: $category-inactive;
+	color: #ffffff;
+	font-family: var(--font-pixel), monospace;
+	font-size: 16px;
+	line-height: 1;
+	cursor: pointer;
+	box-shadow:
+		0 4px 4px rgba(0, 0, 0, 0.25),
+		inset 4px 4px 4px rgba(0, 0, 0, 0.25);
+
+	&:hover {
+		filter: brightness(1.05);
+	}
+}
+
+.categoryButtonActive {
+	background-color: $category-active;
+	color: #000000;
+	box-shadow: inset 2px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.scrollArea {
+	display: flex;
+	height: 380px;
+	background-color: #ffffff;
+}
+
+.scrollContent {
+	position: relative;
+	flex: 1;
+	min-width: 0;
+	overflow-y: auto;
+	padding: 0.5rem 0.5rem 6rem 0.75rem;
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+.scrollRail {
+	display: flex;
+	flex-shrink: 0;
+	flex-direction: column;
+	width: 26px;
+	background-color: $scrollbar-track;
+	border-left: 1px solid #ababad;
+	box-shadow: inset -2px 0 4px rgba(0, 0, 0, 0.25);
+}
+
+.scrollButtonUp,
+.scrollButtonDown {
+	flex-shrink: 0;
+	width: 26px;
+	height: 26px;
+	padding: 0;
+	border: none;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100% 100%;
+	cursor: pointer;
+
+	&:disabled {
+		cursor: default;
+		opacity: 0.6;
+	}
+}
+
+.scrollButtonUp {
+	background-image: url("~@/assets/icons/up_arrow.svg");
+}
+
+.scrollButtonDown {
+	background-image: url("~@/assets/icons/down_arrow.svg");
+}
+
+.scrollTrack {
+	position: relative;
+	flex: 1;
+	min-height: 0;
+}
+
+.scrollThumb {
+	position: absolute;
+	top: 0;
+	left: 4px;
+	width: calc(100% - 8px);
+	background-color: $scrollbar-thumb;
+	border: 1px solid #000000;
+	border-top-color: #dfdfdf;
+	border-left-color: #dfdfdf;
+	touch-action: none;
+	cursor: grab;
+
+	&:active {
+		cursor: grabbing;
+	}
+}
+
+.faqList {
+	position: relative;
+	z-index: 1;
+}
+
+.emptyMessage {
+	margin: 0;
+	padding: 1rem 0;
+	font-family: var(--font-pixel), monospace;
+	font-size: 16px;
+	color: #000000;
+}
+
+.faqPanel {
+	display: flex;
+	flex-direction: column;
+	background-color: #ffffff;
+}
+
+.slidePeterDesktop {
+	position: absolute;
+	right: 0.5rem;
+	bottom: 0;
+	z-index: 2;
+	width: 115px;
+	height: auto;
+	pointer-events: none;
+}
+
+.slidePeterMobileWrap {
+	display: none;
 }
 
 .accordion {
-	--bs-accordion-body-padding-y: 0.5rem;
-	--bs-accordion-body-padding-x: 1rem;
-
-	--bs-accordion-btn-padding-y: 0.5rem;
-	--bs-accordion-btn-padding-x: 1rem;
-
-	--bs-accordion-btn-icon-width: 16px;
-	--bs-accordion-btn-icon: url("~@/assets/icons/faq-arrow.svg");
-	--bs-accordion-btn-active-icon: url("~@/assets/icons/faq-arrow.svg");
-	--bs-accordion-bg: none;
-	--bs-accordion-color: white;
-	--bs-accordion-btn-color: white;
+	--bs-accordion-bg: transparent;
+	--bs-accordion-active-bg: transparent;
+	--bs-accordion-border-color: transparent;
+	--bs-accordion-border-radius: 0;
+	--bs-accordion-inner-border-radius: 0;
 	--bs-accordion-btn-focus-box-shadow: none;
+	--bs-accordion-active-color: #000000;
+	--bs-accordion-btn-padding-x: 0;
+	--bs-accordion-btn-padding-y: 0.75rem;
+	--bs-accordion-body-padding-x: 0;
+	--bs-accordion-body-padding-y: 0;
+}
 
-	.accordion-button {
-		&:focus {
-			box-shadow: none !important;
-			border: none !important;
+.accordionItem {
+	border: none;
+	background: transparent;
+}
+
+.questionHeader {
+	margin: 0;
+
+	:global(.accordion-button) {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.5rem;
+		padding-left: 0;
+		font-family: var(--font-pixel), monospace;
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 1.2;
+		color: #000000;
+		background: transparent;
+		box-shadow: none;
+
+		&::after {
+			display: none;
 		}
 
-		&:not(.collapsed) {
-			&::after {
-				transform: rotate(180deg);
-			}
+		&:focus {
+			box-shadow: none;
 		}
 	}
 }
 
-@include utils.media-breakpoint-up(sm) {
-	.body {
-		margin-left: 60px;
+.questionIcon {
+	flex-shrink: 0;
+	width: 23px;
+	height: 23px;
+	overflow: hidden;
+	border-radius: 50%;
+	line-height: 0;
+}
+
+.questionText {
+	display: block;
+	flex: 1;
+	padding-right: 0.5rem;
+}
+
+.answerBody {
+	margin-top: 0.25rem;
+	margin-bottom: 1rem;
+	padding: 0.75rem 1rem;
+	border: 1px solid #000000;
+	font-family: var(--font-pixel), monospace;
+	font-size: 16px;
+	line-height: 1.4;
+	color: #000000;
+
+	p {
+		margin: 0;
+	}
+
+	a {
+		color: var(--xp-blue-text);
 	}
 }
 
 @include utils.media-breakpoint-up(md) {
 	.container {
-		justify-content: center;
-		align-items: flex-start;
-		padding: 4rem 16rem;
+		padding: 3rem 4rem;
+	}
+}
+
+@include utils.media-breakpoint-down(md) {
+	.container {
+		padding: 2rem 0.75rem;
 	}
 
-	.body {
-		margin-left: 0;
-		max-width: 500px;
+	.categoryNav {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 5px;
+	}
+
+	.categoryButton {
+		flex: none;
+		max-width: none;
+		width: 100%;
+		padding: 4px 1rem;
+		font-size: 14px;
+	}
+
+	.faqPanel {
+		display: grid;
+		grid-template-columns: 1fr 26px;
+		grid-template-rows: minmax(0, min(320px, 48vh)) auto;
 		width: 100%;
 	}
 
-	.header-body {
-		padding: $item-padding-y $item-padding-x;
-		margin-bottom: 2rem;
+	.scrollArea {
+		display: contents;
 	}
 
-	.accordion {
-		--bs-accordion-body-padding-y: 0.5rem;
-		--bs-accordion-body-padding-x: 1rem;
-
-		--bs-accordion-btn-padding-y: 0.5rem;
-		--bs-accordion-btn-padding-x: 1rem;
+	.scrollContent {
+		grid-column: 1;
+		grid-row: 1;
+		height: min(320px, 48vh);
+		max-height: min(320px, 48vh);
+		padding: 0.5rem 0.25rem 1rem 0.5rem;
 	}
 
-	.accordion-border {
-		margin-left: 0;
-		margin-right: 0;
-		margin-bottom: 1rem;
+	.scrollRail {
+		grid-column: 2;
+		grid-row: 1 / span 2;
+		align-self: stretch;
+		height: auto;
 	}
 
-	.left-anteater {
+	.slidePeterDesktop {
 		display: none;
 	}
 
-	.right-anteater {
-		display: none;
+	.slidePeterMobileWrap {
+		display: flex;
+		grid-column: 1;
+		grid-row: 2;
+		justify-content: center;
+		flex-shrink: 0;
+		padding: 0.25rem 0 0.5rem;
+	}
+
+	.slidePeterMobile {
+		width: 90px;
+		height: auto;
+		pointer-events: none;
+	}
+
+	.questionHeader :global(.accordion-button),
+	.answerBody,
+	.emptyMessage {
+		font-size: 14px;
 	}
 }

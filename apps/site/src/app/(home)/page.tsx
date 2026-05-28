@@ -3,6 +3,7 @@ export const revalidate = 60;
 import Landing from "./sections/Landing";
 import Sponsors from "./sections/Sponsors";
 import FAQ from "./sections/FAQ";
+import BackToTop from "./sections/BackToTop";
 import Clubs from "./sections/Clubs/Clubs";
 
 import styles from "./page.module.scss";
@@ -28,6 +29,7 @@ const Home = ({ searchParams }: HomeProps) => {
 			<Sponsors />
 			{/* <Clubs /> */}
 			<FAQ />
+			<BackToTop />
 			{(overlay === "resources" || overlay === "schedule") && (
 				<div className={styles.overlay} role="dialog" aria-modal="true">
 					<div className={styles.overlayPanel}>
