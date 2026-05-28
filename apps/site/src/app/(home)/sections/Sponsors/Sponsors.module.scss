@@ -70,6 +70,7 @@
 	margin-bottom: 2rem;
 
 	@include utils.media-breakpoint-up(md) {
+		position: relative;
 		padding: 1.375rem 1rem 3.8rem;
 	}
 }
@@ -103,18 +104,18 @@
 }
 
 .cornerPeter {
-	position: absolute;
-	right: 0.5rem;
-	bottom: 0.75rem;
 	width: 120px;
 	height: auto;
 	transform: rotate(19deg);
 	pointer-events: none;
-	z-index: 2;
+	margin-top: -0.5rem;
+	align-self: center;
 
 	@include utils.media-breakpoint-up(md) {
-		width: 150px;
+		position: absolute;
 		right: 2rem;
 		bottom: 1rem;
+		width: 150px;
+		z-index: 2;
 	}
 }

@@ -47,15 +47,15 @@ const Sponsors = async () => {
 								<SponsorCard key={key} {...rest} />
 							))}
 						</div>
+						<Image
+							src={SponsorsPeter}
+							alt=""
+							aria-hidden
+							className={styles.cornerPeter}
+							unoptimized
+						/>
 					</div>
 				</RetroWindow>
-				<Image
-					src={SponsorsPeter}
-					alt=""
-					aria-hidden
-					className={styles.cornerPeter}
-					unoptimized
-				/>
 			</div>
 		</Container>
 	);
