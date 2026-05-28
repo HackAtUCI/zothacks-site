@@ -1,18 +1,36 @@
-import Landing from "./sections/Landing/Landing";
-import ApiResources from "./sections/ApiResources/ApiResources";
-import BackendResources from "./sections/BackendResources/BackendResources";
-import FrontendResources from "./sections/FrontendResources/FrontendResources";
-import StarterPacks from "./sections/StarterPacks/StarterPacks";
+import RetroWindow from "@/components/RetroWindow/RetroWindow";
+import clsx from "clsx";
+
+import CategoryRow from "./sections/CategoryRow/CategoryRow";
+import ResourceSection from "./sections/ResourceSection/ResourceSection";
 import styles from "./Resources.module.scss";
 
-export default function Resources() {
-	return (
-		<div className={styles.resources}>
-			<Landing />
-			<ApiResources />
-			<BackendResources />
-			<FrontendResources />
-			<StarterPacks />
+interface ResourcesProps {
+	overlay?: boolean;
+}
+
+export default function Resources({ overlay = false }: ResourcesProps) {
+	const resourcesWindow = (
+		<div
+			className={overlay ? styles.overlayWindowWrapper : styles.windowWrapper}
+		>
+			<RetroWindow
+				title="Resources"
+				framedContent
+				closeHref="/"
+				snapBack={!overlay}
+			>
+				<div className={clsx(styles.content, overlay && styles.overlayContent)}>
+					<CategoryRow />
+					<ResourceSection category="api" label="API Resources" />
+				</div>
+			</RetroWindow>
 		</div>
 	);
+
+	if (overlay) {
+		return resourcesWindow;
+	}
+
+	return <main className={styles.page}>{resourcesWindow}</main>;
 }

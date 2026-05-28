@@ -1,8 +1,15 @@
 @use "bootstrap-utils" as bootstrap;
 
-$container-padding: 6rem;
+$container-padding: 3rem;
 
 .home {
+	position: relative;
+	min-height: 100vh;
+	background-image: url("~@/assets/background/aldrich-park-background.jpg");
+	background-position: center top;
+	background-size: cover;
+	background-repeat: no-repeat;
+
 	h2 {
 		text-align: center;
 	}
@@ -14,4 +21,24 @@ $container-padding: 6rem;
 			@include bootstrap.padding-bottom($container-padding);
 		}
 	}
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 900;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	padding: 7rem 1rem 0;
+	pointer-events: none;
+}
+
+.overlayPanel {
+	position: relative;
+	width: fit-content;
+	max-width: 100%;
+	pointer-events: auto;
 }

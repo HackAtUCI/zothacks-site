@@ -1,69 +1,44 @@
-@use "zothacks-theme" as theme;
 @use "bootstrap-utils" as utils;
-.frame {
+
+.link {
+	text-decoration: none;
+	color: inherit;
+	display: flex;
+}
+
+.card {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
-	width: 423px;
-	min-height: 260px;
-	padding: 3vh 0 0;
-	border-radius: 20px;
-	border: 5px solid rgba(42, 80, 75, 1);
-	background-color: rgba(42, 80, 75, 0.69);
-	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-	gap: 16px;
+	gap: 0.6rem;
+	padding: 0.75rem 0.5rem;
+	width: var(--resource-card-width, 180px);
+	cursor: pointer;
+	border-radius: 2px;
+	transition: background-color 0.1s ease;
+
+	&:hover {
+		background-color: rgba(0, 82, 255, 0.08);
+	}
+
+	@include utils.media-breakpoint-down(sm) {
+		width: 140px;
+	}
 }
 
 .logo {
-	width: 80px;
-	height: auto;
-	fill: #ffffff;
+	width: var(--resource-card-logo-size, 80px);
+	height: var(--resource-card-logo-size, 80px);
+	background-color: #c0c0c0;
+	border: 1px solid #a0a0a0;
 }
 
-.cardLinkWrapper {
-	display: flex;
-	flex: 1 1 auto;
-	text-decoration: none;
-	color: inherit;
-	cursor: pointer;
-	transition:
-		transform 0.2s ease,
-		box-shadow 0.2s ease;
-
-	&:hover {
-		transform: translateY(-4px);
-		box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
-	}
-}
-
-.text {
-	font-family: var(--font-inter);
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 180%;
-	letter-spacing: 0.02em;
+.description {
+	font-family: var(--font-pixel), monospace;
+	font-size: var(--resource-card-text-size, 13px);
 	text-align: center;
-	color: rgba(153, 177, 203, 1);
-	max-width: 90%;
-}
-
-.bold {
-	font-weight: 800;
-	color: rgba(202, 202, 202, 1);
-}
-
-@media (max-width: 480px) {
-	.frame {
-		width: 90%;
-		padding: 20px;
-	}
-
-	.logo {
-		width: 60px;
-	}
-
-	.text {
-		font-size: 15px;
-	}
+	color: #000000;
+	line-height: 1.4;
+	margin: 0;
+	word-break: break-word;
 }

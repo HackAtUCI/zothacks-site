@@ -1,87 +1,121 @@
 @use "zothacks-theme" as theme;
 @use "bootstrap-utils" as utils;
 
-.title {
-	text-align: center;
-	color: theme.$white;
-	font-size: 2rem;
-	font-weight: 600;
-	margin-bottom: 48px;
-	font-weight: 800;
-	color: #cacaca;
+.section {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	padding: 1.5rem 1rem 2.5rem;
+	align-items: stretch;
 
 	@include utils.media-breakpoint-up(md) {
-		font-size: 3rem;
+		flex-direction: row;
+		align-items: center;
+		gap: 0;
+		padding: 2rem 1rem 3rem;
 	}
 }
 
-.sponsorsLogos {
+.thanksWindow {
+	width: 100%;
+
+	@include utils.media-breakpoint-up(md) {
+		flex: 0 0 auto;
+		max-width: 320px;
+		position: relative;
+		z-index: 2;
+		margin-right: -2.5rem;
+		top: -3rem;
+	}
+}
+
+.thanks {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	padding: 0.75rem 0.5rem;
+	font-family: var(--font-pixel), monospace;
+	color: theme.$black;
+}
+
+.thanksFolder {
+	width: 36px;
+	height: auto;
+	flex-shrink: 0;
+}
+
+.thanksText {
+	font-size: 1rem;
+	line-height: 1.2;
+}
+
+.mainWindow {
+	position: relative;
+	width: 100%;
+
+	@include utils.media-breakpoint-up(md) {
+		flex: 1 1 auto;
+		min-width: 0;
+		z-index: 1;
+	}
+}
+
+.mainContent {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	gap: 1.5rem;
-	max-width: 1200px;
-	margin: 0 auto;
+	padding: 1rem 0.75rem 2.5rem;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+
+	@include utils.media-breakpoint-up(md) {
+		position: relative;
+		padding: 1.375rem 1rem 3.8rem;
+	}
+}
+
+.heading {
+	font-family: var(--font-pixel), monospace;
+	font-size: 1.25rem;
+	font-weight: 400;
+	color: theme.$black;
+	margin: 0;
+	text-align: center;
+
+	@include utils.media-breakpoint-up(md) {
+		font-size: 1.375rem;
+	}
+}
+
+.cards {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1.5rem;
+	width: 100%;
 
 	@include utils.media-breakpoint-up(md) {
 		flex-direction: row;
 		justify-content: center;
+		flex-wrap: wrap;
+		gap: 3.5rem;
 	}
 }
 
-.logo {
-	border-radius: 8px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	transition: transform 0.3s ease;
-	aspect-ratio: 1 / 1;
-	width: 100%;
-	height: 310px;
-
-	&:hover {
-		transform: scale(1.05);
-	}
-
-	max-width: 250px;
-
-	&.gold {
-		max-width: 450px;
-	}
+.cornerPeter {
+	width: 120px;
+	height: auto;
+	transform: rotate(19deg);
+	pointer-events: none;
+	margin-top: -0.5rem;
+	align-self: center;
 
 	@include utils.media-breakpoint-up(md) {
-		max-width: 350px;
-
-		&.gold {
-			max-width: 550px;
-		}
-	}
-
-	img {
-		width: 100%;
-		height: 100%;
-		object-fit: contain;
-		padding: 0rem;
-
-		@include utils.media-breakpoint-up(md) {
-			padding: 2rem;
-		}
-	}
-}
-
-.placeholderLogo {
-	font-weight: bold;
-	width: 90%;
-	height: 10rem;
-	background-color: #ababab;
-	padding: 0.5rem;
-	font-size: 0.8rem;
-	margin-bottom: 1rem;
-
-	@include utils.media-breakpoint-up(md) {
-		width: 50%;
-		height: 19rem;
-		font-size: 1rem;
-		padding: 1rem;
+		position: absolute;
+		right: 2rem;
+		bottom: 1rem;
+		width: 150px;
+		z-index: 2;
 	}
 }

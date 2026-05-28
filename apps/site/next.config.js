@@ -6,19 +6,58 @@ const nextConfig = {
 	sassOptions: {
 		includePaths: [path.join(__dirname, "src", "lib", "styles")],
 	},
+	/* TODO: Remove redirects once we have the new site up and running */
 	async redirects() {
 		return [
 			{
+				source: "/apply",
+				destination: "/",
+				permanent: false,
+			},
+			{
+				source: "/apply/hacker",
+				destination: "/",
+				permanent: false,
+			},
+			{
+				source: "/apply-mentor",
+				destination: "/",
+				permanent: false,
+			},
+			{
+				source: "/auth",
+				destination: "/",
+				permanent: false,
+			},
+			{
+				source: "/guest-login",
+				destination: "/",
+				permanent: false,
+			},
+			{
+				source: "/login",
+				destination: "/",
+				permanent: false,
+			},
+			{
+				source: "/logout",
+				destination: "/",
+				permanent: false,
+			},
+			{
+				source: "/portal",
+				destination: "/",
+				permanent: false,
+			},
+			{
 				source: "/mentor",
-				destination:
-					"https://docs.google.com/forms/d/e/1FAIpQLSc68omDO40vn16-QmmdrvVgdLh9vFN623u5hLOG64je8t_VQA/viewform?usp=dialog",
-				permanent: true,
+				destination: "/",
+				permanent: false,
 			},
 			{
 				source: "/incident",
-				destination:
-					"https://docs.google.com/forms/d/e/1FAIpQLSc3rDK238iKZHCrSJ4wz9xCyqyjIStDSiMuKxEcahG4_a45FA/viewform?usp=dialog",
-				permanent: true,
+				destination: "/",
+				permanent: false,
 			},
 		];
 	},

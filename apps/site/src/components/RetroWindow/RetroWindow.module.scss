@@ -5,6 +5,7 @@ $content-border: #ababad;
 $content-background: #ffffff;
 
 .root {
+	position: relative;
 	width: 100%;
 }
 
@@ -21,7 +22,21 @@ $content-background: #ffffff;
 	justify-content: space-between;
 	gap: 0.75rem;
 	padding: 0.45rem 0.5rem;
-	background: linear-gradient(90deg, #03036d 0%, #487db5 100%);
+	background: linear-gradient(
+		90deg,
+		var(--xp-blue-dark) 0%,
+		var(--xp-blue-medium) 100%
+	);
+	touch-action: none;
+	user-select: none;
+}
+
+.draggableHeader {
+	cursor: grab;
+
+	&:active {
+		cursor: grabbing;
+	}
 }
 
 .title {
@@ -55,6 +70,10 @@ $control-size: 20px;
 	background: transparent;
 	cursor: default;
 	line-height: 0;
+}
+
+.closeWindowControl {
+	cursor: pointer;
 }
 
 // Layered borders: inner on the element, outer on ::before (inset -1px)
@@ -117,6 +136,35 @@ $control-size: 20px;
 	}
 }
 
+.closeIcon {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 14px;
+	height: 14px;
+	transform: translate(-50%, -50%);
+
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 1px;
+		right: 1px;
+		height: 2px;
+		background-color: $control-shadow;
+		transform-origin: center;
+	}
+
+	&::before {
+		transform: translateY(-50%) rotate(45deg);
+	}
+
+	&::after {
+		transform: translateY(-50%) rotate(-45deg);
+	}
+}
+
 .editMenu {
 	display: flex;
 	gap: 1rem;
@@ -157,6 +205,12 @@ $control-size: 20px;
 	border: 2.52px solid $content-border;
 	background: $content-background;
 	overflow: hidden;
+}
+
+.contentFrameDark {
+	border-color: theme.$white;
+	background: theme.$pure-black;
+	color: theme.$white;
 }
 
 .footer {

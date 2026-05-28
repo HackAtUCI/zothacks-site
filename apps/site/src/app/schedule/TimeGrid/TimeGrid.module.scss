@@ -1,0 +1,165 @@
+@use "bootstrap-utils" as utils;
+
+$yellow-pattern: linear-gradient(45deg, #d9d9d9 25%, transparent 25%),
+	linear-gradient(-45deg, #d9d9d9 25%, transparent 25%),
+	linear-gradient(45deg, transparent 75%, #d9d9d9 75%),
+	linear-gradient(-45deg, transparent 75%, #d9d9d9 75%);
+
+.timeGrid {
+	display: flex;
+	flex-direction: column;
+	border: 2px solid black;
+	overflow: hidden;
+	height: auto;
+	min-width: 0;
+
+	@include utils.media-breakpoint-down(md) {
+		border: 2px solid black;
+		border-radius: 7px;
+	}
+}
+.gridBody {
+	display: flex;
+	flex-direction: column;
+	/*
+    overflow-y: auto;
+    flex: 1;*/
+}
+
+.gridRow {
+	display: flex;
+	flex-direction: row;
+	cursor: pointer;
+
+	&:not(:last-child) .eventCell {
+		border-bottom: 1px dashed black;
+	}
+
+	&:not(:last-child) .timeCell {
+		border-bottom: 2px solid black;
+	}
+}
+
+.timeCell {
+	flex: 0 0 6rem;
+	flex-shrink: 0;
+	min-width: 7rem;
+	border-right: 2px solid black;
+	background: var(--schedule-gray);
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.5rem;
+	padding: 0.5rem 1rem;
+	box-sizing: border-box;
+
+	@include utils.media-breakpoint-down(md) {
+		flex: 0 0 4.5rem;
+		flex-shrink: 0;
+		flex-direction: column; // stack hour over minutes on mobile
+		align-items: center;
+		justify-content: center;
+		gap: 0.15rem;
+		padding: 0.5rem;
+	}
+}
+
+.hour {
+	font-family: var(--font-pixel);
+	font-size: 2rem;
+	line-height: 1;
+	min-width: 1.5rem;
+	@include utils.media-breakpoint-down(md) {
+		text-align: center;
+	}
+}
+
+.minutes,
+.minuteSingle {
+	font-family: var(--font-pixel);
+	font-size: clamp(0.5rem, 1.5rem, 1.5rem);
+	line-height: 1;
+}
+
+.minutesStack {
+	display: flex;
+	flex-direction: column;
+
+	@include utils.media-breakpoint-down(md) {
+		display: none;
+	}
+}
+
+.minuteSingle {
+	display: none;
+	@include utils.media-breakpoint-down(md) {
+		display: block;
+		font-size: 1rem;
+		text-align: center;
+	}
+}
+
+.eventCell {
+	flex: 1 1 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.5rem 0.75rem;
+	min-width: 6rem;
+	overflow: hidden;
+	background-color: hsl(60, 100%, 51%);
+	background-image: $yellow-pattern;
+	background-size: 4px 4px;
+	background-position:
+		0 0,
+		0 2px,
+		2px -2px,
+		-2px 0px;
+}
+
+.eventLink {
+	font-family: var(--font-pixel);
+	font-size: clamp(0.75rem, 1.5vw, 1rem);
+	color: #000;
+	cursor: pointer;
+}
+
+.eventLinkSelected {
+	@extend .eventLink;
+	text-decoration: underline;
+}
+
+// Double border illusion for selected row
+.gridRowSelected {
+	position: relative;
+	z-index: 5;
+}
+
+.gridRowSelected::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 2px;
+	background: white;
+	pointer-events: none;
+	z-index: 10;
+}
+
+.gridRowSelected::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 2px;
+	background: white;
+	pointer-events: none;
+	z-index: 10;
+}
+
+.gridRowSelected {
+	box-shadow: 0 2px 0 0 white;
+}

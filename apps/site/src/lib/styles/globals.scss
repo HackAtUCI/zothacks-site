@@ -14,6 +14,7 @@
 		#a3c4e9 65%,
 		#5697e2 100%
 	);
+	--cobalt-green: #418f3d;
 	--green-gradient: radial-gradient(circle, #05dc05 0%, #152e14 100%);
 	--schedule-gray: #d9d9d9;
 	--input-gray: #d7d7d7;
@@ -25,6 +26,7 @@
 	--xp-blue-accent: #0082ff;
 	--font-inter: var(--next-font-inter), sans-serif;
 	--font-pixel: var(--next-font-dotgothic16), sans-serif;
+	--font-big-pixel: var(--next-font-pixelify-sans), sans-serif;
 }
 
 // Global styles
@@ -51,6 +53,16 @@ body {
 	overflow-x: clip;
 	min-height: 100%;
 }
+
 body {
+	display: flex;
+	flex-direction: column;
 	position: relative;
+	min-height: 100dvh;
+}
+
+body > main {
+	display: flex;
+	flex: 1 0 auto;
+	flex-direction: column;
 }

@@ -1,10 +1,5 @@
-import { Maintenance } from "@/views";
-import Schedule from "./Schedule";
+import { notFound } from "next/navigation";
 
-export const revalidate = 60;
-
-const Component = process.env.MAINTENANCE_MODE_SCHEDULE
-	? Maintenance
-	: Schedule;
-
-export default Component;
+export default function Page() {
+	notFound();
+}

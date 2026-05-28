@@ -3,50 +3,56 @@
 
 .not-found-page {
 	display: flex;
-	align-items: flex-start;
+	align-items: center;
 	justify-content: center;
-	height: 80vh;
-	background: url("~@/assets/background/anteater-fishing-background.png") center /
-		cover;
+	flex: 1;
+	background: linear-gradient(to right, #03036d, #487db5);
 }
 
-.content {
-	margin-top: 22vh;
+.main-window {
 	text-align: center;
 	line-height: 1.5;
+	width: 40vw;
+
+	@media (max-width: 768px) {
+		width: 90vw;
+	}
 }
 
-.heading,
-.subtext {
-	margin: 0 auto;
-	text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+.main-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-family: var(--font-pixel);
+	padding: 0.6rem;
+	gap: 1.5rem;
+
+	@media (max-width: 768px) {
+		padding: 0.6em 0.4rem;
+		gap: 1rem;
+	}
+}
+
+.icon {
+	width: 30%;
+	max-width: 100px;
+	height: auto;
 }
 
 .heading {
-	font-size: 2.5rem;
-	font-weight: 700;
-	color: theme.$yellow;
+	font-size: 2rem;
 
-	@include utils.media-breakpoint-up(lg) {
-		font-size: 3rem;
-	}
-
-	@include utils.media-breakpoint-up(xl) {
-		font-size: 4rem;
+	@media (max-width: 768px) {
+		font-size: 1.5rem;
 	}
 }
 
-.subtext {
-	font-size: 1.5rem;
+.sub-heading {
 	font-weight: 400;
-	color: theme.$white;
-	max-width: 60%;
+	font-size: 1.5rem;
 
-	@include utils.media-breakpoint-up(lg) {
-		font-size: 1.75rem;
-	}
-
-	@include utils.media-breakpoint-up(xl) {
-		font-size: 2.25rem;
+	@media (max-width: 768px) {
+		font-size: 1.3rem;
 	}
 }

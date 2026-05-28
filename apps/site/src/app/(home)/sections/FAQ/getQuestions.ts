@@ -3,6 +3,8 @@ import { cache } from "react";
 import { client } from "@/lib/sanity/client";
 import { SanityDocument } from "@/lib/sanity/types";
 
+import { FAQ_CATEGORIES } from "./faqCategories";
+
 const Questions = z.array(
 	SanityDocument.extend({
 		faqs: z.array(
@@ -30,12 +32,15 @@ const Questions = z.array(
 					}),
 				),
 				question: z.string(),
+				category: z.enum(FAQ_CATEGORIES).default("general"),
 				_type: z.literal("faq"),
 				_key: z.string(),
 			}),
 		),
 	}),
 );
+
+export type FAQItem = z.infer<typeof Questions>[number]["faqs"][number];
 
 export const getQuestions = cache(async () => {
 	return Questions.parse(await client.fetch("*[_type == 'faqs']"));
