@@ -5,27 +5,26 @@
 	align-items: center;
 	justify-content: center;
 
-	background: var(--xp-blue-text);
-	border: none;
-	color: #fff;
+	background: var(--cobalt-green);
+	box-shadow: 3px 2px 4px rgba(255, 255, 255, 0.25) inset;
 	font-family: var(--font-pixel);
-	font-size: 16px;
-	font-weight: 400;
+	color: #fff;
+	font-size: 20px;
 	text-decoration: none;
-	box-shadow:
-		inset 1.5px 1.5px 0 0 #dfdfdf,
-		inset 0.75px 0.75px 0 0 #ffffff,
-		inset -2.14px -2.14px 0 0 #808080,
-		inset -1.07px -1.07px 0 0 #252525;
 
 	&:hover {
-		filter: brightness(1.1);
+		background: #49a844;
+	}
+	&:active {
+		background: #3b7a38;
+		box-shadow: 4px 3px 5px rgba(0, 0, 0, 0.25) inset;
 	}
 }
 
 .small {
 	@extend .coreButton;
-	padding: 8px 20px;
+	padding: 8px 36px;
+	height: 40px;
 	align-self: center;
 }
 

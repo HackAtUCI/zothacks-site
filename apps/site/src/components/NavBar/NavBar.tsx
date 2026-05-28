@@ -18,14 +18,14 @@ export default function NavBar({ identity }: NavbarProps) {
 	return (
 		<div className={`${styles.nav} fixed-top`}>
 			<BaseNavBar>
-				{status !== null && <NavLinkItem href="/portal">Portal</NavLinkItem>}
+				{status !== null && <NavLinkItem href="/portal" className="me-3">Portal</NavLinkItem>}
 				{isLoggedIn ? (
 					<PrimaryButton href="/logout" variant="small">
-						Log Out
+						Logout
 					</PrimaryButton>
 				) : (
 					<PrimaryButton href="/login" variant="small">
-						Log In
+						Login
 					</PrimaryButton>
 				)}
 			</BaseNavBar>
