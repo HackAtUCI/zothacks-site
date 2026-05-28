@@ -30,9 +30,5 @@ export default async function Schedule({ overlay = false }: ScheduleProps) {
 		return scheduleWindow;
 	}
 
-	return (
-		<div className={styles.backgroundWrapper}>
-			{scheduleWindow}
-		</div>
-	);
+	return <div className={styles.backgroundWrapper}>{scheduleWindow}</div>;
 }

@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 
-import CountdownBanner from "../CountdownBanner/CountdownBanner"
-import OptionTabs from "../OptionTabs/OptionTabs"
+import CountdownBanner from "../CountdownBanner/CountdownBanner";
+import OptionTabs from "../OptionTabs/OptionTabs";
 import TimeGrid from "../TimeGrid/TimeGrid";
 import EventInfo from "../EventInfo/EventInfo";
 
@@ -46,16 +46,17 @@ const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
 		if (!el) return;
 		const grid = el.firstElementChild as HTMLElement;
 		const info = el.lastElementChild as HTMLElement;
-		const update = () => { info.style.maxHeight = `${grid.offsetHeight}px`; };
+		const update = () => {
+			info.style.maxHeight = `${grid.offsetHeight}px`;
+		};
 		update();
 		window.addEventListener("resize", update);
 		return () => window.removeEventListener("resize", update);
 	}, [selectedDay]);
 
-
 	return (
 		<div className={styles.scheduleContainer}>
-			<CountdownBanner/>
+			<CountdownBanner />
 			<div className={styles.schedulePanel}>
 				<div className={styles.dayTabs}>
 					<OptionTabs selectedDay={selectedDay} selectDay={setSelectedDay} />
@@ -76,9 +77,8 @@ const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
 							selectedEvent={selectedEvent}
 							onSelect={setSelectedEvent}
 						/>
-						<EventInfo event={selectedEvent}  />
+						<EventInfo event={selectedEvent} />
 					</div>
-					
 				</div>
 			</div>
 		</div>

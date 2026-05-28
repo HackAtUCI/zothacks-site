@@ -11,19 +11,16 @@ interface ResourcesProps {
 
 export default function Resources({ overlay = false }: ResourcesProps) {
 	const resourcesWindow = (
-		<div className={overlay ? styles.overlayWindowWrapper : styles.windowWrapper}>
+		<div
+			className={overlay ? styles.overlayWindowWrapper : styles.windowWrapper}
+		>
 			<RetroWindow
 				title="Resources"
 				framedContent
 				closeHref="/"
 				snapBack={!overlay}
 			>
-				<div
-					className={clsx(
-						styles.content,
-						overlay && styles.overlayContent,
-					)}
-				>
+				<div className={clsx(styles.content, overlay && styles.overlayContent)}>
 					<CategoryRow />
 					<ResourceSection category="api" label="API Resources" />
 				</div>

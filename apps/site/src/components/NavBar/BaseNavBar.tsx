@@ -23,7 +23,11 @@ export default function BaseNavBar({ children }: PropsWithChildren) {
 
 	return (
 		<div className={`${styles.nav} fixed-top`}>
-			<Navbar expand="md" expanded={expanded} className={`${styles.navbar} py-0`}>
+			<Navbar
+				expand="md"
+				expanded={expanded}
+				className={`${styles.navbar} py-0`}
+			>
 				<Container>
 					<Navbar.Toggle
 						aria-controls="basic-navbar-nav"
@@ -44,7 +48,9 @@ export default function BaseNavBar({ children }: PropsWithChildren) {
 								<Image src={ZotHacksLogo.src} alt="Hacks Logo" fill />
 							</div>
 						</Navbar.Brand>
-						<Nav className={`${styles.navItems} mx-auto gap-4 md:gap-2 lg:gap-4`}>
+						<Nav
+							className={`${styles.navItems} mx-auto gap-4 md:gap-2 lg:gap-4`}
+						>
 							<NavLinkItem
 								href="/"
 								icon={home_icon.src}

@@ -5,9 +5,8 @@ interface TimeGridProps {
 	friday: Array<any>;
 	saturday: Array<any>;
 	sunday: Array<any>;
-    selectedEvent: any;
-    onSelect: (event: any) => void;
-
+	selectedEvent: any;
+	onSelect: (event: any) => void;
 }
 
 export default function TimeGrid({
@@ -15,9 +14,8 @@ export default function TimeGrid({
 	friday,
 	saturday,
 	sunday,
-    selectedEvent,
-    onSelect,
-
+	selectedEvent,
+	onSelect,
 }: TimeGridProps) {
 	// Get the current day's events safely
 	const getCurrentDayEvents = () => {
@@ -33,44 +31,54 @@ export default function TimeGrid({
 		}
 	};
 
-    const formatHour = (date: Date) => {
-        const h = date.getHours();
-        return h > 12 ? h - 12 : h === 0 ? 12 : h;
-    };
+	const formatHour = (date: Date) => {
+		const h = date.getHours();
+		return h > 12 ? h - 12 : h === 0 ? 12 : h;
+	};
 
-    const formatMinutes = (date: Date) => {
-        return String(date.getMinutes()).padStart(2, "0");
-    };
+	const formatMinutes = (date: Date) => {
+		return String(date.getMinutes()).padStart(2, "0");
+	};
 
 	const currentEvents = getCurrentDayEvents();
 
 	return (
-        <div className={styles.timeGrid}>
-            <div className={styles.gridBody}>
-                {currentEvents.map((event, index) => (
-                        <div
-                            key={event._id}
-                            className={`${styles.gridRow} ${event._id === selectedEvent?._id ? styles.gridRowSelected : ""}`}
-                            onClick={() => onSelect(event)}
-                        >
-                            <div className={styles.timeCell}>
-                                <span className={styles.hour}>{formatHour(event.startTime)}</span>
-                                <div className={styles.minutesStack}>
-                                    <span className={styles.minutes}>{formatMinutes(event.startTime)}</span>
-                                    <span className={styles.minutes}>{formatMinutes(event.endTime)}</span>
-                                </div>
-                                <span className={styles.minuteSingle}>{formatMinutes(event.startTime)}</span>
-                            </div>
-                            <div className={styles.eventCell}>
-                                <span className={event._id === selectedEvent?._id ? styles.eventLinkSelected : styles.eventLink}>
-                                    {event.title}
-                                </span>
-                            </div>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-
+		<div className={styles.timeGrid}>
+			<div className={styles.gridBody}>
+				{currentEvents.map((event, index) => (
+					<div
+						key={event._id}
+						className={`${styles.gridRow} ${event._id === selectedEvent?._id ? styles.gridRowSelected : ""}`}
+						onClick={() => onSelect(event)}
+					>
+						<div className={styles.timeCell}>
+							<span className={styles.hour}>{formatHour(event.startTime)}</span>
+							<div className={styles.minutesStack}>
+								<span className={styles.minutes}>
+									{formatMinutes(event.startTime)}
+								</span>
+								<span className={styles.minutes}>
+									{formatMinutes(event.endTime)}
+								</span>
+							</div>
+							<span className={styles.minuteSingle}>
+								{formatMinutes(event.startTime)}
+							</span>
+						</div>
+						<div className={styles.eventCell}>
+							<span
+								className={
+									event._id === selectedEvent?._id
+										? styles.eventLinkSelected
+										: styles.eventLink
+								}
+							>
+								{event.title}
+							</span>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
 	);
 }

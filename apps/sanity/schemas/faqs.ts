@@ -58,7 +58,9 @@ export default defineType({
 							category: "category",
 						},
 						prepare({ title, subtitle, category }) {
-							const answerPreview = subtitle ? toPlainText(subtitle) : undefined;
+							const answerPreview = subtitle
+								? toPlainText(subtitle)
+								: undefined;
 
 							return {
 								title,

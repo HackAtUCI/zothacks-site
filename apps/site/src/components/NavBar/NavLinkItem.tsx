@@ -30,7 +30,9 @@ export default function NavLinkItem({
 			href={href}
 			className={clsx(
 				className,
-				searchParams.has("overlay", href.split("=").at(-1)) ? styles.active : styles.notActive,
+				searchParams.has("overlay", href.split("=").at(-1))
+					? styles.active
+					: styles.notActive,
 			)}
 			{...props}
 		>

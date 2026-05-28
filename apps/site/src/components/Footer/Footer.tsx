@@ -42,7 +42,6 @@ const RIGHT_SOCIALS: Social[] = [
 ];
 
 export default function Footer() {
-
 	return (
 		<footer className={styles.footer}>
 			<div className={styles.mainBar}>
@@ -62,7 +61,6 @@ export default function Footer() {
 						Hack at UCI
 					</a>
 					<p className={styles.madeWithLove}>made with love in Irvine, CA</p>
-
 				</div>
 				{/* <div className={styles.mainBarRight}>
 					<FooterNavItem label="home" href="/" />
@@ -73,12 +71,7 @@ export default function Footer() {
 			</div>
 			<div className={styles.systemTooltray}>
 				{RIGHT_SOCIALS.map(({ icon, link, alt }) => (
-					<a
-						key={link}
-						href={link}
-						target="_blank"
-						rel="noopener noreferrer"
-					>
+					<a key={link} href={link} target="_blank" rel="noopener noreferrer">
 						<Image
 							src={icon.src}
 							alt={alt}
@@ -90,7 +83,7 @@ export default function Footer() {
 				))}
 			</div>
 		</footer>
-	)
+	);
 }
 
 interface FooterNavItemProps {
@@ -103,5 +96,5 @@ function FooterNavItem({ label, href }: FooterNavItemProps) {
 		<Link href={href} className={styles.footerNavItem}>
 			{label}
 		</Link>
-	)
+	);
 }

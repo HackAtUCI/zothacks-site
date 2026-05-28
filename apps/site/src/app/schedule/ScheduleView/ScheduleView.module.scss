@@ -103,7 +103,7 @@
 .headerInfo {
 	padding: 1vw;
 	text-align: center;
-	margin: 0; 
+	margin: 0;
 }
 
 .headerTime {
@@ -118,10 +118,10 @@
 }
 .headerInfo {
 	flex: 1 1 15.5rem;
-    min-width: 0;
-    max-width: 15.5rem;
+	min-width: 0;
+	max-width: 15.5rem;
 
-	@container (max-width: 450px){
+	@container (max-width: 450px) {
 		display: none;
 	}
 }
