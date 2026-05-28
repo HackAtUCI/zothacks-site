@@ -1,91 +1,56 @@
-"use client";
 import Image from "next/image";
+import Container from "react-bootstrap/Container";
 
-import LeftCharacter from "@/assets/images/LeftCharacter.png";
-import RightCharacter from "@/assets/images/RightCharacter.png";
-import Flashlight from "@/assets/images/flashlight.png";
-import Light from "@/assets/images/light.png";
-import GrassPatch from "@/assets/background/landing/grass-patch.png";
-import CampBase from "@/assets/background/landing/Camp_base.png";
-import LogShading from "@/assets/background/landing/Log_shading.png";
-import Log from "@/assets/background/landing/Log.png";
-import LogTexture from "@/assets/background/landing/Log_texture.png";
-import Tent from "@/assets/background/landing/Tent.png";
+import RetroWindow from "@/components/RetroWindow/RetroWindow";
+import PeacePeter from "@/assets/images/peace-peter.png";
 
 import styles from "./About.module.scss";
 
+const ROWS: ReadonlyArray<{ label: string; body: string }> = [
+	{
+		label: ">ZOTHACKS",
+		body: "ZotHacks introduces students to the world of hackathons and web development.",
+	},
+	{
+		label: ">PROFICIENCY",
+		body: "Beginner friendly! Built for students with minimal web development experience.",
+	},
+	{
+		label: ">BENEFITS",
+		body: "We provide free technical workshops, dedicated mentors for every team, and FREE FOOD!",
+	},
+	{
+		label: ">DURATION",
+		body: "12-hours",
+	},
+	{
+		label: ">APPLY NOW",
+		body: "We encourage applicants from all backgrounds, including underrepresented minorities, majors, or genders to apply!",
+	},
+];
+
 const About = () => {
 	return (
-		<section className={styles.about}>
-			<div className={styles.content}>
-				<h3 className={styles.aboutTitle}>What is ZotHacks?</h3>
-				<p className={styles.aboutText}>
-					ZotHacks is a 12-hour hackathon designed for beginners where students
-					with minimal computer science experience will learn to build their
-					first CS project. Through ZotHacks, we introduce these students to the
-					world of hackathons and web development by providing technical
-					workshops, dedicated mentors for every team, and free food! We
-					encourage applicants from all backgrounds, including underrepresented
-					minorities, majors, or genders to apply!
-				</p>
-			</div>
-			{/* Characters + call-to-action text/buttons */}
-			<div className={styles.characters}>
+		<Container as="section" className={styles.section}>
+			<div className={styles.windowWrap}>
+				<RetroWindow title="About ZotHacks" framedContent contentTheme="dark" draggable={false}>
+					<dl className={styles.grid}>
+						{ROWS.map(({ label, body }) => (
+							<div key={label} className={styles.row}>
+								<dt className={styles.label}>{label}</dt>
+								<dd className={styles.body}>{body}</dd>
+							</div>
+						))}
+					</dl>
+				</RetroWindow>
 				<Image
-					src={CampBase}
-					alt="Camp base foreground"
-					className={styles.campBase}
+					src={PeacePeter}
+					alt=""
+					aria-hidden
+					className={styles.peacePeter}
 				/>
-				<Image src={GrassPatch} alt="Grass patch" className={styles.grass} />
-				<div className={`${styles.side} ${styles.leftSide}`}>
-					<Image
-						id="hacker-application"
-						src={LeftCharacter}
-						alt="Left character"
-						className={styles.left}
-					/>
-					<Image
-						src={LogShading}
-						alt="Log shading"
-						className={styles.logShading}
-					/>
-					<Image src={Log} alt="Log" className={styles.log} />
-					<Image
-						src={LogTexture}
-						alt="Log texture"
-						className={styles.logTexture}
-					/>
-					{/* <div className={styles.prompt}>
-						<p>Want to develop your first project?</p>
-						<a href="/apply">Apply to be a hacker</a>
-					</div> */}
-				</div>
-
-				<div className={`${styles.side} ${styles.rightSide}`}>
-					<Image src={Tent} alt="Tent" className={styles.tent} />
-
-					<div className={styles.bearWithFlashlight}>
-						<Image src={Light} alt="Flashlight beam" className={styles.light} />
-						<Image
-							src={Flashlight}
-							alt="Flashlight"
-							className={styles.flashlight}
-						/>
-
-						{/* character */}
-						<Image
-							src={RightCharacter}
-							alt="Right character"
-							className={styles.right}
-						/>
-					</div>
-					{/* <div className={styles.prompt}>
-						<p>Have experience under your belt?</p>
-						<PrimaryButton href="/mentor">Apply to be a mentor</PrimaryButton>
-					</div> */}
-				</div>
 			</div>
-		</section>
+		</Container>
 	);
 };
 

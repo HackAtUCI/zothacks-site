@@ -13,6 +13,12 @@
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	padding: 80px 20px 40px;
+
+
 	@include bootstrap.media-breakpoint-down(lg) {
 		background-position: center 70%;
 	}
@@ -24,4 +30,15 @@
 	@include bootstrap.media-breakpoint-down(sm) {
 		background-position: center 70%;
 	}
+}
+
+.windowWrapper {
+   width: 80%;
+   min-width: 350px;
+   max-width: 1440px;
+}
+
+.overlayWindowWrapper {
+	width: min(1180px, calc(100vw - 2rem));
+	overflow: visible;
 }

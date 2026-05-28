@@ -22,6 +22,22 @@ export default defineType({
 							type: "text",
 						}),
 						defineField({
+							name: "category",
+							title: "Category",
+							type: "string",
+							options: {
+								list: [
+									{ title: "General", value: "general" },
+									{ title: "Logistics", value: "logistics" },
+									{ title: "Registration", value: "registration" },
+									{ title: "Other", value: "other" },
+								],
+								layout: "radio",
+								direction: "horizontal",
+							},
+							validation: (Rule) => Rule.required(),
+						}),
+						defineField({
 							name: "answer",
 							title: "Answer",
 							type: "array",
@@ -39,11 +55,16 @@ export default defineType({
 						select: {
 							title: "question",
 							subtitle: "answer",
+							category: "category",
 						},
-						prepare({ title, subtitle }) {
+						prepare({ title, subtitle, category }) {
+							const answerPreview = subtitle ? toPlainText(subtitle) : undefined;
+
 							return {
 								title,
-								subtitle: subtitle ? toPlainText(subtitle) : undefined,
+								subtitle: category
+									? `${category}${answerPreview ? ` — ${answerPreview}` : ""}`
+									: answerPreview,
 								media: FileQuestion,
 							};
 						},
