@@ -14,10 +14,10 @@
 
 .sittingPeter {
 	position: absolute;
-	top: -3rem;
+	top: -7.75rem;
 	right: calc(0.5rem + 20px + 0.65rem + 20px + 0.35rem);
 	z-index: 2;
-	width: 80px;
+	width: 180px;
 	height: auto;
 	pointer-events: none;
 }
@@ -52,8 +52,8 @@
 
 @media (max-width: 480px) {
 	.sittingPeter {
-		top: -1.75rem;
-		width: 64px;
+		top: -3.75rem;
+		width: 120px;
 	}
 
 	.message {
