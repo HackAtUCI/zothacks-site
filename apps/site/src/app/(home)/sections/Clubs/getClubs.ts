@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { cache } from "react";
-import { client } from "@/lib/sanity/client";
+import { client, isSanityConfigured } from "@/lib/sanity/client";
 import { SanityDocument, SanityImageReference } from "@/lib/sanity/types";
 
 const Clubs = SanityDocument.extend({
@@ -16,5 +16,12 @@ const Clubs = SanityDocument.extend({
 });
 
 export const getClubs = cache(async () => {
-	return Clubs.parse(await client.fetch("*[_id == 'clubs'][0]"));
+	if (!isSanityConfigured) return Clubs.parse({ clubs: [] });
+
+	try {
+		return Clubs.parse(await client.fetch("*[_id == 'clubs'][0]"));
+	} catch (error) {
+		console.warn("[getClubs] Falling back to empty clubs", error);
+		return Clubs.parse({ clubs: [] });
+	}
 });

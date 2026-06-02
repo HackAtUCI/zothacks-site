@@ -8,17 +8,23 @@ const nextConfig = {
 	},
 	async redirects() {
 		return [
-			{
-				source: "/apply",
-				destination: "/",
-				permanent: true,
-			},
-			{
-				source: "/mentor",
-				destination: "/",
-				permanent: true,
-			},
-		];
+			"/apply",
+			"/apply-mentor",
+			"/auth",
+			"/feedback",
+			"/feedback-form",
+			"/guest-login",
+			"/incident",
+			"/incident-form",
+			"/login",
+			"/logout",
+			"/mentor",
+			"/portal",
+		].map((source) => ({
+			source,
+			destination: "/",
+			permanent: false,
+		}));
 	},
 };
 

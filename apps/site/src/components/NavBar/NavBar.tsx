@@ -69,25 +69,11 @@ export default function NavBar() {
 								SCHEDULE
 							</Link>
 							<Link
-								href="https://forms.gle/cCixQqKR2gDXAUMLA"
-								className={styles.notActive}
-								target="_blank"
-							>
-								INCIDENT FORM
-							</Link>
-							<Link
 								href="https://zothacks-2024.devpost.com/"
 								className={styles.notActive}
 								target="_blank"
 							>
 								DEVPOST
-							</Link>
-							<Link
-								href="https://forms.gle/xD7XMhnSF5jYzXPN6"
-								className={styles.notActive}
-								target="_blank"
-							>
-								FEEDBACK FORM
 							</Link>
 						</Nav>
 					</Navbar.Collapse>

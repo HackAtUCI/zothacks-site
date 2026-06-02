@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { cache } from "react";
-import { client } from "@/lib/sanity/client";
+import { client, isSanityConfigured } from "@/lib/sanity/client";
 import { SanityDocument } from "@/lib/sanity/types";
 
 const Resources = z.array(
@@ -48,9 +48,16 @@ const Resources = z.array(
 );
 
 export const getResources = cache(async (resourceType: string) => {
-	return Resources.parse(
-		await client.fetch(
-			`*[_type == 'resource' && resourceType == '${resourceType}']`,
-		),
-	);
+	if (!isSanityConfigured) return Resources.parse([]);
+
+	try {
+		return Resources.parse(
+			await client.fetch(
+				`*[_type == 'resource' && resourceType == '${resourceType}']`,
+			),
+		);
+	} catch (error) {
+		console.warn("[getResources] Falling back to empty resources", error);
+		return Resources.parse([]);
+	}
 });

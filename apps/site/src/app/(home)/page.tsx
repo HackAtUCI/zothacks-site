@@ -2,7 +2,6 @@ export const revalidate = 60;
 
 import Landing from "./sections/Landing";
 import GetInvolved from "./sections/GetInvolved";
-import Sponsors from "./sections/Sponsors";
 import FAQ from "./sections/FAQ";
 import Clubs from "./sections/Clubs/Clubs";
 
@@ -15,7 +14,6 @@ const Home = () => {
 			<Landing />
 			<GetInvolved />
 			<Countdown />
-			<Sponsors />
 			<Clubs />
 			<FAQ />
 		</div>
