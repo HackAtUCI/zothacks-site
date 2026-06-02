@@ -5,7 +5,6 @@ import LeftCharacter from "@/assets/images/LeftCharacter.png";
 import RightCharacter from "@/assets/images/RightCharacter.png";
 import Flashlight from "@/assets/images/flashlight.png";
 import Light from "@/assets/images/light.png";
-import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 import GrassPatch from "@/assets/background/landing/grass-patch.png";
 import CampBase from "@/assets/background/landing/Camp_base.png";
 import LogShading from "@/assets/background/landing/Log_shading.png";
@@ -32,7 +31,6 @@ const About = () => {
 					minorities, majors, or genders to apply!
 				</p>
 			</div>
-			{/* Characters + call-to-action text/buttons */}
 			<div className={styles.characters}>
 				<Image
 					src={CampBase}
@@ -58,10 +56,6 @@ const About = () => {
 						alt="Log texture"
 						className={styles.logTexture}
 					/>
-					{/* <div className={styles.prompt}>
-						<p>Want to develop your first project?</p>
-						<PrimaryButton href="/apply">Apply to be a hacker</PrimaryButton>
-					</div> */}
 				</div>
 
 				<div className={`${styles.side} ${styles.rightSide}`}>
@@ -82,10 +76,6 @@ const About = () => {
 							className={styles.right}
 						/>
 					</div>
-					{/* <div className={styles.prompt}>
-						<p>Have experience under your belt?</p>
-						<PrimaryButton href="/mentor">Apply to be a mentor</PrimaryButton>
-					</div> */}
 				</div>
 			</div>
 		</section>

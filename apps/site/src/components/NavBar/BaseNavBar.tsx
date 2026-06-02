@@ -33,7 +33,6 @@ export default function BaseNavBar({ children }: PropsWithChildren) {
 							<NavLinkItem href="/">Home</NavLinkItem>
 							<NavLinkItem href="/resources">Resources</NavLinkItem>
 							<NavLinkItem href="/schedule">Schedule</NavLinkItem>
-							<NavLinkItem href="/incident">Incident Form</NavLinkItem>
 							{/* <NavLinkItem href="#" target="_blank">
 								DevPost
 							</NavLinkItem> */}

@@ -8,19 +8,20 @@ const nextConfig = {
 	},
 	async redirects() {
 		return [
-			{
-				source: "/mentor",
-				destination:
-					"https://docs.google.com/forms/d/e/1FAIpQLSc68omDO40vn16-QmmdrvVgdLh9vFN623u5hLOG64je8t_VQA/viewform?usp=dialog",
-				permanent: true,
-			},
-			{
-				source: "/incident",
-				destination:
-					"https://docs.google.com/forms/d/e/1FAIpQLSc3rDK238iKZHCrSJ4wz9xCyqyjIStDSiMuKxEcahG4_a45FA/viewform?usp=dialog",
-				permanent: true,
-			},
-		];
+			"/apply",
+			"/apply-mentor",
+			"/auth",
+			"/guest-login",
+			"/incident",
+			"/login",
+			"/logout",
+			"/mentor",
+			"/portal",
+		].map((source) => ({
+			source,
+			destination: "/",
+			permanent: false,
+		}));
 	},
 
 	async rewrites() {

@@ -1,8 +1,12 @@
-import getUserIdentity from "@/lib/utils/getUserIdentity";
-import Navbar from "./NavBar";
+import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
+import BaseNavBar from "./BaseNavBar";
 
 export default async function NavbarParent() {
-	const identity = await getUserIdentity();
-
-	return <Navbar identity={identity} />;
+	return (
+		<BaseNavBar>
+			<PrimaryButton type="button" variant="small">
+				Log In
+			</PrimaryButton>
+		</BaseNavBar>
+	);
 }
