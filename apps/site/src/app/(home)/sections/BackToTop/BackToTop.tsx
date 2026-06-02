@@ -5,7 +5,7 @@ import Image from "next/image";
 import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 import RetroWindow from "@/components/RetroWindow/RetroWindow";
 import warningIcon from "@/assets/icons/warning.svg";
-import sittingPeter from "@/assets/images/sitting_peter.svg";
+import sittingPeter from "@/assets/images/sitting-peter.gif";
 
 import styles from "./BackToTop.module.scss";
 
