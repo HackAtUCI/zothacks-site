@@ -4,7 +4,7 @@ import { visionTool } from "@sanity/vision";
 import { colorInput } from "@sanity/color-input";
 import { media } from "sanity-plugin-media";
 import { schemaTypes } from "./schemas";
-import { HeartHandshake, BadgeHelp } from "lucide-react";
+import { HeartHandshake, BadgeHelp, CalendarClock } from "lucide-react";
 
 export default defineConfig({
 	name: "default",
@@ -43,9 +43,21 @@ export default defineConfig({
 							.child(
 								S.document().schemaType("faqs").documentId("faqs").title("FAQs")
 							),
+						S.listItem()
+							.title("Events 2023")
+							.icon(CalendarClock)
+							.child(
+								S.documentList()
+									.title("Events 2023")
+									.schemaType("event")
+									.filter(
+										'_type == "event" && (year == 2023 || year == "2023" || (startTime >= "2023-01-01T00:00:00Z" && startTime < "2024-01-01T00:00:00Z"))'
+									)
+							),
 						S.divider(),
 						...S.documentTypeListItems().filter(
-							(listItem) => !["faqs", "sponsors"].includes(listItem.getId()!)
+							(listItem) =>
+								!["event", "faqs", "sponsors"].includes(listItem.getId()!)
 						),
 					]),
 		}),

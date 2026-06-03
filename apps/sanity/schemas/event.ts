@@ -15,6 +15,7 @@ export default defineType({
 				list: [{ title: "2023", value: 2023 }],
 				layout: "radio",
 			},
+			initialValue: 2023,
 			validation: (Rule) => Rule.required(),
 		}),
 		defineField({
