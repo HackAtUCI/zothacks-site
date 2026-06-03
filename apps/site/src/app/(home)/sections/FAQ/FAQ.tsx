@@ -10,7 +10,7 @@ import eraser from "@/assets/images/eraser.png";
 
 const FAQ = async () => {
 	const questions = await getQuestions();
-	const faq = questions.map(({ _key, question, answer }) => ({
+	const faq = questions[0]["faqs"].map(({ _key, question, answer }) => ({
 		_key: _key,
 		question: <strong>{question}</strong>,
 		answer: <PortableText value={answer} />,

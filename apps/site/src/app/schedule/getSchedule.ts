@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { cache } from "react";
-import { client, isSanityConfigured } from "@/lib/sanity/client";
+import { client } from "@/lib/sanity/client";
 import { SanityDocument } from "@/lib/sanity/types";
 import { formatInTimeZone } from "date-fns-tz";
 
@@ -46,19 +46,9 @@ const Events = z.array(
 );
 
 export const getSchedule = cache(async () => {
-	if (!isSanityConfigured) return [];
-
-	let events: z.infer<typeof Events>;
-
-	try {
-		events = Events.parse(
-			await client.fetch("*[_type == 'event'] | order(startTime asc)"),
-		);
-	} catch (error) {
-		console.warn("[getSchedule] Falling back to empty schedule", error);
-		return [];
-	}
-
+	const events = Events.parse(
+		await client.fetch("*[_type == 'event'] | order(startTime asc)"),
+	);
 	const eventsByDay = new Map<string, z.infer<typeof Events>>();
 
 	events.forEach((event) => {

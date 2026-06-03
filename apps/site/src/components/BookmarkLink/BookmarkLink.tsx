@@ -5,7 +5,7 @@ import styles from "./BookmarkLink.module.scss";
 
 interface BookmarkLinkProps {
 	className?: string;
-	href?: string;
+	href: string;
 	disabled?: boolean;
 	target?: string;
 }

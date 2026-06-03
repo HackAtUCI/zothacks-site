@@ -7,11 +7,10 @@ import "@/lib/styles/bootstrap.scss";
 import "@/lib/styles/globals.scss";
 
 export const metadata: Metadata = {
-	metadataBase: new URL("https://zothacks.com"),
-	title: "ZotHacks 2024",
+	title: "ZotHacks 2023",
 	description: "Hack at UCI's premier hackathon for beginners at UCI",
 	openGraph: {
-		title: "ZotHacks 2024",
+		title: "ZotHacks 2023",
 		images: "./zothacks_banner.png",
 		description: "Hack at UCI's premier hackathon for beginners at UCI",
 	},

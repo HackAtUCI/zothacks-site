@@ -19,7 +19,9 @@ const ApplyButton = () => {
 		>
 			<Button
 				className={styles.applyButton}
+				href="/apply"
 				variant=""
+				target="_blank"
 				disabled
 			>
 				<span>Applications have closed!</span>

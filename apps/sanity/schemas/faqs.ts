@@ -8,16 +8,6 @@ export default defineType({
 	type: "document",
 	fields: [
 		defineField({
-			name: "year",
-			title: "Archive Year",
-			type: "number",
-			options: {
-				list: [{ title: "2024", value: 2024 }],
-				layout: "radio",
-			},
-			validation: (rule) => rule.required(),
-		}),
-		defineField({
 			name: "faqs",
 			title: "FAQs",
 			type: "array",
@@ -62,15 +52,4 @@ export default defineType({
 			],
 		}),
 	],
-	preview: {
-		select: {
-			year: "year",
-		},
-		prepare({ year }) {
-			return {
-				title: year ? `FAQs ${year}` : "FAQs",
-				media: FileQuestion,
-			};
-		},
-	},
 });

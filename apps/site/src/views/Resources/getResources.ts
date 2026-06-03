@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { cache } from "react";
-import { client, isSanityConfigured } from "@/lib/sanity/client";
+import { client } from "@/lib/sanity/client";
 import { SanityDocument } from "@/lib/sanity/types";
 
 const Resources = z.array(
@@ -36,32 +36,19 @@ const Resources = z.array(
 				_type: z.literal("reference"),
 			}),
 		}),
-		stickyNoteColor: z
-			.object({
-				_type: z.literal("color"),
-				alpha: z.number(),
-				hex: z.string(),
-			})
-			.default({
-				_type: "color",
-				alpha: 1,
-				hex: "#ffffff",
-			}),
+		stickyNoteColor: z.object({
+			_type: z.literal("color"),
+			alpha: z.number(),
+			hex: z.string(),
+		}),
 		title: z.string(),
 	}),
 );
 
 export const getResources = cache(async (resourceType: string) => {
-	if (!isSanityConfigured) return Resources.parse([]);
-
-	try {
-		return Resources.parse(
-			await client.fetch(
-				`*[_type == 'resource' && resourceType == '${resourceType}']`,
-			),
-		);
-	} catch (error) {
-		console.warn("[getResources] Falling back to empty resources", error);
-		return Resources.parse([]);
-	}
+	return Resources.parse(
+		await client.fetch(
+			`*[_type == 'resource' && resourceType == '${resourceType}']`,
+		),
+	);
 });
