@@ -9,8 +9,6 @@ import tape from "@/assets/images/tape.svg";
 
 import styles from "./Mentor.module.scss";
 
-const MENTOR_APP_URL = "/mentor";
-
 const variant: Variants = {
 	initial: {
 		scale: 1.1,
@@ -43,12 +41,7 @@ const Mentor = () => {
 		</p>
 	);
 	const applyLink = (
-		<BookmarkLink
-			className="mb-4"
-			href={MENTOR_APP_URL}
-			target="_blank"
-			disabled
-		>
+		<BookmarkLink className="mb-4" disabled>
 			Applications have closed.
 		</BookmarkLink>
 	);

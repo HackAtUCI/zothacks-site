@@ -8,17 +8,23 @@ const nextConfig = {
 	},
 	async redirects() {
 		return [
-			{
-				source: "/apply",
-				destination: "https://forms.gle/nxRU44y9Gd5mrmXUA",
-				permanent: true,
-			},
-			{
-				source: "/mentor",
-				destination: "https://forms.gle/fwWJtsQ3GXQFGjS47",
-				permanent: true,
-			},
-		];
+			"/apply",
+			"/apply-mentor",
+			"/auth",
+			"/feedback",
+			"/feedback-form",
+			"/guest-login",
+			"/incident",
+			"/incident-form",
+			"/login",
+			"/logout",
+			"/mentor",
+			"/portal",
+		].map((source) => ({
+			source,
+			destination: "/",
+			permanent: false,
+		}));
 	},
 };
 

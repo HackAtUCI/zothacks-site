@@ -52,14 +52,7 @@ export default function NavBar() {
 								Schedule
 							</Link>
 							<Link
-								href="https://forms.gle/6GUGYnVoFhAAxVkL8"
-								className={styles.notActive}
-								target="_blank"
-							>
-								Incident Form
-							</Link>
-							<Link
-								href="https://zothacks-2023.devpost.com/"
+								href="https://zothacks-2024.devpost.com/"
 								className={styles.notActive}
 								target="_blank"
 							>
