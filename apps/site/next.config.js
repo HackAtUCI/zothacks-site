@@ -18,6 +18,21 @@ const nextConfig = {
 				destination: "https://forms.gle/fwWJtsQ3GXQFGjS47",
 				permanent: true,
 			},
+			{
+				source: "/schedule",
+				destination: "/",
+				permanent: false,
+			},
+			{
+				source: "/incident",
+				destination: "/",
+				permanent: false,
+			},
+			{
+				source: "/incident-form",
+				destination: "/",
+				permanent: false,
+			},
 		];
 	},
 };

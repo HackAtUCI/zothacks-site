@@ -42,23 +42,6 @@ export default function NavBar() {
 								Resources
 							</Link>
 							<Link
-								href="/schedule"
-								className={
-									activeRoute === "/schedule"
-										? styles.scheduleActive
-										: styles.notActive
-								}
-							>
-								Schedule
-							</Link>
-							<Link
-								href="https://forms.gle/6GUGYnVoFhAAxVkL8"
-								className={styles.notActive}
-								target="_blank"
-							>
-								Incident Form
-							</Link>
-							<Link
 								href="https://zothacks-2023.devpost.com/"
 								className={styles.notActive}
 								target="_blank"
