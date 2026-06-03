@@ -19,7 +19,7 @@ const Home = () => {
 			{/* <Countdown /> */}
 			<Sponsors />
 			{/* <Clubs /> */}
-			{/* <FAQ /> */}
+			<FAQ />
 		</div>
 	);
 };

@@ -38,6 +38,15 @@ export default defineConfig({
 									.title("Clubs"),
 							),
 						S.listItem()
+							.title("FAQs 2025")
+							.icon(BadgeHelp)
+							.child(
+								S.document()
+									.schemaType("faqs")
+									.documentId("faqs-2025")
+									.title("FAQs 2025"),
+							),
+						S.listItem()
 							.title("FAQs")
 							.icon(BadgeHelp)
 							.child(
