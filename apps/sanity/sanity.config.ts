@@ -29,6 +29,15 @@ export default defineConfig({
 									.title("Sponsors")
 							),
 						S.listItem()
+							.title("FAQs 2023")
+							.icon(BadgeHelp)
+							.child(
+								S.document()
+									.schemaType("faqs")
+									.documentId("faqs-2023")
+									.title("FAQs 2023")
+							),
+						S.listItem()
 							.title("FAQs")
 							.icon(BadgeHelp)
 							.child(

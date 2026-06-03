@@ -19,11 +19,6 @@ const nextConfig = {
 				permanent: true,
 			},
 			{
-				source: "/schedule",
-				destination: "/",
-				permanent: false,
-			},
-			{
 				source: "/incident",
 				destination: "/",
 				permanent: false,

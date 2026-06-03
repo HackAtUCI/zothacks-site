@@ -42,6 +42,16 @@ export default function NavBar() {
 								Resources
 							</Link>
 							<Link
+								href="/schedule"
+								className={
+									activeRoute === "/schedule"
+										? styles.scheduleActive
+										: styles.notActive
+								}
+							>
+								Schedule
+							</Link>
+							<Link
 								href="https://zothacks-2023.devpost.com/"
 								className={styles.notActive}
 								target="_blank"

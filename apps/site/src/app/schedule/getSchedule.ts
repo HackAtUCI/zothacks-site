@@ -7,6 +7,7 @@ import { formatInTimeZone } from "date-fns-tz";
 const Events = z.array(
 	SanityDocument.extend({
 		_type: z.literal("event"),
+		year: z.union([z.literal(2023), z.literal("2023")]).optional(),
 		title: z.string(),
 		location: z.string().optional(),
 		virtual: z.string().url().optional(),
@@ -45,15 +46,22 @@ const Events = z.array(
 	}),
 );
 
+const schedule2023Query = `*[
+	_type == "event" &&
+	(
+		year == 2023 ||
+		year == "2023" ||
+		(startTime >= "2023-01-01T00:00:00Z" && startTime < "2024-01-01T00:00:00Z")
+	)
+] | order(startTime asc)`;
+
 export const getSchedule = cache(async () => {
 	if (!isSanityConfigured) return [];
 
 	let events: z.infer<typeof Events>;
 
 	try {
-		events = Events.parse(
-			await client.fetch("*[_type == 'event'] | order(startTime asc)"),
-		);
+		events = Events.parse(await client.fetch(schedule2023Query));
 	} catch (error) {
 		console.warn("[getSchedule] Falling back to empty schedule", error);
 		return [];

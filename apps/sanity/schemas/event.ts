@@ -8,6 +8,16 @@ export default defineType({
 	type: "document",
 	fields: [
 		defineField({
+			name: "year",
+			title: "Archive Year",
+			type: "number",
+			options: {
+				list: [{ title: "2023", value: 2023 }],
+				layout: "radio",
+			},
+			validation: (Rule) => Rule.required(),
+		}),
+		defineField({
 			name: "title",
 			title: "Title",
 			type: "string",
