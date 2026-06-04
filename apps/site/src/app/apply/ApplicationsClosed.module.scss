@@ -1,48 +1,53 @@
-@use "bootstrap-utils" as utils;
-@use "zothacks-theme" as theme;
-
 .container {
-	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	gap: 2rem;
-	font-family: var(--font-inter);
+	gap: 1.5rem;
+	width: 100%;
+	max-width: 640px;
+	font-family: var(--font-pixel), sans-serif;
 }
 
 .mascot {
-	height: 150px;
+	height: 120px;
 	width: auto;
-	z-index: 100;
 
-	@include utils.media-breakpoint-up(md) {
-		height: auto;
+	@media (min-width: 768px) {
+		height: 160px;
 	}
 }
 
 .messageBox {
-	color: theme.$off-white;
-	position: relative;
-	background: #0f152bb0;
-	padding: 1.75rem;
-	margin: 0 2rem;
-	border-radius: 1.25rem;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
-}
+	background: #ffffff;
+	padding: 2rem;
+	width: 100%;
+	font-family: var(--font-pixel), sans-serif;
+	font-size: 0.875rem;
+	color: #000000;
+	line-height: 1.7;
 
-.title {
-	color: theme.$off-white;
-	font-size: 1.5rem;
-	font-weight: 700;
-	text-align: center;
+	hr {
+		border-color: var(--input-gray);
+		margin: 1rem 0;
+	}
 
-	@include utils.media-breakpoint-up(md) {
-		font-size: 2.5rem;
+	a {
+		color: var(--xp-blue-text);
 	}
 }
 
+.title {
+	font-family: var(--font-pixel), sans-serif;
+	font-size: 1rem;
+	color: #000000;
+	font-weight: 400;
+	text-align: center;
+	margin-bottom: 0;
+}
+
 .buttonContainer {
-	max-width: 300px;
-	margin: auto;
+	display: flex;
+	justify-content: center;
+	margin-top: 1rem;
 }

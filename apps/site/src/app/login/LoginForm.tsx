@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 
-import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
+import RetroWindow from "@/components/RetroWindow/RetroWindow";
+import RetroButton from "@/components/RetroButton/RetroButton";
 
 import styles from "./Login.module.scss";
 
@@ -20,35 +21,40 @@ export default function LoginForm({ returnTo }: LoginFormProps) {
 		: "/api/user/login";
 
 	return (
-		<form method="post" action={action} className={styles.formTag}>
-			<div className={styles.form}>
-				<h1 className={styles.title}>Log In</h1>
+		<div className={styles.windowWrapper}>
+			<RetroWindow title="Login">
+				<form method="post" action={action} className={styles.content}>
+					<p className={styles.description}>
+						Only UCI students are eligible to be a hacker at ZotHacks.
+						<br />
+						Please login with SSO, using your school email address.
+					</p>
 
-				<div className={styles.inputSection}>
-					<label htmlFor="email" className={styles.label}>
-						Email*
-					</label>
-					<input
-						id="email"
-						name="email"
-						type="email"
-						required
-						className={styles.input}
-						value={normalizedEmail}
-						onChange={(e) => setEmail(e.target.value)}
-					/>
-					{isUciEmail && (
-						<input type="hidden" name="return_to" value={returnTo} />
-					)}
-				</div>
+					<div className={styles.field}>
+						<label htmlFor="email" className={styles.label}>
+							Email<span style={{ color: "red" }}>*</span>
+						</label>
+						<input
+							id="email"
+							name="email"
+							type="email"
+							required
+							className={styles.input}
+							value={normalizedEmail}
+							onChange={(e) => setEmail(e.target.value)}
+						/>
+						{isUciEmail && (
+							<input type="hidden" name="return_to" value={returnTo} />
+						)}
+					</div>
 
-				<p className={styles.subtitle}>
-					UCI students will log in with UCI SSO. Please use your school email
-					address if you have one.
-				</p>
-			</div>
-
-			<PrimaryButton>Continue</PrimaryButton>
-		</form>
+					<div className={styles.actions}>
+						<RetroButton type="submit" className={styles.continueButton}>
+							Continue
+						</RetroButton>
+					</div>
+				</form>
+			</RetroWindow>
+		</div>
 	);
 }

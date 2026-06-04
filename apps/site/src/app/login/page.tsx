@@ -24,7 +24,7 @@ export default async function Login({
 	}
 
 	return (
-		<div className={styles.container}>
+		<div className={styles.page}>
 			{!email && <LoginForm returnTo={return_to} />}
 		</div>
 	);
