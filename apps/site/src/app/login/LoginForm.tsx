@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 import RetroWindow from "@/components/RetroWindow/RetroWindow";
-import RetroButton from "@/components/RetroButton/RetroButton";
+import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 
 import styles from "./Login.module.scss";
 
@@ -49,9 +49,9 @@ export default function LoginForm({ returnTo }: LoginFormProps) {
 					</div>
 
 					<div className={styles.actions}>
-						<RetroButton type="submit" className={styles.continueButton}>
+						<PrimaryButton type="submit" className={styles.continueButton}>
 							Continue
-						</RetroButton>
+						</PrimaryButton>
 					</div>
 				</form>
 			</RetroWindow>

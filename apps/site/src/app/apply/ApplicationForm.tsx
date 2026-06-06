@@ -7,7 +7,7 @@ import {
 	type MouseEvent,
 } from "react";
 
-import RetroButton from "@/components/RetroButton/RetroButton";
+import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 import styles from "./ApplicationForm.module.scss";
 
 const pronounOptions = [
@@ -560,9 +560,9 @@ export default function ApplicationForm({
 					</label>
 
 					<div className={styles.formActions}>
-						<RetroButton type="button" onClick={handleContinue}>
+						<PrimaryButton type="button" onClick={handleContinue}>
 							Continue
-						</RetroButton>
+						</PrimaryButton>
 					</div>
 				</div>
 			</div>
@@ -697,9 +697,9 @@ export default function ApplicationForm({
 					</label>
 
 					<div className={styles.formActions}>
-						<RetroButton type="button" onClick={() => onPageChange(1)}>
+						<PrimaryButton type="button" onClick={() => onPageChange(1)}>
 							Back
-						</RetroButton>
+						</PrimaryButton>
 					</div>
 				</div>
 			</div>

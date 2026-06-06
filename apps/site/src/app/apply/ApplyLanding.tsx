@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import RetroWindow from "@/components/RetroWindow/RetroWindow";
-import RetroButton from "@/components/RetroButton/RetroButton";
+import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 import infoIcon from "@/assets/images/info-icon.png";
 
 import styles from "./ApplyLanding.module.scss";
@@ -17,8 +17,8 @@ export default function ApplyLanding() {
 							Are you applying as a Hacker or Mentor?
 						</p>
 						<div className={styles.buttons}>
-							<RetroButton href="/apply/hacker">Hacker</RetroButton>
-							<RetroButton href="/apply-mentor">Mentor</RetroButton>
+							<PrimaryButton href="/apply/hacker">Hacker</PrimaryButton>
+							<PrimaryButton href="/apply-mentor">Mentor</PrimaryButton>
 						</div>
 					</div>
 				</RetroWindow>

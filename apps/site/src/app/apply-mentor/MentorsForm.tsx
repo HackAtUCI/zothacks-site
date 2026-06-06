@@ -9,7 +9,7 @@ import {
 
 import RetroWindow from "@/components/RetroWindow/RetroWindow";
 import BaseForm from "@/components/BaseForm/BaseForm";
-import RetroButton from "@/components/RetroButton/RetroButton";
+import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 
 import styles from "./MentorsForm.module.scss";
 
@@ -512,9 +512,9 @@ export default function MentorsForm() {
 								</label>
 
 								<div className={styles.formActions}>
-									<RetroButton type="button" onClick={handleContinue}>
+									<PrimaryButton type="button" onClick={handleContinue}>
 										Continue
-									</RetroButton>
+									</PrimaryButton>
 								</div>
 							</div>
 						</div>
@@ -628,9 +628,9 @@ export default function MentorsForm() {
 								</label>
 
 								<div className={styles.formActions}>
-									<RetroButton type="button" onClick={() => setPage(1)}>
+									<PrimaryButton type="button" onClick={() => setPage(1)}>
 										Back
-									</RetroButton>
+									</PrimaryButton>
 								</div>
 							</div>
 						</div>
