@@ -47,6 +47,17 @@
 	}
 }
 
+.invalid {
+	box-shadow: 0 0 0 2px #d93025;
+}
+
+.error {
+	font-family: var(--font-pixel), sans-serif;
+	font-size: 0.75rem;
+	color: #d93025;
+	line-height: 1.4;
+}
+
 /* File input browse button spacing */
 .input[type="file"]::file-selector-button {
 	margin-right: 12px;
