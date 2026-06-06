@@ -184,7 +184,9 @@ export default function ApplicationForm({
 	}
 
 	function isOtherDietarySelected() {
-		return dietary.includes("Other") || dietary.includes("Other (Please specify)");
+		return (
+			dietary.includes("Other") || dietary.includes("Other (Please specify)")
+		);
 	}
 
 	function handleContinue(e: MouseEvent<HTMLButtonElement>) {
