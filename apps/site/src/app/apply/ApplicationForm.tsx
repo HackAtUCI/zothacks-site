@@ -1,19 +1,28 @@
 "use client";
 
-import { useState, type ChangeEvent } from "react";
+import {
+	useState,
+	type FormEvent,
+	type InvalidEvent,
+	type MouseEvent,
+} from "react";
 
-import PixelArt from "./PixelArt";
-
+import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 import styles from "./ApplicationForm.module.scss";
 
-const pronounOptions = ["He/Him", "She/Her", "They/Them/Theirs", "Other"];
+const pronounOptions = [
+	"he/him/his",
+	"she/her/hers",
+	"they/them/theirs",
+	"other",
+];
 const dietaryOptions = [
-	"None",
-	"No beef",
-	"No pork",
+	"I can eat anything, including the following (chicken, beef, pork)",
+	"No Pork",
+	"No Beef",
 	"Vegetarian",
 	"Vegan",
-	"Other",
+	"Other (Please specify)",
 ];
 const yearOptions = [
 	"1st Year",
@@ -21,352 +30,679 @@ const yearOptions = [
 	"3rd Year",
 	"4th Year",
 	"5th Year",
+	"Graduate Student",
+	"Graduated",
 ];
 const majorOptions = [
+	"Aerospace Engineering",
+	"Biomedical Engineering",
+	"Business Administration",
+	"Business Economics",
 	"Business Information Management",
+	"Chemical Engineering",
+	"Civil Engineering",
 	"Computer Game Science",
 	"Computer Science",
 	"Computer Science and Engineering",
+	"Computer Engineering",
 	"Data Science",
 	"Electrical Engineering",
-	"Informatics",
+	"Environmental Engineering",
 	"Software Engineering",
+	"Informatics",
+	"Materials Science and Engineering",
+	"Mechanical Engineering",
+	"Other - Claire Trevor School of the Arts",
+	"Other - School of Biological Sciences",
+	"Other - School of Education",
+	"Other - School of Humanities",
+	"Other - Dept. of Pharmaceutical Sciences",
+	"Other - School of Physical Sciences",
+	"Other - Program in Public Health",
+	"Other - School of Social Ecology",
+	"Other - School of Social Sciences",
 	"Undeclared",
-	"N/A (High School)",
 	"Other",
 ];
+const wordLimits = {
+	collaboration_saq: 100,
+	tech_inspiration_saq: 100,
+	uci_gift_saq: 75,
+} as const;
 
-function BasicQuestions() {
-	const [pronouns, setPronouns] = useState<string>("");
+type FieldElement = HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+
+function countWords(value: string) {
+	return value.trim().split(/\s+/).filter(Boolean).length;
+}
+
+interface ApplicationFormProps {
+	page: 1 | 2;
+	onPageChange: (page: 1 | 2) => void;
+}
+
+export default function ApplicationForm({
+	page,
+	onPageChange,
+}: ApplicationFormProps) {
+	const [pronouns, setPronouns] = useState("");
 	const [dietary, setDietary] = useState<string[]>([]);
-	const [major, setMajor] = useState<string>("");
+	const [major, setMajor] = useState("");
+	const [validationErrors, setValidationErrors] = useState<
+		Record<string, string>
+	>({});
+	const [wordCounts, setWordCounts] = useState<Record<string, number>>({
+		collaboration_saq: 0,
+		tech_inspiration_saq: 0,
+		uci_gift_saq: 0,
+	});
 
-	const isPronounsOther = pronouns === "Other";
-	const isDietaryOther = dietary.includes("Other");
-	const isMajorOther = major === "Other";
+	const p1 = page === 1;
 
-	function handleDietaryChange(option: string, checked: boolean) {
-		setDietary((prev) => {
-			if (checked) {
-				if (prev.includes(option)) return prev;
-				return [...prev, option];
+	function getValidationMessage(field: FieldElement) {
+		if (field.validity.valueMissing) {
+			if (field.name === "dietary_restrictions") {
+				return "Select at least one dietary option.";
 			}
-			return prev.filter((v) => v !== option);
+			if (field.type === "radio") return "Select one option.";
+			if (field.tagName === "SELECT") return "Select an option.";
+			return "This field is required.";
+		}
+		if (field.validity.typeMismatch) return "Enter a valid URL.";
+		return field.validationMessage || "Please fix this field.";
+	}
+
+	function clearError(name: string) {
+		setValidationErrors((prev) => {
+			if (!prev[name]) return prev;
+			const next = { ...prev };
+			delete next[name];
+			return next;
 		});
 	}
 
-	function handleResumeChange(e: ChangeEvent<HTMLInputElement>) {
-		const file = e.target.files?.[0];
-		if (!file) {
-			e.target.setCustomValidity("");
-			return;
+	function setFieldError(field: FieldElement) {
+		if (!field.name) return;
+		setValidationErrors((prev) => ({
+			...prev,
+			[field.name]: getValidationMessage(field),
+		}));
+	}
+
+	function updateFieldValidity(field: FieldElement) {
+		if (!field.name) return;
+
+		if (field instanceof HTMLTextAreaElement && field.name in wordLimits) {
+			const limit = wordLimits[field.name as keyof typeof wordLimits];
+			const words = countWords(field.value);
+
+			setWordCounts((prev) => ({ ...prev, [field.name]: words }));
+			field.setCustomValidity(
+				words > limit ? `Keep this response to ${limit} words or fewer.` : "",
+			);
 		}
-		const tenMbBytes = 1 * 1024 * 1024;
-		if (file.type !== "application/pdf") {
-			e.target.setCustomValidity("Please upload a PDF file.");
-			e.target.reportValidity();
-			e.target.value = "";
-			return;
+
+		if (field.checkValidity()) {
+			clearError(field.name);
+		} else if (validationErrors[field.name]) {
+			setFieldError(field);
 		}
-		if (file.size > tenMbBytes) {
-			e.target.setCustomValidity("File must be 1MB or smaller.");
-			e.target.reportValidity();
-			e.target.value = "";
-			return;
+	}
+
+	function handleInvalid(event: InvalidEvent<HTMLDivElement>) {
+		const field = event.target as FieldElement;
+		if (!field.name) return;
+
+		event.preventDefault();
+		setFieldError(field);
+	}
+
+	function handleFormChange(event: FormEvent<HTMLDivElement>) {
+		const field = event.target as EventTarget;
+		if (
+			field instanceof HTMLInputElement ||
+			field instanceof HTMLSelectElement ||
+			field instanceof HTMLTextAreaElement
+		) {
+			updateFieldValidity(field);
 		}
-		e.target.setCustomValidity("");
+	}
+
+	function handleDietaryChange(option: string, checked: boolean) {
+		setDietary((prev) =>
+			checked
+				? prev.includes(option)
+					? prev
+					: [...prev, option]
+				: prev.filter((v) => v !== option),
+		);
+		if (checked) clearError("dietary_restrictions");
+	}
+
+	function isOtherPronounsSelected() {
+		return pronouns.toLowerCase() === "other";
+	}
+
+	function isOtherDietarySelected() {
+		return (
+			dietary.includes("Other") || dietary.includes("Other (Please specify)")
+		);
+	}
+
+	function handleContinue(e: MouseEvent<HTMLButtonElement>) {
+		const form = e.currentTarget.closest("form");
+		if (form) {
+			const visibleFields = Array.from(form.elements).filter(
+				(element): element is FieldElement =>
+					(element instanceof HTMLInputElement ||
+						element instanceof HTMLSelectElement ||
+						element instanceof HTMLTextAreaElement) &&
+					element.offsetParent !== null,
+			);
+			const firstInvalid = visibleFields.find(
+				(field) => !field.checkValidity(),
+			);
+
+			if (firstInvalid) {
+				firstInvalid.reportValidity();
+				return;
+			}
+		}
+		onPageChange(2);
 	}
 
 	return (
-		<div className={styles.applicationContainer}>
-			<div className={styles.row}>
-				<label className={styles.field}>
-					<span className={styles.label}>First Name*</span>
-					<input
-						className={styles.input}
-						type="text"
-						name="first_name"
-						required
-					/>
-				</label>
-				<label className={styles.field}>
-					<span className={styles.label}>Last Name*</span>
-					<input
-						className={styles.input}
-						type="text"
-						name="last_name"
-						required
-					/>
-				</label>
-			</div>
-
-			<fieldset>
-				<span className={styles.label}>Preferred Pronouns*</span>
-				<div className={styles.inlineGroup}>
-					{pronounOptions.map((option) => (
-						<label key={option} className={styles.option}>
-							<input
-								type="radio"
-								name="pronouns"
-								value={option}
-								required
-								checked={pronouns === option}
-								onChange={() => setPronouns(option)}
-							/>
-							<span>{option}</span>
-						</label>
-					))}
-				</div>
-				{isPronounsOther && (
-					<div className={styles.otherField}>
+		<>
+			{/* ── Page 1 ── */}
+			<div
+				className={p1 ? undefined : styles.hidden}
+				onInvalidCapture={handleInvalid}
+				onChangeCapture={handleFormChange}
+				onInputCapture={handleFormChange}
+			>
+				<div className={styles.applicationContainer}>
+					<div className={styles.row}>
 						<label className={styles.field}>
-							<span className={styles.label}>Specify other pronouns*</span>
-							<input
-								className={styles.input}
-								type="text"
-								name="_other_pronouns"
-								required
-							/>
-						</label>
-					</div>
-				)}
-			</fieldset>
-
-			<fieldset>
-				<span className={styles.label}>
-					You must be 18 years or older to participate in ZotHacks. Will you
-					meet this requirement by November 7th 2025?*
-				</span>
-				<div className={styles.inlineGroup}>
-					<label className={styles.option}>
-						<input type="radio" name="is_18_older" value="Yes" required />
-						<span>Yes</span>
-					</label>
-					<label className={styles.option}>
-						<input type="radio" name="is_18_older" value="No" required />
-						<span>No</span>
-					</label>
-				</div>
-			</fieldset>
-
-			<fieldset>
-				<span className={styles.label}>School Year*</span>
-				<div className={styles.inlineGroup}>
-					{yearOptions.map((opt) => (
-						<label key={opt} className={styles.option}>
-							<input type="radio" name="school_year" value={opt} required />
-							<span>{opt}</span>
-						</label>
-					))}
-				</div>
-			</fieldset>
-
-			<fieldset>
-				<span className={styles.label}>
-					Dietary Restrictions. Select all that apply*
-				</span>
-				<div className={styles.inlineGroup}>
-					{dietaryOptions.map((option) => (
-						<label key={option} className={styles.option}>
-							<input
-								type="checkbox"
-								name="dietary_restrictions"
-								value={option}
-								required={dietary.length === 0}
-								checked={dietary.includes(option)}
-								onChange={(e) => handleDietaryChange(option, e.target.checked)}
-							/>
-							<span>{option}</span>
-						</label>
-					))}
-				</div>
-				{isDietaryOther && (
-					<div className={styles.otherField}>
-						<label className={styles.field}>
-							<span className={styles.label}>
-								Specify other dietary restrictions*
+							<span className={`${styles.label} ${styles.required}`}>
+								First Name
 							</span>
 							<input
-								className={styles.input}
+								className={`${styles.input} ${
+									validationErrors.first_name ? styles.invalid : ""
+								}`}
 								type="text"
-								name="_other_dietary_restrictions"
-								required
+								name="first_name"
+								required={p1}
+								aria-invalid={Boolean(validationErrors.first_name)}
+								aria-describedby={
+									validationErrors.first_name ? "first_name-error" : undefined
+								}
 							/>
+							{validationErrors.first_name && (
+								<span id="first_name-error" className={styles.error}>
+									{validationErrors.first_name}
+								</span>
+							)}
+						</label>
+						<label className={styles.field}>
+							<span className={`${styles.label} ${styles.required}`}>
+								Last Name
+							</span>
+							<input
+								className={`${styles.input} ${
+									validationErrors.last_name ? styles.invalid : ""
+								}`}
+								type="text"
+								name="last_name"
+								required={p1}
+								aria-invalid={Boolean(validationErrors.last_name)}
+								aria-describedby={
+									validationErrors.last_name ? "last_name-error" : undefined
+								}
+							/>
+							{validationErrors.last_name && (
+								<span id="last_name-error" className={styles.error}>
+									{validationErrors.last_name}
+								</span>
+							)}
 						</label>
 					</div>
-				)}
-			</fieldset>
 
-			<label className={styles.field}>
-				<span className={styles.label}>
-					Do you have any allergies? If so, please list.
-				</span>
-				<input className={styles.input} type="text" name="allergies" />
-			</label>
+					<fieldset>
+						<span className={`${styles.label} ${styles.required}`}>
+							Preferred Pronouns
+						</span>
+						<div className={styles.inlineGroup}>
+							{pronounOptions.map((option) => (
+								<label key={option} className={styles.option}>
+									<input
+										type="radio"
+										name="pronouns"
+										value={option}
+										required={p1}
+										checked={pronouns === option}
+										onChange={() => {
+											setPronouns(option);
+											clearError("pronouns");
+										}}
+									/>
+									<span>{option}</span>
+								</label>
+							))}
+						</div>
+						{validationErrors.pronouns && (
+							<span className={styles.error}>{validationErrors.pronouns}</span>
+						)}
+						{isOtherPronounsSelected() && (
+							<div className={styles.otherField}>
+								<label className={styles.field}>
+									<span className={`${styles.label} ${styles.required}`}>
+										Specify other pronouns
+									</span>
+									<input
+										className={`${styles.input} ${
+											validationErrors._other_pronouns ? styles.invalid : ""
+										}`}
+										type="text"
+										name="_other_pronouns"
+										required={p1}
+										aria-invalid={Boolean(validationErrors._other_pronouns)}
+									/>
+									{validationErrors._other_pronouns && (
+										<span className={styles.error}>
+											{validationErrors._other_pronouns}
+										</span>
+									)}
+								</label>
+							</div>
+						)}
+					</fieldset>
 
-			<label className={styles.field}>
-				<span className={styles.label}>Major*</span>
-				<select
-					className={styles.select}
-					name="major"
-					onChange={(e) => setMajor(e.target.value)}
-					defaultValue="Computer Science"
-					required
-				>
-					{majorOptions.map((major) => (
-						<option key={major} value={major}>
-							{major}
-						</option>
-					))}
-				</select>
-				{isMajorOther && (
-					<div className={styles.otherField}>
+					<fieldset>
+						<span className={`${styles.label} ${styles.required}`}>
+							You must be 18 years or older to participate in ZotHacks. Will you
+							meet this requirement by October 16 2026?
+						</span>
+						<div className={styles.inlineGroup}>
+							<label className={styles.option}>
+								<input
+									type="radio"
+									name="is_18_older"
+									value="Yes"
+									required={p1}
+								/>
+								<span>Yes</span>
+							</label>
+							<label className={styles.option}>
+								<input
+									type="radio"
+									name="is_18_older"
+									value="No"
+									required={p1}
+								/>
+								<span>No</span>
+							</label>
+						</div>
+						{validationErrors.is_18_older && (
+							<span className={styles.error}>
+								{validationErrors.is_18_older}
+							</span>
+						)}
+					</fieldset>
+
+					<fieldset>
+						<span className={`${styles.label} ${styles.required}`}>
+							School Year
+						</span>
+						<div className={styles.inlineGroup}>
+							{yearOptions.map((opt) => (
+								<label key={opt} className={styles.option}>
+									<input
+										type="radio"
+										name="school_year"
+										value={opt}
+										required={p1}
+									/>
+									<span>{opt}</span>
+								</label>
+							))}
+						</div>
+						{validationErrors.school_year && (
+							<span className={styles.error}>
+								{validationErrors.school_year}
+							</span>
+						)}
+					</fieldset>
+
+					<fieldset>
+						<span className={`${styles.label} ${styles.required}`}>
+							Dietary Restriction? Select all that apply.
+						</span>
+						<div className={styles.inlineGroup}>
+							{dietaryOptions.map((option) => (
+								<label key={option} className={styles.option}>
+									<input
+										type="checkbox"
+										name="dietary_restrictions"
+										value={option}
+										required={p1 && dietary.length === 0}
+										checked={dietary.includes(option)}
+										onChange={(e) =>
+											handleDietaryChange(option, e.target.checked)
+										}
+									/>
+									<span>{option}</span>
+								</label>
+							))}
+						</div>
+						{validationErrors.dietary_restrictions && (
+							<span className={styles.error}>
+								{validationErrors.dietary_restrictions}
+							</span>
+						)}
+						{isOtherDietarySelected() && (
+							<div className={styles.otherField}>
+								<label className={styles.field}>
+									<span className={`${styles.label} ${styles.required}`}>
+										Specify other dietary restrictions
+									</span>
+									<input
+										className={`${styles.input} ${
+											validationErrors._other_dietary_restrictions
+												? styles.invalid
+												: ""
+										}`}
+										type="text"
+										name="_other_dietary_restrictions"
+										required={p1}
+										aria-invalid={Boolean(
+											validationErrors._other_dietary_restrictions,
+										)}
+									/>
+									{validationErrors._other_dietary_restrictions && (
+										<span className={styles.error}>
+											{validationErrors._other_dietary_restrictions}
+										</span>
+									)}
+								</label>
+							</div>
+						)}
+					</fieldset>
+
+					<label className={styles.field}>
+						<span className={`${styles.label} ${styles.required}`}>
+							Allergies? Please list them.
+						</span>
+						<input
+							className={`${styles.input} ${
+								validationErrors.allergies ? styles.invalid : ""
+							}`}
+							type="text"
+							name="allergies"
+							required={p1}
+							aria-invalid={Boolean(validationErrors.allergies)}
+						/>
+						{validationErrors.allergies && (
+							<span className={styles.error}>{validationErrors.allergies}</span>
+						)}
+					</label>
+
+					<label className={styles.field}>
+						<span className={`${styles.label} ${styles.required}`}>Major?</span>
+						<select
+							className={`${styles.select} ${
+								validationErrors.major ? styles.invalid : ""
+							}`}
+							name="major"
+							required={p1}
+							value={major}
+							onChange={(event) => {
+								setMajor(event.target.value);
+								clearError("major");
+							}}
+							aria-invalid={Boolean(validationErrors.major)}
+						>
+							<option value="" disabled>
+								Select a major
+							</option>
+							{majorOptions.map((m) => (
+								<option key={m} value={m}>
+									{m}
+								</option>
+							))}
+						</select>
+						{validationErrors.major && (
+							<span className={styles.error}>{validationErrors.major}</span>
+						)}
+					</label>
+					{major === "Other" && (
 						<label className={styles.field}>
-							<span className={styles.label}>Specify other major*</span>
+							<span className={`${styles.label} ${styles.required}`}>
+								Specify other major
+							</span>
 							<input
-								className={styles.input}
+								className={`${styles.input} ${
+									validationErrors._other_major ? styles.invalid : ""
+								}`}
 								type="text"
 								name="_other_major"
-								required
+								required={p1}
+								aria-invalid={Boolean(validationErrors._other_major)}
 							/>
+							{validationErrors._other_major && (
+								<span className={styles.error}>
+									{validationErrors._other_major}
+								</span>
+							)}
 						</label>
-					</div>
-				)}
-			</label>
+					)}
 
-			<fieldset>
-				<span className={styles.label}>
-					Have you ever been to a hackathon?*
-				</span>
-				<div className={styles.inlineGroup}>
-					<label className={styles.option}>
-						<input
-							type="radio"
-							name="hackathon_experience"
-							value="first_time"
-							required
-						/>
-						<span>No, this is my first time!</span>
-					</label>
-					<label className={styles.option}>
-						<input
-							type="radio"
-							name="hackathon_experience"
-							value="some_experience"
-							required
-						/>
-						<span>
-							Yes, I have been to one/a few, but I am relatively new to the
-							concept.
+					<fieldset>
+						<span className={`${styles.label} ${styles.required}`}>
+							Have you ever been to a hackathon?
 						</span>
-					</label>
-					<label className={styles.option}>
+						<div className={styles.inlineGroup}>
+							<label className={styles.option}>
+								<input
+									type="radio"
+									name="hackathon_experience"
+									value="first_time"
+									required={p1}
+								/>
+								<span>No, this is my first time.</span>
+							</label>
+							<label className={styles.option}>
+								<input
+									type="radio"
+									name="hackathon_experience"
+									value="some_experience"
+									required={p1}
+								/>
+								<span>
+									Yes, I have been to one/a few, but I am relatively new to the
+									concept.
+								</span>
+							</label>
+							<label className={styles.option}>
+								<input
+									type="radio"
+									name="hackathon_experience"
+									value="veteran"
+									required={p1}
+								/>
+								<span>Yes, I am a hackathon veteran.</span>
+							</label>
+						</div>
+						{validationErrors.hackathon_experience && (
+							<span className={styles.error}>
+								{validationErrors.hackathon_experience}
+							</span>
+						)}
+					</fieldset>
+
+					<label className={styles.field}>
+						<span className={`${styles.label} ${styles.required}`}>
+							Resume link upload - pdf link from google drive
+						</span>
 						<input
-							type="radio"
-							name="hackathon_experience"
-							value="veteran"
-							required
+							className={`${styles.input} ${
+								validationErrors.resume ? styles.invalid : ""
+							}`}
+							type="url"
+							name="resume"
+							required={p1}
+							placeholder="https://"
+							aria-invalid={Boolean(validationErrors.resume)}
 						/>
-						<span>Yes, I am a hackathon veteran.</span>
+						{validationErrors.resume && (
+							<span className={styles.error}>{validationErrors.resume}</span>
+						)}
 					</label>
+
+					<div className={styles.formActions}>
+						<PrimaryButton type="button" onClick={handleContinue}>
+							Continue
+						</PrimaryButton>
+					</div>
 				</div>
-			</fieldset>
-
-			<label className={styles.field}>
-				<span className={styles.label}>
-					Please upload your resume (PDF, max 1MB)*
-				</span>
-				<input
-					className={styles.input}
-					type="file"
-					name="resume"
-					accept="application/pdf,.pdf"
-					required
-					onChange={handleResumeChange}
-				/>
-			</label>
-		</div>
-	);
-}
-
-function SAQSection() {
-	const [gridColors, setGridColors] = useState<number[]>(Array(64).fill(0)); // store indices 0-26
-
-	const handleGridColorsChange = (newGridColors: number[]) => {
-		setGridColors(newGridColors);
-	};
-
-	return (
-		<div className={styles.applicationContainer}>
-			<label className={styles.field}>
-				<span className={styles.label}>
-					If you had 30 seconds in an elevator with your dream mentor, how would
-					you explain why you’re joining ZotHacks? [75 word limit]*
-				</span>
-				<textarea
-					className={styles.textarea}
-					name="elevator_pitch_saq"
-					required
-				/>
-			</label>
-
-			<label className={styles.field}>
-				<span className={styles.label}>
-					Describe a positive or negative experience dealing with technology
-					[100 words]*
-				</span>
-				<span className={styles.helper}>
-					(Ex: CS project, robot, design, doomscrolling, toaster)
-				</span>
-				<textarea
-					className={styles.textarea}
-					name="tech_experience_saq"
-					required
-				/>
-			</label>
-
-			<label className={styles.field}>
-				<span className={styles.label}>
-					What’s one thing you hope to learn about yourself at UCI — and how
-					might ZotHacks help with that? [100 words]*
-				</span>
-				<textarea
-					className={styles.textarea}
-					name="learn_about_self_saq"
-					required
-				/>
-			</label>
-
-			<div className={styles.field}>
-				<span className={styles.label}>
-					Pixel art: Draw something that represents you. Briefly explain your
-					art. [100 words]*
-				</span>
-				<textarea className={styles.textarea} name="pixel_art_saq" required />
-				<PixelArt
-					gridColors={gridColors}
-					setGridColors={handleGridColorsChange}
-				/>
-				<input
-					type="hidden"
-					name="pixel_art_data"
-					value={JSON.stringify(gridColors)}
-				/>
 			</div>
 
-			<label className={styles.field}>
-				<span className={styles.label}>Questions, comments, or concerns?</span>
-				<textarea className={styles.textarea} name="comments" />
-			</label>
-		</div>
-	);
-}
+			{/* ── Page 2 ── */}
+			<div
+				className={p1 ? styles.hidden : undefined}
+				onInvalidCapture={handleInvalid}
+				onChangeCapture={handleFormChange}
+				onInputCapture={handleFormChange}
+			>
+				<div className={styles.applicationContainer}>
+					<label className={styles.field}>
+						<span className={`${styles.label} ${styles.required}`}>
+							Tell us about a time when collaboration was instrumental in your
+							success. [Max 100 words]
+						</span>
+						<textarea
+							className={`${styles.textarea} ${
+								validationErrors.collaboration_saq ? styles.invalid : ""
+							}`}
+							name="collaboration_saq"
+							required={!p1}
+							aria-invalid={Boolean(validationErrors.collaboration_saq)}
+						/>
+						<span
+							className={`${styles.helper} ${
+								wordCounts.collaboration_saq > wordLimits.collaboration_saq
+									? styles.error
+									: ""
+							}`}
+						>
+							{wordCounts.collaboration_saq}/{wordLimits.collaboration_saq}{" "}
+							words
+						</span>
+						{validationErrors.collaboration_saq && (
+							<span className={styles.error}>
+								{validationErrors.collaboration_saq}
+							</span>
+						)}
+					</label>
 
-export default function ApplicationForm() {
-	return (
-		<>
-			<BasicQuestions />
-			<SAQSection />
+					<label className={styles.field}>
+						<span className={`${styles.label} ${styles.required}`}>
+							Describe an application or technological concept that inspires
+							your growth. Why is it important to you? (Ex: Robots in surgery,
+							quantum computing, social media, etc.) [Max 100 words]
+						</span>
+						<textarea
+							className={`${styles.textarea} ${
+								validationErrors.tech_inspiration_saq ? styles.invalid : ""
+							}`}
+							name="tech_inspiration_saq"
+							required={!p1}
+							aria-invalid={Boolean(validationErrors.tech_inspiration_saq)}
+						/>
+						<span
+							className={`${styles.helper} ${
+								wordCounts.tech_inspiration_saq >
+								wordLimits.tech_inspiration_saq
+									? styles.error
+									: ""
+							}`}
+						>
+							{wordCounts.tech_inspiration_saq}/
+							{wordLimits.tech_inspiration_saq} words
+						</span>
+						{validationErrors.tech_inspiration_saq && (
+							<span className={styles.error}>
+								{validationErrors.tech_inspiration_saq}
+							</span>
+						)}
+					</label>
+
+					<label className={styles.field}>
+						<span className={`${styles.label} ${styles.required}`}>
+							If you could give each person at UCI one item under $100, what
+							would it be and why? [Max 75 words]
+						</span>
+						<textarea
+							className={`${styles.textarea} ${
+								validationErrors.uci_gift_saq ? styles.invalid : ""
+							}`}
+							name="uci_gift_saq"
+							required={!p1}
+							aria-invalid={Boolean(validationErrors.uci_gift_saq)}
+						/>
+						<span
+							className={`${styles.helper} ${
+								wordCounts.uci_gift_saq > wordLimits.uci_gift_saq
+									? styles.error
+									: ""
+							}`}
+						>
+							{wordCounts.uci_gift_saq}/{wordLimits.uci_gift_saq} words
+						</span>
+						{validationErrors.uci_gift_saq && (
+							<span className={styles.error}>
+								{validationErrors.uci_gift_saq}
+							</span>
+						)}
+					</label>
+
+					{/* TODO - replace with actual question */}
+					<label className={styles.field}>
+						<span className={`${styles.label} ${styles.required}`}>
+							Pick five emojis to tell a story that represents a time in your
+							life you used creativity to solve a problem.
+						</span>
+						<span className={styles.helper}>_____ _____ _____ _____ _____</span>
+						<input
+							className={`${styles.input} ${
+								validationErrors.emoji_story ? styles.invalid : ""
+							}`}
+							type="text"
+							name="emoji_story"
+							required={!p1}
+							aria-invalid={Boolean(validationErrors.emoji_story)}
+						/>
+						{validationErrors.emoji_story && (
+							<span className={styles.error}>
+								{validationErrors.emoji_story}
+							</span>
+						)}
+					</label>
+
+					<label className={styles.field}>
+						<span className={styles.label}>
+							Questions, comments, or concerns?
+						</span>
+						<textarea className={styles.textarea} name="comments" />
+					</label>
+
+					<div className={styles.formActions}>
+						<PrimaryButton type="button" onClick={() => onPageChange(1)}>
+							Back
+						</PrimaryButton>
+					</div>
+				</div>
+			</div>
 		</>
 	);
 }

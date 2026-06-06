@@ -1,56 +1,53 @@
-@use "zothacks-theme" as theme;
+.eventInfoWrapper {
+	position: relative;
+}
+
+.eventInfoBorder {
+	display: none;
+}
 
 .eventInfoCard {
-	background-color: theme.$dark-green;
-	border-radius: 16px;
-	padding: 24px;
-	position: relative;
-	z-index: 1;
+	background-color: #f8f8f8;
+	border: 1px solid var(--input-gray);
+	padding: 1rem 1.25rem;
 }
 
 .title {
-	margin: 0 0 16px 0;
-	color: theme.$off-white;
-	font-size: 24px;
-	font-weight: 700;
+	font-family: var(--font-pixel), sans-serif;
+	font-size: 0.95rem;
+	color: #000000;
+	font-weight: 400;
+	margin: 0 0 0.75rem;
 }
 
 .line {
-	margin: 8px 0;
+	margin: 0.3rem 0;
+	font-family: var(--font-pixel), sans-serif;
+	font-size: 0.85rem;
 	line-height: 1.6;
 }
 
 .label {
-	color: theme.$off-white;
-	font-weight: 600;
-	margin-right: 8px;
+	color: #000000;
+	font-weight: 400;
+	margin-right: 0.4rem;
 }
 
 .value {
-	color: theme.$baby-blue;
+	color: #333333;
 }
 
 .footnote {
-	color: theme.$baby-blue;
 	display: block;
+	color: #555555;
+	font-size: 0.8rem;
+	font-family: var(--font-pixel), sans-serif;
+
+	a {
+		color: var(--xp-blue-text);
+	}
 }
 
 .footnoteContainer {
-	margin-top: 50px;
-}
-
-.eventInfoWrapper {
-	position: relative;
-	display: inline-block;
-}
-
-.eventInfoBorder {
-	position: absolute;
-	top: -8px;
-	left: -8px;
-	width: calc(100% + 16px);
-	height: calc(100% + 16px);
-	border-radius: 20px;
-	background-color: #2a504bb0;
-	z-index: 0;
+	margin-top: 0.75rem;
 }

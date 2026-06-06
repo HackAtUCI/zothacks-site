@@ -1,0 +1,43 @@
+.page {
+	min-height: 100vh;
+	background: var(--blue-gradient);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 5rem 1rem 3rem;
+}
+
+.windowWrapper {
+	width: 100%;
+	max-width: 640px;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1.75rem;
+	padding: 2rem 1.5rem 2.5rem;
+	background: #ffffff;
+	text-align: center;
+}
+
+.mascot {
+	width: 116px;
+	height: 119px;
+}
+
+.question {
+	font-family: var(--font-pixel), sans-serif;
+	font-size: 1.1rem;
+	color: #000000;
+	margin: 0;
+	line-height: 1.5;
+}
+
+.buttons {
+	display: flex;
+	gap: 1rem;
+	flex-wrap: wrap;
+	justify-content: center;
+}

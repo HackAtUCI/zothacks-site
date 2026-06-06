@@ -21,12 +21,14 @@ interface BaseFormProps {
 	applicationType: "Hacker" | "Mentor" | "Volunteer";
 	applyPath: string;
 	className?: string;
+	hideSubmit?: boolean;
 }
 
 export default function BaseForm({
 	applicationType,
 	applyPath,
 	className,
+	hideSubmit = false,
 	children,
 }: PropsWithChildren<BaseFormProps>) {
 	const [isSubmitting, setIsSubmitting] = useState(false);
@@ -114,13 +116,15 @@ export default function BaseForm({
 			/>
 			{children}
 			{sessionExpired && sessionExpiredMessage}
-			<button
-				type="submit"
-				className={styles.applyButton}
-				disabled={isSubmitting}
-			>
-				{isSubmitting ? "Submitting..." : "Submit Application"}
-			</button>
+			{!hideSubmit && (
+				<button
+					type="submit"
+					className={styles.applyButton}
+					disabled={isSubmitting}
+				>
+					{isSubmitting ? "Submitting..." : "Submit Application"}
+				</button>
+			)}
 		</form>
 	);
 }

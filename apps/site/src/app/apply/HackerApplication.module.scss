@@ -1,31 +1,28 @@
-@use "zothacks-theme" as theme;
-
-.container {
-	background-color: #0f152b;
-}
-
-.formContainer {
+.page {
+	min-height: 100vh;
+	background: var(--blue-gradient);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 60px;
-	padding: 160px 10px;
+	justify-content: flex-start;
+	padding: 5rem 1rem 3rem;
 }
 
-.formContainer > * {
-	max-width: 1100px;
-	z-index: 10;
-}
-
-.background {
-	position: absolute;
+.windowWrapper {
 	width: 100%;
-	height: auto;
-	z-index: 0;
+	max-width: 1100px;
 }
 
-.title {
-	font-size: 2.5rem;
-	text-align: center;
-	color: theme.$off-white;
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	padding: 1.5rem;
+	background: #ffffff;
+}
+
+@media (max-width: 600px) {
+	.page {
+		padding: 4rem 0.5rem 2rem;
+	}
 }
