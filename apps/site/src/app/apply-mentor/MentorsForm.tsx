@@ -185,7 +185,9 @@ export default function MentorsForm() {
 	}
 
 	function isOtherDietarySelected() {
-		return dietary.includes("Other") || dietary.includes("Other (Please specify)");
+		return (
+			dietary.includes("Other") || dietary.includes("Other (Please specify)")
+		);
 	}
 
 	function handleDietaryChange(option: string, checked: boolean) {
