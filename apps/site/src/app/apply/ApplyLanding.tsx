@@ -18,7 +18,7 @@ export default function ApplyLanding() {
 						</p>
 						<div className={styles.buttons}>
 							<PrimaryButton href="/apply/hacker">Hacker</PrimaryButton>
-							<PrimaryButton href="/apply-mentor">Mentor</PrimaryButton>
+							<PrimaryButton href="/apply/mentor">Mentor</PrimaryButton>
 						</div>
 					</div>
 				</RetroWindow>

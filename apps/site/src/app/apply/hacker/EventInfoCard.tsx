@@ -37,7 +37,7 @@ export default function EventInfoCard() {
 
 						<span className={styles.footnote}>
 							** Have project or hackathon experience? Consider applying to be a
-							ZotHacks <Link href="/mentor">mentor</Link>! We will still take
+							ZotHacks <Link href="/apply/mentor">mentor</Link>! We will still take
 							your application should you choose to apply as a hacker!
 						</span>
 					</p>
