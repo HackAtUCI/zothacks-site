@@ -2,12 +2,27 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import RetroWindow from "@/components/RetroWindow/RetroWindow";
 import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 import Title from "./Title";
 import ColorPicker from "./ColorPicker";
 import InfoIcon from "@/assets/images/info-icon.png";
+import {
+	leftWindowEntry,
+	rightWindowEntry,
+	bottomWindowEntry,
+} from "@/components/animation";
 import styles from "./Landing.module.scss";
+
+const containerVariants = {
+	hidden: {},
+	visible: {
+		transition: {
+			staggerChildren: 0.45,
+		},
+	},
+};
 
 const Landing = () => {
 	const [bgColor, setBgColor] = useState<string>();
@@ -15,8 +30,13 @@ const Landing = () => {
 	return (
 		<div className={styles.backgroundWrapper}>
 			<section className={styles.landing}>
-				<div className={styles.windowsContainer}>
-					<div className={styles.mainWindow}>
+				<motion.div
+					className={styles.windowsContainer}
+					variants={containerVariants}
+					initial="hidden"
+					animate="visible"
+				>
+					<motion.div className={styles.mainWindow} variants={leftWindowEntry}>
 						<RetroWindow
 							title="Irvine's Beginner Hackathon"
 							showEditBar
@@ -26,9 +46,9 @@ const Landing = () => {
 						>
 							<Title />
 						</RetroWindow>
-					</div>
+					</motion.div>
 
-					<div className={styles.infoWindow}>
+					<motion.div className={styles.infoWindow} variants={rightWindowEntry}>
 						<RetroWindow title="Info">
 							<div className={styles.infoContent}>
 								<Image
@@ -44,9 +64,12 @@ const Landing = () => {
 								</div>
 							</div>
 						</RetroWindow>
-					</div>
+					</motion.div>
 
-					<div className={styles.appsWindow}>
+					<motion.div
+						className={styles.appsWindow}
+						variants={bottomWindowEntry}
+					>
 						<RetroWindow title="System Message">
 							<div className={styles.appsContent}>
 								<p className={styles.infoText}>Apps open in the Fall</p>
@@ -58,8 +81,8 @@ const Landing = () => {
 								</PrimaryButton>
 							</div>
 						</RetroWindow>
-					</div>
-				</div>
+					</motion.div>
+				</motion.div>
 			</section>
 		</div>
 	);

@@ -32,3 +32,42 @@ export const fastShake = {
 		},
 	},
 };
+
+export const leftWindowEntry = {
+	hidden: { x: "-200px", opacity: 0 },
+	visible: {
+		x: 0,
+		opacity: 1,
+		transition: {
+			type: "spring",
+			stiffness: 80,
+			damping: 14,
+		},
+	},
+};
+
+export const rightWindowEntry = {
+	hidden: { x: "200px", opacity: 0 },
+	visible: {
+		x: 0,
+		opacity: 1,
+		transition: {
+			type: "spring",
+			stiffness: 80,
+			damping: 14,
+		},
+	},
+};
+
+export const bottomWindowEntry = {
+	hidden: { y: "200px", opacity: 0 },
+	visible: {
+		y: 0,
+		opacity: 1,
+		transition: {
+			type: "spring",
+			stiffness: 80,
+			damping: 14,
+		},
+	},
+};
