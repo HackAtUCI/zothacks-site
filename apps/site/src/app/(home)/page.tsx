@@ -11,6 +11,8 @@ import Countdown from "./sections/Countdown";
 import About from "./sections/About/About";
 import Schedule from "../schedule/Schedule";
 import { Resources } from "@/views";
+import Login from "../login/page";
+import LoginForm from "../login/LoginForm";
 
 interface HomeProps {
 	searchParams?: {
@@ -30,11 +32,12 @@ const Home = ({ searchParams }: HomeProps) => {
 			{/* <Clubs /> */}
 			<FAQ />
 			<BackToTop />
-			{/* {(overlay === "resources" || overlay === "schedule") && (
+			{/* {(overlay === "resources" || overlay === "schedule" || overlay === "login") && (
 				<div className={styles.overlay} role="dialog" aria-modal="true">
 					<div className={styles.overlayPanel}>
 						{overlay === "resources" && <Resources overlay />}
 						{overlay === "schedule" && <Schedule overlay />}
+						{overlay === "login" && <LoginForm returnTo="/" overlay={true} />}
 					</div>
 				</div>
 			)} */}
