@@ -10,7 +10,7 @@ export default function ApplyLanding() {
 	return (
 		<div className={styles.page}>
 			<div className={styles.windowWrapper}>
-				<RetroWindow title="Application">
+				<RetroWindow title="Application" closeHref="/apply">
 					<div className={styles.content}>
 						<Image src={infoIcon} alt="Info" className={styles.mascot} />
 						<p className={styles.question}>
