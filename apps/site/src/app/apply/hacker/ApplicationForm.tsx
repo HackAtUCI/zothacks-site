@@ -542,16 +542,16 @@ export default function ApplicationForm({
 
 					<label className={styles.field}>
 						<span className={`${styles.label} ${styles.required}`}>
-							Resume link upload - pdf link from google drive
+							Resume upload
 						</span>
 						<input
 							className={`${styles.input} ${
 								validationErrors.resume ? styles.invalid : ""
 							}`}
-							type="url"
+							type="file"
 							name="resume"
+							accept="application/pdf,.pdf"
 							required={p1}
-							placeholder="https://"
 							aria-invalid={Boolean(validationErrors.resume)}
 						/>
 						{validationErrors.resume && (
@@ -666,28 +666,7 @@ export default function ApplicationForm({
 						)}
 					</label>
 
-					{/* TODO - replace with actual question */}
-					<label className={styles.field}>
-						<span className={`${styles.label} ${styles.required}`}>
-							Pick five emojis to tell a story that represents a time in your
-							life you used creativity to solve a problem.
-						</span>
-						<span className={styles.helper}>_____ _____ _____ _____ _____</span>
-						<input
-							className={`${styles.input} ${
-								validationErrors.emoji_story ? styles.invalid : ""
-							}`}
-							type="text"
-							name="emoji_story"
-							required={!p1}
-							aria-invalid={Boolean(validationErrors.emoji_story)}
-						/>
-						{validationErrors.emoji_story && (
-							<span className={styles.error}>
-								{validationErrors.emoji_story}
-							</span>
-						)}
-					</label>
+					{/* TODO: Implement Last Question */}
 
 					<label className={styles.field}>
 						<span className={styles.label}>

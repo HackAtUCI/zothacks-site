@@ -7,6 +7,23 @@ import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 
 import styles from "../login/Login.module.scss";
 
+function normalizeReturnTo(returnTo: string) {
+	if (returnTo.startsWith("/")) {
+		return returnTo;
+	}
+
+	const url = new URL(returnTo, window.location.origin);
+	if (url.origin === window.location.origin) {
+		return `${url.pathname}${url.search}${url.hash}`;
+	}
+
+	return returnTo;
+}
+
+function getGuestSuccessRedirect(returnTo: string) {
+	return returnTo === "/auth" ? "/#hacker-application" : returnTo;
+}
+
 type VerifyFormProps = {
 	email: string;
 	returnTo: string;
@@ -28,13 +45,19 @@ export default function VerifyForm({
 			setSubmitting(true);
 
 			const formData = new FormData(event.currentTarget);
+			const normalizedReturnTo = normalizeReturnTo(returnTo);
+			const successRedirect = getGuestSuccessRedirect(normalizedReturnTo);
+			formData.set("return_to", normalizedReturnTo);
+
+			const searchParams = new URLSearchParams(newSearchParamsString);
+			searchParams.set("return_to", normalizedReturnTo);
 
 			try {
 				await axiosInstance.post(
-					`/api/guest/verify?${newSearchParamsString}`,
+					`/api/guest/verify?${searchParams.toString()}`,
 					formData,
 				);
-				window.location.href = returnTo;
+				window.location.href = successRedirect;
 			} catch (error: unknown) {
 				setShowError(true);
 				setSubmitting(false);

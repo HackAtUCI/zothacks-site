@@ -21,7 +21,7 @@ export default function LoginForm({
 	const normalizedEmail = email.trim().toLowerCase();
 	const isUciEmail = normalizedEmail.endsWith("@uci.edu");
 	const action = isUciEmail
-		? `/api/user/login?return_to=${encodeURIComponent("https://zothacks.com/auth")}`
+		? `/api/user/login?return_to=${encodeURIComponent("/auth")}`
 		: "/api/user/login";
 
 	return (

@@ -13,8 +13,8 @@ export default async function Page() {
 
 	const { status, uid } = await getUserIdentity();
 
-	// if (status) redirect("/portal");
-	// if (!uid) redirect("/login");
+	if (status) redirect("/portal");
+	if (!uid) redirect("/login");
 
 	return <HackerApplication />;
 }
