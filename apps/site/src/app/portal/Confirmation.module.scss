@@ -49,6 +49,7 @@
 
 .button {
 	min-width: min(100%, 21rem);
+	font-size: 1.5rem;
 }
 
 @include utils.media-breakpoint-up(md) {

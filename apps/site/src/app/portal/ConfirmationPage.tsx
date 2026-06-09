@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 
-import mascot from "@/assets/images/peace-peter.png";
 import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 import { Status } from "@/lib/userRecord";
 import RetroWindow from "@/components/RetroWindow/RetroWindow";
@@ -55,7 +54,7 @@ export default function ConfirmationPage({ status }: ConfirmationPageProps) {
 	return (
 		<div className={styles.container}>
 			<div className={styles.window}>
-				<RetroWindow title="Application" framedContent snapBack>
+				<RetroWindow title="Application" framedContent snapBack closeHref="/portal">
 					<div className={styles.content}>
 						<Image src={HappyPeter} alt="" className={styles.happyPeter} />
 						<h1 className={styles.title}>{message}</h1>
