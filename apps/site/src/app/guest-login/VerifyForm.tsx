@@ -21,7 +21,7 @@ function normalizeReturnTo(returnTo: string) {
 }
 
 function getGuestSuccessRedirect(returnTo: string) {
-	return returnTo === "/auth" ? "/#hacker-application" : returnTo;
+	return returnTo === "/auth" ? "/apply" : returnTo;
 }
 
 type VerifyFormProps = {

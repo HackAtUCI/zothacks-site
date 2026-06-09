@@ -51,7 +51,7 @@ const Landing = () => {
 							<div className={styles.appsContent}>
 								<p className={styles.infoText}>Apps open in the Fall</p>
 								<PrimaryButton
-									href="#hacker-application"
+									href="/apply"
 									className={styles.applyButton}
 								>
 									Coming soon

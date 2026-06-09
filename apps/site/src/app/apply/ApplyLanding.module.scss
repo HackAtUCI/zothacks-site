@@ -1,5 +1,5 @@
 .page {
-	min-height: 100vh;
+	min-height: calc(100vh - 50px);
 	background: var(--blue-gradient);
 	display: flex;
 	align-items: center;

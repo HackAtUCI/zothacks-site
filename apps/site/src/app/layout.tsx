@@ -45,7 +45,7 @@ export default function RootLayout({
 			className={`${inter.variable} ${dotGothic16.variable} ${pixelifySans.variable}`}
 		>
 			<body className="background">
-				{/* <NavbarParent /> */}
+				<NavbarParent />
 				<main>{children}</main>
 				<Footer />
 			</body>

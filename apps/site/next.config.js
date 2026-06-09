@@ -9,56 +9,56 @@ const nextConfig = {
 	/* TODO: Remove redirects once we have the new site up and running */
 	async redirects() {
 		return [
-			{
-				source: "/apply",
-				destination: "/",
-				permanent: false,
-			},
-			{
-				source: "/apply/hacker",
-				destination: "/",
-				permanent: false,
-			},
-			{
-				source: "/apply-mentor",
-				destination: "/",
-				permanent: false,
-			},
-			{
-				source: "/auth",
-				destination: "/",
-				permanent: false,
-			},
-			{
-				source: "/guest-login",
-				destination: "/",
-				permanent: false,
-			},
-			{
-				source: "/login",
-				destination: "/",
-				permanent: false,
-			},
-			{
-				source: "/logout",
-				destination: "/",
-				permanent: false,
-			},
-			{
-				source: "/portal",
-				destination: "/",
-				permanent: false,
-			},
-			{
-				source: "/mentor",
-				destination: "/",
-				permanent: false,
-			},
-			{
-				source: "/incident",
-				destination: "/",
-				permanent: false,
-			},
+		// 	{
+		// 		source: "/apply",
+		// 		destination: "/",
+		// 		permanent: false,
+		// 	},
+		// 	{
+		// 		source: "/apply/hacker",
+		// 		destination: "/",
+		// 		permanent: false,
+		// 	},
+		// 	{
+		// 		source: "/apply-mentor",
+		// 		destination: "/",
+		// 		permanent: false,
+		// 	},
+		// 	{
+		// 		source: "/auth",
+		// 		destination: "/",
+		// 		permanent: false,
+		// 	},
+		// 	{
+		// 		source: "/guest-login",
+		// 		destination: "/",
+		// 		permanent: false,
+		// 	},
+		// 	{
+		// 		source: "/login",
+		// 		destination: "/",
+		// 		permanent: false,
+		// 	},
+		// 	{
+		// 		source: "/logout",
+		// 		destination: "/",
+		// 		permanent: false,
+		// 	},
+		// 	{
+		// 		source: "/portal",
+		// 		destination: "/",
+		// 		permanent: false,
+		// 	},
+		// 	{
+		// 		source: "/mentor",
+		// 		destination: "/",
+		// 		permanent: false,
+		// 	},
+		// 	{
+		// 		source: "/incident",
+		// 		destination: "/",
+		// 		permanent: false,
+		// 	},
 		];
 	},
 
