@@ -12,7 +12,11 @@ export default function ApplyLanding() {
 			<div className={styles.windowWrapper}>
 				<RetroWindow title="Application" closeHref="/apply">
 					<div className={styles.content}>
-						<Image src={ApplyPeter} alt="Apply Peter" className={styles.mascot} />
+						<Image
+							src={ApplyPeter}
+							alt="Apply Peter"
+							className={styles.mascot}
+						/>
 						<p className={styles.question}>
 							Are you applying as a Hacker or Mentor?
 						</p>
