@@ -21,6 +21,15 @@
 	padding: 5rem 1rem 3rem;
 }
 
+.introShell {
+	min-height: calc(100vh - 50px);
+	box-sizing: border-box;
+	justify-content: flex-start;
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding: 5rem 1rem 3rem;
+}
+
 .form {
 	display: flex;
 	flex-direction: column;
@@ -35,6 +44,10 @@
 	}
 
 	.disclaimerShell {
+		padding: 5rem 1rem 3rem;
+	}
+
+	.introShell {
 		padding: 5rem 1rem 3rem;
 	}
 }
