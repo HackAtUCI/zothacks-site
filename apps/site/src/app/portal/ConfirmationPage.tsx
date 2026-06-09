@@ -54,13 +54,21 @@ export default function ConfirmationPage({ status }: ConfirmationPageProps) {
 	return (
 		<div className={styles.container}>
 			<div className={styles.window}>
-				<RetroWindow title="Application" framedContent snapBack closeHref="/portal">
+				<RetroWindow
+					title="Application"
+					framedContent
+					snapBack
+					closeHref="/portal"
+				>
 					<div className={styles.content}>
 						<Image src={HappyPeter} alt="" className={styles.happyPeter} />
 						<h1 className={styles.title}>{message}</h1>
 						<div className={styles.actions}>
 							{isAccepted ? (
-								<PrimaryButton href="/api/user/waiver" className={styles.button}>
+								<PrimaryButton
+									href="/api/user/waiver"
+									className={styles.button}
+								>
 									Sign Waiver
 								</PrimaryButton>
 							) : (

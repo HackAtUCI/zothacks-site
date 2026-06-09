@@ -17,10 +17,16 @@ export default function ApplyLanding() {
 							Are you applying as a Hacker or Mentor?
 						</p>
 						<div className={styles.buttons}>
-							<PrimaryButton href="/apply/hacker" className={styles.applyButton}>
+							<PrimaryButton
+								href="/apply/hacker"
+								className={styles.applyButton}
+							>
 								Hacker
 							</PrimaryButton>
-							<PrimaryButton href="/apply/mentor" className={styles.applyButton}>
+							<PrimaryButton
+								href="/apply/mentor"
+								className={styles.applyButton}
+							>
 								Mentor
 							</PrimaryButton>
 						</div>

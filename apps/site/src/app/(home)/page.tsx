@@ -32,7 +32,9 @@ const Home = ({ searchParams }: HomeProps) => {
 			{/* <Clubs /> */}
 			<FAQ />
 			<BackToTop />
-			{(overlay === "resources" || overlay === "schedule" || overlay === "login") && (
+			{(overlay === "resources" ||
+				overlay === "schedule" ||
+				overlay === "login") && (
 				<div className={styles.overlay} role="dialog" aria-modal="true">
 					<div className={styles.overlayPanel}>
 						{overlay === "resources" && <Resources overlay />}

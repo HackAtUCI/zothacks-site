@@ -26,11 +26,7 @@ export default function LoginForm({
 
 	return (
 		<div className={styles.windowWrapper}>
-			<RetroWindow
-				title="Login"
-				closeHref="/"
-				snapBack={!overlay}
-			>
+			<RetroWindow title="Login" closeHref="/" snapBack={!overlay}>
 				<form method="post" action={action} className={styles.content}>
 					<p className={styles.description}>
 						Only UCI students are eligible to be a hacker at ZotHacks.
