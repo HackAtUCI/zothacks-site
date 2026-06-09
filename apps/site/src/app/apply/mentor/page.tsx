@@ -1,10 +1,20 @@
+import { redirect } from "next/navigation";
+
 import { Maintenance } from "@/views";
-import MentorsForm from "./MentorsForm";
+import MentorApplication from "./MentorApplication";
+import getUserIdentity from "@/lib/utils/getUserIdentity";
 
 export const revalidate = 60;
 
-const Component = process.env.MAINTENANCE_MODE_SCHEDULE
-	? Maintenance
-	: MentorsForm;
+export default async function Page() {
+	if (process.env.MAINTENANCE_MODE_APPLICATION) {
+		return <Maintenance />;
+	}
 
-export default Component;
+	const { status, uid } = await getUserIdentity();
+
+	if (status) redirect("/portal");
+	if (!uid) redirect("/login");
+
+	return <MentorApplication />;
+}

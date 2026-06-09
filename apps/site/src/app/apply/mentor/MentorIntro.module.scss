@@ -1,0 +1,191 @@
+.introPage {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+}
+
+.backRow {
+	width: 100%;
+	max-width: 850px;
+	margin: 0 auto;
+}
+
+.backButton {
+	width: 132px;
+	min-height: 34px;
+}
+
+.windowWrapper {
+	width: 100%;
+	max-width: 850px;
+	margin: 0 auto;
+}
+
+.content {
+	background: #ffffff;
+	border: 1.5px solid #000000;
+	font-family: var(--font-pixel), sans-serif;
+	color: #000000;
+}
+
+.scrollArea {
+	display: flex;
+	height: 670px;
+	background-color: #ffffff;
+}
+
+.scrollContent {
+	position: relative;
+	flex: 1;
+	min-width: 0;
+	overflow-y: auto;
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+.scrollRail {
+	display: flex;
+	flex-shrink: 0;
+	flex-direction: column;
+	width: 26px;
+	background-color: #d5d5d5;
+	border-left: 1px solid #ababad;
+	box-shadow: inset -2px 0 4px rgba(0, 0, 0, 0.25);
+}
+
+.scrollButtonUp,
+.scrollButtonDown {
+	flex-shrink: 0;
+	width: 26px;
+	height: 26px;
+	padding: 0;
+	border: none;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100% 100%;
+	cursor: pointer;
+
+	&:disabled {
+		cursor: default;
+		opacity: 0.6;
+	}
+}
+
+.scrollButtonUp {
+	background-image: url("~@/assets/icons/up_arrow.svg");
+}
+
+.scrollButtonDown {
+	background-image: url("~@/assets/icons/down_arrow.svg");
+}
+
+.scrollTrack {
+	position: relative;
+	flex: 1;
+	min-height: 0;
+}
+
+.scrollThumb {
+	position: absolute;
+	top: 0;
+	left: 4px;
+	width: calc(100% - 8px);
+	background-color: var(--scrollbar-gray);
+	border: 1px solid #000000;
+	border-top-color: #dfdfdf;
+	border-left-color: #dfdfdf;
+	touch-action: none;
+	cursor: grab;
+
+	&:active {
+		cursor: grabbing;
+	}
+}
+
+.copy {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1.1rem;
+	padding: 1.8rem 2.5rem 2.5rem;
+	text-align: center;
+	font-size: 1.35rem;
+	line-height: 1.42;
+	word-spacing: 0.16em;
+	letter-spacing: 0.01em;
+
+	p,
+	ul {
+		margin: 0;
+	}
+
+	h2 {
+		margin: 1rem 0 0;
+		font: inherit;
+		font-size: 1.55rem;
+		text-decoration: underline;
+		text-underline-offset: 0.12em;
+	}
+
+	ul {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.6rem;
+		max-width: 700px;
+		padding-left: 1.4rem;
+		text-align: center;
+	}
+
+	li {
+		padding-left: 0.25rem;
+	}
+}
+
+.continueButton {
+	width: min(300px, 100%);
+	min-height: 56px;
+	margin-top: 0.75rem;
+}
+
+@media (max-width: 700px) {
+	.backRow,
+	.windowWrapper {
+		max-width: calc(100% - 1.5rem);
+	}
+
+	.copy {
+		padding: 1rem 0.85rem 1.25rem;
+		font-size: 0.95rem;
+		line-height: 1.35;
+	}
+
+	.scrollArea {
+		height: min(520px, 62vh);
+	}
+
+	.copy h2 {
+		font-size: 1.1rem;
+	}
+
+	.continueButton {
+		width: min(215px, 100%);
+	}
+}
+
+@media (max-height: 760px) {
+	.copy {
+		gap: 0.8rem;
+		font-size: 0.95rem;
+		line-height: 1.35;
+	}
+
+	.copy h2 {
+		font-size: 1.1rem;
+	}
+}

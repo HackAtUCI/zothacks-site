@@ -1,3 +1,43 @@
+.page {
+	min-height: 100vh;
+	background: var(--blue-gradient);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	padding: 5rem 1rem 3rem;
+}
+
+.windowWrapper {
+	width: 100%;
+	max-width: 1100px;
+}
+
+.backRow {
+	width: 100%;
+	max-width: 1100px;
+	margin: 0 auto 0.85rem;
+}
+
+.backButton {
+	width: 132px;
+	min-height: 34px;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	padding: 1.5rem;
+	background: #ffffff;
+}
+
+@media (max-width: 600px) {
+	.page {
+		padding: 4rem 0.5rem 2rem;
+	}
+}
+
 .applicationContainer {
 	display: flex;
 	flex-direction: column;
@@ -47,13 +87,9 @@
 	}
 }
 
-.invalid {
-	box-shadow: 0 0 0 2px #d93025;
-}
-
 .error {
 	font-family: var(--font-pixel), sans-serif;
-	font-size: 0.75rem;
+	font-size: 0.95rem;
 	color: #d93025;
 	line-height: 1.4;
 }
@@ -76,7 +112,7 @@
 	border: none;
 	padding: 0.6rem 0.75rem;
 	font-family: var(--font-pixel), sans-serif;
-	font-size: 0.875rem;
+	font-size: 1rem;
 	color: #000000;
 	width: 100%;
 	outline: none;

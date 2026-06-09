@@ -50,10 +50,7 @@ const Landing = () => {
 						<RetroWindow title="System Message">
 							<div className={styles.appsContent}>
 								<p className={styles.infoText}>Apps open in the Fall</p>
-								<PrimaryButton
-									href="#hacker-application"
-									className={styles.applyButton}
-								>
+								<PrimaryButton href="/apply" className={styles.applyButton}>
 									Coming soon
 								</PrimaryButton>
 							</div>

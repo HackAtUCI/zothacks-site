@@ -13,6 +13,17 @@
 	max-width: 1100px;
 }
 
+.backRow {
+	width: 100%;
+	max-width: 1100px;
+	margin: 0 auto 0.85rem;
+}
+
+.backButton {
+	width: 132px;
+	min-height: 34px;
+}
+
 .form {
 	display: flex;
 	flex-direction: column;
@@ -52,7 +63,7 @@
 
 .label {
 	font-family: var(--font-pixel), sans-serif;
-	font-size: 0.9rem;
+	font-size: 1.15rem;
 	color: #000000;
 	font-weight: 400;
 	display: block;
@@ -70,7 +81,7 @@
 	border: none;
 	padding: 0.6rem 0.75rem;
 	font-family: var(--font-pixel), sans-serif;
-	font-size: 0.875rem;
+	font-size: 1.15rem;
 	color: #000000;
 	width: 100%;
 	outline: none;
@@ -82,7 +93,7 @@
 
 .error {
 	font-family: var(--font-pixel), sans-serif;
-	font-size: 0.75rem;
+	font-size: 0.95rem;
 	color: #d93025;
 	line-height: 1.4;
 }
@@ -101,7 +112,7 @@
 	border: none;
 	padding: 0.6rem 0.75rem;
 	font-family: var(--font-pixel), sans-serif;
-	font-size: 0.875rem;
+	font-size: 1rem;
 	color: #000000;
 	width: 100%;
 	outline: none;
@@ -130,7 +141,7 @@
 	align-items: center;
 	gap: 0.5rem;
 	font-family: var(--font-pixel), sans-serif;
-	font-size: 0.875rem;
+	font-size: 1.15rem;
 	color: #000000;
 	cursor: pointer;
 }
@@ -240,7 +251,7 @@
 
 .skillsColumnTitle {
 	font-family: var(--font-pixel), sans-serif;
-	font-size: 0.85rem;
+	font-size: 1.15rem;
 	font-weight: 600;
 	color: #000000;
 	border-bottom: 1px solid #cccccc;
@@ -256,7 +267,7 @@
 
 .skillName {
 	font-family: var(--font-pixel), sans-serif;
-	font-size: 0.8rem;
+	font-size: 1.15rem;
 	color: #000000;
 }
 
@@ -265,7 +276,7 @@
 	border: none;
 	padding: 0.25rem 0.4rem;
 	font-family: var(--font-pixel), sans-serif;
-	font-size: 0.8rem;
+	font-size: 1.15rem;
 	color: #000000;
 	width: 56px;
 	outline: none;

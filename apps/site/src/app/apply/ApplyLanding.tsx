@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import RetroWindow from "@/components/RetroWindow/RetroWindow";
 import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
-import infoIcon from "@/assets/images/info-icon.png";
+import ApplyPeter from "@/assets/images/apply-peter.svg";
 
 import styles from "./ApplyLanding.module.scss";
 
@@ -12,7 +12,11 @@ export default function ApplyLanding() {
 			<div className={styles.windowWrapper}>
 				<RetroWindow title="Application" closeHref="/apply">
 					<div className={styles.content}>
-						<Image src={infoIcon} alt="Info" className={styles.mascot} />
+						<Image
+							src={ApplyPeter}
+							alt="Apply Peter"
+							className={styles.mascot}
+						/>
 						<p className={styles.question}>
 							Are you applying as a Hacker or Mentor?
 						</p>

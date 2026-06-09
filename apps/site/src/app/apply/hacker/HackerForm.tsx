@@ -4,14 +4,15 @@ import {
 	useState,
 	type FormEvent,
 	type InvalidEvent,
+	type MouseEvent,
 	type ReactNode,
 } from "react";
 
-import RetroWindow from "@/components/RetroWindow/RetroWindow";
 import BaseForm from "@/components/BaseForm/BaseForm";
 import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
+import RetroWindow from "@/components/RetroWindow/RetroWindow";
 
-import styles from "./MentorsForm.module.scss";
+import styles from "./HackerForm.module.scss";
 
 const pronounOptions = [
 	"he/him/his",
@@ -27,84 +28,90 @@ const dietaryOptions = [
 	"Vegan",
 	"Other (Please specify)",
 ];
+const yearOptions = [
+	"1st Year",
+	"2nd Year",
+	"3rd Year",
+	"4th Year",
+	"5th Year",
+	"Graduate Student",
+	"Graduated",
+];
 const majorOptions = [
+	"Aerospace Engineering",
+	"Biomedical Engineering",
+	"Business Administration",
+	"Business Economics",
 	"Business Information Management",
+	"Chemical Engineering",
+	"Civil Engineering",
 	"Computer Game Science",
 	"Computer Science",
 	"Computer Science and Engineering",
+	"Computer Engineering",
 	"Data Science",
 	"Electrical Engineering",
-	"Informatics",
+	"Environmental Engineering",
 	"Software Engineering",
+	"Informatics",
+	"Materials Science and Engineering",
+	"Mechanical Engineering",
+	"Other - Claire Trevor School of the Arts",
+	"Other - School of Biological Sciences",
+	"Other - School of Education",
+	"Other - School of Humanities",
+	"Other - Dept. of Pharmaceutical Sciences",
+	"Other - School of Physical Sciences",
+	"Other - Program in Public Health",
+	"Other - School of Social Ecology",
+	"Other - School of Social Sciences",
 	"Undeclared",
 	"Other",
 ];
-const academicStatusOptions = [
-	"Undergraduate — Graduating 2027",
-	"Undergraduate — Graduating 2028",
-	"Undergraduate — Graduating 2029",
-	"Undergraduate — Graduating 2030",
-	"Graduate — Master's (in progress)",
-	"Graduate — Doctorate (in progress)",
-	"Graduated — Bachelor's",
-	"Graduated — Master's",
-	"Graduated — Doctorate",
-	"Other",
-];
-
-const skillGroups = [
-	{
-		category: "Languages",
-		skills: ["Python", "Java", "C++", "JavaScript", "C#"],
-	},
-	{
-		category: "Frontend",
-		skills: ["HTML/CSS", "React", "Next.js", "GitHub Pages", "Other"],
-	},
-	{
-		category: "Tools & Platforms",
-		skills: ["Git", "SQL (Any variation)", "AWS Services", "Vercel", "Netlify"],
-	},
-];
-
-function skillKey(skill: string) {
-	return `skill_${skill.toLowerCase().replace(/[^a-z0-9]/g, "_")}`;
-}
+const wordLimits = {
+	collaboration_saq: 100,
+	tech_inspiration_saq: 100,
+	uci_gift_saq: 75,
+} as const;
 
 type FieldElement = HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
 
-interface MentorsFormProps {
+function countWords(value: string) {
+	return value.trim().split(/\s+/).filter(Boolean).length;
+}
+
+interface HackerFormProps {
 	onBack: () => void;
 }
 
-export default function MentorsForm({ onBack }: MentorsFormProps) {
+export default function HackerForm({ onBack }: HackerFormProps) {
 	const [page, setPage] = useState<1 | 2>(1);
 	const [pronouns, setPronouns] = useState("");
 	const [dietary, setDietary] = useState<string[]>([]);
+	const [major, setMajor] = useState("");
 	const [validationErrors, setValidationErrors] = useState<
 		Record<string, string>
 	>({});
+	const [wordCounts, setWordCounts] = useState<Record<string, number>>({
+		collaboration_saq: 0,
+		tech_inspiration_saq: 0,
+		uci_gift_saq: 0,
+	});
 
 	const p1 = page === 1;
+	const title =
+		page === 1 ? "Hacker Application" : "Hacker Application (Continued)";
 
 	function getValidationMessage(field: FieldElement) {
 		if (field.validity.valueMissing) {
 			if (field.name === "dietary_restrictions") {
 				return "Select at least one dietary option.";
 			}
-			if (field.name.startsWith("skill_")) {
-				return "Select an experience level for every skill.";
-			}
 			if (field.type === "radio") return "Select one option.";
 			if (field.tagName === "SELECT") return "Select an option.";
 			return "This field is required.";
 		}
-		if (field.validity.typeMismatch) {
-			if (field.name === "email") {
-				return "Please input a valid email address.";
-			}
-			return "Please input a valid URL.";
-		}
+		if (field.validity.typeMismatch) return "Enter a valid URL.";
 		return field.validationMessage || "Please fix this field.";
 	}
 
@@ -127,6 +134,17 @@ export default function MentorsForm({ onBack }: MentorsFormProps) {
 
 	function updateFieldValidity(field: FieldElement) {
 		if (!field.name) return;
+
+		if (field instanceof HTMLTextAreaElement && field.name in wordLimits) {
+			const limit = wordLimits[field.name as keyof typeof wordLimits];
+			const words = countWords(field.value);
+
+			setWordCounts((prev) => ({ ...prev, [field.name]: words }));
+			field.setCustomValidity(
+				words > limit ? `Keep this response to ${limit} words or fewer.` : "",
+			);
+		}
+
 		if (field.checkValidity()) {
 			clearError(field.name);
 		} else if (validationErrors[field.name]) {
@@ -153,47 +171,6 @@ export default function MentorsForm({ onBack }: MentorsFormProps) {
 		}
 	}
 
-	function errorMessage(name: string): ReactNode {
-		if (!validationErrors[name]) return null;
-		return <span className={styles.error}>{validationErrors[name]}</span>;
-	}
-
-	function skillsError(): ReactNode {
-		const error = Object.entries(validationErrors).find(([name]) =>
-			name.startsWith("skill_"),
-		)?.[1];
-
-		if (!error) return null;
-		return <span className={styles.error}>{error}</span>;
-	}
-
-	function clearSkillErrors() {
-		setValidationErrors((prev) => {
-			const next = { ...prev };
-			let changed = false;
-
-			for (const name of Object.keys(next)) {
-				if (name.startsWith("skill_")) {
-					delete next[name];
-					changed = true;
-				}
-			}
-
-			return changed ? next : prev;
-		});
-	}
-
-	function setPronoun(option: string) {
-		setPronouns(option);
-		clearError("pronouns");
-	}
-
-	function isOtherDietarySelected() {
-		return (
-			dietary.includes("Other") || dietary.includes("Other (Please specify)")
-		);
-	}
-
 	function handleDietaryChange(option: string, checked: boolean) {
 		setDietary((prev) =>
 			checked
@@ -205,7 +182,22 @@ export default function MentorsForm({ onBack }: MentorsFormProps) {
 		if (checked) clearError("dietary_restrictions");
 	}
 
-	function handleContinue(e: React.MouseEvent<HTMLButtonElement>) {
+	function errorMessage(name: string): ReactNode {
+		if (!validationErrors[name]) return null;
+		return <span className={styles.error}>{validationErrors[name]}</span>;
+	}
+
+	function isOtherPronounsSelected() {
+		return pronouns.toLowerCase() === "other";
+	}
+
+	function isOtherDietarySelected() {
+		return (
+			dietary.includes("Other") || dietary.includes("Other (Please specify)")
+		);
+	}
+
+	function handleContinue(e: MouseEvent<HTMLButtonElement>) {
 		const form = e.currentTarget.closest("form");
 		if (form && !form.checkValidity()) {
 			form.reportValidity();
@@ -222,8 +214,6 @@ export default function MentorsForm({ onBack }: MentorsFormProps) {
 
 		onBack();
 	}
-
-	const title = p1 ? "Mentor Application" : "Mentor Application (Continued)";
 
 	return (
 		<div className={styles.page}>
@@ -242,8 +232,8 @@ export default function MentorsForm({ onBack }: MentorsFormProps) {
 			<div className={styles.windowWrapper}>
 				<RetroWindow title={title}>
 					<BaseForm
-						applyPath="/api/user/mentor"
-						applicationType="Mentor"
+						applyPath="/api/user/apply"
+						applicationType="Hacker"
 						className={styles.form}
 						hideSubmit={p1}
 					>
@@ -282,47 +272,46 @@ export default function MentorsForm({ onBack }: MentorsFormProps) {
 									</label>
 								</div>
 
-								<div className={styles.row}>
-									<label className={styles.field}>
-										<span className={`${styles.label} ${styles.required}`}>
-											Email Address
-										</span>
-										<input
-											className={styles.input}
-											type="email"
-											name="email"
-											required={p1}
-										/>
-										{errorMessage("email")}
-									</label>
-									<label className={styles.field}>
-										<span className={`${styles.label} ${styles.required}`}>
-											Phone Number
-										</span>
-										<input
-											className={styles.input}
-											type="tel"
-											name="phone_number"
-											required={p1}
-										/>
-										{errorMessage("phone_number")}
-									</label>
-								</div>
-
-								<label className={styles.field}>
+								<fieldset>
 									<span className={`${styles.label} ${styles.required}`}>
-										Discord Username (ZotHacks 2026 will be held on Discord.
-										Having an account is required to be a Mentor for ZotHacks
-										2026.)
+										Preferred Pronouns
 									</span>
-									<input
-										className={styles.input}
-										type="text"
-										name="discord_username"
-										required={p1}
-									/>
-									{errorMessage("discord_username")}
-								</label>
+									<div className={styles.inlineGroup}>
+										{pronounOptions.map((option) => (
+											<label key={option} className={styles.option}>
+												<input
+													type="radio"
+													name="pronouns"
+													value={option}
+													required={p1}
+													checked={pronouns === option}
+													onChange={() => {
+														setPronouns(option);
+														clearError("pronouns");
+													}}
+												/>
+												<span>{option}</span>
+											</label>
+										))}
+									</div>
+									{errorMessage("pronouns")}
+									{isOtherPronounsSelected() && (
+										<div className={styles.otherField}>
+											<label className={styles.field}>
+												<span className={`${styles.label} ${styles.required}`}>
+													Specify other pronouns
+												</span>
+												<input
+													className={styles.input}
+													type="text"
+													name="_other_pronouns"
+													required={p1}
+												/>
+												{errorMessage("_other_pronouns")}
+											</label>
+										</div>
+									)}
+								</fieldset>
 
 								<fieldset>
 									<span className={`${styles.label} ${styles.required}`}>
@@ -354,40 +343,22 @@ export default function MentorsForm({ onBack }: MentorsFormProps) {
 
 								<fieldset>
 									<span className={`${styles.label} ${styles.required}`}>
-										Preferred Pronouns
+										School Year
 									</span>
 									<div className={styles.inlineGroup}>
-										{pronounOptions.map((option) => (
-											<label key={option} className={styles.option}>
+										{yearOptions.map((opt) => (
+											<label key={opt} className={styles.option}>
 												<input
 													type="radio"
-													name="pronouns"
-													value={option}
+													name="school_year"
+													value={opt}
 													required={p1}
-													checked={pronouns === option}
-													onChange={() => setPronoun(option)}
 												/>
-												<span>{option}</span>
+												<span>{opt}</span>
 											</label>
 										))}
 									</div>
-									{errorMessage("pronouns")}
-									{pronouns === "Other" && (
-										<div className={styles.otherField}>
-											<label className={styles.field}>
-												<span className={`${styles.label} ${styles.required}`}>
-													Specify other pronouns
-												</span>
-												<input
-													className={styles.input}
-													type="text"
-													name="_other_pronouns"
-													required={p1}
-												/>
-												{errorMessage("_other_pronouns")}
-											</label>
-										</div>
-									)}
+									{errorMessage("school_year")}
 								</fieldset>
 
 								<fieldset>
@@ -445,13 +416,17 @@ export default function MentorsForm({ onBack }: MentorsFormProps) {
 
 								<label className={styles.field}>
 									<span className={`${styles.label} ${styles.required}`}>
-										Area of study / Major?
+										Major?
 									</span>
 									<select
 										className={styles.select}
 										name="major"
 										required={p1}
-										defaultValue=""
+										value={major}
+										onChange={(event) => {
+											setMajor(event.target.value);
+											clearError("major");
+										}}
 									>
 										<option value="" disabled>
 											Select a major
@@ -464,28 +439,59 @@ export default function MentorsForm({ onBack }: MentorsFormProps) {
 									</select>
 									{errorMessage("major")}
 								</label>
+								{major === "Other" && (
+									<label className={styles.field}>
+										<span className={`${styles.label} ${styles.required}`}>
+											Specify other major
+										</span>
+										<input
+											className={styles.input}
+											type="text"
+											name="_other_major"
+											required={p1}
+										/>
+										{errorMessage("_other_major")}
+									</label>
+								)}
 
-								<label className={styles.field}>
+								<fieldset>
 									<span className={`${styles.label} ${styles.required}`}>
-										What is your current academic status?
+										Have you ever been to a hackathon?
 									</span>
-									<select
-										className={styles.select}
-										name="academic_status"
-										required={p1}
-										defaultValue=""
-									>
-										<option value="" disabled>
-											Select your academic status
-										</option>
-										{academicStatusOptions.map((status) => (
-											<option key={status} value={status}>
-												{status}
-											</option>
-										))}
-									</select>
-									{errorMessage("academic_status")}
-								</label>
+									<div className={styles.inlineGroup}>
+										<label className={styles.option}>
+											<input
+												type="radio"
+												name="hackathon_experience"
+												value="first_time"
+												required={p1}
+											/>
+											<span>No, this is my first time.</span>
+										</label>
+										<label className={styles.option}>
+											<input
+												type="radio"
+												name="hackathon_experience"
+												value="some_experience"
+												required={p1}
+											/>
+											<span>
+												Yes, I have been to one/a few, but I am relatively new
+												to the concept.
+											</span>
+										</label>
+										<label className={styles.option}>
+											<input
+												type="radio"
+												name="hackathon_experience"
+												value="veteran"
+												required={p1}
+											/>
+											<span>Yes, I am a hackathon veteran.</span>
+										</label>
+									</div>
+									{errorMessage("hackathon_experience")}
+								</fieldset>
 
 								<label className={styles.field}>
 									<span className={`${styles.label} ${styles.required}`}>
@@ -499,41 +505,6 @@ export default function MentorsForm({ onBack }: MentorsFormProps) {
 										required={p1}
 									/>
 									{errorMessage("resume")}
-								</label>
-
-								<label className={styles.field}>
-									<span className={styles.label}>LinkedIn profile link</span>
-									<input
-										className={styles.input}
-										type="url"
-										name="linkedin"
-										placeholder="https://"
-									/>
-									{errorMessage("linkedin")}
-								</label>
-
-								<label className={styles.field}>
-									<span className={styles.label}>GitHub profile link</span>
-									<input
-										className={styles.input}
-										type="url"
-										name="github"
-										placeholder="https://"
-									/>
-									{errorMessage("github")}
-								</label>
-
-								<label className={styles.field}>
-									<span className={styles.label}>
-										Personal website / portfolio link
-									</span>
-									<input
-										className={styles.input}
-										type="url"
-										name="portfolio"
-										placeholder="https://"
-									/>
-									{errorMessage("portfolio")}
 								</label>
 
 								<div className={styles.formActions}>
@@ -554,96 +525,77 @@ export default function MentorsForm({ onBack }: MentorsFormProps) {
 							<div className={styles.applicationContainer}>
 								<label className={styles.field}>
 									<span className={`${styles.label} ${styles.required}`}>
-										What tech stack experience do you have? [Any combo of front
-										end + backend (e.g. MERN, Django, AWS +
-										React/Vue.js/Angular)]
+										Tell us about a time when collaboration was instrumental in
+										your success. [Max 100 words]
 									</span>
 									<textarea
 										className={styles.textarea}
-										name="tech_stack_frq"
+										name="collaboration_saq"
 										required={!p1}
 									/>
-									{errorMessage("tech_stack_frq")}
+									<span
+										className={`${styles.helper} ${
+											wordCounts.collaboration_saq >
+											wordLimits.collaboration_saq
+												? styles.error
+												: ""
+										}`}
+									>
+										{wordCounts.collaboration_saq}/
+										{wordLimits.collaboration_saq} words
+									</span>
+									{errorMessage("collaboration_saq")}
 								</label>
 
 								<label className={styles.field}>
 									<span className={`${styles.label} ${styles.required}`}>
-										*3-4 sentences minimum* Given the stack that you mentioned,
-										how do you usually go about connecting the front-end with
-										the back-end?
+										Describe an application or technological concept that
+										inspires your growth. Why is it important to you? (Ex:
+										Robots in surgery, quantum computing, social media, etc.)
+										[Max 100 words]
 									</span>
 									<textarea
 										className={styles.textarea}
-										name="frontend_backend_frq"
+										name="tech_inspiration_saq"
 										required={!p1}
 									/>
-									{errorMessage("frontend_backend_frq")}
-								</label>
-
-								<div className={styles.skillsSection}>
-									<span className={`${styles.label} ${styles.required}`}>
-										Technical skills + Experience Level (1: unfamiliar — 5:
-										proficient)
+									<span
+										className={`${styles.helper} ${
+											wordCounts.tech_inspiration_saq >
+											wordLimits.tech_inspiration_saq
+												? styles.error
+												: ""
+										}`}
+									>
+										{wordCounts.tech_inspiration_saq}/
+										{wordLimits.tech_inspiration_saq} words
 									</span>
-									<div className={styles.skillsGrid}>
-										{skillGroups.map(({ category, skills }) => (
-											<div key={category} className={styles.skillsColumn}>
-												<div className={styles.skillsColumnTitle}>
-													{category}
-												</div>
-												{skills.map((skill) => (
-													<div key={skill} className={styles.skillRow}>
-														<span className={styles.skillName}>{skill}</span>
-														<select
-															className={styles.skillSelect}
-															name={skillKey(skill)}
-															required={!p1}
-															defaultValue=""
-															onChange={() => clearSkillErrors()}
-														>
-															<option value="" disabled>
-																—
-															</option>
-															{[1, 2, 3, 4, 5].map((n) => (
-																<option key={n} value={n}>
-																	{n}
-																</option>
-															))}
-														</select>
-													</div>
-												))}
-											</div>
-										))}
-									</div>
-									{skillsError()}
-								</div>
-
-								<label className={styles.field}>
-									<span className={`${styles.label} ${styles.required}`}>
-										Tell us about a time you taught someone a subject that they
-										had limited knowledge of.
-									</span>
-									<textarea
-										className={styles.textarea}
-										name="teaching_experience_frq"
-										required={!p1}
-									/>
-									{errorMessage("teaching_experience_frq")}
+									{errorMessage("tech_inspiration_saq")}
 								</label>
 
 								<label className={styles.field}>
 									<span className={`${styles.label} ${styles.required}`}>
-										If your team had different working styles and experience
-										levels, how would you lead them effectively while keeping
-										everyone engaged?
+										If you could give each person at UCI one item under $100,
+										what would it be and why? [Max 75 words]
 									</span>
 									<textarea
 										className={styles.textarea}
-										name="team_leadership_frq"
+										name="uci_gift_saq"
 										required={!p1}
 									/>
-									{errorMessage("team_leadership_frq")}
+									<span
+										className={`${styles.helper} ${
+											wordCounts.uci_gift_saq > wordLimits.uci_gift_saq
+												? styles.error
+												: ""
+										}`}
+									>
+										{wordCounts.uci_gift_saq}/{wordLimits.uci_gift_saq} words
+									</span>
+									{errorMessage("uci_gift_saq")}
 								</label>
+
+								{/* TODO: Implement Last Question */}
 
 								<label className={styles.field}>
 									<span className={styles.label}>
@@ -651,12 +603,6 @@ export default function MentorsForm({ onBack }: MentorsFormProps) {
 									</span>
 									<textarea className={styles.textarea} name="comments" />
 								</label>
-
-								<div className={styles.formActions}>
-									<PrimaryButton type="button" onClick={() => setPage(1)}>
-										Back
-									</PrimaryButton>
-								</div>
 							</div>
 						</div>
 					</BaseForm>
