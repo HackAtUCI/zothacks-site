@@ -1,55 +1,71 @@
 @use "bootstrap-utils" as utils;
 
 .container {
-	min-height: 100vh;
+	min-height: calc(100dvh - 60px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 7rem 1rem 6rem;
+	background: var(--blue-gradient);
+}
+
+.window {
+	width: min(92vw, 760px);
+}
+
+.content {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
-	gap: 2rem;
-	background: url("~@/assets/background/mountains-background.png");
-	font-family: var(--font-inter);
+	gap: 1.5rem;
+	min-height: 18rem;
+	padding: 1.75rem 1.25rem;
+	background: #ffffff;
+	color: #000000;
 }
 
-.mascot {
-	height: 150px;
-	width: auto;
-
-	@include utils.media-breakpoint-up(md) {
-		height: auto;
-	}
-}
-
-.messageBox {
-	position: relative;
-	background: #0f152bb0;
-	padding: 1.75rem;
-	margin: 0 1rem;
-	border-radius: 1.25rem;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+.happyPeter {
+	width: 84px;
+	height: 84px;
+	object-fit: contain;
 }
 
 .title {
-	color: #cacaca;
-	font-size: 1.5rem;
-	font-weight: 700;
+	margin: 0;
+	max-width: 35rem;
+	font-family: var(--font-pixel), monospace;
+	font-size: 1.62rem;
+	font-weight: 400;
+	line-height: 1.35;
+	letter-spacing: 0;
 	text-align: center;
+}
 
-	@include utils.media-breakpoint-up(md) {
-		font-size: 2.5rem;
-	}
+.actions {
+	display: flex;
+	justify-content: center;
+	width: 100%;
 }
 
 .button {
-	background-color: #2a504bb0;
-	font-size: 1rem;
-	padding: 0.625rem 1.875rem;
-	border: 0.313rem solid #2a504b;
-	border-radius: 1.25rem;
-	color: #dddddd;
-	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+	min-width: min(100%, 21rem);
+	font-size: 1.5rem;
 }
 
-.button:hover {
-	background-color: #61876db0;
+@include utils.media-breakpoint-up(md) {
+	.container {
+		padding-top: 8rem;
+		padding-bottom: 7rem;
+	}
+
+	.content {
+		min-height: 22rem;
+		padding: 2rem 2.5rem;
+		justify-content: center;
+	}
+
+	.happyPeter {
+		width: 108px;
+		height: 108px;
+	}
 }

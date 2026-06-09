@@ -9,20 +9,24 @@ import styles from "./Login.module.scss";
 
 type LoginFormProps = {
 	returnTo: string;
+	overlay?: boolean;
 };
 
-export default function LoginForm({ returnTo }: LoginFormProps) {
+export default function LoginForm({
+	returnTo,
+	overlay = false,
+}: LoginFormProps) {
 	const [email, setEmail] = useState("");
 
 	const normalizedEmail = email.trim().toLowerCase();
 	const isUciEmail = normalizedEmail.endsWith("@uci.edu");
 	const action = isUciEmail
-		? `/api/user/login?return_to=${encodeURIComponent("https://zothacks.com/auth")}`
+		? `/api/user/login?return_to=${encodeURIComponent("/auth")}`
 		: "/api/user/login";
 
 	return (
 		<div className={styles.windowWrapper}>
-			<RetroWindow title="Login">
+			<RetroWindow title="Login" closeHref="/" snapBack={!overlay}>
 				<form method="post" action={action} className={styles.content}>
 					<p className={styles.description}>
 						Only UCI students are eligible to be a hacker at ZotHacks.

@@ -10,15 +10,25 @@ export default function ApplyLanding() {
 	return (
 		<div className={styles.page}>
 			<div className={styles.windowWrapper}>
-				<RetroWindow title="Application">
+				<RetroWindow title="Application" closeHref="/apply">
 					<div className={styles.content}>
 						<Image src={infoIcon} alt="Info" className={styles.mascot} />
 						<p className={styles.question}>
 							Are you applying as a Hacker or Mentor?
 						</p>
 						<div className={styles.buttons}>
-							<PrimaryButton href="/apply/hacker">Hacker</PrimaryButton>
-							<PrimaryButton href="/apply-mentor">Mentor</PrimaryButton>
+							<PrimaryButton
+								href="/apply/hacker"
+								className={styles.applyButton}
+							>
+								Hacker
+							</PrimaryButton>
+							<PrimaryButton
+								href="/apply/mentor"
+								className={styles.applyButton}
+							>
+								Mentor
+							</PrimaryButton>
 						</div>
 					</div>
 				</RetroWindow>

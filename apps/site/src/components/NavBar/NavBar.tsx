@@ -28,7 +28,7 @@ export default function NavBar({ identity }: NavbarProps) {
 						Logout
 					</PrimaryButton>
 				) : (
-					<PrimaryButton href="/login" variant="small" color="green">
+					<PrimaryButton href="/?overlay=login" variant="small" color="green">
 						Login
 					</PrimaryButton>
 				)}

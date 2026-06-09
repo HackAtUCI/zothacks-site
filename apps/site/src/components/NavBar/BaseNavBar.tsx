@@ -28,7 +28,7 @@ export default function BaseNavBar({ children }: PropsWithChildren) {
 				expanded={expanded}
 				className={`${styles.navbar} py-0`}
 			>
-				<Container>
+				<Container fluid>
 					<Navbar.Toggle
 						aria-controls="basic-navbar-nav"
 						onClick={() => setExpanded(true)}

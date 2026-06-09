@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 
 import { Maintenance } from "@/views";
-import HackerApplication from "../HackerApplication";
+import HackerApplication from "./HackerApplication";
 import getUserIdentity from "@/lib/utils/getUserIdentity";
 
 export const revalidate = 60;
