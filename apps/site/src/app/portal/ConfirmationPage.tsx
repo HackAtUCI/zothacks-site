@@ -3,7 +3,7 @@
 import Image from "next/image";
 
 import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
-import { Status } from "@/lib/userRecord";
+import { ParticipantRole, Role, Status } from "@/lib/userRecord";
 import RetroWindow from "@/components/RetroWindow/RetroWindow";
 import HappyPeter from "@/assets/images/happy-peter.svg";
 
@@ -11,12 +11,17 @@ import styles from "./Confirmation.module.scss";
 
 type ConfirmationPageProps = {
 	status: string;
+	roles: ReadonlyArray<Role>;
 };
 
-export default function ConfirmationPage({ status }: ConfirmationPageProps) {
+export default function ConfirmationPage({
+	status,
+	roles,
+}: ConfirmationPageProps) {
 	const isAccepted = status === Status.Accepted;
 	const isWaiverSigned = status === Status.Signed;
 	const isPendingReview = status === Status.Pending;
+	const isMentor = roles.includes(ParticipantRole.Mentor);
 
 	const message = isAccepted ? (
 		<>
@@ -35,11 +40,21 @@ export default function ConfirmationPage({ status }: ConfirmationPageProps) {
 			Your waiver has been signed.
 		</>
 	) : isPendingReview ? (
-		<>
-			Thank you for applying! We will get back to
-			<br />
-			you by the end of Fall Quarter Week 2!
-		</>
+		isMentor ? (
+			<>
+				Thank you for applying! We&apos;ll reach out via
+				<br />
+				email with next steps if your application
+				<br />
+				moves forward.
+			</>
+		) : (
+			<>
+				Thank you for applying! We will get back to
+				<br />
+				you by the end of Fall Quarter Week 2!
+			</>
+		)
 	) : (
 		<>
 			Thank you for applying!
