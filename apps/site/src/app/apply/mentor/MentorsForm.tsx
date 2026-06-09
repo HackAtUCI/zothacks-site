@@ -489,14 +489,14 @@ export default function MentorsForm({ onBack }: MentorsFormProps) {
 
 								<label className={styles.field}>
 									<span className={`${styles.label} ${styles.required}`}>
-										Resume link upload - pdf link from google drive
+										Resume upload
 									</span>
 									<input
 										className={styles.input}
-										type="url"
+										type="file"
 										name="resume"
+										accept="application/pdf,.pdf"
 										required={p1}
-										placeholder="https://"
 									/>
 									{errorMessage("resume")}
 								</label>
