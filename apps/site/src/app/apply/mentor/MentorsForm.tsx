@@ -73,7 +73,11 @@ function skillKey(skill: string) {
 
 type FieldElement = HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
 
-export default function MentorsForm() {
+interface MentorsFormProps {
+	onBack: () => void;
+}
+
+export default function MentorsForm({ onBack }: MentorsFormProps) {
 	const [page, setPage] = useState<1 | 2>(1);
 	const [pronouns, setPronouns] = useState("");
 	const [dietary, setDietary] = useState<string[]>([]);
@@ -210,10 +214,31 @@ export default function MentorsForm() {
 		setPage(2);
 	}
 
+	function handleBack() {
+		if (page === 2) {
+			setPage(1);
+			return;
+		}
+
+		onBack();
+	}
+
 	const title = p1 ? "Mentor Application" : "Mentor Application (Continued)";
 
 	return (
 		<div className={styles.page}>
+			<div className={styles.backRow}>
+				<PrimaryButton
+					type="button"
+					color="green"
+					className={styles.backButton}
+					variant="small"
+					onClick={handleBack}
+				>
+					Back
+				</PrimaryButton>
+			</div>
+
 			<div className={styles.windowWrapper}>
 				<RetroWindow title={title}>
 					<BaseForm

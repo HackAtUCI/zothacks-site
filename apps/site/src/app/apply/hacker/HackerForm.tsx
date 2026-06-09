@@ -80,7 +80,11 @@ function countWords(value: string) {
 	return value.trim().split(/\s+/).filter(Boolean).length;
 }
 
-export default function HackerForm() {
+interface HackerFormProps {
+	onBack: () => void;
+}
+
+export default function HackerForm({ onBack }: HackerFormProps) {
 	const [page, setPage] = useState<1 | 2>(1);
 	const [pronouns, setPronouns] = useState("");
 	const [dietary, setDietary] = useState<string[]>([]);
@@ -202,8 +206,29 @@ export default function HackerForm() {
 		setPage(2);
 	}
 
+	function handleBack() {
+		if (page === 2) {
+			setPage(1);
+			return;
+		}
+
+		onBack();
+	}
+
 	return (
 		<div className={styles.page}>
+			<div className={styles.backRow}>
+				<PrimaryButton
+					type="button"
+					color="green"
+					className={styles.backButton}
+					variant="small"
+					onClick={handleBack}
+				>
+					Back
+				</PrimaryButton>
+			</div>
+
 			<div className={styles.windowWrapper}>
 				<RetroWindow title={title}>
 					<BaseForm
@@ -578,12 +603,6 @@ export default function HackerForm() {
 									</span>
 									<textarea className={styles.textarea} name="comments" />
 								</label>
-
-								<div className={styles.formActions}>
-									<PrimaryButton type="button" onClick={() => setPage(1)}>
-										Back
-									</PrimaryButton>
-								</div>
 							</div>
 						</div>
 					</BaseForm>
