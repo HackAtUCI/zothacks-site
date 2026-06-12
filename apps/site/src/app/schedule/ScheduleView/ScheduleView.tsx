@@ -1,10 +1,11 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import CountdownBanner from "../CountdownBanner/CountdownBanner";
 import OptionTabs from "../OptionTabs/OptionTabs";
 import TimeGrid from "../TimeGrid/TimeGrid";
 import EventInfo from "../EventInfo/EventInfo";
+import { ScheduleScrollRail } from "../ScheduleScrollRail";
 
 import styles from "./ScheduleView.module.scss";
 
@@ -40,7 +41,7 @@ const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
 
 	// Ref to set height to TimeGrid, not EventInfo
 	const scheduleInfoRef = useRef<HTMLDivElement>(null);
-
+	/*
 	useEffect(() => {
 		const el = scheduleInfoRef.current;
 		if (!el) return;
@@ -53,6 +54,30 @@ const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
 		window.addEventListener("resize", update);
 		return () => window.removeEventListener("resize", update);
 	}, [selectedDay]);
+	*/
+	const timeGridScrollRef = useRef<HTMLDivElement>(null);
+	const eventInfoScrollRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		const tg = timeGridScrollRef.current;
+		const ei = eventInfoScrollRef.current;
+		if (!tg || !ei) return;
+		const update = () => {
+		ei.style.maxHeight = `${tg.offsetHeight}px`;
+		};
+		update();
+		window.addEventListener("resize", update);
+		return () => window.removeEventListener("resize", update);
+	}, [selectedDay]);
+
+
+	// Returns whichever panel is actively overflowing (TimeGrid default, EventInfo fallback)
+	const getScrollable = () => {
+		const tg = timeGridScrollRef.current;
+		const ei = eventInfoScrollRef.current;
+		if (!tg || !ei) return tg;
+		return ei.scrollHeight > tg.scrollHeight ? ei : tg;
+	}; 
 
 	return (
 		<div className={styles.scheduleContainer}>
@@ -68,16 +93,25 @@ const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
 						<p className={styles.headerInfo}>Event Info</p>
 					</div>
 
-					<div className={styles.scheduleInfo} ref={scheduleInfoRef}>
-						<TimeGrid
-							selectedDay={selectedDay}
-							friday={friday}
-							saturday={saturday}
-							sunday={sunday}
-							selectedEvent={selectedEvent}
-							onSelect={setSelectedEvent}
-						/>
-						<EventInfo event={selectedEvent} />
+					{/* removed from scheduleInfo: ref={scheduleInfoRef} */}
+					<div className={styles.scheduleInfo} ref={scheduleInfoRef} >
+						<div className={styles.schedulePanels}>
+							<div className={styles.timeGridScroll} ref={timeGridScrollRef}>
+								<TimeGrid
+									selectedDay={selectedDay}
+									friday={friday}
+									saturday={saturday}
+									sunday={sunday}
+									selectedEvent={selectedEvent}
+									onSelect={setSelectedEvent}
+								/>
+							</div>
+
+							<div className={styles.eventInfoScroll} ref={eventInfoScrollRef}>
+								<EventInfo event={selectedEvent} />
+							</div>
+						</div>
+						<ScheduleScrollRail getScrollable={getScrollable} />
 					</div>
 				</div>
 			</div>
