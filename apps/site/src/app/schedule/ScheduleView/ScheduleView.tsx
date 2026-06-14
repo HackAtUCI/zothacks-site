@@ -5,6 +5,7 @@ import CountdownBanner from "../CountdownBanner/CountdownBanner";
 import OptionTabs from "../OptionTabs/OptionTabs";
 import TimeGrid from "../TimeGrid/TimeGrid";
 import EventInfo from "../EventInfo/EventInfo";
+import { ScheduleScrollRail } from "../ScheduleScrollRail";
 
 import styles from "./ScheduleView.module.scss";
 
@@ -38,28 +39,42 @@ const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
 				new Date(new Date("2025-11-09T00:00:00").toUTCString()).getTime(),
 	);
 
-	// Ref to set height to TimeGrid, not EventInfo
-	const scheduleInfoRef = useRef<HTMLDivElement>(null);
+	const dayMap: Record<string, any[]> = {Fri: friday, Sat: saturday, Sun: sunday};
+	const handleDaySelect = (day: string) => {
+		setSelectedDay(day);
+		setSelectedEvent(dayMap[day][0]);
+	}
+
+	const timeGridScrollRef = useRef<HTMLDivElement>(null);
+	const timeGridRef = useRef<HTMLDivElement>(null);
+	const eventInfoScrollRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		const el = scheduleInfoRef.current;
-		if (!el) return;
-		const grid = el.firstElementChild as HTMLElement;
-		const info = el.lastElementChild as HTMLElement;
+		const tg = timeGridRef.current;
+		const ei = eventInfoScrollRef.current;
+		if (!tg || !ei) return;
 		const update = () => {
-			info.style.maxHeight = `${grid.offsetHeight}px`;
+			ei.style.maxHeight = `${tg.offsetHeight}px`;
 		};
 		update();
 		window.addEventListener("resize", update);
 		return () => window.removeEventListener("resize", update);
 	}, [selectedDay]);
 
+	// Returns whichever panel is actively overflowing (TimeGrid default, EventInfo fallback)
+	const getScrollable = () => {
+		const tg = timeGridScrollRef.current;
+		const ei = eventInfoScrollRef.current;
+		if (!tg || !ei) return tg;
+		return ei.scrollHeight > tg.scrollHeight ? ei : tg;
+	}; 
+
 	return (
 		<div className={styles.scheduleContainer}>
 			<CountdownBanner />
 			<div className={styles.schedulePanel}>
 				<div className={styles.dayTabs}>
-					<OptionTabs selectedDay={selectedDay} selectDay={setSelectedDay} />
+					<OptionTabs selectedDay={selectedDay} selectDay={handleDaySelect} />
 				</div>
 				<div className={styles.scheduleContent}>
 					<div className={styles.scheduleHeader}>
@@ -68,16 +83,26 @@ const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
 						<p className={styles.headerInfo}>Event Info</p>
 					</div>
 
-					<div className={styles.scheduleInfo} ref={scheduleInfoRef}>
-						<TimeGrid
-							selectedDay={selectedDay}
-							friday={friday}
-							saturday={saturday}
-							sunday={sunday}
-							selectedEvent={selectedEvent}
-							onSelect={setSelectedEvent}
-						/>
-						<EventInfo event={selectedEvent} />
+					<div className={styles.scheduleInfo} >
+						<div className={styles.schedulePanels}>
+							<div className={styles.timeGridScroll} ref={timeGridScrollRef}>
+								<div ref={timeGridRef}>
+									<TimeGrid
+										selectedDay={selectedDay}
+										friday={friday}
+										saturday={saturday}
+										sunday={sunday}
+										selectedEvent={selectedEvent}
+										onSelect={setSelectedEvent}
+									/>
+								</div>
+							</div>
+
+							<div className={styles.eventInfoScroll} ref={eventInfoScrollRef}>
+								<EventInfo event={selectedEvent} />
+							</div>
+						</div>
+						<ScheduleScrollRail getScrollable={getScrollable} />
 					</div>
 				</div>
 			</div>

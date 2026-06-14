@@ -1,5 +1,8 @@
 @use "bootstrap-utils" as bootstrap;
 
+$scrollbar-track: #d5d5d5;
+$scrollbar-thumb: var(--scrollbar-gray);
+
 .scheduleContainer {
 	display: flex;
 	flex-direction: column;
@@ -49,10 +52,10 @@
 	flex-direction: column;
 	flex: 1;
 	align-items: stretch;
-	//min-height: 0;
 	min-width: 0;
 
 	padding: 1.5rem;
+	padding-right: 3rem;
 	background-color: var(--schedule-gray);
 	border: 3px solid black;
 	box-shadow:
@@ -69,9 +72,10 @@
 }
 
 .scheduleInfo {
-	display: grid;
-	grid-template-columns: 1fr minmax(0, 15.625rem);
-	align-items: start;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
 	width: 100%;
 	min-width: 0;
 
@@ -86,6 +90,25 @@
 		grid-template-columns: 1fr;
 	}
 }
+
+.schedulePanels {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  flex: 1;
+  min-width: 0;
+  border: 2px solid black;
+
+  @include bootstrap.media-breakpoint-down(md) {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+	border: none;
+    gap: 1rem;
+    width: 100%;
+  }
+}
+
 
 .scheduleHeader {
 	display: flex;
@@ -130,5 +153,104 @@
 	@include bootstrap.media-breakpoint-down(md) {
 		padding-bottom: 0.625rem;
 		border-bottom: 3px solid black;
+	}
+}
+
+.timeGridScroll {
+	flex: 1;
+	min-width: 0;
+	max-height: 380px; // caps TimeGrid height so it overflows
+	overflow-y: auto; // rail drives scroll
+	scrollbar-width: none;
+	&::-webkit-scrollbar { display: none; }
+
+	@include bootstrap.media-breakpoint-down(md) {
+		max-height: none;
+		overflow-y: visible;
+	}
+}
+
+.eventInfoScroll {
+	max-width: 15.625rem;
+	width: 100%;
+	overflow-y: auto;
+	scrollbar-width: none;
+	&::-webkit-scrollbar { display: none; }
+
+	@container (max-width: 450px) {
+		display: none;
+	}
+
+	@include bootstrap.media-breakpoint-down(md) {
+		max-width: none;
+		overflow-y: visible;
+	}	
+}
+
+.scheduleScrollRail {
+	position: absolute;
+	top: 0;
+	right: -1.625rem;
+	bottom: 0;
+	display: flex;
+	flex-shrink: 0;
+	flex-direction: column;
+	width: 26px;
+	background-color: $scrollbar-track;
+	border-left: 1px solid #ababad;
+	box-shadow: inset -2px 0 4px rgba(0, 0, 0, 0.25);
+
+	@include bootstrap.media-breakpoint-down(md) {
+		display: none;
+	}
+}
+
+.scheduleScrollBtnUp,
+.scheduleScrollBtnDown {
+	flex-shrink: 0;
+	width: 26px;
+	height: 26px;
+	padding: 0;
+	border: none;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100% 100%;
+	cursor: pointer;
+
+	&:disabled {
+		cursor: default;
+		opacity: 0.6;
+	}
+}
+
+.scheduleScrollBtnUp {
+	background-image: url("~@/assets/icons/up_arrow.svg");
+}
+
+.scheduleScrollBtnDown {
+	background-image: url("~@/assets/icons/down_arrow.svg");
+}
+
+.scheduleScrollTrack {
+	position: relative;
+	flex: 1;
+	min-height: 0;
+}
+
+.scheduleScrollThumb {
+	position: absolute;
+	top: 0;
+	left: 4px;
+	width: calc(100% - 8px);
+	background-color: $scrollbar-thumb;
+	border: 1px solid #000000;
+	border-top-color: #dfdfdf;
+	border-left-color: #dfdfdf;
+	touch-action: none;
+	cursor: grab;
+
+	&:active {
+		cursor: grabbing;
 	}
 }
