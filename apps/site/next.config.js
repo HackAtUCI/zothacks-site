@@ -20,7 +20,7 @@ const nextConfig = {
 				permanent: false,
 			},
 			{
-				source: "/apply-mentor",
+				source: "/apply/mentor",
 				destination: "/",
 				permanent: false,
 			},
@@ -46,16 +46,6 @@ const nextConfig = {
 			},
 			{
 				source: "/portal",
-				destination: "/",
-				permanent: false,
-			},
-			{
-				source: "/mentor",
-				destination: "/",
-				permanent: false,
-			},
-			{
-				source: "/incident",
 				destination: "/",
 				permanent: false,
 			},
