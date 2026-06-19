@@ -1,8 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import Container from "react-bootstrap/Container";
+import { motion } from "framer-motion";
 
 import RetroWindow from "@/components/RetroWindow/RetroWindow";
 import PeacePeter from "@/assets/images/peace-peter.png";
+import { fastBottomWindowEntry } from "@/components/animation";
 
 import styles from "./About.module.scss";
 
@@ -32,7 +36,13 @@ const ROWS: ReadonlyArray<{ label: string; body: string }> = [
 const About = () => {
 	return (
 		<Container as="section" className={styles.section}>
-			<div className={styles.windowWrap}>
+			<motion.div
+				className={styles.windowWrap}
+				variants={fastBottomWindowEntry}
+				initial="hidden"
+				whileInView="visible"
+				viewport={{ once: true }}
+			>
 				<RetroWindow
 					title="About ZotHacks"
 					framedContent
@@ -55,7 +65,7 @@ const About = () => {
 						))}
 					</dl>
 				</RetroWindow>
-			</div>
+			</motion.div>
 		</Container>
 	);
 };

@@ -1,11 +1,13 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 import RetroWindow from "@/components/RetroWindow/RetroWindow";
 import warningIcon from "@/assets/icons/warning.svg";
 import sittingPeter from "@/assets/images/sitting-peter.gif";
+import { scaleIn } from "@/components/animation";
 
 import styles from "./BackToTop.module.scss";
 
@@ -16,7 +18,13 @@ const BackToTop = () => {
 
 	return (
 		<section className={styles.container}>
-			<div className={styles.windowWrapper}>
+			<motion.div
+				className={styles.windowWrapper}
+				variants={scaleIn}
+				initial="hidden"
+				whileInView="visible"
+				viewport={{ once: true }}
+			>
 				<RetroWindow
 					title="Warning"
 					framedContent
@@ -50,7 +58,7 @@ const BackToTop = () => {
 						</PrimaryButton>
 					</div>
 				</RetroWindow>
-			</div>
+			</motion.div>
 		</section>
 	);
 };
