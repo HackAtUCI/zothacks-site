@@ -40,7 +40,7 @@ export const leftWindowEntry = {
 		opacity: 1,
 		transition: {
 			type: "spring",
-			stiffness: 80,
+			stiffness: 90,
 			damping: 14,
 		},
 	},
@@ -53,7 +53,7 @@ export const rightWindowEntry = {
 		opacity: 1,
 		transition: {
 			type: "spring",
-			stiffness: 80,
+			stiffness: 90,
 			damping: 14,
 		},
 	},
@@ -66,8 +66,21 @@ export const bottomWindowEntry = {
 		opacity: 1,
 		transition: {
 			type: "spring",
-			stiffness: 80,
+			stiffness: 90,
 			damping: 14,
+		},
+	},
+};
+
+export const fastBottomWindowEntry = {
+	hidden: { y: "400px", opacity: 0 },
+	visible: {
+		y: 0,
+		opacity: 1,
+		transition: {
+			type: "spring",
+			stiffness: 150,
+			damping: 20,
 		},
 	},
 };

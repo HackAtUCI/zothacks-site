@@ -34,7 +34,8 @@ const Landing = () => {
 					className={styles.windowsContainer}
 					variants={containerVariants}
 					initial="hidden"
-					animate="visible"
+					whileInView="visible"
+					viewport={{ once: true }}
 				>
 					<motion.div className={styles.mainWindow} variants={leftWindowEntry}>
 						<RetroWindow
