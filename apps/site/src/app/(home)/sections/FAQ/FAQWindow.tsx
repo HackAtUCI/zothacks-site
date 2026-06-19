@@ -2,9 +2,11 @@
 
 import { useMemo, useState } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 import RetroWindow from "@/components/RetroWindow/RetroWindow";
 import slidePeter from "@/assets/images/slide_peter.svg";
+import { bottomWindowEntry } from "@/components/animation";
 
 import FAQAccordion from "./FAQAccordion";
 import FAQCategoryNav from "./FAQCategoryNav";
@@ -27,44 +29,51 @@ const FAQWindow = ({ faqs }: FAQWindowProps) => {
 	);
 
 	return (
-		<RetroWindow
-			title="FAQs"
-			framedContent
-			toolbar={
-				<FAQCategoryNav
-					activeCategory={activeCategory}
-					onCategoryChange={setActiveCategory}
-				/>
-			}
+		<motion.div
+			variants={bottomWindowEntry}
+			initial="hidden"
+			whileInView="visible"
+			viewport={{ once: true }}
 		>
-			<div className={styles.faqPanel}>
-				<FAQScrollArea>
-					<div className={styles.faqList}>
-						{filteredFaqs.length > 0 ? (
-							<FAQAccordion key={activeCategory} faqs={filteredFaqs} />
-						) : (
-							<p className={styles.emptyMessage}>
-								No questions in this category yet.
-							</p>
-						)}
+			<RetroWindow
+				title="FAQs"
+				framedContent
+				toolbar={
+					<FAQCategoryNav
+						activeCategory={activeCategory}
+						onCategoryChange={setActiveCategory}
+					/>
+				}
+			>
+				<div className={styles.faqPanel}>
+					<FAQScrollArea>
+						<div className={styles.faqList}>
+							{filteredFaqs.length > 0 ? (
+								<FAQAccordion key={activeCategory} faqs={filteredFaqs} />
+							) : (
+								<p className={styles.emptyMessage}>
+									No questions in this category yet.
+								</p>
+							)}
+						</div>
+						<Image
+							src={slidePeter}
+							alt=""
+							className={styles.slidePeterDesktop}
+							aria-hidden
+						/>
+					</FAQScrollArea>
+					<div className={styles.slidePeterMobileWrap}>
+						<Image
+							src={slidePeter}
+							alt=""
+							className={styles.slidePeterMobile}
+							aria-hidden
+						/>
 					</div>
-					<Image
-						src={slidePeter}
-						alt=""
-						className={styles.slidePeterDesktop}
-						aria-hidden
-					/>
-				</FAQScrollArea>
-				<div className={styles.slidePeterMobileWrap}>
-					<Image
-						src={slidePeter}
-						alt=""
-						className={styles.slidePeterMobile}
-						aria-hidden
-					/>
 				</div>
-			</div>
-		</RetroWindow>
+			</RetroWindow>
+		</motion.div>
 	);
 };
 

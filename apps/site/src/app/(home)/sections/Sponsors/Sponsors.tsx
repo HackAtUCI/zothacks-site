@@ -1,64 +1,12 @@
-import Image from "next/image";
-import Container from "react-bootstrap/Container";
-
-import RetroWindow from "@/components/RetroWindow/RetroWindow";
-import FolderIcon from "@/assets/icons/folder-icon.svg";
-import SponsorsPeter from "@/assets/images/sponsors-peter.gif";
-
-import { SponsorCardProps } from "./SponsorCard";
-import SponsorCard from "./SponsorCard";
-
+import SponsorsClient from "./SponsorsClient";
 import { getSponsors } from "./getSponsors";
-import styles from "./Sponsors.module.scss";
-
-const PLACEHOLDERS: ReadonlyArray<SponsorCardProps & { key: string }> = [
-	{ key: "placeholder-1", name: "nami", placeholder: true },
-	{ key: "placeholder-2", name: "nami", placeholder: true },
-	{ key: "placeholder-3", name: "nami", placeholder: true },
-];
 
 const Sponsors = async () => {
 	// Keeping sanity fetcher but not using it since we don't have
 	// sponsors figured out yet
 	await getSponsors();
 
-	return (
-		<Container as="section" className={styles.section}>
-			<div className={styles.thanksWindow}>
-				<RetroWindow title="Sponsors" framedContent>
-					<div className={styles.thanks}>
-						<Image
-							src={FolderIcon}
-							alt=""
-							aria-hidden
-							className={styles.thanksFolder}
-						/>
-						<div className={styles.thanksText}>Thank you to our sponsors!</div>
-					</div>
-				</RetroWindow>
-			</div>
-
-			<div className={styles.mainWindow}>
-				<RetroWindow title="Sponsors" framedContent>
-					<div className={styles.mainContent}>
-						<h2 className={styles.heading}>Sponsors</h2>
-						<div className={styles.cards}>
-							{PLACEHOLDERS.map(({ key, ...rest }) => (
-								<SponsorCard key={key} {...rest} />
-							))}
-						</div>
-						<Image
-							src={SponsorsPeter}
-							alt=""
-							aria-hidden
-							className={styles.cornerPeter}
-							unoptimized
-						/>
-					</div>
-				</RetroWindow>
-			</div>
-		</Container>
-	);
+	return <SponsorsClient />;
 };
 
 export default Sponsors;
