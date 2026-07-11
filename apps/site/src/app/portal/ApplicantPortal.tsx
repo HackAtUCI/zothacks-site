@@ -18,7 +18,13 @@ function Portal() {
 	if (status === null) {
 		redirect("/apply");
 	} else {
-		return <ConfirmationPage status={status} roles={identity.roles} />;
+		return (
+			<ConfirmationPage
+				status={status}
+				roles={identity.roles}
+				uid={identity.uid}
+			/>
+		);
 	}
 }
 

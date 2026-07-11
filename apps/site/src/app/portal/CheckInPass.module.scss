@@ -1,0 +1,64 @@
+@use "zothacks-theme" as theme;
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	width: 100%;
+	padding-top: 0.5rem;
+}
+
+.heading {
+	margin: 0;
+	font-family: var(--font-pixel), monospace;
+	font-size: 1.1rem;
+	font-weight: 400;
+	color: #000000;
+	text-align: center;
+}
+
+.qrWrapper {
+	display: flex;
+	justify-content: center;
+	padding: 1rem;
+	background: #ffffff;
+	border: 2px solid theme.$black;
+}
+
+.qrCode {
+	height: auto;
+	max-width: 100%;
+	width: 180px;
+}
+
+.walletButton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+	border: none;
+	background: none;
+	cursor: pointer;
+	line-height: 0;
+
+	&:disabled {
+		cursor: not-allowed;
+		opacity: 0.6;
+	}
+}
+
+.status {
+	margin: 0;
+	font-size: 0.9rem;
+	color: #000000;
+	text-align: center;
+}
+
+.error {
+	margin: 0;
+	max-width: 24rem;
+	font-size: 0.9rem;
+	color: theme.$red;
+	text-align: center;
+}
