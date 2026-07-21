@@ -3,24 +3,28 @@
 import Image from "next/image";
 
 import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
-import { ParticipantRole, Role, Status } from "@/lib/userRecord";
+import { ParticipantRole, Role, Status, Uid } from "@/lib/userRecord";
 import RetroWindow from "@/components/RetroWindow/RetroWindow";
 import HappyPeter from "@/assets/images/happy-peter.svg";
 
+import CheckInPass from "./CheckInPass";
 import styles from "./Confirmation.module.scss";
 
 type ConfirmationPageProps = {
 	status: string;
 	roles: ReadonlyArray<Role>;
+	uid: Uid | null;
 };
 
 export default function ConfirmationPage({
 	status,
 	roles,
+	uid,
 }: ConfirmationPageProps) {
 	const isAccepted = status === Status.Accepted;
 	const isWaiverSigned = status === Status.Signed;
 	const isPendingReview = status === Status.Pending;
+	const isConfirmed = status === Status.Confirmed;
 	const isMentor = roles.includes(ParticipantRole.Mentor);
 
 	const message = isAccepted ? (
@@ -31,6 +35,13 @@ export default function ConfirmationPage({
 			You have been accepted to ZotHacks.
 			<br />
 			Please sign your waiver to continue.
+		</>
+	) : isConfirmed ? (
+		<>
+			Thank you for confirming your attendance!
+			<br />
+			<br />
+			Show this QR code at check-in.
 		</>
 	) : isWaiverSigned ? (
 		<>
@@ -78,20 +89,24 @@ export default function ConfirmationPage({
 					<div className={styles.content}>
 						<Image src={HappyPeter} alt="" className={styles.happyPeter} />
 						<h1 className={styles.title}>{message}</h1>
-						<div className={styles.actions}>
-							{isAccepted ? (
-								<PrimaryButton
-									href="/api/user/waiver"
-									className={styles.button}
-								>
-									Sign Waiver
-								</PrimaryButton>
-							) : (
-								<PrimaryButton href="/portal" className={styles.button}>
-									Continue to Portal
-								</PrimaryButton>
-							)}
-						</div>
+						{isConfirmed && uid ? (
+							<CheckInPass uid={uid} />
+						) : (
+							<div className={styles.actions}>
+								{isAccepted ? (
+									<PrimaryButton
+										href="/api/user/waiver"
+										className={styles.button}
+									>
+										Sign Waiver
+									</PrimaryButton>
+								) : (
+									<PrimaryButton href="/portal" className={styles.button}>
+										Continue to Portal
+									</PrimaryButton>
+								)}
+							</div>
+						)}
 					</div>
 				</RetroWindow>
 			</div>
