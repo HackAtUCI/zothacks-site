@@ -3,7 +3,7 @@
 import Image from "next/image";
 
 import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
-import { ParticipantRole, Role, Status, Uid } from "@/lib/userRecord";
+import { Decision, ParticipantRole, Role, Status, Uid } from "@/lib/userRecord";
 import RetroWindow from "@/components/RetroWindow/RetroWindow";
 import HappyPeter from "@/assets/images/happy-peter.svg";
 
@@ -21,8 +21,8 @@ export default function ConfirmationPage({
 	roles,
 	uid,
 }: ConfirmationPageProps) {
-	const isAccepted = status === Status.Accepted;
-	const isWaiverSigned = status === Status.Signed;
+	const isAccepted = status === Decision.Accepted;
+	const isWaiverSigned = status === Status.WaiverSigned;
 	const isPendingReview = status === Status.Pending;
 	const isConfirmed = status === Status.Confirmed;
 	const isMentor = roles.includes(ParticipantRole.Mentor);

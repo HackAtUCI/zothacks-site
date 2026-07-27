@@ -1,0 +1,129 @@
+@use "bootstrap-utils" as utils;
+@use "zothacks-theme" as theme;
+
+.container {
+	min-height: calc(100dvh - 60px);
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	padding: 6.5rem 1rem 5rem;
+	background: var(--blue-gradient);
+}
+
+.window {
+	width: min(92vw, 980px);
+}
+
+.portalContent {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2.5rem;
+	min-height: 45rem;
+	padding: 3rem 1rem;
+	background: #ffffff;
+	color: theme.$black;
+}
+
+.statusWindow {
+	width: min(100%, 660px);
+}
+
+.statusContent {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1.5rem;
+	padding: 1.5rem 1rem;
+	background: #eeeeee;
+}
+
+.statusHeading {
+	margin: 0;
+	font-family: var(--font-pixel), monospace;
+	font-size: clamp(1.7rem, 5vw, 2.8rem);
+	font-weight: 400;
+	line-height: 1.15;
+	letter-spacing: 0;
+	text-align: center;
+}
+
+.statusRows {
+	width: min(100%, 560px);
+}
+
+.statusRow {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 3rem;
+	padding: 0.55rem 1rem;
+	font-family: var(--font-pixel), monospace;
+	font-size: clamp(1.1rem, 4vw, 1.7rem);
+	line-height: 1.15;
+	letter-spacing: 0;
+	color: #ffffff;
+	text-align: center;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.28);
+}
+
+.submitted {
+	@extend .statusRow;
+	background: #2054b9;
+}
+
+.accepted {
+	@extend .statusRow;
+	background: linear-gradient(90deg, #4ea650 0%, #418f3d 100%);
+}
+
+.waitlisted {
+	@extend .statusRow;
+	background: #ffb900;
+}
+
+.rejected {
+	@extend .statusRow;
+	background: #8d0000;
+}
+
+.voided {
+	@extend .statusRow;
+	background: #000000;
+}
+
+.messageWindow {
+	width: min(100%, 620px);
+}
+
+.message {
+	margin: 0;
+	white-space: pre-line;
+	padding: 1rem;
+	font-family: var(--font-pixel), monospace;
+	font-size: clamp(1rem, 3vw, 1.45rem);
+	line-height: 1.45;
+	letter-spacing: 0;
+	color: theme.$black;
+	background: #eeeeee;
+}
+
+@include utils.media-breakpoint-up(md) {
+	.container {
+		padding-top: 7.5rem;
+		padding-bottom: 6rem;
+	}
+
+	.portalContent {
+		gap: 3rem;
+		padding: 3.5rem 1.75rem 4rem;
+	}
+
+	.statusContent {
+		padding: 1.75rem 1.5rem;
+	}
+
+	.message {
+		padding: 1.25rem 2rem;
+	}
+}

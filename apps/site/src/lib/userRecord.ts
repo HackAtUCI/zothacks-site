@@ -40,6 +40,7 @@ export enum Decision {
 	Accepted = "ACCEPTED",
 	Rejected = "REJECTED",
 	Waitlisted = "WAITLISTED",
+	Voided = "VOIDED",
 }
 
 /** The possible statuses for an applicant without a released decision. */
@@ -48,14 +49,15 @@ export enum ReviewStatus {
 	Reviewed = "REVIEWED",
 }
 
-/** The possible status after an applicant has been accepted. */
-export enum PostAcceptedStatus {
-	Signed = "WAIVER_SIGNED",
+/** The possible process statuses after an applicant has a released decision. */
+export enum ProcessStatus {
+	WaiverSigned = "WAIVER_SIGNED",
 	Confirmed = "CONFIRMED",
 	Attending = "ATTENDING",
-	Void = "VOID",
+	Waitlisted = "WAITLISTED",
+	Queued = "QUEUED",
 }
 
-/** All of the different possible status values. */
-export const Status = { ...ReviewStatus, ...Decision, ...PostAcceptedStatus };
-export type Status = ReviewStatus | Decision | PostAcceptedStatus;
+/** All of the different possible process status values. */
+export const Status = { ...ReviewStatus, ...ProcessStatus };
+export type Status = ReviewStatus | ProcessStatus;
