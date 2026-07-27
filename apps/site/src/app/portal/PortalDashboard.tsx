@@ -4,38 +4,41 @@ import RetroWindow from "@/components/RetroWindow/RetroWindow";
 import type { Identity } from "@/lib/utils/useUserIdentity";
 
 import { resolvePortalState, type PortalState } from "./portalState";
+import CheckInQrBox from "./CheckInQrBox";
+import CompletedTasksBox from "./CompletedTasksBox";
+import PortalStatusBox from "./PortalStatusBox";
+import PortalTextBox from "./PortalTextBox";
+import RsvpBox from "./RsvpBox";
+import WaiverBox from "./WaiverBox";
 import styles from "./PortalDashboard.module.scss";
 
 type PortalDashboardProps = {
 	identity: Identity;
 };
 
-function StatusPanel({ portalState }: { portalState: PortalState }) {
-	return (
-		<section className={styles.statusWindow} aria-labelledby="portal-status-title">
-			<RetroWindow title="Status" framedContent>
-				<div className={styles.statusContent}>
-					<h1 id="portal-status-title" className={styles.statusHeading}>
-						Hacker Application Status
-					</h1>
-					<div className={styles.statusRows}>
-						<div className={styles[portalState.tone]}>
-							{portalState.statusLabel}
-						</div>
-					</div>
-				</div>
-			</RetroWindow>
-		</section>
-	);
-}
+function AcceptedActions({
+	portalState,
+	identity,
+}: {
+	portalState: PortalState;
+	identity: Identity;
+}) {
+	if (!portalState.acceptedStage) {
+		return null;
+	}
 
-function MessagePanel({ portalState }: { portalState: PortalState }) {
+	if (portalState.acceptedStage === "attending") {
+		return <CompletedTasksBox />;
+	}
+
 	return (
-		<section className={styles.messageWindow}>
-			<RetroWindow title={portalState.panelTitle} framedContent>
-				<p className={styles.message}>{portalState.message}</p>
-			</RetroWindow>
-		</section>
+		<>
+			{portalState.acceptedStage === "needs-waiver" && (
+				<WaiverBox />
+			)}
+			{portalState.acceptedStage === "needs-rsvp" && <RsvpBox />}
+			{portalState.acceptedStage === "confirmed" && <CompletedTasksBox />}
+		</>
 	);
 }
 
@@ -47,8 +50,12 @@ export default function PortalDashboard({ identity }: PortalDashboardProps) {
 			<div className={styles.window}>
 				<RetroWindow title="Portal" framedContent snapBack closeHref="/portal">
 					<div className={styles.portalContent}>
-						<StatusPanel portalState={portalState} />
-						<MessagePanel portalState={portalState} />
+						{portalState.acceptedStage === "confirmed" && identity.uid && (
+							<CheckInQrBox uid={identity.uid} />
+						)}
+						<PortalStatusBox portalState={portalState} />
+						<PortalTextBox portalState={portalState} />
+						<AcceptedActions portalState={portalState} identity={identity} />
 					</div>
 				</RetroWindow>
 			</div>

@@ -8,11 +8,18 @@ export type PortalStatusTone =
 	| "rejected"
 	| "voided";
 
+export type AcceptedPortalStage =
+	| "needs-waiver"
+	| "needs-rsvp"
+	| "confirmed"
+	| "attending";
+
 export type PortalState = {
 	tone: PortalStatusTone;
 	statusLabel: string;
 	panelTitle: string;
 	message: string;
+	acceptedStage?: AcceptedPortalStage;
 };
 
 const portalStateByTone: Record<PortalStatusTone, PortalState> = {
@@ -26,9 +33,10 @@ const portalStateByTone: Record<PortalStatusTone, PortalState> = {
 	accepted: {
 		tone: "accepted",
 		statusLabel: "Application Accepted",
-		panelTitle: "Application Accepted!",
+		panelTitle: "Waitlist Disclaimer",
 		message:
 			"We will open up spots from our waitlist on [DATE + Time] on a first come first serve basis.\n\nPlease check back on the portal to RSVP + fill out the waiver then. Thank you for your patience.",
+		acceptedStage: "needs-waiver",
 	},
 	waitlisted: {
 		tone: "waitlisted",
@@ -53,6 +61,38 @@ const portalStateByTone: Record<PortalStatusTone, PortalState> = {
 	},
 };
 
+const acceptedPortalStateByStage: Record<AcceptedPortalStage, PortalState> = {
+	"needs-waiver": portalStateByTone.accepted,
+	"needs-rsvp": {
+		...portalStateByTone.accepted,
+		acceptedStage: "needs-rsvp",
+	},
+	confirmed: {
+		...portalStateByTone.accepted,
+		acceptedStage: "confirmed",
+	},
+	attending: {
+		...portalStateByTone.accepted,
+		acceptedStage: "attending",
+	},
+};
+
+function resolveAcceptedStage(status: Identity["status"]): AcceptedPortalStage {
+	if (status === Status.Attending) {
+		return "attending";
+	}
+
+	if (status === Status.Confirmed) {
+		return "confirmed";
+	}
+
+	if (status === Status.WaiverSigned) {
+		return "needs-rsvp";
+	}
+
+	return "needs-waiver";
+}
+
 export function resolvePortalState(identity: Identity): PortalState {
 	const { decision, status } = identity;
 
@@ -72,14 +112,8 @@ export function resolvePortalState(identity: Identity): PortalState {
 		return portalStateByTone.waitlisted;
 	}
 
-	if (
-		decision === Decision.Accepted ||
-		status === Status.Reviewed ||
-		status === Status.WaiverSigned ||
-		status === Status.Confirmed ||
-		status === Status.Attending
-	) {
-		return portalStateByTone.accepted;
+	if (decision === Decision.Accepted) {
+		return acceptedPortalStateByStage[resolveAcceptedStage(status)];
 	}
 
 	return portalStateByTone.submitted;
