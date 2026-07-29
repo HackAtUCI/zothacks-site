@@ -1,6 +1,7 @@
 "use client";
 
 import RetroWindow from "@/components/RetroWindow/RetroWindow";
+import { ParticipantRole } from "@/lib/userRecord";
 import type { Identity } from "@/lib/utils/useUserIdentity";
 
 import { resolvePortalState, type PortalState } from "./portalState";
@@ -16,12 +17,20 @@ type PortalDashboardProps = {
 	identity: Identity;
 };
 
+function getApplicationRole(identity: Identity): "Hacker" | "Mentor" {
+	return identity.roles.includes(ParticipantRole.Mentor)
+		? "Mentor"
+		: "Hacker";
+}
+
 function AcceptedActions({
 	portalState,
 	identity,
+	applicationRole,
 }: {
 	portalState: PortalState;
 	identity: Identity;
+	applicationRole: "Hacker" | "Mentor";
 }) {
 	if (!portalState.acceptedStage) {
 		return null;
@@ -36,7 +45,9 @@ function AcceptedActions({
 			{portalState.acceptedStage === "needs-waiver" && (
 				<WaiverBox />
 			)}
-			{portalState.acceptedStage === "needs-rsvp" && <RsvpBox />}
+			{portalState.acceptedStage === "needs-rsvp" && (
+				<RsvpBox applicationRole={applicationRole} />
+			)}
 			{portalState.acceptedStage === "confirmed" && <CompletedTasksBox />}
 		</>
 	);
@@ -44,6 +55,7 @@ function AcceptedActions({
 
 export default function PortalDashboard({ identity }: PortalDashboardProps) {
 	const portalState = resolvePortalState(identity);
+	const applicationRole = getApplicationRole(identity);
 
 	return (
 		<main className={styles.container}>
@@ -53,9 +65,16 @@ export default function PortalDashboard({ identity }: PortalDashboardProps) {
 						{portalState.acceptedStage === "confirmed" && identity.uid && (
 							<CheckInQrBox uid={identity.uid} />
 						)}
-						<PortalStatusBox portalState={portalState} />
+						<PortalStatusBox
+							applicationRole={applicationRole}
+							portalState={portalState}
+						/>
 						<PortalTextBox portalState={portalState} />
-						<AcceptedActions portalState={portalState} identity={identity} />
+						<AcceptedActions
+							applicationRole={applicationRole}
+							portalState={portalState}
+							identity={identity}
+						/>
 					</div>
 				</RetroWindow>
 			</div>

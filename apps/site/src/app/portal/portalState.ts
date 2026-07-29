@@ -33,9 +33,9 @@ const portalStateByTone: Record<PortalStatusTone, PortalState> = {
 	accepted: {
 		tone: "accepted",
 		statusLabel: "Application Accepted",
-		panelTitle: "Waitlist Disclaimer",
+		panelTitle: "Application Accepted!",
 		message:
-			"We will open up spots from our waitlist on [DATE + Time] on a first come first serve basis.\n\nPlease check back on the portal to RSVP + fill out the waiver then. Thank you for your patience.",
+			"Congratulations! You have been chosen to participate in ZotHacks 2026!\n\nPlease make sure to fill out our waiver and RSVP by [DATE + TIME]. Look out for any future emails from us (hack@uci.edu) and stay updated with our event on Instagram (@hackatuci)!",
 		acceptedStage: "needs-waiver",
 	},
 	waitlisted: {
