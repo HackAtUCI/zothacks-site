@@ -2,13 +2,14 @@ import { cache } from "react";
 import { cookies } from "next/headers";
 import axios from "axios";
 
-import { Role, Uid } from "@/lib/userRecord";
+import { Decision, Role, Status, Uid } from "@/lib/userRecord";
 import api from "./api";
 
 export interface Identity {
 	uid: Uid | null;
 	roles: ReadonlyArray<Role>;
-	status: string | null;
+	status: Status | null;
+	decision: Decision | null;
 }
 
 /**
@@ -30,7 +31,7 @@ async function _getUserIdentity(): Promise<Identity> {
 		} else {
 			console.error(err);
 		}
-		return { uid: null, roles: [], status: null };
+		return { uid: null, roles: [], status: null, decision: null };
 	}
 }
 

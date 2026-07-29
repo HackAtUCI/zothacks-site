@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 
 import useUserIdentity from "@/lib/utils/useUserIdentity";
 
-import ConfirmationPage from "./ConfirmationPage";
+import PortalDashboard from "./PortalDashboard";
 
 function Portal() {
 	const identity = useUserIdentity();
@@ -18,13 +18,7 @@ function Portal() {
 	if (status === null) {
 		redirect("/apply");
 	} else {
-		return (
-			<ConfirmationPage
-				status={status}
-				roles={identity.roles}
-				uid={identity.uid}
-			/>
-		);
+		return <PortalDashboard identity={identity} />;
 	}
 }
 

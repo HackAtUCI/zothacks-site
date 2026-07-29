@@ -92,23 +92,22 @@ $scrollbar-thumb: var(--scrollbar-gray);
 }
 
 .schedulePanels {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  flex: 1;
-  min-width: 0;
-  border: 2px solid black;
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+	flex: 1;
+	min-width: 0;
+	border: 2px solid black;
 
-  @include bootstrap.media-breakpoint-down(md) {
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: center;
-	border: none;
-    gap: 1rem;
-    width: 100%;
-  }
+	@include bootstrap.media-breakpoint-down(md) {
+		flex-direction: column-reverse;
+		align-items: center;
+		justify-content: center;
+		border: none;
+		gap: 1rem;
+		width: 100%;
+	}
 }
-
 
 .scheduleHeader {
 	display: flex;
@@ -162,7 +161,9 @@ $scrollbar-thumb: var(--scrollbar-gray);
 	max-height: 380px; // caps TimeGrid height so it overflows
 	overflow-y: auto; // rail drives scroll
 	scrollbar-width: none;
-	&::-webkit-scrollbar { display: none; }
+	&::-webkit-scrollbar {
+		display: none;
+	}
 
 	@include bootstrap.media-breakpoint-down(md) {
 		max-height: none;
@@ -175,7 +176,9 @@ $scrollbar-thumb: var(--scrollbar-gray);
 	width: 100%;
 	overflow-y: auto;
 	scrollbar-width: none;
-	&::-webkit-scrollbar { display: none; }
+	&::-webkit-scrollbar {
+		display: none;
+	}
 
 	@container (max-width: 450px) {
 		display: none;
@@ -184,7 +187,7 @@ $scrollbar-thumb: var(--scrollbar-gray);
 	@include bootstrap.media-breakpoint-down(md) {
 		max-width: none;
 		overflow-y: visible;
-	}	
+	}
 }
 
 .scheduleScrollRail {

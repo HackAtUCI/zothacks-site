@@ -1,0 +1,356 @@
+@use "bootstrap-utils" as utils;
+@use "zothacks-theme" as theme;
+
+.container {
+	min-height: calc(100dvh - 60px);
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	padding: 7.5rem 1rem 5rem;
+	background: var(--blue-gradient);
+}
+
+.window {
+	width: min(92vw, 980px);
+}
+
+.portalContent {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2.5rem;
+	min-height: 45rem;
+	padding: 3rem 1rem;
+	background: #ffffff;
+	color: theme.$black;
+}
+
+.statusWindow {
+	width: min(100%, 660px);
+}
+
+.statusContent {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1.5rem;
+	padding: 1.5rem 1rem;
+	background: #eeeeee;
+}
+
+.statusHeading {
+	margin: 0;
+	font-family: var(--font-pixel), monospace;
+	font-size: clamp(1.7rem, 5vw, 2.8rem);
+	font-weight: 400;
+	line-height: 1.15;
+	letter-spacing: 0;
+	text-align: center;
+}
+
+.statusRows {
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+	width: min(100%, 560px);
+}
+
+.statusRow {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 3rem;
+	padding: 0.55rem 1rem;
+	font-family: var(--font-pixel), monospace;
+	font-size: clamp(1.1rem, 4vw, 1.7rem);
+	line-height: 1.15;
+	letter-spacing: 0;
+	color: #ffffff;
+	text-align: center;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.28);
+}
+
+.submitted {
+	@extend .statusRow;
+	background: #2054b9;
+}
+
+.accepted {
+	@extend .statusRow;
+	background: linear-gradient(90deg, #4ea650 0%, #418f3d 100%);
+}
+
+.waitlisted {
+	@extend .statusRow;
+	background: #ffb900;
+}
+
+.rejected {
+	@extend .statusRow;
+	background: #8d0000;
+}
+
+.voided {
+	@extend .statusRow;
+	background: #000000;
+}
+
+.messageWindow {
+	width: min(100%, 620px);
+}
+
+.message {
+	margin: 0;
+	white-space: pre-line;
+	padding: 1rem;
+	font-family: var(--font-pixel), monospace;
+	font-size: clamp(1rem, 3vw, 1.45rem);
+	line-height: 1.45;
+	letter-spacing: 0;
+	color: theme.$black;
+	background: #eeeeee;
+}
+
+.messageHighlight {
+	color: theme.$red;
+}
+
+.actionNote {
+	width: 100%;
+	margin: 0.25rem 0 0;
+	font-family: var(--font-pixel), monospace;
+	font-size: clamp(0.95rem, 3vw, 1.15rem);
+	line-height: 1.35;
+	letter-spacing: 0;
+	color: theme.$black;
+	text-align: center;
+	text-decoration: underline;
+	text-transform: uppercase;
+}
+
+.waiverWindow {
+	position: relative;
+	width: min(100%, 660px);
+}
+
+.waiverContent {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1.25rem;
+	width: 100%;
+	padding: 1.5rem 1rem;
+	background: #eeeeee;
+}
+
+.boxHeading {
+	align-self: flex-start;
+	margin: 0;
+	font-family: var(--font-pixel), monospace;
+	font-size: clamp(1.5rem, 5vw, 2rem);
+	font-weight: 700;
+	line-height: 1.15;
+	letter-spacing: 0;
+	color: theme.$black;
+}
+
+.boxCopy {
+	margin: 0;
+	width: 100%;
+	font-family: var(--font-pixel), monospace;
+	font-size: clamp(1rem, 3vw, 1.2rem);
+	line-height: 1.35;
+	letter-spacing: 0;
+	color: theme.$black;
+}
+
+.rsvpWindow {
+	position: relative;
+	width: min(100%, 560px);
+}
+
+.rsvpContent {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1.5rem;
+	padding: 2rem 1.25rem;
+	background: #eeeeee;
+}
+
+.rsvpBody {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 1.5rem;
+	width: min(100%, 25rem);
+}
+
+.rsvpCopy {
+	margin: 0;
+	width: 100%;
+	font-family: var(--font-pixel), monospace;
+	font-size: clamp(1rem, 3vw, 1.45rem);
+	line-height: 1.45;
+	letter-spacing: 0;
+	color: theme.$black;
+}
+
+.waiverButton {
+	width: min(100%, 18rem);
+	min-height: 3.25rem;
+	font-size: clamp(1.25rem, 4vw, 1.65rem);
+}
+
+.rsvpButton {
+	width: 100%;
+	box-sizing: border-box;
+	min-height: 4rem;
+	font-size: clamp(1.35rem, 4vw, 1.75rem) !important;
+}
+
+.checkInHero {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1.5rem;
+	width: 100%;
+}
+
+.checkInMedia {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.75rem;
+	width: 100%;
+}
+
+.checkInQrColumn {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+}
+
+.heroQrCode {
+	width: min(42vw, 260px);
+	height: auto;
+}
+
+.walletButton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+	border: none;
+	background: none;
+	cursor: pointer;
+	line-height: 0;
+
+	&:disabled {
+		cursor: not-allowed;
+		opacity: 0.6;
+	}
+}
+
+.walletImage {
+	width: min(46vw, 210px);
+	height: auto;
+}
+
+.checkInPeter {
+	width: min(20vw, 110px);
+	height: auto;
+	object-fit: contain;
+}
+
+.checkInInstruction {
+	margin: 0;
+	font-family: var(--font-pixel), monospace;
+	font-size: clamp(1.1rem, 3vw, 1.6rem);
+	line-height: 1.25;
+	letter-spacing: 0;
+	text-align: center;
+	color: theme.$black;
+}
+
+.walletStatus {
+	margin: 0;
+	font-size: 0.9rem;
+	color: theme.$black;
+	text-align: center;
+}
+
+.walletError {
+	margin: 0;
+	max-width: 24rem;
+	font-size: 0.9rem;
+	color: theme.$red;
+	text-align: center;
+}
+
+.completedWindow {
+	width: min(100%, 300px);
+}
+
+.completedContent {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.75rem;
+	padding: 1rem;
+	background: #eeeeee;
+}
+
+.completedPeter {
+	width: 5rem;
+	height: auto;
+	object-fit: contain;
+}
+
+.completedText {
+	margin: 0;
+	font-family: var(--font-pixel), monospace;
+	font-size: 1.1rem;
+	line-height: 1.2;
+	letter-spacing: 0;
+	color: theme.$black;
+	text-align: center;
+}
+
+@include utils.media-breakpoint-up(md) {
+	.container {
+		padding-top: 7.5rem;
+		padding-bottom: 6rem;
+	}
+
+	.portalContent {
+		gap: 3rem;
+		padding: 3.5rem 1.75rem 4rem;
+	}
+
+	.statusContent {
+		padding: 1.75rem 1.5rem;
+	}
+
+	.message {
+		padding: 1.25rem 2rem;
+	}
+
+	.waiverContent {
+		align-items: center;
+		padding: 2rem 4rem;
+	}
+
+	.checkInMedia {
+		gap: clamp(1.25rem, 5vw, 3rem);
+	}
+
+	.walletImage {
+		width: 283px;
+	}
+
+	.checkInPeter {
+		width: min(30vw, 180px);
+	}
+}
