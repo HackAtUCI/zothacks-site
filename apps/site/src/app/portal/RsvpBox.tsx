@@ -17,8 +17,8 @@ export default function RsvpBox({ applicationRole }: RsvpBoxProps) {
 					<div className={styles.rsvpBody}>
 						<h2 className={styles.boxHeading}>RSVP</h2>
 						<p className={styles.rsvpCopy}>
-							Please RSVP here in order to secure a position as a {roleLabel} for
-							ZotHacks 2026.
+							Please RSVP here in order to secure a position as a {roleLabel}{" "}
+							for ZotHacks 2026.
 						</p>
 						<PrimaryButton type="button" className={styles.rsvpButton}>
 							RSVP

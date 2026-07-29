@@ -39,11 +39,15 @@ const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
 				new Date(new Date("2025-11-09T00:00:00").toUTCString()).getTime(),
 	);
 
-	const dayMap: Record<string, any[]> = {Fri: friday, Sat: saturday, Sun: sunday};
+	const dayMap: Record<string, any[]> = {
+		Fri: friday,
+		Sat: saturday,
+		Sun: sunday,
+	};
 	const handleDaySelect = (day: string) => {
 		setSelectedDay(day);
 		setSelectedEvent(dayMap[day][0]);
-	}
+	};
 
 	const timeGridScrollRef = useRef<HTMLDivElement>(null);
 	const timeGridRef = useRef<HTMLDivElement>(null);
@@ -67,7 +71,7 @@ const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
 		const ei = eventInfoScrollRef.current;
 		if (!tg || !ei) return tg;
 		return ei.scrollHeight > tg.scrollHeight ? ei : tg;
-	}; 
+	};
 
 	return (
 		<div className={styles.scheduleContainer}>
@@ -83,7 +87,7 @@ const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
 						<p className={styles.headerInfo}>Event Info</p>
 					</div>
 
-					<div className={styles.scheduleInfo} >
+					<div className={styles.scheduleInfo}>
 						<div className={styles.schedulePanels}>
 							<div className={styles.timeGridScroll} ref={timeGridScrollRef}>
 								<div ref={timeGridRef}>

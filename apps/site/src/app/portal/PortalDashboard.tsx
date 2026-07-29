@@ -18,9 +18,7 @@ type PortalDashboardProps = {
 };
 
 function getApplicationRole(identity: Identity): "Hacker" | "Mentor" {
-	return identity.roles.includes(ParticipantRole.Mentor)
-		? "Mentor"
-		: "Hacker";
+	return identity.roles.includes(ParticipantRole.Mentor) ? "Mentor" : "Hacker";
 }
 
 function AcceptedActions({
@@ -42,9 +40,7 @@ function AcceptedActions({
 
 	return (
 		<>
-			{portalState.acceptedStage === "needs-waiver" && (
-				<WaiverBox />
-			)}
+			{portalState.acceptedStage === "needs-waiver" && <WaiverBox />}
 			{portalState.acceptedStage === "needs-rsvp" && (
 				<RsvpBox applicationRole={applicationRole} />
 			)}

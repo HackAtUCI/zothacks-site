@@ -13,7 +13,10 @@ export default function PortalStatusBox({
 	portalState,
 }: PortalStatusBoxProps) {
 	return (
-		<section className={styles.statusWindow} aria-labelledby="portal-status-title">
+		<section
+			className={styles.statusWindow}
+			aria-labelledby="portal-status-title"
+		>
 			<RetroWindow title="Status" framedContent>
 				<div className={styles.statusContent}>
 					<h1 id="portal-status-title" className={styles.statusHeading}>
