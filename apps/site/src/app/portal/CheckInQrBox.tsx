@@ -72,7 +72,12 @@ export default function CheckInQrBox({ uid }: CheckInQrBoxProps) {
 						disabled={isLoading}
 						aria-label="Add to Google Wallet"
 					>
-						<Image src={AddToGoogleWallet} alt="Add to Google Wallet" priority />
+						<Image
+							src={AddToGoogleWallet}
+							alt="Add to Google Wallet"
+							className={styles.walletImage}
+							priority
+						/>
 					</button>
 				</div>
 				<Image src={slidePeter} alt="" className={styles.checkInPeter} />
