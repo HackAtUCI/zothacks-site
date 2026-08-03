@@ -10,7 +10,7 @@ interface PrimaryButtonProps {
 	type?: "submit" | "reset" | "button" | undefined;
 	className?: string;
 	variant?: "small" | "large";
-	color?: "blue" | "green";
+	color?: "blue" | "green" | "yellow";
 	disabled?: boolean;
 	onClick?: MouseEventHandler<HTMLButtonElement>;
 	children: React.ReactNode;
@@ -33,6 +33,7 @@ const PrimaryButton = ({
 	const colors = {
 		blue: styles.blue,
 		green: styles.green,
+		yellow: styles.yellow,
 	};
 
 	if (!href) {

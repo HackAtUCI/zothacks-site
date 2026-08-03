@@ -18,12 +18,19 @@ export default function NavBar({ identity }: NavbarProps) {
 	return (
 		<div className={`${styles.nav} fixed-top`}>
 			<BaseNavBar>
+				<PrimaryButton
+					href="https://2025.zothacks.com"
+					variant="small"
+					color="yellow"
+				>
+					2025
+				</PrimaryButton>
 				{status !== null && (
 					<NavLinkItem href="/portal" className="me-3">
 						Portal
 					</NavLinkItem>
 				)}
-				{isLoggedIn ? (
+				{/* {isLoggedIn ? (
 					<PrimaryButton href="/logout" variant="small">
 						Logout
 					</PrimaryButton>
@@ -31,7 +38,7 @@ export default function NavBar({ identity }: NavbarProps) {
 					<PrimaryButton href="/?overlay=login" variant="small" color="green">
 						Login
 					</PrimaryButton>
-				)}
+				)} */}
 			</BaseNavBar>
 		</div>
 	);
