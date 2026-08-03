@@ -75,6 +75,13 @@ export default function NavBar() {
 							>
 								DEVPOST
 							</Link>
+							<Link
+								href="https://2023.zothacks.com"
+								className={styles.notActive}
+								target="_blank"
+							>
+								2023
+							</Link>
 						</Nav>
 					</Navbar.Collapse>
 				</Container>
