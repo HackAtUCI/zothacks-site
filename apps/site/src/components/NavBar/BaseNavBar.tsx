@@ -33,7 +33,7 @@ export default function BaseNavBar({ children }: PropsWithChildren) {
 							<NavLinkItem href="/">Home</NavLinkItem>
 							<NavLinkItem href="/resources">Resources</NavLinkItem>
 							<NavLinkItem href="/schedule">Schedule</NavLinkItem>
-							<NavLinkItem href="https://2024.zothacks.com" target="_blank">
+							<NavLinkItem href="https://2024.zothacks.com">
 								2024
 							</NavLinkItem>
 							{/* <NavLinkItem href="#" target="_blank">
