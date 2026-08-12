@@ -4,9 +4,14 @@ import RetroWindow from "@/components/RetroWindow/RetroWindow";
 import { ParticipantRole } from "@/lib/userRecord";
 import type { Identity } from "@/lib/utils/useUserIdentity";
 
-import { resolvePortalState, type PortalState } from "./portalState";
+import {
+	canDeclineAcceptance,
+	resolvePortalState,
+	type PortalState,
+} from "./portalState";
 import CheckInQrBox from "./CheckInQrBox";
 import CompletedTasksBox from "./CompletedTasksBox";
+import DeclineAcceptanceBox from "./DeclineAcceptanceBox";
 import PortalStatusBox from "./PortalStatusBox";
 import PortalTextBox from "./PortalTextBox";
 import RsvpBox from "./RsvpBox";
@@ -71,6 +76,7 @@ export default function PortalDashboard({ identity }: PortalDashboardProps) {
 							portalState={portalState}
 							identity={identity}
 						/>
+						{canDeclineAcceptance(identity) && <DeclineAcceptanceBox />}
 					</div>
 				</RetroWindow>
 			</div>

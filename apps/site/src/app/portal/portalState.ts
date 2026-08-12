@@ -1,4 +1,10 @@
-import { Decision, Status } from "@/lib/userRecord";
+import {
+	Decision,
+	ParticipantRole,
+	ProcessStatus,
+	ReviewStatus,
+	Status,
+} from "@/lib/userRecord";
 import type { Identity } from "@/lib/utils/useUserIdentity";
 
 export type PortalStatusTone =
@@ -117,4 +123,22 @@ export function resolvePortalState(identity: Identity): PortalState {
 	}
 
 	return portalStateByTone.submitted;
+}
+
+const declineableStatuses: ReadonlySet<string> = new Set([
+	Decision.Accepted,
+	ReviewStatus.Reviewed,
+	ProcessStatus.WaiverSigned,
+	ProcessStatus.Confirmed,
+]);
+
+export function canDeclineAcceptance(identity: Identity): boolean {
+	return (
+		identity.roles.includes(ParticipantRole.Applicant) &&
+		identity.roles.includes(ParticipantRole.Hacker) &&
+		!identity.roles.includes(ParticipantRole.Mentor) &&
+		identity.decision === Decision.Accepted &&
+		identity.status !== null &&
+		declineableStatuses.has(identity.status)
+	);
 }
