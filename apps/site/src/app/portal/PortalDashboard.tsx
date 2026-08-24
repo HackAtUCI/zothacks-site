@@ -1,17 +1,21 @@
 "use client";
 
+import { useState } from "react";
+
 import RetroWindow from "@/components/RetroWindow/RetroWindow";
 import { ParticipantRole } from "@/lib/userRecord";
 import type { Identity } from "@/lib/utils/useUserIdentity";
 
 import {
 	canDeclineAcceptance,
+	canSubmitLateArrival,
 	resolvePortalState,
 	type PortalState,
 } from "./portalState";
 import CheckInQrBox from "./CheckInQrBox";
 import CompletedTasksBox from "./CompletedTasksBox";
 import DeclineAcceptanceBox from "./DeclineAcceptanceBox";
+import LateArrivalBox from "./LateArrivalBox";
 import PortalStatusBox from "./PortalStatusBox";
 import PortalTextBox from "./PortalTextBox";
 import RsvpBox from "./RsvpBox";
@@ -57,6 +61,9 @@ function AcceptedActions({
 export default function PortalDashboard({ identity }: PortalDashboardProps) {
 	const portalState = resolvePortalState(identity);
 	const applicationRole = getApplicationRole(identity);
+	const [isLateFormOpen, setIsLateFormOpen] = useState(false);
+	const showLateArrival = canSubmitLateArrival(identity);
+	const showOpenLateArrivalForm = showLateArrival && isLateFormOpen;
 
 	return (
 		<main className={styles.container}>
@@ -71,12 +78,23 @@ export default function PortalDashboard({ identity }: PortalDashboardProps) {
 							portalState={portalState}
 						/>
 						<PortalTextBox portalState={portalState} />
-						<AcceptedActions
-							applicationRole={applicationRole}
-							portalState={portalState}
-							identity={identity}
-						/>
-						{canDeclineAcceptance(identity) && <DeclineAcceptanceBox />}
+						{!showOpenLateArrivalForm && (
+							<AcceptedActions
+								applicationRole={applicationRole}
+								portalState={portalState}
+								identity={identity}
+							/>
+						)}
+						{showLateArrival && (
+							<LateArrivalBox
+								applicationRole={applicationRole}
+								isOpen={isLateFormOpen}
+								onOpenChange={setIsLateFormOpen}
+							/>
+						)}
+						{!showOpenLateArrivalForm && canDeclineAcceptance(identity) && (
+							<DeclineAcceptanceBox />
+						)}
 					</div>
 				</RetroWindow>
 			</div>
