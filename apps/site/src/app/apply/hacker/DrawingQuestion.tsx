@@ -9,6 +9,7 @@ import lockedIcon from "@/assets/icons/locked_drawing.png";
 import proceedButtonImage from "@/assets/images/proceed-button.png";
 import chainsImage from "@/assets/images/Chains.png";
 import tutorialPeter from "@/assets/images/drawing-tutorial-peter.png";
+import drawingToolsPreview from "@/assets/images/drawing-tools.png";
 
 import styles from "./DrawingQuestion.module.scss";
 
@@ -55,48 +56,88 @@ export default function DrawingQuestion() {
 				</div>
 			</div>
 
-			{step === "tutorial" && (
+			{(step === "tutorial" || step === "confirm") && (
 				<div
 					className={styles.overlay}
-					onClick={() => setStep("locked")}
+					onClick={() => setStep(step === "confirm" ? "tutorial" : "locked")}
 				>
-					<div
-						className={styles.windowWrapper}
-						onClick={(event) => event.stopPropagation()}
-					>
-						<RetroWindow title="Tutorial" onClose={() => setStep("locked")}>
-							<div className={styles.tutorialContent}>
-								<Image
-									src={tutorialPeter}
-									alt=""
-									className={styles.tutorialMascot}
-									aria-hidden
-									height={167}
-									width={206}
-								/>
+					<div className={styles.windowStack}>
+						<div
+							className={styles.tutorialLayer}
+							onClick={(event) => event.stopPropagation()}
+						>
+							<RetroWindow title="Tutorial" onClose={() => setStep("locked")}>
+								<div className={styles.tutorialContent}>
+									<Image
+										src={tutorialPeter}
+										alt=""
+										className={styles.tutorialMascot}
+										aria-hidden
+										height={167}
+										width={206}
+									/>
 
-								<p className={styles.tutorialText}>
-									You will be given{" "}
-									<span className={styles.highlight}>1 minute</span> to draw
-									your current emotional state on a blank Anteater face.
-									Decorate however you&apos;d like!
-								</p>
-								<p className={styles.tutorialText}>
-									You only have{" "}
-									<span className={styles.highlight}>one chance</span>, so
-									decorate wisely!
-								</p>
+									<p className={styles.tutorialText}>
+										You will be given{" "}
+										<span className={styles.highlight}>1 minute</span> to
+										draw your current emotional state on a blank Anteater
+										face. Decorate however you&apos;d like!
+									</p>
+									<p className={styles.tutorialText}>
+										You only have{" "}
+										<span className={styles.highlight}>one chance</span>, so
+										decorate wisely!
+									</p>
 
-								<PrimaryButton
-									type="button"
-									variant="small"
-									className={styles.readyButton}
-									onClick={() => setStep("confirm")}
+									<PrimaryButton
+										type="button"
+										variant="small"
+										className={styles.readyButton}
+										onClick={() => setStep("confirm")}
+									>
+										I&apos;m ready!
+									</PrimaryButton>
+								</div>
+							</RetroWindow>
+						</div>
+
+						{step === "confirm" && (
+							<div
+								className={styles.confirmLayer}
+								onClick={(event) => event.stopPropagation()}
+							>
+								<RetroWindow
+									title="Like for real?"
+									onClose={() => setStep("tutorial")}
 								>
-									I&apos;m ready!
-								</PrimaryButton>
+									<div className={styles.tutorialContent}>
+										<p className={styles.tutorialText}>
+											Are you actually ready?
+										</p>
+
+										<div className={styles.controlsPreview}>
+											<Image
+												src={drawingToolsPreview}
+												alt=""
+												fill
+												sizes="(max-width: 750px) 100vw, 750px"
+												className={styles.controlsImage}
+												aria-hidden
+											/>
+										</div>
+
+										<PrimaryButton
+											type="button"
+											variant="small"
+											className={styles.readyButton}
+											onClick={() => setStep("drawing")}
+										>
+											I&apos;m really ready!
+										</PrimaryButton>
+									</div>
+								</RetroWindow>
 							</div>
-						</RetroWindow>
+						)}
 					</div>
 				</div>
 			)}
