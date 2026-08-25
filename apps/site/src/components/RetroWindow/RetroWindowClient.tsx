@@ -18,6 +18,7 @@ export interface RetroWindowClientProps extends PropsWithChildren {
 	contentBackground?: string;
 	snapBack?: boolean;
 	closeHref?: string;
+	onClose?: () => void;
 }
 
 const RetroWindowClient = ({
@@ -32,6 +33,7 @@ const RetroWindowClient = ({
 	contentBackground,
 	snapBack = true,
 	closeHref,
+	onClose,
 }: RetroWindowClientProps) => {
 	const dragControls = useDragControls();
 	const animationControls = useAnimationControls();
@@ -92,7 +94,7 @@ const RetroWindowClient = ({
 								<span className={styles.maximizeIcon} aria-hidden />
 							</span>
 						</button>
-						{closeHref != null && (
+						{closeHref != null ? (
 							<Link
 								href={closeHref}
 								scroll={false}
@@ -106,6 +108,22 @@ const RetroWindowClient = ({
 									<span className={styles.closeIcon} aria-hidden />
 								</span>
 							</Link>
+						) : (
+							onClose != null && (
+								<button
+									type="button"
+									className={clsx(
+										styles.windowControl,
+										styles.closeWindowControl,
+									)}
+									aria-label="Close"
+									onClick={onClose}
+								>
+									<span className={styles.controlBevel}>
+										<span className={styles.closeIcon} aria-hidden />
+									</span>
+								</button>
+							)
 						)}
 					</div>
 				</div>

@@ -56,9 +56,15 @@ export default function DrawingQuestion() {
 			</div>
 
 			{step === "tutorial" && (
-				<div className={styles.overlay}>
-					<div className={styles.windowWrapper}>
-						<RetroWindow title="Tutorial">
+				<div
+					className={styles.overlay}
+					onClick={() => setStep("locked")}
+				>
+					<div
+						className={styles.windowWrapper}
+						onClick={(event) => event.stopPropagation()}
+					>
+						<RetroWindow title="Tutorial" onClose={() => setStep("locked")}>
 							<div className={styles.tutorialContent}>
 								<Image
 									src={tutorialPeter}
