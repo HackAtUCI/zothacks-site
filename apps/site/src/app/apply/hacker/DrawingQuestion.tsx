@@ -3,19 +3,21 @@
 import { useState } from "react";
 import Image from "next/image";
 
+import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
+import RetroWindow from "@/components/RetroWindow/RetroWindow";
 import lockedIcon from "@/assets/icons/locked_drawing.png";
 import proceedButtonImage from "@/assets/images/proceed-button.png";
-import chainsImage from "@/assets/images/Chains.png";	
+import chainsImage from "@/assets/images/Chains.png";
+import tutorialPeter from "@/assets/images/drawing-tutorial-peter.png";
 
 import styles from "./DrawingQuestion.module.scss";
 
 type DrawingStep = "locked" | "tutorial" | "confirm" | "drawing"; // going to be statuses of the drawing question - 4 steps
-
 export default function DrawingQuestion() {
 	const [step, setStep] = useState<DrawingStep>("locked");
 
-	if (step === "locked") {
-		return (
+	return (
+		<>
 			<div className={styles.lockedPanel}>
 				<div className={styles.lockedHeading}>
 					<Image
@@ -32,7 +34,7 @@ export default function DrawingQuestion() {
 				<div className={styles.chainGraphic}>
 					<Image
 						src={chainsImage}
-						alt="Four chains to show locked status"
+						alt=""
 						fill
 						className={styles.chainsImage}
 						aria-hidden
@@ -52,9 +54,46 @@ export default function DrawingQuestion() {
 					</button>
 				</div>
 			</div>
-		);
-	}
 
-	// TODO: tutorial / confirm / drawing steps are built in a follow-up commit
-	return null;
+			{step === "tutorial" && (
+				<div className={styles.overlay}>
+					<div className={styles.windowWrapper}>
+						<RetroWindow title="Tutorial">
+							<div className={styles.tutorialContent}>
+								<Image
+									src={tutorialPeter}
+									alt=""
+									className={styles.tutorialMascot}
+									aria-hidden
+									height={167}
+									width={206}
+								/>
+
+								<p className={styles.tutorialText}>
+									You will be given{" "}
+									<span className={styles.highlight}>1 minute</span> to draw
+									your current emotional state on a blank Anteater face.
+									Decorate however you&apos;d like!
+								</p>
+								<p className={styles.tutorialText}>
+									You only have{" "}
+									<span className={styles.highlight}>one chance</span>, so
+									decorate wisely!
+								</p>
+
+								<PrimaryButton
+									type="button"
+									variant="small"
+									className={styles.readyButton}
+									onClick={() => setStep("confirm")}
+								>
+									I&apos;m ready!
+								</PrimaryButton>
+							</div>
+						</RetroWindow>
+					</div>
+				</div>
+			)}
+		</>
+	);
 }
