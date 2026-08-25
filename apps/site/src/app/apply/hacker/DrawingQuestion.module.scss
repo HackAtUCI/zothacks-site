@@ -1,0 +1,65 @@
+.lockedPanel {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	width: 100%;
+}
+
+.lockedHeading {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-family: var(--font-pixel), sans-serif;
+	font-size: 2rem;
+	color: #000000;
+}
+
+.warningIcon {
+	width: 2.5rem;
+	height: 2.3rem;
+	flex-shrink: 0;
+}
+
+.chainGraphic {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 68.5rem;
+	max-width: 100%;
+	height: 13.0625rem;
+	overflow: hidden;
+	background: #a2a2a2;
+	border: 2px solid #8185a0;
+	box-shadow:
+		0 4px 4px 0 rgba(0, 0, 0, 0.25),
+		inset 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.chainsImage {
+	object-fit: cover;
+	z-index: 0;
+}
+
+.proceedButton {
+	position: relative;
+	z-index: 1;
+	padding: 0;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+	line-height: 0;
+
+	&:hover {
+		filter: brightness(1.05);
+	}
+
+	&:active {
+		transform: translateY(1px);
+	}
+}
+
+.proceedImage {
+	max-width: 100%;
+	height: auto;
+}
