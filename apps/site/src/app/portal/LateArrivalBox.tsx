@@ -210,7 +210,7 @@ export default function LateArrivalBox({
 		}
 	}
 
-	function handleCreateSubmit(event: FormEvent<HTMLFormElement>) {
+	function handleSubmit(event: FormEvent<HTMLFormElement>) {
 		event.preventDefault();
 		setSubmitError(null);
 
@@ -219,49 +219,23 @@ export default function LateArrivalBox({
 			return;
 		}
 
-		if (!willArriveLate) {
-			setSubmitError("Please let us know if you will be arriving late.");
-			return;
+		// The arriving-late question is only asked on the first submission;
+		// opening the edit form already implies a late arrival.
+		if (!isEditMode) {
+			if (!willArriveLate) {
+				setSubmitError("Please let us know if you will be arriving late.");
+				return;
+			}
+
+			if (willArriveLate === "no") {
+				closeForm();
+				return;
+			}
 		}
 
-		if (willArriveLate === "no") {
-			closeForm();
-			return;
-		}
-
-		const timeError = validateTime(arrivalTime);
-		if (timeError) {
-			setSubmitError(timeError);
-			return;
-		}
-
-		const reasonError = validateReason(reason);
-		if (reasonError) {
-			setSubmitError(reasonError);
-			return;
-		}
-
-		void submitLateArrival(arrivalTime, reason);
-	}
-
-	function handleEditSubmit(event: FormEvent<HTMLFormElement>) {
-		event.preventDefault();
-		setSubmitError(null);
-
-		if (needsRefresh) {
-			void refreshArrivalData();
-			return;
-		}
-
-		const timeError = validateTime(arrivalTime);
-		if (timeError) {
-			setSubmitError(timeError);
-			return;
-		}
-
-		const reasonError = validateReason(reason);
-		if (reasonError) {
-			setSubmitError(reasonError);
+		const validationError = validateTime(arrivalTime) ?? validateReason(reason);
+		if (validationError) {
+			setSubmitError(validationError);
 			return;
 		}
 
@@ -384,7 +358,7 @@ export default function LateArrivalBox({
 				<form
 					ref={formRef}
 					className={styles.lateArrivalContent}
-					onSubmit={isEditMode ? handleEditSubmit : handleCreateSubmit}
+					onSubmit={handleSubmit}
 					noValidate
 				>
 					{isEditMode ? (
