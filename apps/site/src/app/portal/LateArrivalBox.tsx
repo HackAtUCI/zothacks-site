@@ -272,22 +272,26 @@ export default function LateArrivalBox({
 		return (
 			<section
 				ref={pendingStatusRef}
-				className={styles.lateArrivalStatus}
+				className={styles.lateArrivalStatusWindow}
 				aria-live="polite"
 				tabIndex={-1}
 			>
-				<p className={styles.lateArrivalStatusText}>
-					Pending approval:{" "}
-					<strong>{formatTimeLabel(pendingEditRequest)}</strong>
-				</p>
-				{arrivalData?.late_arrival_edit_reason && (
-					<p className={styles.lateArrivalStatusText}>
-						Reason: {arrivalData.late_arrival_edit_reason}
-					</p>
-				)}
-				<p className={styles.lateArrivalStatusText}>
-					Your edit request is awaiting approval from our team.
-				</p>
+				<RetroWindow title="Late Arrival Status" framedContent>
+					<div className={styles.lateArrivalStatus}>
+						<p className={styles.lateArrivalStatusText}>
+							Pending approval:{" "}
+							<strong>{formatTimeLabel(pendingEditRequest)}</strong>
+						</p>
+						{arrivalData?.late_arrival_edit_reason && (
+							<p className={styles.lateArrivalStatusText}>
+								Reason: {arrivalData.late_arrival_edit_reason}
+							</p>
+						)}
+						<p className={styles.lateArrivalStatusText}>
+							Your edit request is awaiting approval from our team.
+						</p>
+					</div>
+				</RetroWindow>
 			</section>
 		);
 	}
@@ -312,40 +316,51 @@ export default function LateArrivalBox({
 
 		if (loadError) {
 			return (
-				<section className={styles.lateArrivalStatus}>
-					<p className={styles.lateArrivalStatusError} role="alert">
-						We couldn&apos;t load your arrival time.
-					</p>
-					<button
-						type="button"
-						className={styles.lateArrivalRetry}
-						onClick={() => void retryLoad()}
-					>
-						Retry
-					</button>
+				<section className={styles.lateArrivalStatusWindow}>
+					<RetroWindow title="Late Arrival Status" framedContent>
+						<div className={styles.lateArrivalStatus}>
+							<p className={styles.lateArrivalStatusError} role="alert">
+								We couldn&apos;t load your arrival time.
+							</p>
+							<button
+								type="button"
+								className={styles.lateArrivalRetry}
+								onClick={() => void retryLoad()}
+							>
+								Retry
+							</button>
+						</div>
+					</RetroWindow>
 				</section>
 			);
 		}
 
 		if (hasLateTime && currentArrivalTime) {
 			return (
-				<section ref={closedActionRef} className={styles.lateArrivalStatus}>
-					<p className={styles.lateArrivalStatusText}>
-						Current arrival time:{" "}
-						<strong>{formatTimeLabel(currentArrivalTime)}</strong>
-					</p>
-					{arrivalData?.late_arrival_reason && (
-						<p className={styles.lateArrivalStatusText}>
-							Reason: {arrivalData.late_arrival_reason}
-						</p>
-					)}
-					<button
-						type="button"
-						className={styles.lateArrivalEditLink}
-						onClick={() => onOpenChange(true)}
-					>
-						Request edit
-					</button>
+				<section
+					ref={closedActionRef}
+					className={styles.lateArrivalStatusWindow}
+				>
+					<RetroWindow title="Late Arrival Status" framedContent>
+						<div className={styles.lateArrivalStatus}>
+							<p className={styles.lateArrivalStatusText}>
+								Current arrival time:{" "}
+								<strong>{formatTimeLabel(currentArrivalTime)}</strong>
+							</p>
+							{arrivalData?.late_arrival_reason && (
+								<p className={styles.lateArrivalStatusText}>
+									Reason: {arrivalData.late_arrival_reason}
+								</p>
+							)}
+							<button
+								type="button"
+								className={styles.lateArrivalEditLink}
+								onClick={() => onOpenChange(true)}
+							>
+								Request edit
+							</button>
+						</div>
+					</RetroWindow>
 				</section>
 			);
 		}

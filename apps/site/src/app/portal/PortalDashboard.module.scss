@@ -350,15 +350,18 @@
 	text-align: center;
 }
 
+.lateArrivalStatusWindow {
+	width: min(100%, 30rem);
+}
+
 .lateArrivalStatus {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	gap: 0.5rem;
-	width: min(100%, 30rem);
+	width: 100%;
 	padding: 1rem 1.25rem;
 	background: #eeeeee;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.28);
 }
 
 .lateArrivalStatusText {
