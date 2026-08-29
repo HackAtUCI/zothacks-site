@@ -87,7 +87,6 @@ export default function PortalDashboard({ identity }: PortalDashboardProps) {
 						)}
 						{showLateArrival && (
 							<LateArrivalBox
-								applicationRole={applicationRole}
 								isOpen={isLateFormOpen}
 								onOpenChange={setIsLateFormOpen}
 							/>

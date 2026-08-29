@@ -22,7 +22,6 @@ const REFRESH_ERROR =
 class BackendResponseError extends Error {}
 
 type LateArrivalBoxProps = {
-	applicationRole: "Hacker" | "Mentor";
 	isOpen: boolean;
 	onOpenChange: (isOpen: boolean) => void;
 };
@@ -39,7 +38,6 @@ function formatTimeLabel(value: string): string {
 }
 
 export default function LateArrivalBox({
-	applicationRole,
 	isOpen,
 	onOpenChange,
 }: LateArrivalBoxProps) {
@@ -365,11 +363,9 @@ export default function LateArrivalBox({
 		);
 	}
 
-	const title = `${applicationRole} Application (Continued)`;
-
 	return (
 		<section className={styles.lateArrivalWindow}>
-			<RetroWindow title={title} framedContent>
+			<RetroWindow title="Late Arrival Form" framedContent>
 				<form
 					ref={formRef}
 					className={styles.lateArrivalContent}
