@@ -151,16 +151,13 @@ export function canDeclineAcceptance(identity: Identity): boolean {
 }
 
 /**
- * Only confirmed applicants may submit a late-arrival request. A waitlisted
- * applicant can become confirmed when claiming an open spot without their
- * original decision changing, so both accepted and waitlisted decisions are
- * valid at this stage.
+ * Only confirmed applicants may submit a late-arrival request. RSVP is what
+ * sets status to CONFIRMED, including waitlisted applicants who claimed a
+ * spot without their original decision changing.
  */
 export function canSubmitLateArrival(identity: Identity): boolean {
 	return (
 		identity.roles.includes(ParticipantRole.Applicant) &&
-		(identity.decision === Decision.Accepted ||
-			identity.decision === Decision.Waitlisted) &&
 		identity.status === Status.Confirmed
 	);
 }
