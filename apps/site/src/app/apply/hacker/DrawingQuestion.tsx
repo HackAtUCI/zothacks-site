@@ -414,7 +414,11 @@ function finalizePersistedState() {
 	}
 }
 
-export default function DrawingQuestion() {
+interface DrawingQuestionProps {
+	onSubmit?: (dataUrl: string) => void;
+}
+
+export default function DrawingQuestion({ onSubmit }: DrawingQuestionProps) {
 	const [step, setStep] = useState<DrawingStep>("locked");
 	const [tool, setTool] = useState<DrawingTool>("pencil");
 	const [color, setColor] = useState(COLORS[0]);
@@ -423,6 +427,7 @@ export default function DrawingQuestion() {
 	const [initialSnapshot, setInitialSnapshot] = useState<string | undefined>(
 		undefined,
 	);
+	const [finalDataUrl, setFinalDataUrl] = useState("");
 
 	const canvasRef = useRef<DrawingCanvasHandle>(null);
 	const startTimestampRef = useRef<number | null>(null);
@@ -438,8 +443,14 @@ export default function DrawingQuestion() {
 
 		startTimestampRef.current = persisted.startTimestamp;
 		setInitialSnapshot(persisted.snapshot || undefined);
-		setTimeLeft(Math.ceil(remaining));
-		setStep("drawing");
+
+		if (remaining <= 0) {
+			setFinalDataUrl(persisted.snapshot);
+			setStep("preview");
+		} else {
+			setTimeLeft(Math.ceil(remaining));
+			setStep("drawing");
+		}
 	}
 
 	useEffect(() => {
@@ -475,6 +486,19 @@ export default function DrawingQuestion() {
 		return () => clearInterval(interval);
 	}, [step]);
 
+	function finalizePreview() {
+		const dataUrl = canvasRef.current?.exportDataUrl() || initialSnapshot || "";
+		setFinalDataUrl(dataUrl);
+		setStep("preview");
+	}
+
+	useEffect(() => {
+		if (step === "drawing" && timeLeft <= 0) {
+			finalizePreview();
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [step, timeLeft]);
+
 	function handleProceedClick() {
 		const persisted = loadPersistedState();
 		if (persisted) {
@@ -503,6 +527,18 @@ export default function DrawingQuestion() {
 		}
 	}
 
+	function handleCloseDrawing() {
+		setStep("locked");
+	}
+
+	function handleFinalConfirm() {
+		finalizePersistedState();
+		onSubmit?.(finalDataUrl);
+		setStep("done");
+	}
+
+	if (step === "done") return null;
+
 	const drawingToolbar = (
 		<div className={styles.drawToolbarRow}>
 			<span className={styles.timerText}>
@@ -513,6 +549,7 @@ export default function DrawingQuestion() {
 				type="button"
 				variant="small"
 				className={styles.submitButton}
+				onClick={finalizePreview}
 			>
 				Submit
 			</PrimaryButton>
@@ -751,9 +788,43 @@ export default function DrawingQuestion() {
 				</div>
 			)}
 
-			{step === "preview" && <></>}
-
-			{step === "done" && <></>}
+			{step === "preview" && (
+				<div className={styles.overlay}>
+					<div
+						className={styles.previewWindow}
+						onClick={(event) => event.stopPropagation()}
+					>
+						<RetroWindow
+							title="drawing.jpeg"
+							framedContent
+							contentBackground="#ffffff"
+							onClose={handleCloseDrawing}
+							footer={
+								<div className={styles.previewFooter}>
+									<p className={styles.timesUpText}>Time&apos;s Up! Good Job!</p>
+									<PrimaryButton
+										type="button"
+										variant="small"
+										className={styles.continueButton}
+										onClick={handleFinalConfirm}
+									>
+										Continue
+									</PrimaryButton>
+								</div>
+							}
+						>
+							{finalDataUrl && (
+								// eslint-disable-next-line @next/next/no-img-element
+								<img
+									src={finalDataUrl}
+									alt="Your submitted drawing"
+									className={styles.previewImage}
+								/>
+							)}
+						</RetroWindow>
+					</div>
+				</div>
+			)}
 		</>
 	);
 }

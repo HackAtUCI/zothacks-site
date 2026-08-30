@@ -18,6 +18,13 @@ button.submitButton {
 	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
+button.continueButton {
+	padding: 8px 60px;
+	gap: 10px;
+	background: #2054b9;
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
 .lockedPanel {
 	display: flex;
 	flex-direction: column;
@@ -168,6 +175,43 @@ button.submitButton {
 	max-height: 90vh;
 	margin: 0 auto;
 	overflow: auto;
+}
+
+.previewWindow {
+	position: relative;
+	width: 434px;
+	max-width: 100%;
+	max-height: 90vh;
+	margin: 0 auto;
+	overflow: auto;
+}
+
+.previewImage {
+	display: block;
+	width: 400px;
+	height: 400px;
+	max-width: 100%;
+	object-fit: contain;
+	background: #ffffff;
+}
+
+.timesUpText {
+	margin: 0;
+	font-family: var(--font-pixel), sans-serif;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 100%;
+	letter-spacing: 0%;
+	color: #000000;
+}
+
+.previewFooter {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.75rem;
+	padding: 0.75rem 0.25rem;
+	text-align: center;
 }
 
 .drawToolbarRow {
