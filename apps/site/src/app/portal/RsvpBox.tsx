@@ -20,9 +20,11 @@ export default function RsvpBox({ applicationRole }: RsvpBoxProps) {
 							Please RSVP here in order to secure a position as a {roleLabel}{" "}
 							for ZotHacks 2026.
 						</p>
-						<PrimaryButton type="button" className={styles.rsvpButton}>
-							RSVP
-						</PrimaryButton>
+						<form method="post" action="/api/user/rsvp">
+							<PrimaryButton type="submit" className={styles.rsvpButton}>
+								RSVP
+							</PrimaryButton>
+						</form>
 					</div>
 				</div>
 			</RetroWindow>
