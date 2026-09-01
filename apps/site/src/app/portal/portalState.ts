@@ -110,6 +110,13 @@ export function resolvePortalState(identity: Identity): PortalState {
 		return portalStateByTone.rejected;
 	}
 
+	// Claiming a waitlist spot advances the process status without replacing
+	// the original WAITLISTED decision. Once confirmed or attending, the
+	// applicant belongs in the accepted portal flow.
+	if (status === Status.Confirmed || status === Status.Attending) {
+		return acceptedPortalStateByStage[resolveAcceptedStage(status)];
+	}
+
 	if (
 		decision === Decision.Waitlisted ||
 		status === Status.Waitlisted ||
@@ -140,5 +147,17 @@ export function canDeclineAcceptance(identity: Identity): boolean {
 		identity.decision === Decision.Accepted &&
 		identity.status !== null &&
 		declineableStatuses.has(identity.status)
+	);
+}
+
+/**
+ * Only confirmed applicants may submit a late-arrival request. RSVP is what
+ * sets status to CONFIRMED, including waitlisted applicants who claimed a
+ * spot without their original decision changing.
+ */
+export function canSubmitLateArrival(identity: Identity): boolean {
+	return (
+		identity.roles.includes(ParticipantRole.Applicant) &&
+		identity.status === Status.Confirmed
 	);
 }
