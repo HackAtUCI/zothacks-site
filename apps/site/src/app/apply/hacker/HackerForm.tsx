@@ -614,10 +614,10 @@ export default function HackerForm({ onBack }: HackerFormProps) {
 								{drawingDataUrl && (
 									<label className={styles.field}>
 										<span className={`${styles.label} ${styles.required}`}>
-											Describe your thought process as you decorated your
-											Peter. Now that you&apos;ve finished your design, is
-											there anything you wish you&apos;d done differently?
-											[Max 100 words]
+											Describe your thought process as you decorated your Peter.
+											Now that you&apos;ve finished your design, is there
+											anything you wish you&apos;d done differently? [Max 100
+											words]
 										</span>
 										<div className={styles.drawingThumbnail}>
 											{/* eslint-disable-next-line @next/next/no-img-element */}

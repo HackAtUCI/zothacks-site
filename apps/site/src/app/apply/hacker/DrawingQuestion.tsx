@@ -351,7 +351,10 @@ const TOOLS: { id: DrawingTool; icon: StaticImageData; label: string }[] = [
 
 const BRUSH_SIZES = [2, 6, 14];
 
-const BRUSH_SIZE_ICONS: Record<number, { src: StaticImageData; dimension: number }> = {
+const BRUSH_SIZE_ICONS: Record<
+	number,
+	{ src: StaticImageData; dimension: number }
+> = {
 	2: { src: brushSmallIcon, dimension: 8 },
 	6: { src: brushMediumIcon, dimension: 20 },
 	14: { src: brushLargeIcon, dimension: 34 },
@@ -701,9 +704,9 @@ export default function DrawingQuestion({ onSubmit }: DrawingQuestionProps) {
 
 									<p className={styles.tutorialText}>
 										You will be given{" "}
-										<span className={styles.highlight}>1 minute</span> to
-										draw your current emotional state on a blank Anteater
-										face. Decorate however you&apos;d like!
+										<span className={styles.highlight}>1 minute</span> to draw
+										your current emotional state on a blank Anteater face.
+										Decorate however you&apos;d like!
 									</p>
 									<p className={styles.tutorialText}>
 										You only have{" "}
@@ -803,7 +806,9 @@ export default function DrawingQuestion({ onSubmit }: DrawingQuestionProps) {
 							onClose={handleFinalConfirm}
 							footer={
 								<div className={styles.previewFooter}>
-									<p className={styles.timesUpText}>Time&apos;s Up! Good Job!</p>
+									<p className={styles.timesUpText}>
+										Time&apos;s Up! Good Job!
+									</p>
 									<PrimaryButton
 										type="button"
 										variant="small"
