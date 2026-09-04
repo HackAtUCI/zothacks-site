@@ -1,0 +1,361 @@
+.stageWrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+
+.stage {
+	cursor: crosshair;
+	touch-action: none;
+}
+
+button.submitButton {
+	height: 47px;
+	padding: 12px 32px;
+	gap: 10px;
+	background: #2054b9;
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+button.continueButton {
+	padding: 8px 60px;
+	gap: 10px;
+	background: #2054b9;
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.lockedPanel {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	width: 100%;
+}
+
+.lockedHeading {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-family: var(--font-pixel), sans-serif;
+	font-size: 2rem;
+	color: #000000;
+}
+
+.warningIcon {
+	width: 2.5rem;
+	height: 2.3rem;
+	flex-shrink: 0;
+}
+
+.chainGraphic {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 68.5rem;
+	max-width: 100%;
+	height: 13.0625rem;
+	overflow: hidden;
+	background: #a2a2a2;
+	border: 2px solid #8185a0;
+	box-shadow:
+		0 4px 4px 0 rgba(0, 0, 0, 0.25),
+		inset 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.chainsImage {
+	object-fit: cover;
+	z-index: 0;
+}
+
+.proceedButton {
+	position: relative;
+	z-index: 1;
+	padding: 0;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+	line-height: 0;
+
+	&:hover {
+		filter: brightness(1.05);
+	}
+
+	&:active {
+		transform: translateY(1px);
+	}
+}
+
+.proceedImage {
+	max-width: 100%;
+	height: auto;
+}
+
+.overlay {
+	position: fixed;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 4rem;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 50;
+}
+
+.windowStack {
+	position: relative;
+	width: 100%;
+	max-width: 750px;
+	margin: 0 auto;
+	padding-bottom: 6rem;
+}
+
+.tutorialLayer {
+	position: relative;
+	width: 100%;
+	z-index: 1;
+}
+
+.confirmLayer {
+	position: absolute;
+	top: 21rem;
+	left: 8rem;
+	width: min(700px, 92%);
+	z-index: 2;
+}
+
+.tutorialContent {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	padding: 1.75rem;
+	background: #ffffff;
+	border: 1.5px solid #000000;
+	text-align: center;
+	font-family: var(--font-pixel), sans-serif;
+	color: #000000;
+}
+
+.tutorialMascot {
+	width: 12.875rem;
+	height: 10.4375rem;
+}
+
+.tutorialText {
+	margin: 0;
+	font-size: 1.5rem;
+	line-height: 1.5;
+}
+
+.highlight {
+	color: #e90000;
+}
+
+.readyButton {
+	width: 20.5rem;
+	max-width: 100%;
+	height: 2.9375rem;
+}
+
+.controlsPreview {
+	position: relative;
+	width: 100%;
+	min-height: 5rem;
+}
+
+.controlsImage {
+	object-fit: contain;
+}
+
+.drawWindow {
+	position: relative;
+	width: 880px;
+	max-width: 100%;
+	max-height: 90vh;
+	margin: 0 auto;
+}
+
+.previewWindow {
+	position: relative;
+	width: 434px;
+	max-width: 100%;
+	max-height: 90vh;
+	margin: 0 auto;
+}
+
+.previewImage {
+	display: block;
+	width: 400px;
+	height: 400px;
+	max-width: 100%;
+	object-fit: cover;
+	background: #ffffff;
+}
+
+.timesUpText {
+	margin: 0;
+	font-family: var(--font-pixel), sans-serif;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 100%;
+	letter-spacing: 0%;
+	color: #000000;
+}
+
+.previewFooter {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.75rem;
+	padding: 0.75rem 0.25rem;
+	text-align: center;
+}
+
+.drawToolbarRow {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 0.25rem 0.25rem;
+}
+
+.timerText {
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+	font-family: var(--font-pixel), sans-serif;
+	font-size: 1.5rem;
+	color: #000000;
+}
+
+.drawFooterRow {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.85rem;
+	padding: 0 0.25rem;
+}
+
+.toolGroup,
+.sizeGroup {
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+}
+
+.colorGroup {
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+}
+
+.currentColorPreview {
+	flex-shrink: 0;
+	width: 3.375rem;
+	height: 3.4375rem;
+}
+
+.colorSwatchGrid {
+	display: grid;
+	grid-template-columns: repeat(3, 25.22px);
+	gap: 4.2px;
+}
+
+.toolDivider {
+	width: 1px;
+	height: 3.125rem;
+	align-self: center;
+	background-color: #bababa;
+}
+
+$bevel-face: #c6c6c6;
+
+.imageToolButton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.89rem;
+	height: 3.41rem;
+	padding: 0;
+	border: none;
+	background-color: #dcdcdc;
+	box-shadow:
+		1.68px 1.68px 0px 0px #dfdfdf inset,
+		0.84px 0.84px 0px 0px #ffffff inset,
+		-1.68px -1.68px 0px 0px #808080 inset,
+		-0.84px -0.84px 0px 0px #252525 inset;
+	cursor: pointer;
+
+	&[aria-pressed="true"] {
+		border: 2px solid #2b2a2a;
+		box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+	}
+}
+
+.colorSwatch {
+	width: 25.22px;
+	height: 25.22px;
+	padding: 0;
+	border: 0;
+	cursor: pointer;
+	outline: none;
+
+	box-shadow:
+		inset -1.68px -1.68px 0 #dfdfdf,
+		inset -0.84px -0.84px 0 #ffffff,
+		inset 1.68px 1.68px 0 #808080,
+		inset 0.84px 0.84px 0 #252525;
+
+	&[aria-pressed="true"],
+	&:active {
+		box-shadow:
+			inset 1.68px 1.68px 0 #dfdfdf,
+			inset 0.84px 0.84px 0 #ffffff,
+			inset -1.68px -1.68px 0 #808080,
+			inset -0.84px -0.84px 0 #252525;
+	}
+
+	&:focus-visible {
+		outline: 1px dotted #000000;
+		outline-offset: 1px;
+	}
+}
+
+.undoButton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 5rem;
+	height: 2.3125rem;
+	gap: 0.625rem;
+	margin-left: auto;
+	padding: 0.25rem 1.25rem;
+	background-color: $bevel-face;
+	border: none;
+	box-shadow:
+		0px 1px 4px 0px #00000026,
+		1.57px 1.57px 0px 0px #dfdfdf inset,
+		0.79px 0.79px 0px 0px #ffffff inset,
+		-1.57px -1.57px 0px 0px #808080 inset,
+		-0.79px -0.79px 0px 0px #252525 inset;
+	font-family: var(--font-pixel), sans-serif;
+	font-size: 1.2rem;
+	color: #000000;
+	cursor: pointer;
+
+	&:active {
+		box-shadow:
+			0px 1px 4px 0px #00000026,
+			1.57px 1.57px 0px 0px #808080 inset,
+			0.79px 0.79px 0px 0px #252525 inset,
+			-1.57px -1.57px 0px 0px #dfdfdf inset,
+			-0.79px -0.79px 0px 0px #ffffff inset;
+	}
+}
+
+@media (max-width: 600px) {
+	.overlay {
+		padding: 2rem;
+	}
+}

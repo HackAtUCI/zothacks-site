@@ -32,6 +32,8 @@ export interface RetroWindowProps extends PropsWithChildren {
 	snapBack?: boolean;
 	/** Optional href for a Windows-style close control in the title bar. */
 	closeHref?: string;
+	/** Optional click handler for close. */
+	onClose?: () => void;
 }
 
 const RetroWindow = (props: RetroWindowProps) => {

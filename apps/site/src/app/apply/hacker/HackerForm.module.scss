@@ -94,6 +94,31 @@
 	line-height: 1.4;
 }
 
+.drawingThumbnail {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.3rem;
+	padding-bottom: 1rem;
+}
+
+.drawingThumbnailImage {
+	width: 8rem;
+	height: 8rem;
+	object-fit: cover;
+	background: #ffffff;
+	border: 1px solid #ababad;
+}
+
+.drawingThumbnailCaption {
+	font-family: var(--font-pixel), sans-serif;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 100%;
+	letter-spacing: 0%;
+	color: #888888;
+}
+
 /* File input browse button spacing */
 .input[type="file"]::file-selector-button {
 	margin-right: 12px;
