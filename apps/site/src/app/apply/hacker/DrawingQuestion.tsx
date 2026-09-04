@@ -432,9 +432,15 @@ export default function DrawingQuestion({ onSubmit }: DrawingQuestionProps) {
 	const canvasRef = useRef<DrawingCanvasHandle>(null);
 	const startTimestampRef = useRef<number | null>(null);
 
+	function commitFinalDrawing(dataUrl: string) {
+		setFinalDataUrl(dataUrl);
+		onSubmit?.(dataUrl);
+		setStep("done");
+	}
+
 	function applyPersisted(persisted: PersistedDrawingState) {
 		if (persisted.finalized) {
-			setStep("done");
+			commitFinalDrawing(persisted.snapshot);
 			return;
 		}
 
@@ -456,10 +462,11 @@ export default function DrawingQuestion({ onSubmit }: DrawingQuestionProps) {
 	useEffect(() => {
 		const persisted = loadPersistedState();
 		if (persisted) applyPersisted(persisted);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	useEffect(() => {
-		if (step !== "drawing") return;
+		if (step !== "drawing" && step !== "preview") return;
 
 		function handleLeave() {
 			finalizePersistedState();
@@ -527,14 +534,9 @@ export default function DrawingQuestion({ onSubmit }: DrawingQuestionProps) {
 		}
 	}
 
-	function handleCloseDrawing() {
-		setStep("locked");
-	}
-
 	function handleFinalConfirm() {
 		finalizePersistedState();
-		onSubmit?.(finalDataUrl);
-		setStep("done");
+		commitFinalDrawing(finalDataUrl);
 	}
 
 	if (step === "done") return null;
@@ -798,7 +800,7 @@ export default function DrawingQuestion({ onSubmit }: DrawingQuestionProps) {
 							title="drawing.jpeg"
 							framedContent
 							contentBackground="#ffffff"
-							onClose={handleCloseDrawing}
+							onClose={handleFinalConfirm}
 							footer={
 								<div className={styles.previewFooter}>
 									<p className={styles.timesUpText}>Time&apos;s Up! Good Job!</p>
