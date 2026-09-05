@@ -12,6 +12,8 @@ interface PrimaryButtonProps {
 	variant?: "small" | "large";
 	color?: "blue" | "green" | "yellow" | "red";
 	disabled?: boolean;
+	target?: React.HTMLAttributeAnchorTarget;
+	rel?: string;
 	onClick?: MouseEventHandler<HTMLButtonElement>;
 	children: React.ReactNode;
 }
@@ -23,6 +25,8 @@ const PrimaryButton = ({
 	variant = "large",
 	color = "blue",
 	disabled = false,
+	target,
+	rel,
 	onClick,
 	children,
 }: PrimaryButtonProps) => {
@@ -54,6 +58,8 @@ const PrimaryButton = ({
 		<Link
 			href={href}
 			type={type}
+			target={target}
+			rel={rel}
 			className={clsx(variants[variant], colors[color], className)}
 		>
 			{children}
@@ -62,6 +68,8 @@ const PrimaryButton = ({
 		<a
 			href={href}
 			type={type}
+			target={target}
+			rel={rel}
 			className={clsx(variants[variant], colors[color], className)}
 		>
 			{children}
