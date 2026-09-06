@@ -19,11 +19,7 @@ export default function ApplicationsClosed() {
 				</p>
 				<p>
 					If you have any other questions or concerns, feel free to contact us
-					at{" "}
-					<a href="mailto:zothacks2026@gmail.com">
-						zothacks2026@gmail.com
-					</a>
-					.
+					at <a href="mailto:zothacks2026@gmail.com">zothacks2026@gmail.com</a>.
 				</p>
 				<div className={styles.buttonContainer}>
 					<PrimaryButton href="/">Return to Homepage</PrimaryButton>
