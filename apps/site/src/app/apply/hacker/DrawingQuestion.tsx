@@ -201,6 +201,7 @@ const DrawingCanvas = forwardRef<DrawingCanvasHandle, DrawingCanvasProps>(
 				);
 				ctx.restore();
 				redraw();
+				emitChange();
 			}
 			// eslint-disable-next-line react-hooks/exhaustive-deps
 		}, [canvasReady, baseImage, initialSnapshot]);
@@ -332,7 +333,6 @@ type DrawingStep =
 	| "done";
 
 const DRAWING_DURATION_SECONDS = 60;
-const STORAGE_KEY = "zothacks_drawing_progress";
 
 const COLORS = [
 	"#2a2a2a",
@@ -366,10 +366,10 @@ interface PersistedDrawingState {
 	finalized?: boolean;
 }
 
-function loadPersistedState(): PersistedDrawingState | null {
+function loadPersistedState(storageKey: string): PersistedDrawingState | null {
 	if (typeof window === "undefined") return null;
 	try {
-		const raw = window.localStorage.getItem(STORAGE_KEY);
+		const raw = window.localStorage.getItem(storageKey);
 		if (!raw) return null;
 		const parsed = JSON.parse(raw);
 		if (
@@ -384,11 +384,15 @@ function loadPersistedState(): PersistedDrawingState | null {
 	return null;
 }
 
-function savePersistedState(startTimestamp: number, snapshot: string) {
+function savePersistedState(
+	storageKey: string,
+	startTimestamp: number,
+	snapshot: string,
+) {
 	if (typeof window === "undefined") return;
 	try {
 		window.localStorage.setItem(
-			STORAGE_KEY,
+			storageKey,
 			JSON.stringify({ startTimestamp, snapshot }),
 		);
 	} catch {
@@ -396,10 +400,10 @@ function savePersistedState(startTimestamp: number, snapshot: string) {
 	}
 }
 
-function finalizePersistedState() {
+function finalizePersistedState(storageKey: string) {
 	if (typeof window === "undefined") return;
 	try {
-		const raw = window.localStorage.getItem(STORAGE_KEY);
+		const raw = window.localStorage.getItem(storageKey);
 		if (!raw) return;
 		const parsed = JSON.parse(raw);
 		if (
@@ -408,8 +412,9 @@ function finalizePersistedState() {
 		) {
 			return;
 		}
+		if (!parsed.snapshot) return;
 		window.localStorage.setItem(
-			STORAGE_KEY,
+			storageKey,
 			JSON.stringify({ ...parsed, finalized: true }),
 		);
 	} catch {
@@ -418,10 +423,14 @@ function finalizePersistedState() {
 }
 
 interface DrawingQuestionProps {
+	storageKey: string;
 	onSubmit?: (dataUrl: string) => void;
 }
 
-export default function DrawingQuestion({ onSubmit }: DrawingQuestionProps) {
+export default function DrawingQuestion({
+	storageKey,
+	onSubmit,
+}: DrawingQuestionProps) {
 	const [step, setStep] = useState<DrawingStep>("locked");
 	const [tool, setTool] = useState<DrawingTool>("pencil");
 	const [color, setColor] = useState(COLORS[0]);
@@ -431,11 +440,13 @@ export default function DrawingQuestion({ onSubmit }: DrawingQuestionProps) {
 		undefined,
 	);
 	const [finalDataUrl, setFinalDataUrl] = useState("");
+	const [showEarlySubmitConfirm, setShowEarlySubmitConfirm] = useState(false);
 
 	const canvasRef = useRef<DrawingCanvasHandle>(null);
 	const startTimestampRef = useRef<number | null>(null);
 
 	function commitFinalDrawing(dataUrl: string) {
+		if (!dataUrl) return;
 		setFinalDataUrl(dataUrl);
 		onSubmit?.(dataUrl);
 		setStep("done");
@@ -443,7 +454,7 @@ export default function DrawingQuestion({ onSubmit }: DrawingQuestionProps) {
 
 	function applyPersisted(persisted: PersistedDrawingState) {
 		if (persisted.finalized) {
-			commitFinalDrawing(persisted.snapshot);
+			if (persisted.snapshot) commitFinalDrawing(persisted.snapshot);
 			return;
 		}
 
@@ -463,25 +474,10 @@ export default function DrawingQuestion({ onSubmit }: DrawingQuestionProps) {
 	}
 
 	useEffect(() => {
-		const persisted = loadPersistedState();
+		const persisted = loadPersistedState(storageKey);
 		if (persisted) applyPersisted(persisted);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
-
-	useEffect(() => {
-		if (step !== "drawing" && step !== "preview") return;
-
-		function handleLeave() {
-			finalizePersistedState();
-		}
-
-		window.addEventListener("beforeunload", handleLeave);
-		window.addEventListener("pagehide", handleLeave);
-		return () => {
-			window.removeEventListener("beforeunload", handleLeave);
-			window.removeEventListener("pagehide", handleLeave);
-		};
-	}, [step]);
+	}, [storageKey]);
 
 	useEffect(() => {
 		if (step !== "drawing") return;
@@ -499,7 +495,16 @@ export default function DrawingQuestion({ onSubmit }: DrawingQuestionProps) {
 	function finalizePreview() {
 		const dataUrl = canvasRef.current?.exportDataUrl() || initialSnapshot || "";
 		setFinalDataUrl(dataUrl);
+		setShowEarlySubmitConfirm(false);
 		setStep("preview");
+	}
+
+	function handleEarlySubmitClick() {
+		if (timeLeft > 0) {
+			setShowEarlySubmitConfirm(true);
+			return;
+		}
+		finalizePreview();
 	}
 
 	useEffect(() => {
@@ -510,7 +515,7 @@ export default function DrawingQuestion({ onSubmit }: DrawingQuestionProps) {
 	}, [step, timeLeft]);
 
 	function handleProceedClick() {
-		const persisted = loadPersistedState();
+		const persisted = loadPersistedState(storageKey);
 		if (persisted) {
 			applyPersisted(persisted);
 		} else {
@@ -523,7 +528,7 @@ export default function DrawingQuestion({ onSubmit }: DrawingQuestionProps) {
 		startTimestampRef.current = now;
 		setInitialSnapshot(undefined);
 		setTimeLeft(DRAWING_DURATION_SECONDS);
-		savePersistedState(now, "");
+		savePersistedState(storageKey, now, "");
 		setStep("drawing");
 	}
 
@@ -533,12 +538,12 @@ export default function DrawingQuestion({ onSubmit }: DrawingQuestionProps) {
 
 	function handleCanvasChange(dataUrl: string) {
 		if (startTimestampRef.current) {
-			savePersistedState(startTimestampRef.current, dataUrl);
+			savePersistedState(storageKey, startTimestampRef.current, dataUrl);
 		}
 	}
 
 	function handleFinalConfirm() {
-		finalizePersistedState();
+		finalizePersistedState(storageKey);
 		commitFinalDrawing(finalDataUrl);
 	}
 
@@ -554,7 +559,7 @@ export default function DrawingQuestion({ onSubmit }: DrawingQuestionProps) {
 				type="button"
 				variant="small"
 				className={styles.submitButton}
-				onClick={finalizePreview}
+				onClick={handleEarlySubmitClick}
 			>
 				Submit
 			</PrimaryButton>
@@ -790,6 +795,42 @@ export default function DrawingQuestion({ onSubmit }: DrawingQuestionProps) {
 							/>
 						</RetroWindow>
 					</div>
+
+					{showEarlySubmitConfirm && (
+						<div
+							className={styles.confirmLayer}
+							onClick={(event) => event.stopPropagation()}
+						>
+							<RetroWindow
+								title="Submit early?"
+								onClose={() => setShowEarlySubmitConfirm(false)}
+							>
+								<div className={styles.tutorialContent}>
+									<p className={styles.tutorialText}>
+										Are you sure you want to submit your drawing now?
+									</p>
+
+									<div className={styles.confirmActions}>
+										<PrimaryButton
+											type="button"
+											variant="small"
+											onClick={() => setShowEarlySubmitConfirm(false)}
+										>
+											Keep Drawing
+										</PrimaryButton>
+										<PrimaryButton
+											type="button"
+											variant="small"
+											className={styles.submitEarlyButton}
+											onClick={finalizePreview}
+										>
+											Submit
+										</PrimaryButton>
+									</div>
+								</div>
+							</RetroWindow>
+						</div>
+					)}
 				</div>
 			)}
 

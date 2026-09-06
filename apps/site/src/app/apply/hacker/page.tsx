@@ -16,5 +16,5 @@ export default async function Page() {
 	if (status) redirect("/portal");
 	if (!uid) redirect("/login");
 
-	return <HackerApplication />;
+	return <HackerApplication uid={uid} />;
 }

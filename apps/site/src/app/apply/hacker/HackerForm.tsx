@@ -87,10 +87,11 @@ function countWords(value: string) {
 }
 
 interface HackerFormProps {
+	uid: string;
 	onBack: () => void;
 }
 
-export default function HackerForm({ onBack }: HackerFormProps) {
+export default function HackerForm({ uid, onBack }: HackerFormProps) {
 	const [page, setPage] = useState<1 | 2>(1);
 	const [pronouns, setPronouns] = useState("");
 	const [dietary, setDietary] = useState<string[]>([]);
@@ -105,6 +106,7 @@ export default function HackerForm({ onBack }: HackerFormProps) {
 		peter_thought_process_saq: 0,
 	});
 	const [drawingDataUrl, setDrawingDataUrl] = useState("");
+	const drawingStorageKey = `zothacks_drawing_progress:${uid}`;
 
 	const p1 = page === 1;
 	const title =
@@ -221,6 +223,11 @@ export default function HackerForm({ onBack }: HackerFormProps) {
 		}
 
 		onBack();
+	}
+
+	function handleDrawingSubmit(dataUrl: string) {
+		setDrawingDataUrl(dataUrl);
+		clearError("drawing_response");
 	}
 
 	return (
@@ -603,13 +610,29 @@ export default function HackerForm({ onBack }: HackerFormProps) {
 									{errorMessage("uci_gift_saq")}
 								</label>
 
-								<DrawingQuestion onSubmit={setDrawingDataUrl} />
+								<DrawingQuestion
+									storageKey={drawingStorageKey}
+									onSubmit={handleDrawingSubmit}
+								/>
 
 								<input
-									type="hidden"
+									className={styles.validationOnlyInput}
+									tabIndex={-1}
+									aria-hidden
 									name="drawing_response"
 									value={drawingDataUrl}
+									required={!p1}
+									onChange={() => {
+										// Value is set by the drawing confirmation flow.
+									}}
+									onInvalid={() => {
+										setValidationErrors((prev) => ({
+											...prev,
+											drawing_response: "This field is required.",
+										}));
+									}}
 								/>
+								{errorMessage("drawing_response")}
 
 								{drawingDataUrl && (
 									<label className={styles.field}>

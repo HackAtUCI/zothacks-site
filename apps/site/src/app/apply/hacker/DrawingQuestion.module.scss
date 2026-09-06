@@ -158,6 +158,18 @@ button.continueButton {
 	height: 2.9375rem;
 }
 
+.confirmActions {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1rem;
+	width: 100%;
+}
+
+button.submitEarlyButton {
+	background: #2054b9;
+}
+
 .controlsPreview {
 	position: relative;
 	width: 100%;
