@@ -372,7 +372,7 @@ export default function MentorsForm({ onBack }: MentorsFormProps) {
 										))}
 									</div>
 									{errorMessage("pronouns")}
-									{pronouns === "Other" && (
+									{pronouns === "other" && (
 										<div className={styles.otherField}>
 											<label className={styles.field}>
 												<span className={`${styles.label} ${styles.required}`}>

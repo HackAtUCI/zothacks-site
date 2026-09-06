@@ -60,7 +60,12 @@ export default function BaseForm({
 
 			const valuesWithoutOther = formData
 				.getAll(field)
-				.filter((value) => value !== "other" && value !== "Other");
+				.filter(
+					(value) =>
+						value !== "other" &&
+						value !== "Other" &&
+						value !== "Other (Please specify)",
+				);
 
 			formData.delete(field);
 

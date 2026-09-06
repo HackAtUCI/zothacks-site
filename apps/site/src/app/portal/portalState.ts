@@ -41,7 +41,7 @@ const portalStateByTone: Record<PortalStatusTone, PortalState> = {
 		statusLabel: "Application Accepted",
 		panelTitle: "Application Accepted!",
 		message:
-			"Congratulations! You have been chosen to participate in ZotHacks 2026!\n\nPlease make sure to fill out our waiver and RSVP by [DATE + TIME]. Look out for any future emails from us (hack@uci.edu) and stay updated with our event on Instagram (@hackatuci)!",
+			"Congratulations! You have been chosen to participate in ZotHacks 2026!\n\nPlease make sure to fill out our waiver and RSVP by 10/8 @ 11:59PM. Look out for any future emails from us (zothacks@uci.edu) and stay updated with our event on Instagram (@hackatuci)!",
 		acceptedStage: "needs-waiver",
 	},
 	waitlisted: {
@@ -49,7 +49,7 @@ const portalStateByTone: Record<PortalStatusTone, PortalState> = {
 		statusLabel: "Application Waitlisted",
 		panelTitle: "Waitlist Disclaimer",
 		message:
-			"We will open up spots from our waitlist on [DATE + Time] on a first come first serve basis.\n\nPlease check back on the portal to RSVP + fill out the waiver then. Thank you for your patience.",
+			"We will open up spots from our waitlist on 10/9 @ 11:59PM on a first come first serve basis.\n\nPlease check back on the portal to RSVP + fill out the waiver then. Thank you for your patience.",
 	},
 	rejected: {
 		tone: "rejected",
@@ -63,7 +63,7 @@ const portalStateByTone: Record<PortalStatusTone, PortalState> = {
 		statusLabel: "Application Voided",
 		panelTitle: "Voided Disclaimer",
 		message:
-			"Your application has been voided.\n\nFor more information, contact us at hack@uci.edu.",
+			"Your application has been voided.\n\nFor more information, contact us at zothacks@uci.edu.",
 	},
 };
 
@@ -110,6 +110,13 @@ export function resolvePortalState(identity: Identity): PortalState {
 		return portalStateByTone.rejected;
 	}
 
+	// Claiming a waitlist spot advances the process status without replacing
+	// the original WAITLISTED decision. Once confirmed or attending, the
+	// applicant belongs in the accepted portal flow.
+	if (status === Status.Confirmed || status === Status.Attending) {
+		return acceptedPortalStateByStage[resolveAcceptedStage(status)];
+	}
+
 	if (
 		decision === Decision.Waitlisted ||
 		status === Status.Waitlisted ||
@@ -133,12 +140,27 @@ const declineableStatuses: ReadonlySet<string> = new Set([
 ]);
 
 export function canDeclineAcceptance(identity: Identity): boolean {
+	const isDeclineableRole =
+		identity.roles.includes(ParticipantRole.Hacker) ||
+		identity.roles.includes(ParticipantRole.Mentor);
+
 	return (
 		identity.roles.includes(ParticipantRole.Applicant) &&
-		identity.roles.includes(ParticipantRole.Hacker) &&
-		!identity.roles.includes(ParticipantRole.Mentor) &&
+		isDeclineableRole &&
 		identity.decision === Decision.Accepted &&
 		identity.status !== null &&
 		declineableStatuses.has(identity.status)
+	);
+}
+
+/**
+ * Only confirmed applicants may submit a late-arrival request. RSVP is what
+ * sets status to CONFIRMED, including waitlisted applicants who claimed a
+ * spot without their original decision changing.
+ */
+export function canSubmitLateArrival(identity: Identity): boolean {
+	return (
+		identity.roles.includes(ParticipantRole.Applicant) &&
+		identity.status === Status.Confirmed
 	);
 }
