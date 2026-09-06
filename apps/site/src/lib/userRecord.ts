@@ -34,7 +34,6 @@ export type Role = ParticipantRole | AdminRole;
 
 /**
  * The decision for an applicant.
- * An applicant's decision becomes their status when released.
  */
 export enum Decision {
 	Accepted = "ACCEPTED",
@@ -51,11 +50,14 @@ export enum ReviewStatus {
 
 /** The possible process statuses after an applicant has a released decision. */
 export enum ProcessStatus {
+	Accepted = "ACCEPTED",
 	WaiverSigned = "WAIVER_SIGNED",
 	Confirmed = "CONFIRMED",
 	Attending = "ATTENDING",
 	Waitlisted = "WAITLISTED",
+	Rejected = "REJECTED",
 	Queued = "QUEUED",
+	Voided = "VOIDED",
 }
 
 /** All of the different possible process status values. */

@@ -93,7 +93,7 @@ export default function VerifyForm({
 			<span className={styles.redText}>
 				If you cannot find the passphrase, please check your spam. If the email
 				is still missing, try again later, use a different email, or contact us
-				at contact@zothacks.com for assistance.
+				at zothacks2026@gmail.com for assistance.
 			</span>
 
 			<PrimaryButton

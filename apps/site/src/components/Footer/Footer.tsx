@@ -21,7 +21,7 @@ type Social = {
 const RIGHT_SOCIALS: Social[] = [
 	{
 		icon: Mail,
-		link: "mailto:hack@uci.edu",
+		link: "mailto:zothacks2026@gmail.com",
 		alt: "Mail icon that creates an email with Hack at UCI as sender",
 	},
 	{
