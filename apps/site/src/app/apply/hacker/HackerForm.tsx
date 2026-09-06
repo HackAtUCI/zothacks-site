@@ -7,10 +7,15 @@ import {
 	type MouseEvent,
 	type ReactNode,
 } from "react";
+import dynamic from "next/dynamic";
 
 import BaseForm from "@/components/BaseForm/BaseForm";
 import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 import RetroWindow from "@/components/RetroWindow/RetroWindow";
+
+const DrawingQuestion = dynamic(() => import("./DrawingQuestion"), {
+	ssr: false,
+});
 
 import styles from "./HackerForm.module.scss";
 
@@ -72,6 +77,7 @@ const wordLimits = {
 	collaboration_saq: 100,
 	tech_inspiration_saq: 100,
 	uci_gift_saq: 75,
+	peter_thought_process_saq: 100,
 } as const;
 
 type FieldElement = HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
@@ -81,10 +87,11 @@ function countWords(value: string) {
 }
 
 interface HackerFormProps {
+	uid: string;
 	onBack: () => void;
 }
 
-export default function HackerForm({ onBack }: HackerFormProps) {
+export default function HackerForm({ uid, onBack }: HackerFormProps) {
 	const [page, setPage] = useState<1 | 2>(1);
 	const [pronouns, setPronouns] = useState("");
 	const [dietary, setDietary] = useState<string[]>([]);
@@ -96,7 +103,10 @@ export default function HackerForm({ onBack }: HackerFormProps) {
 		collaboration_saq: 0,
 		tech_inspiration_saq: 0,
 		uci_gift_saq: 0,
+		peter_thought_process_saq: 0,
 	});
+	const [drawingDataUrl, setDrawingDataUrl] = useState("");
+	const drawingStorageKey = `zothacks_drawing_progress:${uid}`;
 
 	const p1 = page === 1;
 	const title =
@@ -213,6 +223,11 @@ export default function HackerForm({ onBack }: HackerFormProps) {
 		}
 
 		onBack();
+	}
+
+	function handleDrawingSubmit(dataUrl: string) {
+		setDrawingDataUrl(dataUrl);
+		clearError("drawing_response");
 	}
 
 	return (
@@ -595,7 +610,68 @@ export default function HackerForm({ onBack }: HackerFormProps) {
 									{errorMessage("uci_gift_saq")}
 								</label>
 
-								{/* TODO: Implement Last Question */}
+								<DrawingQuestion
+									storageKey={drawingStorageKey}
+									onSubmit={handleDrawingSubmit}
+								/>
+
+								<input
+									className={styles.validationOnlyInput}
+									tabIndex={-1}
+									aria-hidden
+									name="drawing_response"
+									value={drawingDataUrl}
+									required={!p1}
+									onChange={() => {
+										// Value is set by the drawing confirmation flow.
+									}}
+									onInvalid={() => {
+										setValidationErrors((prev) => ({
+											...prev,
+											drawing_response: "This field is required.",
+										}));
+									}}
+								/>
+								{errorMessage("drawing_response")}
+
+								{drawingDataUrl && (
+									<label className={styles.field}>
+										<span className={`${styles.label} ${styles.required}`}>
+											Describe your thought process as you decorated your Peter.
+											Now that you&apos;ve finished your design, is there
+											anything you wish you&apos;d done differently? [Max 100
+											words]
+										</span>
+										<div className={styles.drawingThumbnail}>
+											{/* eslint-disable-next-line @next/next/no-img-element */}
+											<img
+												src={drawingDataUrl}
+												alt="Your submitted drawing"
+												className={styles.drawingThumbnailImage}
+											/>
+											<span className={styles.drawingThumbnailCaption}>
+												drawing.jpeg
+											</span>
+										</div>
+										<textarea
+											className={styles.textarea}
+											name="peter_thought_process_saq"
+											required={!p1}
+										/>
+										<span
+											className={`${styles.helper} ${
+												wordCounts.peter_thought_process_saq >
+												wordLimits.peter_thought_process_saq
+													? styles.error
+													: ""
+											}`}
+										>
+											{wordCounts.peter_thought_process_saq}/
+											{wordLimits.peter_thought_process_saq} words
+										</span>
+										{errorMessage("peter_thought_process_saq")}
+									</label>
+								)}
 
 								<label className={styles.field}>
 									<span className={styles.label}>

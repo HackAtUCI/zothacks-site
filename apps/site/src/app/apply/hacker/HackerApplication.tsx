@@ -22,7 +22,11 @@ function getStepFromUrl() {
 		: defaultStep;
 }
 
-export default function HackerApplication() {
+interface HackerApplicationProps {
+	uid: string;
+}
+
+export default function HackerApplication({ uid }: HackerApplicationProps) {
 	const [step, setStep] = useState<HackerStep>(defaultStep);
 	const deadlinePassed = hasDeadlinePassed();
 
@@ -57,5 +61,5 @@ export default function HackerApplication() {
 		);
 	}
 
-	return <HackerForm onBack={() => updateStep("disclaimer")} />;
+	return <HackerForm uid={uid} onBack={() => updateStep("disclaimer")} />;
 }
