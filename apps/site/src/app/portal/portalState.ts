@@ -1,10 +1,4 @@
-import {
-	Decision,
-	ParticipantRole,
-	ProcessStatus,
-	ReviewStatus,
-	Status,
-} from "@/lib/userRecord";
+import { ParticipantRole, Status } from "@/lib/userRecord";
 import type { Identity } from "@/lib/utils/useUserIdentity";
 
 export type PortalStatusTone =
@@ -41,7 +35,7 @@ const portalStateByTone: Record<PortalStatusTone, PortalState> = {
 		statusLabel: "Application Accepted",
 		panelTitle: "Application Accepted!",
 		message:
-			"Congratulations! You have been chosen to participate in ZotHacks 2026!\n\nPlease make sure to fill out our waiver and RSVP by 10/8 @ 11:59PM. Look out for any future emails from us (zothacks@uci.edu) and stay updated with our event on Instagram (@hackatuci)!",
+			"Congratulations! You have been chosen to participate in ZotHacks 2026!\n\nPlease make sure to fill out our waiver and RSVP by 10/8 @ 11:59PM. Look out for any future emails from us (zothacks2026@gmail.com) and stay updated with our event on Instagram (@hackatuci)!",
 		acceptedStage: "needs-waiver",
 	},
 	waitlisted: {
@@ -63,7 +57,7 @@ const portalStateByTone: Record<PortalStatusTone, PortalState> = {
 		statusLabel: "Application Voided",
 		panelTitle: "Voided Disclaimer",
 		message:
-			"Your application has been voided.\n\nFor more information, contact us at zothacks@uci.edu.",
+			"Your application has been voided.\n\nFor more information, contact us at zothacks2026@gmail.com.",
 	},
 };
 
@@ -100,56 +94,49 @@ function resolveAcceptedStage(status: Identity["status"]): AcceptedPortalStage {
 }
 
 export function resolvePortalState(identity: Identity): PortalState {
-	const { decision, status } = identity;
+	const { status } = identity;
 
-	if (decision === Decision.Voided) {
+	if (status === Status.Voided) {
 		return portalStateByTone.voided;
 	}
 
-	if (decision === Decision.Rejected) {
+	if (status === Status.Rejected) {
 		return portalStateByTone.rejected;
 	}
 
-	// Claiming a waitlist spot advances the process status without replacing
-	// the original WAITLISTED decision. Once confirmed or attending, the
-	// applicant belongs in the accepted portal flow.
-	if (status === Status.Confirmed || status === Status.Attending) {
-		return acceptedPortalStateByStage[resolveAcceptedStage(status)];
-	}
-
 	if (
-		decision === Decision.Waitlisted ||
-		status === Status.Waitlisted ||
-		status === Status.Queued
+		status === Status.Accepted ||
+		status === Status.WaiverSigned ||
+		status === Status.Confirmed ||
+		status === Status.Attending
 	) {
-		return portalStateByTone.waitlisted;
+		return acceptedPortalStateByStage[resolveAcceptedStage(status)];
 	}
 
-	if (decision === Decision.Accepted) {
-		return acceptedPortalStateByStage[resolveAcceptedStage(status)];
+	if (status === Status.Waitlisted || status === Status.Queued) {
+		return portalStateByTone.waitlisted;
 	}
 
 	return portalStateByTone.submitted;
 }
 
 const declineableStatuses: ReadonlySet<string> = new Set([
-	Decision.Accepted,
-	ReviewStatus.Reviewed,
-	ProcessStatus.WaiverSigned,
-	ProcessStatus.Confirmed,
+	Status.Accepted,
+	Status.WaiverSigned,
+	Status.Confirmed,
 ]);
 
 export function canDeclineAcceptance(identity: Identity): boolean {
 	const isDeclineableRole =
 		identity.roles.includes(ParticipantRole.Hacker) ||
 		identity.roles.includes(ParticipantRole.Mentor);
+	const status = identity.status;
 
 	return (
 		identity.roles.includes(ParticipantRole.Applicant) &&
 		isDeclineableRole &&
-		identity.decision === Decision.Accepted &&
-		identity.status !== null &&
-		declineableStatuses.has(identity.status)
+		status !== null &&
+		declineableStatuses.has(status)
 	);
 }
 
