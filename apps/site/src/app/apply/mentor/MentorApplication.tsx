@@ -34,6 +34,7 @@ export default function MentorApplication() {
 
 	function updateStep(nextStep: MentorStep) {
 		const url = new URL(window.location.href);
+		url.searchParams.delete("page");
 		if (nextStep === defaultStep) {
 			url.searchParams.delete("step");
 		} else {

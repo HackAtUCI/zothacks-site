@@ -35,7 +35,7 @@ const portalStateByTone: Record<PortalStatusTone, PortalState> = {
 		statusLabel: "Application Accepted",
 		panelTitle: "Application Accepted!",
 		message:
-			"Congratulations! You have been chosen to participate in ZotHacks 2026!\n\nPlease make sure to fill out our waiver and RSVP by 10/8 @ 11:59PM. Look out for any future emails from us (zothacks2026@gmail.com) and stay updated with our event on Instagram (@hackatuci)!",
+			"Congratulations! You have been chosen to participate in ZotHacks 2026!\n\nPlease make sure to fill out our waiver and RSVP by 10/8 @ 11:59PM or your spot will be forfeited. Look out for any future emails from us (zothacks2026@gmail.com) and stay updated with our event on Instagram (@hackatuci)!",
 		acceptedStage: "needs-waiver",
 	},
 	waitlisted: {
@@ -43,7 +43,7 @@ const portalStateByTone: Record<PortalStatusTone, PortalState> = {
 		statusLabel: "Application Waitlisted",
 		panelTitle: "Waitlist Disclaimer",
 		message:
-			"We will open up spots from our waitlist on 10/9 @ 11:59PM on a first come first serve basis.\n\nPlease check back on the portal to RSVP + fill out the waiver then. Thank you for your patience.",
+			"We will open up a limited number of spots from our waitlist on 10/9 @ 12:00PM PT on a first come first serve basis.\n\nPlease check back on the portal then to continue to the waiver. If you are able to claim a spot, please fill out the waiver and RSVP by 10/9 @ 11:59PM PT. Thank you for your patience.",
 	},
 	rejected: {
 		tone: "rejected",
@@ -148,6 +148,15 @@ export function canDeclineAcceptance(identity: Identity): boolean {
 export function canSubmitLateArrival(identity: Identity): boolean {
 	return (
 		identity.roles.includes(ParticipantRole.Applicant) &&
+		identity.roles.includes(ParticipantRole.Hacker) &&
 		identity.status === Status.Confirmed
+	);
+}
+
+export function canClaimWaitlistSpot(identity: Identity): boolean {
+	return (
+		identity.roles.includes(ParticipantRole.Applicant) &&
+		identity.roles.includes(ParticipantRole.Hacker) &&
+		identity.status === Status.Waitlisted
 	);
 }

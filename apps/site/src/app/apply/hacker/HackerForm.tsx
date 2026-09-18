@@ -1,6 +1,7 @@
 "use client";
 
 import {
+	useEffect,
 	useState,
 	type FormEvent,
 	type InvalidEvent,
@@ -76,14 +77,31 @@ const majorOptions = [
 const wordLimits = {
 	collaboration_saq: 100,
 	tech_inspiration_saq: 100,
-	uci_gift_saq: 75,
+	uci_gift_saq: 100,
 	peter_thought_process_saq: 100,
 } as const;
 
 type FieldElement = HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+type FormPage = 1 | 2;
 
 function countWords(value: string) {
 	return value.trim().split(/\s+/).filter(Boolean).length;
+}
+
+function getPageFromUrl(): FormPage {
+	const page = new URL(window.location.href).searchParams.get("page");
+	return page === "2" ? 2 : 1;
+}
+
+function updatePageUrl(nextPage: FormPage) {
+	const url = new URL(window.location.href);
+	if (nextPage === 1) {
+		url.searchParams.delete("page");
+	} else {
+		url.searchParams.set("page", String(nextPage));
+	}
+
+	window.history.pushState(null, "", url);
 }
 
 interface HackerFormProps {
@@ -92,7 +110,7 @@ interface HackerFormProps {
 }
 
 export default function HackerForm({ uid, onBack }: HackerFormProps) {
-	const [page, setPage] = useState<1 | 2>(1);
+	const [page, setPage] = useState<FormPage>(1);
 	const [pronouns, setPronouns] = useState("");
 	const [dietary, setDietary] = useState<string[]>([]);
 	const [major, setMajor] = useState("");
@@ -111,6 +129,20 @@ export default function HackerForm({ uid, onBack }: HackerFormProps) {
 	const p1 = page === 1;
 	const title =
 		page === 1 ? "Hacker Application" : "Hacker Application (Continued)";
+
+	useEffect(() => {
+		setPage(getPageFromUrl());
+
+		const syncPageFromHistory = () => setPage(getPageFromUrl());
+		window.addEventListener("popstate", syncPageFromHistory);
+
+		return () => window.removeEventListener("popstate", syncPageFromHistory);
+	}, []);
+
+	function goToPage(nextPage: FormPage) {
+		updatePageUrl(nextPage);
+		setPage(nextPage);
+	}
 
 	function getValidationMessage(field: FieldElement) {
 		if (field.validity.valueMissing) {
@@ -177,6 +209,7 @@ export default function HackerForm({ uid, onBack }: HackerFormProps) {
 			field instanceof HTMLSelectElement ||
 			field instanceof HTMLTextAreaElement
 		) {
+			syncGroupedInputState(field);
 			updateFieldValidity(field);
 		}
 	}
@@ -190,6 +223,25 @@ export default function HackerForm({ uid, onBack }: HackerFormProps) {
 				: prev.filter((v) => v !== option),
 		);
 		if (checked) clearError("dietary_restrictions");
+	}
+
+	function syncGroupedInputState(field: FieldElement) {
+		if (field.name === "pronouns" && field instanceof HTMLInputElement) {
+			if (field.checked) setPronouns(field.value);
+		}
+
+		if (field.name === "dietary_restrictions") {
+			const form = field.form;
+			if (!form) return;
+
+			setDietary(
+				Array.from(
+					form.querySelectorAll<HTMLInputElement>(
+						'input[name="dietary_restrictions"]:checked',
+					),
+				).map((input) => input.value),
+			);
+		}
 	}
 
 	function errorMessage(name: string): ReactNode {
@@ -213,12 +265,12 @@ export default function HackerForm({ uid, onBack }: HackerFormProps) {
 			form.reportValidity();
 			return;
 		}
-		setPage(2);
+		goToPage(2);
 	}
 
 	function handleBack() {
 		if (page === 2) {
-			setPage(1);
+			goToPage(1);
 			return;
 		}
 
@@ -286,6 +338,21 @@ export default function HackerForm({ uid, onBack }: HackerFormProps) {
 										{errorMessage("last_name")}
 									</label>
 								</div>
+
+								<label className={styles.field}>
+									<span className={`${styles.label} ${styles.required}`}>
+										Discord Username (ZotHacks 2026 will be held on Discord.
+										Having an account is required to be a Hacker for ZotHacks
+										2026.)
+									</span>
+									<input
+										className={styles.input}
+										type="text"
+										name="discord_username"
+										required={p1}
+									/>
+									{errorMessage("discord_username")}
+								</label>
 
 								<fieldset>
 									<span className={`${styles.label} ${styles.required}`}>
@@ -417,14 +484,13 @@ export default function HackerForm({ uid, onBack }: HackerFormProps) {
 								</fieldset>
 
 								<label className={styles.field}>
-									<span className={`${styles.label} ${styles.required}`}>
+									<span className={styles.label}>
 										Allergies? Please list them.
 									</span>
 									<input
 										className={styles.input}
 										type="text"
 										name="allergies"
-										required={p1}
 									/>
 									{errorMessage("allergies")}
 								</label>
@@ -591,7 +657,7 @@ export default function HackerForm({ uid, onBack }: HackerFormProps) {
 								<label className={styles.field}>
 									<span className={`${styles.label} ${styles.required}`}>
 										If you could give each person at UCI one item under $100,
-										what would it be and why? [Max 75 words]
+										what would it be and why? [Max 100 words]
 									</span>
 									<textarea
 										className={styles.textarea}

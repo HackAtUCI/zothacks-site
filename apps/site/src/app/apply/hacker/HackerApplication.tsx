@@ -41,6 +41,7 @@ export default function HackerApplication({ uid }: HackerApplicationProps) {
 
 	function updateStep(nextStep: HackerStep) {
 		const url = new URL(window.location.href);
+		url.searchParams.delete("page");
 		if (nextStep === defaultStep) {
 			url.searchParams.delete("step");
 		} else {

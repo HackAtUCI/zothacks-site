@@ -98,6 +98,13 @@
 	line-height: 1.4;
 }
 
+.helper {
+	font-family: var(--font-pixel), sans-serif;
+	font-size: 0.8rem;
+	color: #555555;
+	margin-bottom: 4px;
+}
+
 .input[type="file"]::file-selector-button {
 	margin-right: 12px;
 }

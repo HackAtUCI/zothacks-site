@@ -23,3 +23,11 @@
 		cursor: not-allowed;
 	}
 }
+
+.draftStatus {
+	align-self: center;
+	margin: 1rem 0;
+	font-family: var(--font-pixel), sans-serif;
+	font-size: 1.25rem;
+	color: #ffffff;
+}

@@ -9,10 +9,19 @@ import styles from "./PortalDashboard.module.scss";
 
 type RsvpBoxProps = {
 	applicationRole: "Hacker" | "Mentor";
+	wasWaitlisted?: boolean;
 };
 
-export default function RsvpBox({ applicationRole }: RsvpBoxProps) {
+export default function RsvpBox({
+	applicationRole,
+	wasWaitlisted = false,
+}: RsvpBoxProps) {
 	const roleLabel = applicationRole.toLowerCase();
+	const rsvpDeadline = wasWaitlisted
+		? "10/9 @ 11:59PM"
+		: applicationRole === "Mentor"
+			? "10/11 @ 11:59PM"
+			: "10/8 @ 11:59PM";
 	const [showConfirmation, setShowConfirmation] = useState(false);
 
 	return (
@@ -23,7 +32,7 @@ export default function RsvpBox({ applicationRole }: RsvpBoxProps) {
 						<h2 className={styles.boxHeading}>RSVP</h2>
 						<p className={styles.rsvpCopy}>
 							Please RSVP here in order to secure a position as a {roleLabel}{" "}
-							for ZotHacks 2026.
+							for ZotHacks 2026 by {rsvpDeadline}.
 						</p>
 						<PrimaryButton
 							type="button"
