@@ -1,6 +1,7 @@
 "use client";
 
 import {
+	useEffect,
 	useState,
 	type FormEvent,
 	type InvalidEvent,
@@ -55,37 +56,99 @@ const academicStatusOptions = [
 const skillGroups = [
 	{
 		category: "Languages",
-		skills: ["Python", "Java", "C++", "JavaScript", "C#"],
+		skills: ["Python", "Java", "C++", "JavaScript", "Other"],
 	},
 	{
-		category: "Frontend",
-		skills: ["HTML/CSS", "React", "Next.js", "GitHub Pages", "Other"],
+		category: "Web Development",
+		skills: [
+			"HTML/CSS",
+			"React.js",
+			"Next.js/Vite",
+			"FastAPI/Node.js",
+			"Other",
+		],
 	},
 	{
 		category: "Tools & Platforms",
-		skills: ["Git", "SQL (Any variation)", "AWS Services", "Vercel", "Netlify"],
+		skills: [
+			"Git",
+			"SQL (Any variation)",
+			"AWS Services",
+			"Vercel/GitHub Pages",
+			"Other",
+		],
 	},
 ];
+
+const wordLimits = {
+	tech_stack_frq: 100,
+	teaching_experience_frq: 100,
+	team_leadership_frq: 100,
+} as const;
 
 function skillKey(skill: string) {
 	return `skill_${skill.toLowerCase().replace(/[^a-z0-9]/g, "_")}`;
 }
 
+function otherSkillNameKey(category: string) {
+	return `other_${category.toLowerCase().replace(/[^a-z0-9]/g, "_")}_name`;
+}
+
 type FieldElement = HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+type FormPage = 1 | 2;
+
+function countWords(value: string) {
+	return value.trim().split(/\s+/).filter(Boolean).length;
+}
+
+function getPageFromUrl(): FormPage {
+	const page = new URL(window.location.href).searchParams.get("page");
+	return page === "2" ? 2 : 1;
+}
+
+function updatePageUrl(nextPage: FormPage) {
+	const url = new URL(window.location.href);
+	if (nextPage === 1) {
+		url.searchParams.delete("page");
+	} else {
+		url.searchParams.set("page", String(nextPage));
+	}
+
+	window.history.pushState(null, "", url);
+}
 
 interface MentorsFormProps {
 	onBack: () => void;
 }
 
 export default function MentorsForm({ onBack }: MentorsFormProps) {
-	const [page, setPage] = useState<1 | 2>(1);
+	const [page, setPage] = useState<FormPage>(1);
 	const [pronouns, setPronouns] = useState("");
 	const [dietary, setDietary] = useState<string[]>([]);
 	const [validationErrors, setValidationErrors] = useState<
 		Record<string, string>
 	>({});
+	const [wordCounts, setWordCounts] = useState<Record<string, number>>({
+		tech_stack_frq: 0,
+		teaching_experience_frq: 0,
+		team_leadership_frq: 0,
+	});
 
 	const p1 = page === 1;
+
+	useEffect(() => {
+		setPage(getPageFromUrl());
+
+		const syncPageFromHistory = () => setPage(getPageFromUrl());
+		window.addEventListener("popstate", syncPageFromHistory);
+
+		return () => window.removeEventListener("popstate", syncPageFromHistory);
+	}, []);
+
+	function goToPage(nextPage: FormPage) {
+		updatePageUrl(nextPage);
+		setPage(nextPage);
+	}
 
 	function getValidationMessage(field: FieldElement) {
 		if (field.validity.valueMissing) {
@@ -127,6 +190,17 @@ export default function MentorsForm({ onBack }: MentorsFormProps) {
 
 	function updateFieldValidity(field: FieldElement) {
 		if (!field.name) return;
+
+		if (field instanceof HTMLTextAreaElement && field.name in wordLimits) {
+			const limit = wordLimits[field.name as keyof typeof wordLimits];
+			const words = countWords(field.value);
+
+			setWordCounts((prev) => ({ ...prev, [field.name]: words }));
+			field.setCustomValidity(
+				words > limit ? `Keep this response to ${limit} words or fewer.` : "",
+			);
+		}
+
 		if (field.checkValidity()) {
 			clearError(field.name);
 		} else if (validationErrors[field.name]) {
@@ -149,6 +223,7 @@ export default function MentorsForm({ onBack }: MentorsFormProps) {
 			field instanceof HTMLSelectElement ||
 			field instanceof HTMLTextAreaElement
 		) {
+			syncGroupedInputState(field);
 			updateFieldValidity(field);
 		}
 	}
@@ -159,8 +234,8 @@ export default function MentorsForm({ onBack }: MentorsFormProps) {
 	}
 
 	function skillsError(): ReactNode {
-		const error = Object.entries(validationErrors).find(([name]) =>
-			name.startsWith("skill_"),
+		const error = Object.entries(validationErrors).find(
+			([name]) => name.startsWith("skill_") || name.startsWith("other_"),
 		)?.[1];
 
 		if (!error) return null;
@@ -173,7 +248,7 @@ export default function MentorsForm({ onBack }: MentorsFormProps) {
 			let changed = false;
 
 			for (const name of Object.keys(next)) {
-				if (name.startsWith("skill_")) {
+				if (name.startsWith("skill_") || name.startsWith("other_")) {
 					delete next[name];
 					changed = true;
 				}
@@ -205,18 +280,37 @@ export default function MentorsForm({ onBack }: MentorsFormProps) {
 		if (checked) clearError("dietary_restrictions");
 	}
 
+	function syncGroupedInputState(field: FieldElement) {
+		if (field.name === "pronouns" && field instanceof HTMLInputElement) {
+			if (field.checked) setPronouns(field.value);
+		}
+
+		if (field.name === "dietary_restrictions") {
+			const form = field.form;
+			if (!form) return;
+
+			setDietary(
+				Array.from(
+					form.querySelectorAll<HTMLInputElement>(
+						'input[name="dietary_restrictions"]:checked',
+					),
+				).map((input) => input.value),
+			);
+		}
+	}
+
 	function handleContinue(e: React.MouseEvent<HTMLButtonElement>) {
 		const form = e.currentTarget.closest("form");
 		if (form && !form.checkValidity()) {
 			form.reportValidity();
 			return;
 		}
-		setPage(2);
+		goToPage(2);
 	}
 
 	function handleBack() {
 		if (page === 2) {
-			setPage(1);
+			goToPage(1);
 			return;
 		}
 
@@ -431,14 +525,13 @@ export default function MentorsForm({ onBack }: MentorsFormProps) {
 								</fieldset>
 
 								<label className={styles.field}>
-									<span className={`${styles.label} ${styles.required}`}>
+									<span className={styles.label}>
 										Allergies? Please list them.
 									</span>
 									<input
 										className={styles.input}
 										type="text"
 										name="allergies"
-										required={p1}
 									/>
 									{errorMessage("allergies")}
 								</label>
@@ -556,13 +649,22 @@ export default function MentorsForm({ onBack }: MentorsFormProps) {
 									<span className={`${styles.label} ${styles.required}`}>
 										What tech stack experience do you have? [Any combo of front
 										end + backend (e.g. MERN, Django, AWS +
-										React/Vue.js/Angular)]
+										React/Vue.js/Angular)] [Max 100 words]
 									</span>
 									<textarea
 										className={styles.textarea}
 										name="tech_stack_frq"
 										required={!p1}
 									/>
+									<span
+										className={`${styles.helper} ${
+											wordCounts.tech_stack_frq > wordLimits.tech_stack_frq
+												? styles.error
+												: ""
+										}`}
+									>
+										{`${wordCounts.tech_stack_frq}/${wordLimits.tech_stack_frq} words`}
+									</span>
 									{errorMessage("tech_stack_frq")}
 								</label>
 
@@ -591,27 +693,52 @@ export default function MentorsForm({ onBack }: MentorsFormProps) {
 												<div className={styles.skillsColumnTitle}>
 													{category}
 												</div>
-												{skills.map((skill) => (
-													<div key={skill} className={styles.skillRow}>
-														<span className={styles.skillName}>{skill}</span>
-														<select
-															className={styles.skillSelect}
-															name={skillKey(skill)}
-															required={!p1}
-															defaultValue=""
-															onChange={() => clearSkillErrors()}
-														>
-															<option value="" disabled>
-																—
-															</option>
-															{[1, 2, 3, 4, 5].map((n) => (
-																<option key={n} value={n}>
-																	{n}
-																</option>
-															))}
-														</select>
-													</div>
-												))}
+												{skills.map((skill) => {
+													const isOther = skill === "Other";
+													const otherName = otherSkillNameKey(category);
+
+													return (
+														<div key={skill} className={styles.skillRow}>
+															{isOther ? (
+																<input
+																	className={styles.input}
+																	type="text"
+																	name={otherName}
+																	placeholder={
+																		category === "Languages"
+																			? "Other (ex: Kotlin(4), C#(3))"
+																			: category === "Web Development"
+																				? "Other (ex: Django(4), Flask(3))"
+																				: "Other (ex: Docker(4), Firebase(3))"
+																	}
+																	onChange={() => clearSkillErrors()}
+																/>
+															) : (
+																<>
+																	<span className={styles.skillName}>
+																		{skill}
+																	</span>
+																	<select
+																		className={styles.skillSelect}
+																		name={skillKey(skill)}
+																		required={!p1}
+																		defaultValue=""
+																		onChange={() => clearSkillErrors()}
+																	>
+																		<option value="" disabled>
+																			—
+																		</option>
+																		{[1, 2, 3, 4, 5].map((n) => (
+																			<option key={n} value={n}>
+																				{n}
+																			</option>
+																		))}
+																	</select>
+																</>
+															)}
+														</div>
+													);
+												})}
 											</div>
 										))}
 									</div>
@@ -621,13 +748,23 @@ export default function MentorsForm({ onBack }: MentorsFormProps) {
 								<label className={styles.field}>
 									<span className={`${styles.label} ${styles.required}`}>
 										Tell us about a time you taught someone a subject that they
-										had limited knowledge of.
+										had limited knowledge of. [Max 100 words]
 									</span>
 									<textarea
 										className={styles.textarea}
 										name="teaching_experience_frq"
 										required={!p1}
 									/>
+									<span
+										className={`${styles.helper} ${
+											wordCounts.teaching_experience_frq >
+											wordLimits.teaching_experience_frq
+												? styles.error
+												: ""
+										}`}
+									>
+										{`${wordCounts.teaching_experience_frq}/${wordLimits.teaching_experience_frq} words`}
+									</span>
 									{errorMessage("teaching_experience_frq")}
 								</label>
 
@@ -635,13 +772,23 @@ export default function MentorsForm({ onBack }: MentorsFormProps) {
 									<span className={`${styles.label} ${styles.required}`}>
 										If your team had different working styles and experience
 										levels, how would you lead them effectively while keeping
-										everyone engaged?
+										everyone engaged? [Max 100 words]
 									</span>
 									<textarea
 										className={styles.textarea}
 										name="team_leadership_frq"
 										required={!p1}
 									/>
+									<span
+										className={`${styles.helper} ${
+											wordCounts.team_leadership_frq >
+											wordLimits.team_leadership_frq
+												? styles.error
+												: ""
+										}`}
+									>
+										{`${wordCounts.team_leadership_frq}/${wordLimits.team_leadership_frq} words`}
+									</span>
 									{errorMessage("team_leadership_frq")}
 								</label>
 
@@ -651,12 +798,6 @@ export default function MentorsForm({ onBack }: MentorsFormProps) {
 									</span>
 									<textarea className={styles.textarea} name="comments" />
 								</label>
-
-								<div className={styles.formActions}>
-									<PrimaryButton type="button" onClick={() => setPage(1)}>
-										Back
-									</PrimaryButton>
-								</div>
 							</div>
 						</div>
 					</BaseForm>

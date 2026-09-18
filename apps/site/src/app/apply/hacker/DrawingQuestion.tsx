@@ -664,6 +664,9 @@ export default function DrawingQuestion({
 					/>
 					<span>Locked - Action Required</span>
 				</div>
+				<p className={styles.desktopDisclaimer}>
+					This question is best completed on desktop.
+				</p>
 
 				<div className={styles.chainGraphic}>
 					<Image
