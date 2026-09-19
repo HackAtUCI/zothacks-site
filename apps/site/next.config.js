@@ -11,7 +11,7 @@ const nextConfig = {
 		return [
 			{
 				source: "/admin/:path*",
-				destination: "https://irvinehacks.com/admin/:path*",
+				destination: `${process.env.IH_SITE_URL || "https://irvinehacks.com"}/admin/:path*`,
 				permanent: false,
 			},
 		];
