@@ -11,7 +11,7 @@ import {
 import axios from "axios";
 
 import axiosInstance from "@/lib/utils/axiosInstance";
-import hasDeadlinePassed from "@/lib/utils/hasDeadlinePassed";
+import { hasDeadlinePassed } from "@/lib/utils/applicationWindow";
 
 import styles from "./BaseForm.module.scss";
 

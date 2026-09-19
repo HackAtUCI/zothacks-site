@@ -6,47 +6,12 @@ const nextConfig = {
 	sassOptions: {
 		includePaths: [path.join(__dirname, "src", "lib", "styles")],
 	},
-	/* TODO: Remove redirects once we have the new site up and running */
+
 	async redirects() {
 		return [
 			{
-				source: "/apply",
-				destination: "/",
-				permanent: false,
-			},
-			{
-				source: "/apply/hacker",
-				destination: "/",
-				permanent: false,
-			},
-			{
-				source: "/apply/mentor",
-				destination: "/",
-				permanent: false,
-			},
-			{
-				source: "/auth",
-				destination: "/",
-				permanent: false,
-			},
-			{
-				source: "/guest-login",
-				destination: "/",
-				permanent: false,
-			},
-			{
-				source: "/login",
-				destination: "/",
-				permanent: false,
-			},
-			{
-				source: "/logout",
-				destination: "/",
-				permanent: false,
-			},
-			{
-				source: "/portal",
-				destination: "/",
+				source: "/admin/:path*",
+				destination: `${process.env.IH_SITE_URL || "https://irvinehacks.com"}/admin/:path*`,
 				permanent: false,
 			},
 		];

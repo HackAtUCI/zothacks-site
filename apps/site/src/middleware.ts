@@ -1,7 +1,22 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
+import { hasApplicationsOpened } from "@/lib/utils/applicationWindow";
+
+const APPLICATION_ROUTES = ["/apply", "/portal"];
+
 export function middleware(request: NextRequest) {
+	const { pathname } = request.nextUrl;
+
+	if (
+		!hasApplicationsOpened() &&
+		APPLICATION_ROUTES.some(
+			(route) => pathname === route || pathname.startsWith(`${route}/`),
+		)
+	) {
+		return NextResponse.redirect(new URL("/", request.url));
+	}
+
 	const requestHeaders = new Headers(request.headers);
 	requestHeaders.set("X-Hackathon-Name", "zothacks");
 
@@ -13,5 +28,11 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-	matcher: ["/api/:path*"],
+	matcher: [
+		"/api/:path*",
+		"/apply",
+		"/apply/:path*",
+		"/portal",
+		"/portal/:path*",
+	],
 };

@@ -6,7 +6,7 @@ import ApplicationsClosed from "./ApplicationsClosed";
 import HackerDisclaimer from "./HackerDisclaimer";
 import HackerForm from "./HackerForm";
 
-import hasDeadlinePassed from "@/lib/utils/hasDeadlinePassed";
+import { hasDeadlinePassed } from "@/lib/utils/applicationWindow";
 
 import styles from "./HackerApplication.module.scss";
 

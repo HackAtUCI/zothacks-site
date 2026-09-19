@@ -8,6 +8,7 @@ import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 import Title from "./Title";
 import ColorPicker from "./ColorPicker";
 import InfoIcon from "@/assets/images/info-icon.png";
+import { getApplicationWindow } from "@/lib/utils/applicationWindow";
 import {
 	leftWindowEntry,
 	rightWindowEntry,
@@ -26,6 +27,25 @@ const containerVariants = {
 
 const Landing = () => {
 	const [bgColor, setBgColor] = useState<string>();
+	const applicationWindow = getApplicationWindow();
+
+	const applicationCta = {
+		"before-open": {
+			message: "Applications open 9/21",
+			label: "Coming soon",
+			href: undefined,
+		},
+		open: {
+			message: "Apps due October 2nd",
+			label: "Apply now",
+			href: "/apply",
+		},
+		closed: {
+			message: "Applications have closed",
+			label: "Stay connected",
+			href: "https://hack.ics.uci.edu/",
+		},
+	}[applicationWindow];
 
 	return (
 		<div className={styles.backgroundWrapper}>
@@ -73,9 +93,14 @@ const Landing = () => {
 					>
 						<RetroWindow title="System Message">
 							<div className={styles.appsContent}>
-								<p className={styles.infoText}>Applications open 9/21</p>
-								<PrimaryButton href="/apply" className={styles.applyButton}>
-									Coming soon
+								<p className={styles.infoText}>{applicationCta.message}</p>
+								<PrimaryButton
+									href={applicationCta.href}
+									type="button"
+									disabled={!applicationCta.href}
+									className={styles.applyButton}
+								>
+									{applicationCta.label}
 								</PrimaryButton>
 							</div>
 						</RetroWindow>

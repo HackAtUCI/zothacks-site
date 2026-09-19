@@ -41,7 +41,7 @@ export default function NavBar({ identity }: NavbarProps) {
 							Portal
 						</PrimaryButton>
 					)}
-					{/* {isLoggedIn ? (
+					{isLoggedIn ? (
 						<PrimaryButton href="/logout" variant="small" color="red">
 							Logout
 						</PrimaryButton>
@@ -49,7 +49,7 @@ export default function NavBar({ identity }: NavbarProps) {
 						<PrimaryButton href="/?overlay=login" variant="small" color="green">
 							Login
 						</PrimaryButton>
-					)} */}
+					)}
 				</div>
 			</BaseNavBar>
 		</div>

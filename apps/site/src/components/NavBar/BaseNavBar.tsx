@@ -48,16 +48,14 @@ export default function BaseNavBar({ children }: PropsWithChildren) {
 								<Image src={ZotHacksLogo.src} alt="Hacks Logo" fill />
 							</div>
 						</Navbar.Brand>
-						<Nav
-							className={`${styles.navItems} mx-auto gap-4 md:gap-2 lg:gap-4`}
-						>
-							{/* <NavLinkItem
+						<Nav className={`${styles.navItems} gap-4 md:gap-2 lg:gap-4`}>
+							<NavLinkItem
 								href="/"
 								icon={home_icon.src}
 								onClick={() => setExpanded(false)}
 							>
 								Home
-							</NavLinkItem> */}
+							</NavLinkItem>
 							{/* <NavLinkItem
 								href="/?overlay=resources"
 								icon={resources_icon.src}
@@ -77,8 +75,8 @@ export default function BaseNavBar({ children }: PropsWithChildren) {
 							</NavLinkItem> */}
 							{/* <NavLinkItem href="#" target="_blank">
 								DevPost
-							</NavLinkItem> */}
-							{/* <NavLinkItem href="#" target="_blank">
+							</NavLinkItem>
+							<NavLinkItem href="#" target="_blank">
 								Feedback Form
 							</NavLinkItem> */}
 						</Nav>

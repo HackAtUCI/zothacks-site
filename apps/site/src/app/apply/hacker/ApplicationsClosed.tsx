@@ -11,7 +11,7 @@ export default function ApplicationsClosed() {
 			<Image src={mascots} alt="Hacker Anteater" className={styles.mascot} />
 			<div className={styles.messageBox}>
 				<h1 className={styles.title}>
-					Applications for ZotHacks 2025 closed on October 27th.
+					Applications for ZotHacks 2026 closed on October 2nd.
 				</h1>
 				<hr />
 				<p>
