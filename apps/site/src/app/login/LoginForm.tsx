@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import RetroWindow from "@/components/RetroWindow/RetroWindow";
 import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
@@ -17,19 +17,11 @@ export default function LoginForm({
 	overlay = false,
 }: LoginFormProps) {
 	const [email, setEmail] = useState("");
-	const [origin, setOrigin] = useState("");
-
-	useEffect(() => {
-		setOrigin(window.location.origin);
-	}, []);
 
 	const normalizedEmail = email.trim().toLowerCase();
 	const isUciEmail = normalizedEmail.endsWith("@uci.edu");
-	const ssoReturnTo = origin.endsWith("zothacks.com")
-		? "https://zothacks.com/auth"
-		: "/auth";
 	const action = isUciEmail
-		? `/api/user/login?return_to=${encodeURIComponent(ssoReturnTo)}`
+		? `/api/user/login?return_to=${encodeURIComponent("/auth?hackathon=zothacks")}`
 		: "/api/user/login";
 
 	return (
