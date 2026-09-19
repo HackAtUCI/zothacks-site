@@ -7,6 +7,16 @@ const nextConfig = {
 		includePaths: [path.join(__dirname, "src", "lib", "styles")],
 	},
 
+	async redirects() {
+		return [
+			{
+				source: "/admin/:path*",
+				destination: "https://irvinehacks.com/admin/:path*",
+				permanent: false,
+			},
+		];
+	},
+
 	async rewrites() {
 		return [
 			{
