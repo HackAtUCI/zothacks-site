@@ -30,10 +30,10 @@ const dietaryOptions = [
 ];
 const majorOptions = [
 	"Business Information Management",
-	"Computer Game Science",
 	"Computer Science",
 	"Computer Science and Engineering",
 	"Data Science",
+	"Game Design and Interactive Media",
 	"Electrical Engineering",
 	"Informatics",
 	"Software Engineering",
