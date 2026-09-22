@@ -10,6 +10,7 @@ import {
 
 import RetroWindow from "@/components/RetroWindow/RetroWindow";
 import BaseForm from "@/components/BaseForm/BaseForm";
+import type { DraftFields } from "@/components/BaseForm/BaseForm";
 import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 
 import styles from "./MentorsForm.module.scss";
@@ -30,10 +31,10 @@ const dietaryOptions = [
 ];
 const majorOptions = [
 	"Business Information Management",
-	"Computer Game Science",
 	"Computer Science",
 	"Computer Science and Engineering",
 	"Data Science",
+	"Game Design and Interactive Media",
 	"Electrical Engineering",
 	"Informatics",
 	"Software Engineering",
@@ -228,6 +229,18 @@ export default function MentorsForm({ onBack }: MentorsFormProps) {
 		}
 	}
 
+	function hydrateDraftState(fields: DraftFields) {
+		const draftPronouns = fields.pronouns;
+		const draftDietary = fields.dietary_restrictions;
+
+		if (typeof draftPronouns === "string") {
+			setPronouns(draftPronouns);
+		}
+		if (Array.isArray(draftDietary)) {
+			setDietary(draftDietary);
+		}
+	}
+
 	function errorMessage(name: string): ReactNode {
 		if (!validationErrors[name]) return null;
 		return <span className={styles.error}>{validationErrors[name]}</span>;
@@ -340,6 +353,7 @@ export default function MentorsForm({ onBack }: MentorsFormProps) {
 						applicationType="Mentor"
 						className={styles.form}
 						hideSubmit={p1}
+						onDraftHydrate={hydrateDraftState}
 					>
 						{/* ── Page 1 ── */}
 						<div

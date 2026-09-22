@@ -15,7 +15,8 @@ import { hasDeadlinePassed } from "@/lib/utils/applicationWindow";
 
 import styles from "./BaseForm.module.scss";
 
-type DraftFieldValue = string | string[];
+export type DraftFieldValue = string | string[];
+export type DraftFields = Record<string, DraftFieldValue>;
 
 interface DraftResponse {
 	draft_application_data: {
@@ -45,6 +46,7 @@ interface BaseFormProps {
 	applyPath: string;
 	className?: string;
 	hideSubmit?: boolean;
+	onDraftHydrate?: (fields: DraftFields) => void;
 }
 
 export default function BaseForm({
@@ -52,13 +54,12 @@ export default function BaseForm({
 	applyPath,
 	className,
 	hideSubmit = false,
+	onDraftHydrate,
 	children,
 }: PropsWithChildren<BaseFormProps>) {
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [sessionExpired, setSessionExpired] = useState(false);
-	const [draftFields, setDraftFields] = useState<
-		Record<string, DraftFieldValue>
-	>({});
+	const [draftFields, setDraftFields] = useState<DraftFields>({});
 	const [draftLoaded, setDraftLoaded] = useState(false);
 	const [hasUserEdited, setHasUserEdited] = useState(false);
 	const formRef = useRef<HTMLFormElement>(null);
@@ -85,6 +86,8 @@ export default function BaseForm({
 
 		const form = formRef.current;
 		if (!form) return;
+
+		onDraftHydrate?.(draftFields);
 
 		for (const [name, value] of Object.entries(draftFields)) {
 			if (SKIP_DRAFT_FIELDS.has(name)) continue;
@@ -126,7 +129,7 @@ export default function BaseForm({
 
 		hasHydratedDraft.current = true;
 		setHasUserEdited(false);
-	}, [draftFields, draftLoaded]);
+	}, [draftFields, draftLoaded, onDraftHydrate]);
 
 	useEffect(() => {
 		if (!hasUserEdited || !draftLoaded) return;

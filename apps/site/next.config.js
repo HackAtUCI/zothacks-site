@@ -8,10 +8,16 @@ const nextConfig = {
 	},
 
 	async redirects() {
+		const ihSiteUrl =
+			process.env.IH_SITE_URL ||
+			(process.env.NODE_ENV === "development"
+				? "http://localhost:3001"
+				: "https://irvinehacks.com");
+
 		return [
 			{
 				source: "/admin/:path*",
-				destination: `${process.env.IH_SITE_URL || "https://irvinehacks.com"}/admin/:path*`,
+				destination: `${ihSiteUrl}/admin/:path*`,
 				permanent: false,
 			},
 		];
