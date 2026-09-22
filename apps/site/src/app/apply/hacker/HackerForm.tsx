@@ -11,6 +11,7 @@ import {
 import dynamic from "next/dynamic";
 
 import BaseForm from "@/components/BaseForm/BaseForm";
+import type { DraftFields } from "@/components/BaseForm/BaseForm";
 import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 import RetroWindow from "@/components/RetroWindow/RetroWindow";
 
@@ -214,6 +215,22 @@ export default function HackerForm({ uid, onBack }: HackerFormProps) {
 		}
 	}
 
+	function hydrateDraftState(fields: DraftFields) {
+		const draftPronouns = fields.pronouns;
+		const draftDietary = fields.dietary_restrictions;
+		const draftMajor = fields.major;
+
+		if (typeof draftPronouns === "string") {
+			setPronouns(draftPronouns);
+		}
+		if (Array.isArray(draftDietary)) {
+			setDietary(draftDietary);
+		}
+		if (typeof draftMajor === "string") {
+			setMajor(draftMajor);
+		}
+	}
+
 	function handleDietaryChange(option: string, checked: boolean) {
 		setDietary((prev) =>
 			checked
@@ -303,6 +320,7 @@ export default function HackerForm({ uid, onBack }: HackerFormProps) {
 						applicationType="Hacker"
 						className={styles.form}
 						hideSubmit={p1}
+						onDraftHydrate={hydrateDraftState}
 					>
 						{/* ── Page 1 ── */}
 						<div
