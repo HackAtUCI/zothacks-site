@@ -28,7 +28,7 @@ export default async function Login({
 	}
 
 	return (
-		<div className={styles.container}>
+		<div className={styles.page}>
 			{email && (
 				<VerifyForm
 					email={email}

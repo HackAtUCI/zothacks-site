@@ -5,7 +5,7 @@ import { useCallback, useState } from "react";
 import axiosInstance from "@/lib/utils/axiosInstance";
 import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 
-import styles from "../login/Login.module.scss";
+import styles from "./VerifyForm.module.scss";
 
 function normalizeReturnTo(returnTo: string) {
 	if (returnTo.startsWith("/")) {
@@ -67,34 +67,31 @@ export default function VerifyForm({
 	);
 
 	return (
-		<form
-			className={`${styles.form} ${styles.formTag}`}
-			method="post"
-			onSubmit={onSubmit}
-		>
+		<form className={styles.form} method="post" onSubmit={onSubmit}>
 			<input type="hidden" name="email" value={email} />
 			<input type="hidden" name="return_to" value={returnTo} />
 
-			<label htmlFor="passphrase" className={styles.label}>
-				Enter Passphrase
-			</label>
-			<input
-				id="passphrase"
-				name="passphrase"
-				type="text"
-				required
-				className={styles.input}
-				placeholder="Enter passphrase here..."
-			/>
+			<div className={styles.copy}>
+				<h1>Check your email</h1>
+				<p>
+					We sent a login passphrase to <strong>{email}</strong>. Enter it below
+					to continue.
+				</p>
+			</div>
 
-			<small className={styles.passphraseDescription}>
-				A login passphrase was sent to your email. Please enter the passphrase.
-			</small>
-			<span className={styles.redText}>
-				If you cannot find the passphrase, please check your spam. If the email
-				is still missing, try again later, use a different email, or contact us
-				at zothacks2026@gmail.com for assistance.
-			</span>
+			<div className={styles.field}>
+				<label htmlFor="passphrase" className={styles.label}>
+					Passphrase
+				</label>
+				<input
+					id="passphrase"
+					name="passphrase"
+					type="text"
+					required
+					className={styles.input}
+					placeholder="Enter passphrase"
+				/>
+			</div>
 
 			<PrimaryButton
 				type="submit"
@@ -105,7 +102,7 @@ export default function VerifyForm({
 			</PrimaryButton>
 
 			{showError && (
-				<div className={styles.redText}>
+				<div className={styles.error}>
 					Invalid passphrase. Please try again.
 				</div>
 			)}
