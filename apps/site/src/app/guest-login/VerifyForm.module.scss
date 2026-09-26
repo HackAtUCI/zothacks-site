@@ -1,0 +1,78 @@
+.form {
+	width: min(92vw, 520px);
+	margin: 7rem auto 4rem;
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+	background: #ffffff;
+	border: 2px solid #000000;
+	box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.35);
+	color: #000000;
+}
+
+.copy {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+
+	h1,
+	p {
+		margin: 0;
+	}
+
+	h1 {
+		font-family: var(--font-pixel), sans-serif;
+		font-size: 1.5rem;
+		line-height: 1.2;
+	}
+
+	p {
+		font-size: 1rem;
+		line-height: 1.5;
+	}
+}
+
+.field {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.label {
+	font-family: var(--font-pixel), sans-serif;
+	font-size: 1rem;
+}
+
+.input {
+	width: 100%;
+	min-height: 48px;
+	padding: 0.75rem 1rem;
+	background: var(--input-gray);
+	border: 2px solid #000000;
+	font-size: 1rem;
+	color: #000000;
+
+	&:focus {
+		outline: 3px solid var(--xp-blue-text);
+		outline-offset: 2px;
+	}
+}
+
+.button {
+	width: 100%;
+	min-height: 48px;
+}
+
+.error {
+	color: #b00020;
+	font-weight: 700;
+	line-height: 1.4;
+}
+
+@media (max-width: 640px) {
+	.form {
+		margin: 5.5rem 1rem 3rem;
+		padding: 1.25rem;
+	}
+}
