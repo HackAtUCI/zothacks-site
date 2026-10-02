@@ -62,7 +62,7 @@ export default function BaseNavBar({ children }: PropsWithChildren) {
 								onClick={() => setExpanded(false)}
 							>
 								Resources
-							</NavLinkItem>
+							</NavLinkItem> */}
 							<NavLinkItem
 								href="/?overlay=schedule"
 								icon={schedule_icon.src}
@@ -70,6 +70,7 @@ export default function BaseNavBar({ children }: PropsWithChildren) {
 							>
 								Schedule
 							</NavLinkItem>
+							{/*
 							<NavLinkItem href="/incident" icon={incident_form_icon.src}>
 								Incident Form
 							</NavLinkItem> */}
