@@ -74,7 +74,7 @@ const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
 
 	return (
 		<div className={styles.scheduleContainer}>
-			<CountdownBanner />
+			<CountdownBanner events={scheduleFlat}/>
 			<div className={styles.schedulePanel}>
 				<div className={styles.dayTabs}>
 					<OptionTabs selectedDay={selectedDay} selectDay={handleDaySelect} />
