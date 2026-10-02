@@ -3,6 +3,7 @@ import ScheduleView from "./ScheduleView/ScheduleView";
 
 import styles from "./Schedule.module.scss";
 import RetroWindow from "@/components/RetroWindow/RetroWindow";
+import ScheduleMotion from "./ScheduleMotion";
 
 interface ScheduleProps {
 	overlay?: boolean;
@@ -12,7 +13,8 @@ export default async function Schedule({ overlay = false }: ScheduleProps) {
 	const schedule = await getSchedule();
 
 	const scheduleWindow = (
-		<div
+		<ScheduleMotion
+			overlay={overlay}	
 			className={overlay ? styles.overlayWindowWrapper : styles.windowWrapper}
 		>
 			<RetroWindow
@@ -23,7 +25,7 @@ export default async function Schedule({ overlay = false }: ScheduleProps) {
 			>
 				<ScheduleView schedule={schedule} />
 			</RetroWindow>
-		</div>
+		</ScheduleMotion>
 	);
 
 	if (overlay) {
