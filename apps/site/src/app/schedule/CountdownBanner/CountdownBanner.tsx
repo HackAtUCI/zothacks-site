@@ -11,6 +11,7 @@ interface CountdownEvent {
 
 interface CountdownBannerProps {
 	events: CountdownEvent[];
+	onEventClick: (event: CountdownEvent) => void;
 }
 
 const pad = (num: number) => num.toString().padStart(2, "0");
@@ -24,10 +25,13 @@ const formatTime = (ms: number) => {
 	return d > 0 ? `${d}d ${clock}` : clock;
 };
 
-const CountdownBanner: React.FC<CountdownBannerProps> = ({ events }) => {
-	// TO DO: Implement countdown logic and event label updates
+const CountdownBanner: React.FC<CountdownBannerProps> = ({ 
+	events, 
+	onEventClick,
+ }) => {
 	const [timeLeft, setTimeLeft] = useState("--:--:--");
 	const [label, setLabel] = useState("Next Event");
+	const [nextEvent, setNextEvent] = useState<CountdownEvent | null>(null);
 
 	useEffect(() => {
 		const tick = () => {
@@ -38,10 +42,12 @@ const CountdownBanner: React.FC<CountdownBannerProps> = ({ events }) => {
 			if (!next) {
 				setTimeLeft("00:00:00");
 				setLabel("No Upcoming Events");
+				setNextEvent(null);
 				return;
 			}
 			setTimeLeft(formatTime(next.startTime.getTime() - now));
 			setLabel(next.title);
+			setNextEvent(next);
 		};
 		tick();
 		const interval = setInterval(tick, 1000);
@@ -65,7 +71,12 @@ const CountdownBanner: React.FC<CountdownBannerProps> = ({ events }) => {
 						<p className={styles.timeLeft}>{timeLeft}</p>
 						<p>Remaining Until</p>
 					</div>
-					<p className={styles.nextEvent}>{label}</p>
+					<p 
+						className={styles.nextEvent}
+						onClick={() => nextEvent && onEventClick?.(nextEvent)}
+					>
+						{label}
+					</p>
 				</div>
 			</div>
 		</>

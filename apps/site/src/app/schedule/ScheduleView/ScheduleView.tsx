@@ -72,9 +72,16 @@ const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
 		return ei.scrollHeight > tg.scrollHeight ? ei : tg;
 	};
 
+	const handleJumpToEvent = (event: any) => {
+		const day = Object.keys(dayMap).find((d) => dayMap[d].includes(event));
+		if (!day) return;
+		setSelectedDay(day);
+		setSelectedEvent(event);
+	};
+
 	return (
 		<div className={styles.scheduleContainer}>
-			<CountdownBanner events={scheduleFlat}/>
+			<CountdownBanner events={scheduleFlat} onEventClick={handleJumpToEvent}/>
 			<div className={styles.schedulePanel}>
 				<div className={styles.dayTabs}>
 					<OptionTabs selectedDay={selectedDay} selectDay={handleDaySelect} />
