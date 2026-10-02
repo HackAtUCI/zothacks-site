@@ -101,7 +101,7 @@ $scrollbar-thumb: var(--scrollbar-gray);
 
 	@include bootstrap.media-breakpoint-down(md) {
 		flex-direction: column-reverse;
-		align-items: center;
+		align-items: stretch;
 		justify-content: center;
 		border: none;
 		gap: 1rem;
@@ -166,6 +166,8 @@ $scrollbar-thumb: var(--scrollbar-gray);
 	}
 
 	@include bootstrap.media-breakpoint-down(md) {
+		flex: none;
+		width: 100%;
 		max-height: none;
 		overflow-y: visible;
 	}
@@ -187,6 +189,11 @@ $scrollbar-thumb: var(--scrollbar-gray);
 	@include bootstrap.media-breakpoint-down(md) {
 		max-width: none;
 		overflow-y: visible;
+		> * {
+			width: 100%;
+			max-width: none;
+			box-sizing: border-box;
+		}
 	}
 }
 

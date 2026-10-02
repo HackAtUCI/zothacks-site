@@ -56,8 +56,9 @@ const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
 		const tg = timeGridRef.current;
 		const ei = eventInfoScrollRef.current;
 		if (!tg || !ei) return;
+		const desktop = window.matchMedia("(min-width: 768px)").matches;
 		const update = () => {
-			ei.style.maxHeight = `${tg.offsetHeight}px`;
+			ei.style.maxHeight = desktop ? `${tg.offsetHeight}px` : "none";
 		};
 		update();
 		window.addEventListener("resize", update);
