@@ -18,25 +18,24 @@ const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
 	const [selectedEvent, setSelectedEvent] = useState(schedule[0][0]);
 
 	const scheduleFlat = schedule.flat();
-	// TO DO: Fix dates for new year
 	const friday = scheduleFlat.filter(
 		(s) =>
 			s.startTime.getTime() <
-			new Date(new Date("2025-11-08T00:00:00").toUTCString()).getTime(),
+			new Date(new Date("2026-10-17T00:00:00").toUTCString()).getTime(),
 	);
 	const saturday = scheduleFlat.filter(
 		(s) =>
 			s.startTime.getTime() <
-				new Date(new Date("2025-11-09T00:00:00").toUTCString()).getTime() &&
+				new Date(new Date("2026-10-18T00:00:00").toUTCString()).getTime() &&
 			s.startTime.getTime() >
-				new Date(new Date("2025-11-08T00:00:00").toUTCString()).getTime(),
+				new Date(new Date("2026-10-17T00:00:00").toUTCString()).getTime(),
 	);
 	const sunday = scheduleFlat.filter(
 		(s) =>
 			s.startTime.getTime() <
-				new Date(new Date("2025-11-10T00:00:00").toUTCString()).getTime() &&
+				new Date(new Date("2026-10-19T00:00:00").toUTCString()).getTime() &&
 			s.startTime.getTime() >
-				new Date(new Date("2025-11-09T00:00:00").toUTCString()).getTime(),
+				new Date(new Date("2026-10-18T00:00:00").toUTCString()).getTime(),
 	);
 
 	const dayMap: Record<string, any[]> = {
