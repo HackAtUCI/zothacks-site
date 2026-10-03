@@ -102,7 +102,7 @@ export default function MentorIntro({ onBack, onContinue }: MentorIntroProps) {
 									Donald Bren Hall, Irvine, CA 92697-3435).
 								</p>
 								<p>
-									<strong>Application Deadline:</strong> Friday, October 2, 2026
+									<strong>Application Deadline:</strong> Monday, October 5, 2026
 								</p>
 
 								<PrimaryButton

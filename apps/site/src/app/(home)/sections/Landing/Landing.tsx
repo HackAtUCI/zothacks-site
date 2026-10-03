@@ -36,7 +36,7 @@ const Landing = () => {
 			href: undefined,
 		},
 		open: {
-			message: "Apps due October 2nd",
+			message: "Mentor Apps due October 5th",
 			label: "Apply now",
 			href: "/apply",
 		},

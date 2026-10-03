@@ -18,12 +18,13 @@ export default function ApplyLanding() {
 							className={styles.mascot}
 						/>
 						<p className={styles.question}>
-							Are you applying as a Hacker or Mentor?
+							Are you applying as a Hacker or a Mentor?
 						</p>
 						<div className={styles.buttons}>
 							<PrimaryButton
-								href="/apply/hacker"
-								className={styles.applyButton}
+								type="button"
+								disabled
+								className={`${styles.applyButton} ${styles.disabledButton}`}
 							>
 								Hacker
 							</PrimaryButton>
