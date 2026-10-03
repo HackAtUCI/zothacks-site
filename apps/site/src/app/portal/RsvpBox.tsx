@@ -20,7 +20,7 @@ export default function RsvpBox({
 	const rsvpDeadline = wasWaitlisted
 		? "10/9 @ 11:59PM"
 		: applicationRole === "Mentor"
-			? "10/12 @ 11:59PM"
+			? "10/11 @ 11:59PM"
 			: "10/8 @ 11:59PM";
 	const [showConfirmation, setShowConfirmation] = useState(false);
 

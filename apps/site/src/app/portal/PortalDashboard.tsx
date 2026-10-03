@@ -55,7 +55,7 @@ function getDisplayPortalState(
 	return {
 		...portalState,
 		message:
-			"Congratulations! You have been chosen to participate in ZotHacks 2026!\n\nPlease make sure to fill out our waiver and RSVP by 10/12 @ 11:59PM or your spot will be forfeited. Look out for any future emails from us (zothacks2026@gmail.com) and stay updated with our event on Instagram (@hackatuci)!",
+			"Congratulations! You have been chosen to participate in ZotHacks 2026!\n\nPlease make sure to fill out our waiver and RSVP by 10/11 @ 11:59PM or your spot will be forfeited. Look out for any future emails from us (zothacks2026@gmail.com) and stay updated with our event on Instagram (@hackatuci)!",
 	};
 }
 
