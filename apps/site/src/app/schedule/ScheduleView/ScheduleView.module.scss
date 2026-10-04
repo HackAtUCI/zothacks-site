@@ -173,7 +173,6 @@ $scrollbar-thumb: var(--scrollbar-gray);
 	inset: 0;
 	display: flex;
 	flex-direction: column;
-	//max-height: 380px; // caps TimeGrid height so it overflows
 	overflow-y: auto; // rail drives scroll
 	scrollbar-width: none;
 	&::-webkit-scrollbar {
@@ -185,9 +184,8 @@ $scrollbar-thumb: var(--scrollbar-gray);
 	}
 
 	@include bootstrap.media-breakpoint-down(md) {
-		flex: none;
-		width: 100%;
-		max-height: none;
+		position: static;
+		display: block;
 		overflow-y: visible;
 	}
 }

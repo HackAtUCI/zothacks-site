@@ -113,4 +113,10 @@
 	text-decoration: underline;
 	cursor: pointer;
 	width: fit-content;
+	@include utils.media-breakpoint-down(md) {
+		display: flex;
+		align-items: center;
+		align-self: center;
+	}
+
 }
