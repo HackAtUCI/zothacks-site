@@ -155,14 +155,33 @@ $scrollbar-thumb: var(--scrollbar-gray);
 	}
 }
 
-.timeGridScroll {
+.timeGridColumn {
+	position: relative; 
 	flex: 1;
 	min-width: 0;
-	max-height: 380px; // caps TimeGrid height so it overflows
+	min-height: 380px;
+
+	@include bootstrap.media-breakpoint-down(md) {
+		flex: none;
+		width: 100%;
+		min-height: 0;
+	}
+}
+
+.timeGridScroll {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	flex-direction: column;
+	//max-height: 380px; // caps TimeGrid height so it overflows
 	overflow-y: auto; // rail drives scroll
 	scrollbar-width: none;
 	&::-webkit-scrollbar {
 		display: none;
+	}
+
+	> * {
+		flex: 1 0 auto;
 	}
 
 	@include bootstrap.media-breakpoint-down(md) {
@@ -174,13 +193,9 @@ $scrollbar-thumb: var(--scrollbar-gray);
 }
 
 .eventInfoScroll {
+	display: flex;
 	max-width: 15.625rem;
 	width: 100%;
-	overflow-y: auto;
-	scrollbar-width: none;
-	&::-webkit-scrollbar {
-		display: none;
-	}
 
 	@container (max-width: 450px) {
 		display: none;

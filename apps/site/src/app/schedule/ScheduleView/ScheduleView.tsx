@@ -49,29 +49,7 @@ const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
 	};
 
 	const timeGridScrollRef = useRef<HTMLDivElement>(null);
-	const timeGridRef = useRef<HTMLDivElement>(null);
-	const eventInfoScrollRef = useRef<HTMLDivElement>(null);
-
-	useEffect(() => {
-		const tg = timeGridRef.current;
-		const ei = eventInfoScrollRef.current;
-		if (!tg || !ei) return;
-		const desktop = window.matchMedia("(min-width: 768px)").matches;
-		const update = () => {
-			ei.style.maxHeight = desktop ? `${tg.offsetHeight}px` : "none";
-		};
-		update();
-		window.addEventListener("resize", update);
-		return () => window.removeEventListener("resize", update);
-	}, [selectedDay]);
-
-	// Returns whichever panel is actively overflowing (TimeGrid default, EventInfo fallback)
-	const getScrollable = () => {
-		const tg = timeGridScrollRef.current;
-		const ei = eventInfoScrollRef.current;
-		if (!tg || !ei) return tg;
-		return ei.scrollHeight > tg.scrollHeight ? ei : tg;
-	};
+	const getScrollable = () => timeGridScrollRef.current ;
 
 	const handleJumpToEvent = (event: any) => {
 		const day = Object.keys(dayMap).find((d) => dayMap[d].includes(event));
@@ -96,8 +74,8 @@ const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
 
 					<div className={styles.scheduleInfo}>
 						<div className={styles.schedulePanels}>
-							<div className={styles.timeGridScroll} ref={timeGridScrollRef}>
-								<div ref={timeGridRef}>
+							<div className={styles.timeGridColumn}>
+								<div className={styles.timeGridScroll} ref={timeGridScrollRef}>
 									<TimeGrid
 										selectedDay={selectedDay}
 										friday={friday}
@@ -109,7 +87,7 @@ const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
 								</div>
 							</div>
 
-							<div className={styles.eventInfoScroll} ref={eventInfoScrollRef}>
+							<div className={styles.eventInfoScroll}>
 								<EventInfo event={selectedEvent} />
 							</div>
 						</div>
