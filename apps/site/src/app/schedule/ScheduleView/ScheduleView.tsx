@@ -49,7 +49,7 @@ const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
 	};
 
 	const timeGridScrollRef = useRef<HTMLDivElement>(null);
-	const getScrollable = () => timeGridScrollRef.current ;
+	const getScrollable = () => timeGridScrollRef.current;
 
 	const handleJumpToEvent = (event: any) => {
 		const day = Object.keys(dayMap).find((d) => dayMap[d].includes(event));
@@ -60,7 +60,7 @@ const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
 
 	return (
 		<div className={styles.scheduleContainer}>
-			<CountdownBanner events={scheduleFlat} onEventClick={handleJumpToEvent}/>
+			<CountdownBanner events={scheduleFlat} onEventClick={handleJumpToEvent} />
 			<div className={styles.schedulePanel}>
 				<div className={styles.dayTabs}>
 					<OptionTabs selectedDay={selectedDay} selectDay={handleDaySelect} />

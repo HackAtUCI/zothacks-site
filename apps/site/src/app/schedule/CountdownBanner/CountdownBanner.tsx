@@ -4,7 +4,7 @@ import Image from "next/image";
 import hourglass from "@/assets/icons/hourglass.svg";
 import styles from "./CountdownBanner.module.scss";
 
-interface CountdownEvent { 
+interface CountdownEvent {
 	title: string;
 	startTime: Date;
 }
@@ -25,10 +25,10 @@ const formatTime = (ms: number) => {
 	return d > 0 ? `${d}d ${clock}` : clock;
 };
 
-const CountdownBanner: React.FC<CountdownBannerProps> = ({ 
-	events, 
+const CountdownBanner: React.FC<CountdownBannerProps> = ({
+	events,
 	onEventClick,
- }) => {
+}) => {
 	const [timeLeft, setTimeLeft] = useState("--:--:--");
 	const [label, setLabel] = useState("Next Event");
 	const [nextEvent, setNextEvent] = useState<CountdownEvent | null>(null);
@@ -71,7 +71,7 @@ const CountdownBanner: React.FC<CountdownBannerProps> = ({
 						<p className={styles.timeLeft}>{timeLeft}</p>
 						<p>Remaining Until</p>
 					</div>
-					<p 
+					<p
 						className={styles.nextEvent}
 						onClick={() => nextEvent && onEventClick?.(nextEvent)}
 					>

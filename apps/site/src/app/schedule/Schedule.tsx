@@ -14,14 +14,10 @@ export default async function Schedule({ overlay = false }: ScheduleProps) {
 
 	const scheduleWindow = (
 		<ScheduleMotion
-			overlay={overlay}	
+			overlay={overlay}
 			className={overlay ? styles.overlayWindowWrapper : styles.windowWrapper}
 		>
-			<RetroWindow
-				title="Schedule"
-				framedContent
-				closeHref="/"
-			>
+			<RetroWindow title="Schedule" framedContent closeHref="/">
 				<ScheduleView schedule={schedule} />
 			</RetroWindow>
 		</ScheduleMotion>
