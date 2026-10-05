@@ -18,25 +18,24 @@ const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
 	const [selectedEvent, setSelectedEvent] = useState(schedule[0][0]);
 
 	const scheduleFlat = schedule.flat();
-	// TO DO: Fix dates for new year
 	const friday = scheduleFlat.filter(
 		(s) =>
 			s.startTime.getTime() <
-			new Date(new Date("2025-11-08T00:00:00").toUTCString()).getTime(),
+			new Date(new Date("2026-10-17T00:00:00").toUTCString()).getTime(),
 	);
 	const saturday = scheduleFlat.filter(
 		(s) =>
 			s.startTime.getTime() <
-				new Date(new Date("2025-11-09T00:00:00").toUTCString()).getTime() &&
+				new Date(new Date("2026-10-18T00:00:00").toUTCString()).getTime() &&
 			s.startTime.getTime() >
-				new Date(new Date("2025-11-08T00:00:00").toUTCString()).getTime(),
+				new Date(new Date("2026-10-17T00:00:00").toUTCString()).getTime(),
 	);
 	const sunday = scheduleFlat.filter(
 		(s) =>
 			s.startTime.getTime() <
-				new Date(new Date("2025-11-10T00:00:00").toUTCString()).getTime() &&
+				new Date(new Date("2026-10-19T00:00:00").toUTCString()).getTime() &&
 			s.startTime.getTime() >
-				new Date(new Date("2025-11-09T00:00:00").toUTCString()).getTime(),
+				new Date(new Date("2026-10-18T00:00:00").toUTCString()).getTime(),
 	);
 
 	const dayMap: Record<string, any[]> = {
@@ -50,32 +49,18 @@ const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
 	};
 
 	const timeGridScrollRef = useRef<HTMLDivElement>(null);
-	const timeGridRef = useRef<HTMLDivElement>(null);
-	const eventInfoScrollRef = useRef<HTMLDivElement>(null);
+	const getScrollable = () => timeGridScrollRef.current;
 
-	useEffect(() => {
-		const tg = timeGridRef.current;
-		const ei = eventInfoScrollRef.current;
-		if (!tg || !ei) return;
-		const update = () => {
-			ei.style.maxHeight = `${tg.offsetHeight}px`;
-		};
-		update();
-		window.addEventListener("resize", update);
-		return () => window.removeEventListener("resize", update);
-	}, [selectedDay]);
-
-	// Returns whichever panel is actively overflowing (TimeGrid default, EventInfo fallback)
-	const getScrollable = () => {
-		const tg = timeGridScrollRef.current;
-		const ei = eventInfoScrollRef.current;
-		if (!tg || !ei) return tg;
-		return ei.scrollHeight > tg.scrollHeight ? ei : tg;
+	const handleJumpToEvent = (event: any) => {
+		const day = Object.keys(dayMap).find((d) => dayMap[d].includes(event));
+		if (!day) return;
+		setSelectedDay(day);
+		setSelectedEvent(event);
 	};
 
 	return (
 		<div className={styles.scheduleContainer}>
-			<CountdownBanner />
+			<CountdownBanner events={scheduleFlat} onEventClick={handleJumpToEvent} />
 			<div className={styles.schedulePanel}>
 				<div className={styles.dayTabs}>
 					<OptionTabs selectedDay={selectedDay} selectDay={handleDaySelect} />
@@ -89,8 +74,8 @@ const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
 
 					<div className={styles.scheduleInfo}>
 						<div className={styles.schedulePanels}>
-							<div className={styles.timeGridScroll} ref={timeGridScrollRef}>
-								<div ref={timeGridRef}>
+							<div className={styles.timeGridColumn}>
+								<div className={styles.timeGridScroll} ref={timeGridScrollRef}>
 									<TimeGrid
 										selectedDay={selectedDay}
 										friday={friday}
@@ -102,7 +87,7 @@ const ScheduleView: React.FC<ScheduleProps> = ({ schedule }) => {
 								</div>
 							</div>
 
-							<div className={styles.eventInfoScroll} ref={eventInfoScrollRef}>
+							<div className={styles.eventInfoScroll}>
 								<EventInfo event={selectedEvent} />
 							</div>
 						</div>

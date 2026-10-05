@@ -4,7 +4,7 @@ import type { NextRequest } from "next/server";
 import { hasApplicationsOpened } from "@/lib/utils/applicationWindow";
 
 const APPLICATION_ROUTES = ["/apply", "/portal"];
-const DISABLED_HOME_OVERLAYS = ["resources", "schedule"];
+const DISABLED_HOME_OVERLAYS = ["resources"];
 
 export function middleware(request: NextRequest) {
 	const { pathname } = request.nextUrl;
