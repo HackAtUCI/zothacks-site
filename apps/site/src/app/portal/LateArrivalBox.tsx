@@ -8,7 +8,7 @@ import useArrivalTime from "@/lib/utils/useArrivalTime";
 
 import styles from "./PortalDashboard.module.scss";
 
-const DEFAULT_CHECKIN_TIME = "17:00";
+const DEFAULT_CHECKIN_TIME = "18:00";
 const LATE_ARRIVAL_MIN = "18:00";
 const LATE_ARRIVAL_MAX = "19:30";
 const MAX_REASON_LENGTH = 2048;
@@ -397,7 +397,7 @@ export default function LateArrivalBox({
 						<>
 							<label className={styles.lateArrivalField}>
 								<span className={styles.lateArrivalLabel}>
-									Check-in starts at 5 PM on Friday, Oct. 16th, 2026. Will you
+									Check-in starts at 6 PM on Friday, Oct. 16th, 2026. Will you
 									be arriving later than check-in?
 								</span>
 								<select
