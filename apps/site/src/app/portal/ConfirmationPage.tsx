@@ -25,6 +25,7 @@ export default function ConfirmationPage({
 	const isWaiverSigned = status === Status.WaiverSigned;
 	const isPendingReview = status === Status.Pending;
 	const isConfirmed = status === Status.Confirmed;
+	const isAttending = status === Status.Attending;
 	const isMentor = roles.includes(ParticipantRole.Mentor);
 
 	const message = isAccepted ? (
@@ -36,7 +37,7 @@ export default function ConfirmationPage({
 			<br />
 			Please sign your waiver to continue.
 		</>
-	) : isConfirmed ? (
+	) : isConfirmed || isAttending ? (
 		<>
 			Thank you for confirming your attendance!
 			<br />
@@ -89,7 +90,7 @@ export default function ConfirmationPage({
 					<div className={styles.content}>
 						<Image src={HappyPeter} alt="" className={styles.happyPeter} />
 						<h1 className={styles.title}>{message}</h1>
-						{isConfirmed && uid ? (
+						{(isConfirmed || isAttending) && uid ? (
 							<CheckInPass uid={uid} />
 						) : (
 							<div className={styles.actions}>
