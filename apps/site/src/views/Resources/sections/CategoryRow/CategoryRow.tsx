@@ -1,19 +1,27 @@
 import CategoryIcon from "../../components/CategoryIcon/CategoryIcon";
+import { getResources } from "../../getResources";
 import styles from "./CategoryRow.module.scss";
 
-const CATEGORIES = [
-	"API Resources",
-	"Backend Framework",
-	"Frontend Framework",
-	"Starter Packs",
-];
+export default async function CategoryRow() {
+	const resources = await getResources("featured");
 
-export default function CategoryRow() {
+	if (resources.length === 0) return null;
+
 	return (
 		<div className={styles.row}>
-			{CATEGORIES.map((label) => (
-				<CategoryIcon key={label} label={label} />
-			))}
+			{resources.map(({ _id, title, description, link, logo }) => {
+				const plainText =
+					description[0]?.children?.map((c) => c.text).join("") || "";
+				return (
+					<CategoryIcon
+						key={_id}
+						label={title}
+						description={plainText}
+						link={link}
+						logo={logo}
+					/>
+				);
+			})}
 		</div>
 	);
 }

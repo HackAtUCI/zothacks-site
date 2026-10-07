@@ -29,8 +29,16 @@
 .logo {
 	width: var(--resource-card-logo-size, 80px);
 	height: var(--resource-card-logo-size, 80px);
-	background-color: #c0c0c0;
-	border: 1px solid #a0a0a0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
 }
 
 .description {

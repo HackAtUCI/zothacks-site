@@ -19,6 +19,7 @@ export default defineType({
 			type: "string",
 			options: {
 				list: [
+					{ title: "Featured", value: "featured" },
 					{ title: "API", value: "api" },
 					{ title: "Backend", value: "backend" },
 					{ title: "Frontend", value: "frontend" },
@@ -41,6 +42,11 @@ export default defineType({
 			validation: (Rule) => Rule.required(),
 		}),
 		defineField({
+			name: "displayOrder",
+			title: "Display Order",
+			type: "number",
+		}),
+		defineField({
 			name: "link",
 			title: "Link",
 			type: "url",
@@ -49,14 +55,6 @@ export default defineType({
 		defineField({
 			name: "logo",
 			title: "Logo",
-			type: "image",
-			validation: (Rule) => Rule.required(),
-		}),
-		defineField({
-			name: "background",
-			title: "Island Background",
-			description:
-				"There are 4 different backgrounds to make the islands look unique",
 			type: "image",
 			validation: (Rule) => Rule.required(),
 		}),

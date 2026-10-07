@@ -56,13 +56,13 @@ export default function BaseNavBar({ children }: PropsWithChildren) {
 							>
 								Home
 							</NavLinkItem>
-							{/* <NavLinkItem
+							<NavLinkItem
 								href="/?overlay=resources"
 								icon={resources_icon.src}
 								onClick={() => setExpanded(false)}
 							>
 								Resources
-							</NavLinkItem> */}
+							</NavLinkItem>
 							<NavLinkItem
 								href="/?overlay=schedule"
 								icon={schedule_icon.src}

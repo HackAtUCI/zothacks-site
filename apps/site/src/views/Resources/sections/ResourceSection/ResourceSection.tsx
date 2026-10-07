@@ -17,10 +17,17 @@ async function ResourceSection({ category, label }: ResourceSectionProps) {
 		<div className={styles.section}>
 			<h3 className={styles.label}>{label}</h3>
 			<div className={styles.row}>
-				{resources.map(({ _id, description, link }) => {
+				{resources.map(({ _id, description, link, logo }) => {
 					const plainText =
 						description[0]?.children?.map((c) => c.text).join("") || "";
-					return <ResourceCard key={_id} description={plainText} link={link} />;
+					return (
+						<ResourceCard
+							key={_id}
+							description={plainText}
+							link={link}
+							logo={logo}
+						/>
+					);
 				})}
 			</div>
 		</div>

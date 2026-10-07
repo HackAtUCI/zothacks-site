@@ -28,6 +28,7 @@ const Resources = z.array(
 			}),
 		),
 		resourceType: z.string(),
+		displayOrder: z.optional(z.number()),
 		link: z.string(),
 		logo: z.object({
 			_type: z.string(),
@@ -36,13 +37,15 @@ const Resources = z.array(
 				_type: z.literal("reference"),
 			}),
 		}),
-		background: z.object({
-			_type: z.string(),
-			asset: z.object({
-				_ref: z.string(),
-				_type: z.literal("reference"),
+		background: z.optional(
+			z.object({
+				_type: z.string(),
+				asset: z.object({
+					_ref: z.string(),
+					_type: z.literal("reference"),
+				}),
 			}),
-		}),
+		),
 		title: z.string(),
 	}),
 );
@@ -50,7 +53,7 @@ const Resources = z.array(
 export const getResources = cache(async (resourceType: string) => {
 	return Resources.parse(
 		await client.fetch(
-			`*[_type == 'resource' && resourceType == '${resourceType}'] | order(lower(title) asc)`,
+			`*[_type == 'resource' && resourceType == '${resourceType}'] | order(coalesce(displayOrder, 999) asc, lower(title) asc)`,
 		),
 	);
 });

@@ -4,8 +4,9 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	gap: 1.25rem;
+	gap: 2rem;
 	padding: 1.25rem 0.75rem;
+
 	@include utils.media-breakpoint-down(sm) {
 		gap: 0.5rem;
 	}

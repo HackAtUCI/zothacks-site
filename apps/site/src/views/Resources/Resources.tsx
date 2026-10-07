@@ -22,7 +22,7 @@ export default function Resources({ overlay = false }: ResourcesProps) {
 			>
 				<div className={clsx(styles.content, overlay && styles.overlayContent)}>
 					<CategoryRow />
-					<ResourceSection category="api" label="API Resources" />
+					<ResourceSection category="starter-pack" label="Starter Packs" />
 				</div>
 			</RetroWindow>
 		</div>
