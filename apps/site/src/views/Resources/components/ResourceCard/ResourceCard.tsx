@@ -7,10 +7,18 @@ import styles from "./ResourceCard.module.scss";
 
 const builder = imageUrlBuilder(client);
 
+interface SanityImage {
+	_type: string;
+	asset: {
+		_ref: string;
+		_type: "reference";
+	};
+}
+
 interface ResourceCardProps {
 	description: string;
 	link?: string;
-	logo?: unknown;
+	logo?: SanityImage;
 }
 
 export default function ResourceCard({
