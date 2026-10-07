@@ -18,7 +18,7 @@ export default function Resources({ overlay = false }: ResourcesProps) {
 				title="Resources"
 				framedContent
 				closeHref="/"
-				snapBack={!overlay}
+				snapBack
 			>
 				<div className={clsx(styles.content, overlay && styles.overlayContent)}>
 					<CategoryRow />
