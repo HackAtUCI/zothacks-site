@@ -65,13 +65,13 @@
 	flex-direction: column;
 	align-items: center;
 	gap: 1.5rem;
-	padding: 1rem 0.75rem 2.5rem;
-	margin-top: 2rem;
-	margin-bottom: 2rem;
+	padding: 1rem 0.75rem 1rem;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
 
 	@include utils.media-breakpoint-up(md) {
 		position: relative;
-		padding: 1.375rem 1rem 3.8rem;
+		padding: 1.5rem 1rem;
 	}
 }
 

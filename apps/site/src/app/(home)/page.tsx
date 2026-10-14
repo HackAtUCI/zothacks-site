@@ -28,7 +28,7 @@ const Home = ({ searchParams }: HomeProps) => {
 			<Landing />
 			<About />
 			{/* <Countdown /> */}
-			{/* <Sponsors /> */}
+			<Sponsors />
 			{/* <Clubs /> */}
 			<FAQ />
 			<BackToTop />
