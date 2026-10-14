@@ -9,18 +9,16 @@ import FolderIcon from "@/assets/icons/folder-icon.svg";
 import SponsorsPeter from "@/assets/images/sponsors-peter.gif";
 import { leftWindowEntry, rightWindowEntry } from "@/components/animation";
 
-import { SponsorCardProps } from "./SponsorCard";
+import type { SponsorCardProps } from "./SponsorCard";
 import SponsorCard from "./SponsorCard";
 
 import styles from "./Sponsors.module.scss";
 
-const PLACEHOLDERS: ReadonlyArray<SponsorCardProps & { key: string }> = [
-	{ key: "placeholder-1", name: "nami", placeholder: true },
-	{ key: "placeholder-2", name: "nami", placeholder: true },
-	{ key: "placeholder-3", name: "nami", placeholder: true },
-];
+interface SponsorsClientProps {
+	sponsors: ReadonlyArray<SponsorCardProps & { _key: string }>;
+}
 
-const SponsorsClient = () => {
+const SponsorsClient = ({ sponsors }: SponsorsClientProps) => {
 	return (
 		<Container as="section" className={styles.section}>
 			<motion.div
@@ -54,9 +52,14 @@ const SponsorsClient = () => {
 					<div className={styles.mainContent}>
 						<h2 className={styles.heading}>Sponsors</h2>
 						<div className={styles.cards}>
-							{PLACEHOLDERS.map(({ key, ...rest }) => (
-								<SponsorCard key={key} {...rest} />
+							{sponsors.map(({ _key, ...sponsor }) => (
+								<SponsorCard
+									key={_key}
+									{...sponsor}
+									featured={sponsors.length === 1}
+								/>
 							))}
+							{sponsors.length === 0 && <p>Sponsors coming soon!</p>}
 						</div>
 						<Image
 							src={SponsorsPeter}
