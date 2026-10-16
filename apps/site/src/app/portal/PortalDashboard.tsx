@@ -111,9 +111,9 @@ export default function PortalDashboard({ identity }: PortalDashboardProps) {
 			<div className={styles.window}>
 				<RetroWindow title="Portal" framedContent snapBack closeHref="/portal">
 					<div className={styles.portalContent}>
-						{portalState.acceptedStage === "confirmed" && identity.uid && (
-							<CheckInQrBox uid={identity.uid} />
-						)}
+						{(portalState.acceptedStage === "confirmed" ||
+							portalState.acceptedStage === "attending") &&
+							identity.uid && <CheckInQrBox uid={identity.uid} />}
 						<PortalStatusBox
 							applicationRole={applicationRole}
 							portalState={displayPortalState}
