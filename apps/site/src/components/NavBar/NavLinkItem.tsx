@@ -9,6 +9,8 @@ import styles from "./NavLinkItem.module.scss";
 
 interface NavLinkItemInterface extends PropsWithChildren {
 	href: string;
+	target?: string;
+	rel?: string;
 	className?: string;
 	icon?: string;
 	iconSize?: number;
