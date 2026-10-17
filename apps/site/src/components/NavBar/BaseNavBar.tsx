@@ -70,10 +70,15 @@ export default function BaseNavBar({ children }: PropsWithChildren) {
 							>
 								Schedule
 							</NavLinkItem>
-							{/*
-							<NavLinkItem href="/incident" icon={incident_form_icon.src}>
+							<NavLinkItem
+								href="/incident"
+								target="_blank"
+								rel="noopener noreferrer"
+								icon={incident_form_icon.src}
+								onClick={() => setExpanded(false)}
+							>
 								Incident Form
-							</NavLinkItem> */}
+							</NavLinkItem>
 							{/* <NavLinkItem href="#" target="_blank">
 								DevPost
 							</NavLinkItem>

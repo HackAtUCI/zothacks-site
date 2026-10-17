@@ -62,12 +62,17 @@ export default function Footer() {
 					</a>
 					<p className={styles.madeWithLove}>made with love in Irvine, CA</p>
 				</div>
-				{/* <div className={styles.mainBarRight}>
+				<div className={styles.mainBarRight}>
 					<FooterNavItem label="home" href="/" />
 					<FooterNavItem label="resources" href="/?overlay=resources" />
 					<FooterNavItem label="schedule" href="/?overlay=schedule" />
-					<FooterNavItem label="incident" href="/incident" />
-				</div> */}
+					<FooterNavItem
+						label="incident"
+						href="/incident"
+						target="_blank"
+						rel="noopener noreferrer"
+					/>
+				</div>
 			</div>
 			<div className={styles.systemTooltray}>
 				{RIGHT_SOCIALS.map(({ icon, link, alt }) => (
@@ -89,11 +94,13 @@ export default function Footer() {
 interface FooterNavItemProps {
 	label: string;
 	href: string;
+	target?: string;
+	rel?: string;
 }
 
-function FooterNavItem({ label, href }: FooterNavItemProps) {
+function FooterNavItem({ label, href, ...props }: FooterNavItemProps) {
 	return (
-		<Link href={href} className={styles.footerNavItem}>
+		<Link href={href} className={styles.footerNavItem} {...props}>
 			{label}
 		</Link>
 	);

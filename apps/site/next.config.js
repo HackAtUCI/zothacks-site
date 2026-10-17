@@ -16,6 +16,12 @@ const nextConfig = {
 
 		return [
 			{
+				source: "/incident",
+				destination:
+					"https://docs.google.com/forms/d/e/1FAIpQLSfnBbb85uH-lQF0jzoY1mvASQhG3RU0Y6th_rSL2kMcC5kfQQ/viewform",
+				permanent: false,
+			},
+			{
 				source: "/admin/:path*",
 				destination: `${ihSiteUrl}/admin/:path*`,
 				permanent: false,
